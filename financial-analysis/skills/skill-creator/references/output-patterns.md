@@ -60,7 +60,7 @@ Generate commit messages following these examples:
 
 **Example 1:**
 Input: Added user authentication with JWT tokens
-Output:
+输出：
 ```
 feat(auth): implement JWT-based authentication
 
@@ -69,7 +69,7 @@ Add login endpoint and token validation middleware
 
 **Example 2:**
 Input: Fixed bug where dates displayed incorrectly in reports
-Output:
+输出：
 ```
 fix(reports): correct date formatting in timezone conversion
 

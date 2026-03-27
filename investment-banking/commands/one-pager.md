@@ -7,14 +7,14 @@ argument-hint: "[company name or ticker]"
 
 为 pitch book 和交易材料创建专业的单页公司 strip profile。
 
-## Workflow
+## 工作流
 
-### Step 1: 收集公司信息
+### 第 1 步：收集公司信息
 
 如果提供了公司名称或股票代码，就直接使用。否则请询问：
 - "What company would you like to profile?"
 
-### Step 2: 检查可用的 PPT 模板 Skills
+### 第 2 步：检查可用的 PPT 模板技能
 
 **首先，检查 skills 目录中是否已有 ppt-template skills**：
 
@@ -34,7 +34,7 @@ ls skills/ | grep -E "ppt-template|brand-guidelines"
 1. 分析模板结构，理解版式布局
 2. 为单页内容使用合适的版式
 
-### Step 3: 加载 Strip Profile Skill
+### 第 3 步：加载 Strip Profile 技能
 
 使用 `skill: "strip-profile"` 执行 profile 创建：
 
@@ -60,7 +60,7 @@ ls skills/ | grep -E "ppt-template|brand-guidelines"
    - 应用公司品牌色
    - 在分节标题中加入强调色条
 
-### Step 4: 视觉审阅
+### 第 4 步：视觉审阅
 
 创建完幻灯片后：
 1. 转为图片进行审阅
@@ -68,7 +68,7 @@ ls skills/ | grep -E "ppt-template|brand-guidelines"
 3. 确认所有数据都已填充，没有占位符
 4. 向用户展示预览以供确认
 
-### Step 5: 交付输出
+### 第 5 步：交付输出
 
 提供：
 1. **PowerPoint file**，`.pptx`，即单页文件

@@ -2,9 +2,9 @@
 
 description: 生成并跟踪全面的 due diligence checklist，可根据目标公司的行业、交易类型和复杂程度定制。覆盖主要工作流，包括资料请求清单、状态跟踪和红旗升级。适用于尽调启动、组织数据室审阅，或跟踪未完成事项。触发词包括 "dd checklist"、"due diligence tracker"、"diligence request list"、"what do we still need" 或 "data room review"。
 
-## Workflow
+## 工作流
 
-### Step 1: 确定尽调范围
+### 第 1 步：确定尽调范围
 
 向用户询问：
 - **Target company**：名称、行业、业务模式
@@ -13,7 +13,7 @@ description: 生成并跟踪全面的 due diligence checklist，可根据目标�
 - **Key concerns**：任何已知优先问题，如客户集中度、监管、环境等
 - **Timeline**：LOI / close 目标时间是什么时候
 
-### Step 2: 生成各工作流清单
+### 第 2 步：生成各工作流清单
 
 根据行业特点，为主要工作流生成定制化清单：
 
@@ -71,7 +71,7 @@ description: 生成并跟踪全面的 due diligence checklist，可根据目标�
 - 监管合规历史
 - ESG 风险与机会
 
-### Step 3: 状态跟踪
+### 第 3 步：状态跟踪
 
 对每个项目跟踪：
 
@@ -82,7 +82,7 @@ description: 生成并跟踪全面的 due diligence checklist，可根据目标�
 
 状态选项：Not Started → Requested → Received → In Review → Complete → Red Flag
 
-### Step 4: 红旗汇总
+### 第 4 步：红旗汇总
 
 持续维护尽调中发现的红旗清单：
 - 发现了什么
@@ -91,7 +91,7 @@ description: 生成并跟踪全面的 due diligence checklist，可根据目标�
 - 缓释措施或解决路径
 - 对估值或交易条款的影响
 
-### Step 5: 输出
+### 第 5 步：输出
 
 - Excel 工作簿，默认按工作流拆分 tab
 - 汇总仪表盘，按工作流展示完成率、未完成事项、红旗

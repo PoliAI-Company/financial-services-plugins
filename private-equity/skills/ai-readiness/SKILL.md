@@ -2,9 +2,9 @@
 
 description: 扫描整个组合，识别最具杠杆效应的 AI 机会，并排序 operating-partner 时间最该投向哪里。读取多家组合公司的季度更新和财务数据，识别各自的快速落地点，并汇总成一份统一的优先级行动清单。适用于季度组合回顾、年度规划，或决定哪些公司应优先获得 AI 投入。触发词包括 "AI readiness"、"AI opportunity scan"、"where should we deploy AI"、"AI across the portfolio"、"AI quick wins" 或 "which portcos are ready for AI"。
 
-## Workflow
+## 工作流
 
-### Step 1: 连接组合数据
+### 第 1 步：连接组合数据
 
 先询问用户组合材料放在哪里。不要自行假设，给出选项：
 
@@ -20,7 +20,7 @@ description: 扫描整个组合，识别最具杠杆效应的 AI 机会，并排
 - 各公司剩余持有期，AI payback 在距离退出只剩 12 个月时意义会小很多
 - 是否已有某家 portco 实施过有效方案，可供复制
 
-### Step 2: 单家公司扫描
+### 第 2 步：单家公司扫描
 
 对每家公司，回答 3 个 gate 问题。3 个都为 yes 才是 **Go**。任一为 no 则标记 **Wait**，并说明解除阻碍所需条件。
 
@@ -48,7 +48,7 @@ description: 扫描整个组合，识别最具杠杆效应的 AI 机会，并排
 
 对每个 leverage point，用一句话说明：替代什么工作、每周节省多少 FTE-hours，按 30-50% 假设，不要按 100%，以及是买现成工具还是需要轻量开发。
 
-### Step 3: 跨组合排序
+### 第 3 步：跨组合排序
 
 把每家公司识别出的 leverage point 全部堆成一张总表。按以下标准排序：
 
@@ -66,7 +66,7 @@ description: 扫描整个组合，识别最具杠杆效应的 AI 机会，并排
 | 2 | | | | | Go | |
 | 3 | | | | | Wait， [blocker] | |
 
-### Step 4: 找出可复制打法
+### 第 4 步：找出可复制打法
 
 在组合里最有杠杆的动作，通常是把一个成功打法复制到多家公司。重点扫描：
 
@@ -76,7 +76,7 @@ description: 扫描整个组合，识别最具杠杆效应的 AI 机会，并排
 
 列出每个 replay，说明 lead company，谁先验证，以及 follower companies，谁复制。
 
-### Step 5: 输出
+### 第 5 步：输出
 
 为 operating partner 准备一页式组合回顾材料：
 

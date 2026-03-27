@@ -14,9 +14,9 @@
 3. **验证日期** - 确认 earnings release 在最近 3 个月内
 4. **如果超过 3 个月** - 说明拿错季度了，必须重新搜索
 
-## Phase 1: Earnings Data Collection（30-60 分钟）
+## 阶段 1：业绩数据收集（30-60 分钟）
 
-### Step 1: 识别最新业绩周期
+### 第 1 步：识别最新业绩周期
 
 **CRITICAL**：始终搜索最新业绩，不要依赖 knowledge cutoff。
 **CRITICAL**：绝不要直接使用训练中的 earnings data，那些已经过时。
@@ -129,7 +129,7 @@
 - 通过 ticker 搜索 filings 更稳定
 - 对于 1-3 季，看最新 10-Q；对于 Q4，看 10-K
 
-### Step 2: 收集 Earnings Materials
+### 第 2 步：收集 Earnings Materials
 
 在搜索并确认最新季度之后，收集以下材料：
 
@@ -209,7 +209,7 @@
 - 🚨 材料显示不同季度
 - 🚨 没核验日期就直接使用第一个搜索结果
 
-### Step 3: 提取关键指标
+### 第 3 步：提取关键指标
 
 创建结构化摘要：
 
@@ -231,7 +231,7 @@ KEY BUSINESS METRICS:
 [Metric 3]          XXX         XXX        XXX          +X% YoY
 ```
 
-### Step 4: 从电话会中识别关键主题
+### 第 4 步：从电话会中识别关键主题
 
 阅读或收听 earnings call transcript，并记录：
 - 管理层语气，confident、cautious 还是 defensive
@@ -242,7 +242,7 @@ KEY BUSINESS METRICS:
 
 ## Phase 2: Analysis（2-3 小时）
 
-### Step 5: Beat/Miss Analysis
+### 第 5 步：Beat/Miss Analysis
 
 对于每个超预期或低于预期的关键指标，解释：
 
@@ -271,7 +271,7 @@ Jordan colorways) as key drivers. DTC now represents 42% of total revenue vs.
 38% a year ago, demonstrating successful channel shift strategy.
 ```
 
-### Step 6: Segment / Geographic / Product Analysis
+### 第 6 步：Segment / Geographic / Product Analysis
 
 按以下维度分析表现：
 - Business segment，多分部公司
@@ -285,7 +285,7 @@ Jordan colorways) as key drivers. DTC now represents 42% of total revenue vs.
 - 与前几个季度相比趋势如何？
 - 管理层对各部分 outlook 的评论是什么？
 
-### Step 7: Margin Analysis
+### 第 7 步：Margin Analysis
 
 分析盈利能力：
 - Gross margin：上升还是下降？为什么？
@@ -293,7 +293,7 @@ Jordan colorways) as key drivers. DTC now represents 42% of total revenue vs.
 - 关键驱动，定价、mix、成本、经营杠杆
 - Forward outlook
 
-### Step 8: Guidance Analysis
+### 第 8 步：Guidance Analysis
 
 如果公司提供了 guidance：
 - 将新 guidance 与 prior guidance 对比
@@ -305,7 +305,7 @@ Jordan colorways) as key drivers. DTC now represents 42% of total revenue vs.
 - 必须明确写出这一点
 - 基于结果与管理层评论提供独立 outlook
 
-### Step 9: Update Financial Model
+### 第 9 步：Update Financial Model
 
 更新以下预测：
 - 当前财年，remaining quarters
@@ -326,7 +326,7 @@ FY2025E EBITDA          $X.XB       $X.XB       +X.X%      [Brief reason]
 FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 ```
 
-### Step 10: 更新估值与目标价
+### 第 10 步：更新估值与目标价
 
 基于 updated estimates：
 - 重新计算 DCF，使用更新后的 cash flows
@@ -339,7 +339,7 @@ FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 - 如果 estimates 仅边际变化，<5%，可考虑维持 PT
 - 如果 thesis 明显增强 / 削弱，即使 estimates 变化不大，也可能需要调整 PT
 
-### Step 11: 评估 Rating Impact
+### 第 11 步：评估 Rating Impact
 
 判断是否调整 rating：
 - 若 results 明显强于预期 + guidance 上调 → 考虑 upgrade
@@ -353,7 +353,7 @@ FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 
 ## Phase 3: Chart Generation（1-2 小时）
 
-### Step 12: 生成 8-12 张图
+### 第 12 步：生成 8-12 张图
 
 图表重点应放在**季度趋势**和**新增变化**上。
 
@@ -380,7 +380,7 @@ FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 
 ## Phase 4: Report Creation（2-3 小时）
 
-### Step 13: 创建 DOCX 报告
+### 第 13 步：创建 DOCX 报告
 
 使用 DOCX skill 创建 8-12 页报告。
 
@@ -397,7 +397,7 @@ FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 8. 添加 1-3 张 summary tables
 9. 包含完整 sources section，带 clickable hyperlinks
 
-### Step 14: 可选 - 更新 XLS 模型
+### 第 14 步：可选，更新 XLS 模型
 
 如果这家公司已经有完整 financial model，可更新：
 - Actual Q[X] results
@@ -414,7 +414,7 @@ FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 
 ## Phase 5: Quality Check & Delivery（30 分钟）
 
-### Step 15: Quality Checklist
+### 第 15 步：质量检查清单
 
 发布前验证：
 
@@ -462,7 +462,7 @@ FY2025E EPS             $X.XX       $X.XX       +X.X%      [Brief reason]
 - [ ] 所有数据均来自最新季度
 - [ ] consensus estimates 来自 earnings 前，而非 earnings 后
 
-### Step 16: 交付报告
+### 第 16 步：交付报告
 
 向用户提供：
 1. **DOCX file**：`[Company]_Q[X]_[Year]_Earnings_Update.docx`
@@ -489,5 +489,5 @@ Updated Estimates:
 Rating: [MAINTAINED / RAISED / LOWERED] [RATING]
 Price Target: $XXX (prior: $XXX) - [+/-]XX% upside
 
-Deliverable: 8-12 page earnings update report with updated estimates and valuation.
+交付物：8-12 页的业绩更新报告，包含更新后的预估与估值。
 ```

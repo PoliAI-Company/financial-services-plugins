@@ -4,25 +4,25 @@
 
 ## 任务概览
 
-**Purpose**：为报告生成 25-35 张专业财务图表。
+**目的**：为报告生成 25-35 张专业财务图表。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：Task 1 的公司研究
+**前置条件**：⚠️ 开始前验证
+- **必需**：Task 1 的公司研究
   - 公司历史、里程碑（用于 timeline charts）
   - 管理团队、组织结构（用于 org charts）
   - 产品组合（用于 product charts）
   - 客户细分（用于 customer charts）
   - 竞争格局（用于 competitive positioning charts）
   - TAM analysis（用于 market size charts）
-- **Required**：Task 2 的财务模型
+- **必需**：Task 2 的财务模型
   - Revenue by product / geography 数据
   - Margin trends
   - Scenario comparison data
-- **Required**：Task 3 的估值分析
+- **必需**：Task 3 的估值分析
   - DCF sensitivity table
   - Comparable companies data
   - Valuation ranges
-- **Required**：外部市场数据
+- **必需**：外部市场数据
   - 历史股价数据（Yahoo Finance、Bloomberg）
   - 历史估值倍数（chart 34 可选）
 
@@ -30,15 +30,15 @@
 
 本任务依赖前三项任务的产出。若缺少这些输入，将无法生成完整图表。
 
-**IF ANY OF TASKS 1, 2, OR 3 ARE NOT COMPLETE**：立即停止，并告知用户需要先完成哪些任务。具体要求：
-- Task 1：Company research document（支持 9 张图）
-- Task 2：Financial model with all 6 tabs（支持 8 张图）
-- Task 3：Valuation tabs added to the model（支持 6 张图）
-- External data access（支持 2 张图）
+**如果 TASKS 1、2、3 中任一项未完成**：立即停止，并告知用户需要先完成哪些任务。具体要求：
+- Task 1：公司研究文档（支持 9 张图）
+- Task 2：包含全部 6 个标签页的财务模型（支持 8 张图）
+- Task 3：已将估值标签页加入模型（支持 6 张图）
+- 外部数据访问（支持 2 张图）
 
-不要创建 placeholder charts，也不要因缺数据而跳过任何图表。
+不要创建占位图表，也不要因缺数据而跳过任何图表。
 
-**Output**：25-35 个 Professional Chart Files（PNG/JPG, 300 DPI）
+**输出**：25-35 个专业图表文件（PNG/JPG，300 DPI）
 
 ---
 
@@ -46,7 +46,7 @@
 
 **开始前 - 检查全部前置条件：**
 
-### Task 1 Verification（Company Research）
+### Task 1 验证（Company Research）
 - [ ] Task 1 complete?（公司研究文档存在）
 - [ ] 已记录 company history and milestones?（charts 05, 06）
 - [ ] 已描述 management team and org structure?（chart 07）
@@ -55,7 +55,7 @@
 - [ ] 已绘制 competitive landscape?（charts 16, 17, 18）
 - [ ] 已完成 TAM sizing?（chart 15）
 
-### Task 2 Verification（Financial Model）
+### Task 2 验证（Financial Model）
 - [ ] Task 2 complete?（财务模型 Excel 文件存在）
 - [ ] Revenue by product breakdown 可用？（chart 03 ⭐）
 - [ ] Revenue by geography breakdown 可用？（chart 04 ⭐）
@@ -63,14 +63,14 @@
 - [ ] Scenario analysis（Bull/Base/Bear）完整？（chart 14）
 - [ ] Operating metrics 可用？（chart 13）
 
-### Task 3 Verification（Valuation）
+### Task 3 验证（Valuation）
 - [ ] Task 3 complete?（模型中已加入 valuation tabs）
 - [ ] DCF sensitivity matrix 存在？（chart 28 ⭐）
 - [ ] DCF calculation details 可用？（chart 29）
 - [ ] Comparable companies data 已收集？（charts 30, 31）
 - [ ] 已计算 valuation ranges？（chart 32 ⭐）
 
-### External Data Verification
+### 外部数据验证
 - [ ] 可以访问历史股价数据？（chart 01）
 - [ ] 可以访问历史估值数据？（chart 34，可选）
 
@@ -86,7 +86,7 @@
 
 **IMPORTANT**：Task 5（Report Assembly）会将**所有已创建的图表**嵌入最终报告。报告要求高视觉密度，平均每 200-300 词一张图，因此必须覆盖充分。
 
-### 4 张 MANDATORY Charts（不可谈判）⭐
+### 4 张必做图表（不可省略）⭐
 
 以下 4 张图是必须存在的关键可视化：
 
@@ -95,7 +95,7 @@
 3. **chart_28**：DCF Sensitivity Analysis - 2-Way Heatmap ⭐
 4. **chart_32**：Valuation Football Field - Horizontal Bar Chart ⭐
 
-### 25 张 REQUIRED Charts（完整集合）
+### 25 张必做图表（完整集合）
 
 必须创建以下 25 张图，每张在 Task 5 中都有明确用途：
 
@@ -136,9 +136,9 @@
 - chart_33: Price Target Scenarios
 - chart_34: Historical Valuation Multiples
 
-**Total: 25 Required Charts**
+**合计：25 张必做图表**
 
-### 10 张 OPTIONAL Charts（用于达到 30-35 张）
+### 10 张可选图表（用于达到 30-35 张）
 
 为了提高视觉密度和叙事能力，可额外增加：
 
@@ -556,7 +556,7 @@ create_valuation_football_field()
 
 ### 第 4B 步：创建 Optional Charts（总数达到 26-35）
 
-**Optional**：额外增加 1-10 张图，提升视觉密度：
+**可选**：额外增加 1-10 张图，提升视觉密度：
 
 ```python
 # chart_19: Customer Acquisition Trends
@@ -776,7 +776,7 @@ verify_charts()
 ```
 chart_[NUMBER]_[DESCRIPTION].png
 
-Examples:
+示例：
 chart_01_stock_price_performance.png
 chart_03_revenue_by_product_stacked_area.png
 chart_28_dcf_sensitivity_heatmap.png
@@ -894,7 +894,7 @@ chart_28_dcf_sensitivity_heatmap.png
 └── chart_index.txt
 ```
 
-**Example**：`Tesla_Charts_2024-10-28.zip`
+**示例**：`Tesla_Charts_2024-10-28.zip`
 
 **为什么这很重要**：Task 5 会把全部图表嵌入最终报告。报告要求高视觉密度，因此每张图都有实际用途，要么服务于特定分析部分，要么用于视觉叙事与页面填充。
 - 验证全部 25-35 张图都已存在

@@ -4,13 +4,13 @@
 
 ## 任务概览
 
-**Purpose**：撰写并组装最终的综合 DOCX 报告。
+**目的**：撰写并组装最终的综合 DOCX 报告。
 
-**Prerequisites**：⚠️ 开始前验证 - 必须具备全部前序任务
-- **Required**：Task 1 的公司研究
-- **Required**：Task 2 的财务模型
-- **Required**：Task 3 的估值分析
-- **Required**：Task 4 的图表文件
+**前置条件**：⚠️ 开始前验证，必须具备全部前序任务
+- **必需**：Task 1 的公司研究
+- **必需**：Task 2 的财务模型
+- **必需**：Task 3 的估值分析
+- **必需**：Task 4 的图表文件
 
 **⚠️ CRITICAL: DO NOT START THIS TASK UNLESS ALL TASKS 1-4 ARE COMPLETE**
 
@@ -24,7 +24,7 @@
 
 不要创建 placeholder content，不要拿缺失章节凑数，也不要组装不完整的报告。最终报告必须以全部输入为基础，并达到可发布标准。
 
-**Output**：Comprehensive Equity Research Report（.docx）
+**输出**：Comprehensive Equity Research Report（.docx）
 - 长度：30-50 页（最低 30）
 - 字数：10,000-15,000 words（最低 10,000）
 - 图表：25-35 张嵌入图片
@@ -38,7 +38,7 @@
 
 在完成前 4 个任务后，这一步需要把所有内容组装成可直接发布的机构研究。**必须做到完美。**
 
-### Absolute Requirements
+### 绝对要求
 
 **DO：**
 - ✅ 必要时用完整 token 预算
@@ -61,16 +61,16 @@
 - ❌ 创建缩略版本
 - ❌ 用外部文件代替正文内容
 
-### Quality Standard
+### 质量标准
 
 **这份报告将被机构投资者用于做出大额投资决策。**
 
 必须具备：
-- **Complete**：每个章节都完整写出，不留 placeholder
-- **Comprehensive**：所有数据和图表都应被纳入
-- **Professional**：格式、引用、表格、图表都达到专业标准
-- **Thorough**：分析深入，数字具体，假设详尽，情景完整
-- **Dense**：每页都有文字和视觉元素，页面覆盖率 60-80%
+- **完整**：每个章节都完整写出，不留 placeholder
+- **全面**：所有数据和图表都应被纳入
+- **专业**：格式、引用、表格、图表都达到专业标准
+- **细致**：分析深入，数字具体，假设详尽，情景完整
+- **高密度**：每页都有文字和视觉元素，页面覆盖率 60-80%
 
 ---
 
@@ -78,13 +78,13 @@
 
 **开始前 - 所有任务都必须已完成：**
 
-### Task 1 Verification:
+### Task 1 验证：
 - [ ] Company research document exists?（6-8K words）
 - [ ] Management bios complete?（300-400 words × 3-4 execs）
 - [ ] Competitive analysis complete?（5-10 competitors）
 - [ ] Risk assessment complete?（8-12 risks）
 
-### Task 2 Verification:
+### Task 2 验证：
 - [ ] Financial model exists and can be opened?
 - [ ] Model has projections（5 years）?
 - [ ] Scenarios exist（Bull/Base/Bear）?
@@ -277,7 +277,7 @@ revenue comes from enterprise hospital systems, suggesting strong product-market
 
 ## 分步报告组装工作流
 
-### Step 1: 组织全部输入并验证文件
+### 第 1 步：组织全部输入并验证文件
 
 确认以下文件存在：
 - `[Company]_Research_Document_[Date].md`
@@ -312,7 +312,7 @@ revenue comes from enterprise hospital systems, suggesting strong product-market
 └── sources_and_urls.txt
 ```
 
-### Step 2: 使用 XLSX skill 从 Excel 中提取表格
+### 第 2 步：使用 XLSX skill 从 Excel 中提取表格
 
 **需要抽取的核心表：**
 - Page 1 Summary Financials
@@ -333,7 +333,7 @@ revenue comes from enterprise hospital systems, suggesting strong product-market
 
 **Create all 12-20 tables with proper formatting.**
 
-### Step 3: 撰写定量章节
+### 第 3 步：撰写定量章节
 
 按以下顺序写：
 
@@ -364,7 +364,7 @@ revenue comes from enterprise hospital systems, suggesting strong product-market
 - Reconciliation and weighting
 - Price target derivation
 
-### Step 4: 撰写综合性章节
+### 第 4 步：撰写综合性章节
 
 按以下顺序写：
 
@@ -389,7 +389,7 @@ revenue comes from enterprise hospital systems, suggesting strong product-market
 - 3-4 条详细 bullets
 - 必须在全文分析完成后最后写
 
-### Step 5: 融合 Task 1 的公司内容
+### 第 5 步：融合 Task 1 的公司内容
 
 **CRITICAL INSTRUCTION**：Task 1 的研究内容要尽量 verbatim 复用，不要重写。
 
@@ -409,7 +409,7 @@ revenue comes from enterprise hospital systems, suggesting strong product-market
 - Company 101 部分应嵌入 8-12 张图
 - 图放在与其对应段落后面
 
-### Step 6: 组装 DOCX 报告
+### 第 6 步：组装 DOCX 报告
 
 **CRITICAL**：必须创建真实 DOCX，而不是 markdown。
 
@@ -496,7 +496,7 @@ BAD - Avoid:
 
 ---
 
-### Step 7: Quality Check
+### 第 7 步：质量检查
 
 **运行全面验证：**
 
@@ -666,12 +666,12 @@ IF ANY ITEMS UNCHECKED: ✗ FIX BEFORE DELIVERY
 
 ## 输出文件
 
-**Primary Deliverable：**
+**主要交付物：**
 `[Company]_Initiation_Report_[Date].docx`
 
-**Example**：`Tesla_Initiation_Report_2024-10-27.docx`
+**示例**：`Tesla_Initiation_Report_2024-10-27.docx`
 
-**Supporting Deliverable：**
+**配套交付物：**
 `[Company]_Financial_Model_[Date].xlsx`（来自 Task 2）
 
 **两者应一起打包交付。**

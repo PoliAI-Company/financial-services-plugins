@@ -3,21 +3,21 @@ name: initiating-coverage
 description: 通过 5 任务工作流创建机构级股票研究首次覆盖报告。任务必须逐个执行，并验证前置条件——(1) 公司研究，(2) 财务建模，(3) 估值分析，(4) 图表生成，(5) 最终报告组装。每个任务都会产出指定交付物（markdown 文档、Excel 模型、图表或 DOCX 报告）。任务 3-5 依赖于前序任务。
 ---
 
-# Initiating Coverage
+# 首次覆盖
 
 通过结构化的 5 任务工作流创建机构级股票研究首次覆盖报告。每个任务都必须单独执行，并在开始前验证输入。
 
 ## 概览
 
-本 skill 用于生成首次覆盖综合报告，遵循机构研究标准（JPMorgan、Goldman Sachs、Morgan Stanley 风格）。任务逐个执行，每一步在继续前都要验证前置条件。
+本技能用于生成首次覆盖综合报告，遵循机构研究标准（JPMorgan、Goldman Sachs、Morgan Stanley 风格）。任务逐个执行，每一步在继续前都要验证前置条件。
 
 **默认字体**：除非用户另有指定，所有文档统一使用 Times New Roman。
 
 ---
 
-## ⚠️ CRITICAL：一次只做一个任务
+## ⚠️ 关键规则：一次只做一个任务
 
-**THIS SKILL OPERATES IN SINGLE-TASK MODE ONLY.**
+**本技能仅支持单任务模式。**
 
 ### 如果用户请求完整流水线
 
@@ -28,32 +28,30 @@ description: 通过 5 任务工作流创建机构级股票研究首次覆盖报�
 - "Complete all 5 tasks for [Company]"
 - 任何暗示要运行多个任务或整个工作流的请求
 
-**REQUIRED RESPONSE：**
+**标准回复：**
 
 1. **询问要执行哪个具体任务：**
    ```
-   I can help you create an equity research initiation report for [Company].
-   This involves 5 separate tasks that need to be completed individually:
+   我可以帮你为 [Company] 制作一份股票研究首次覆盖报告。
+   这个流程包含 5 个需要分别完成的独立任务：
 
-   1. Company Research - Research business, management, industry
-   2. Financial Modeling - Build projection model
-   3. Valuation Analysis - DCF and comparable companies
-   4. Chart Generation - Create 25-35 charts
-   5. Report Assembly - Compile final report
+   1. 公司研究 - 研究业务、管理层和行业
+   2. 财务建模 - 建立预测模型
+   3. 估值分析 - 完成 DCF 和可比公司分析
+   4. 图表生成 - 创建 25-35 张图表
+   5. 报告组装 - 汇编最终报告
 
-   Which task would you like to start with?
+   你想从哪个任务开始？
    ```
 
 2. **当用户明确要求一次完成所有任务时：**
    ```
-   I understand you'd like to complete the entire initiation report pipeline.
-   Currently, this skill supports executing one task at a time, which allows
-   for better quality control and review at each stage.
+   我理解你希望一次完成完整的首次覆盖报告流程。
+   目前，这个技能一次只支持执行一个任务，这样每个阶段都能做更好的质量控制和复核。
 
-   We're working on a seamless end-to-end workflow that will make this process
-   more automated, but for now, we'll need to complete each task separately.
+   我们正在完善更顺畅的端到端工作流，让这个过程进一步自动化；但目前仍需要把每个任务分开完成。
 
-   Would you like to start with Task 1 (Company Research)?
+   你想先从任务 1（公司研究）开始吗？
    ```
 
 3. **不要自动假设从哪个任务开始**，始终要求用户确认。
@@ -85,11 +83,11 @@ description: 通过 5 任务工作流创建机构级股票研究首次覆盖报�
 **原因**：这些额外内容会浪费上下文，而且不符合专业工作流。
 
 **应交付的内容**：
-- ✅ Task 1：Research document（.md）——**仅此一项**
-- ✅ Task 2：Financial model（.xlsx）——**仅此一项**
-- ✅ Task 3：Valuation analysis（.md）+ 在 Task 2 文件中新增 Excel tabs——**仅此这些**
-- ✅ Task 4：Charts zip file（.zip）——**仅此一项**
-- ✅ Task 5：Final report（.docx）——**仅此一项**
+- ✅ Task 1：研究文档（.md）——**仅此一项**
+- ✅ Task 2：财务模型（.xlsx）——**仅此一项**
+- ✅ Task 3：估值分析（.md）+ 在 Task 2 文件中新增 Excel 标签页——**仅此这些**
+- ✅ Task 4：图表压缩包（.zip）——**仅此一项**
+- ✅ Task 5：最终报告（.docx）——**仅此一项**
 
 **如果某交付物未列在上面，就不要创建。**
 
@@ -99,13 +97,13 @@ description: 通过 5 任务工作流创建机构级股票研究首次覆盖报�
 
 选择要执行的任务：
 
-| Task | Name | Prerequisites | Output |
-|------|------|--------------|--------|
-| **1** | Company Research | 公司名称 / ticker | 6-8K 字文档 |
-| **2** | Financial Modeling | 可访问 10-K 或财务数据 | Excel 模型（6 tabs） |
-| **3** | Valuation Analysis | 财务模型（Task 2） | 估值 + 目标价 |
-| **4** | Chart Generation | Tasks 1, 2, 3 + 外部数据 | 25-35 张 PNG/JPG 图表 |
-| **5** | Report Assembly | 所有前序任务（1-4） | 30-50 页 DOCX 报告 |
+| 任务 | 名称 | 前置条件 | 输出 |
+|------|------|----------|------|
+| **1** | 公司研究 | 公司名称 / ticker | 6-8K 字文档 |
+| **2** | 财务建模 | 可访问 10-K 或财务数据 | Excel 模型（6 个标签页） |
+| **3** | 估值分析 | 财务模型（Task 2） | 估值 + 目标价 |
+| **4** | 图表生成 | Tasks 1、2、3 + 外部数据 | 25-35 张 PNG/JPG 图表 |
+| **5** | 报告组装 | 所有前序任务（1-4） | 30-50 页 DOCX 报告 |
 
 ---
 
@@ -174,18 +172,18 @@ Request 5: Task 5 - Report Assembly（依赖所有前序任务输出）
 
 ## Task 1: Company Research
 
-**Purpose**：研究公司的业务、管理层、竞争地位、行业和风险。
+**目的**：研究公司的业务、管理层、竞争地位、行业和风险。
 
-**Prerequisites**：✅ 无（完全独立）
+**前置条件**：✅ 无（完全独立）
 - 公司名称或 ticker symbol
 
-**Process**：
+**流程**：
 1. 验证已提供公司名称 / ticker
 2. 加载 references/task1-company-research.md 中的详细说明
 3. 执行定性研究工作流
 4. 交付研究文档
 
-**Output**：Company Research Document（6,000-8,000 词）
+**输出**：公司研究文档（6,000-8,000 词）
 - 公司概览与历史
 - 管理层简介（300-400 词 × 3-4 位高管）
 - 产品与服务分析
@@ -194,11 +192,11 @@ Request 5: Task 5 - Report Assembly（依赖所有前序任务输出）
 - TAM 测算
 - 风险评估（8-12 项风险）
 
-**File name**：`[Company]_Research_Document_[Date].md`
+**文件名**：`[Company]_Research_Document_[Date].md`
 
-**⚠️ 只交付这一份文件。不要交付 completion summaries，不要额外生成文档。**
+**⚠️ 只交付这一份文件。不要交付完成总结，不要额外生成文档。**
 
-**⚠️ DO NOT TAKE SHORTCUTS：**
+**⚠️ 不要走捷径：**
 - ✅ 完整写出 6,000-8,000 词，不要摘要
 - ✅ 对全部 3-4 位高管完成 300-400 词简介
 - ✅ 对全部 5-10 个竞争对手做充分分析
@@ -212,16 +210,16 @@ Request 5: Task 5 - Report Assembly（依赖所有前序任务输出）
 
 ## Task 2: Financial Modeling
 
-**Purpose**：提取历史财务数据，并建立包含预测和情景的综合 Excel 财务模型。
+**目的**：提取历史财务数据，并建立包含预测和情景的综合 Excel 财务模型。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：可访问公司的财务数据
+**前置条件**：⚠️ 开始前验证
+- **必需**：可访问公司的财务数据
   - 对上市公司：SEC EDGAR 上最新的 10-K
   - 对私有公司：财务报表或可获得的估算数据
   - 或者：用户已提供预先提取好的历史财务数据
-- **Optional**：Task 1 的公司研究，提供业务背景
+- **可选**：Task 1 的公司研究，提供业务背景
 
-**Input Verification**：
+**输入验证**：
 ```
 BEFORE STARTING - Select approach:
 
@@ -233,18 +231,18 @@ Option B: User provided pre-extracted financials
 - [ ] Historical financials file received?
 - [ ] Contains income statement, cash flow, balance sheet (3-5 years)?
 
-Optional:
+可选：
 - [ ] Company research (Task 1) complete for context?
 ```
 
-**Process**：
+**流程**：
 1. 验证是否可获取财务数据
 2. 加载 references/task2-financial-modeling.md 中的详细说明
-3. **Step 1**：如有需要，提取历史财务数据
-4. **Step 2+**：建立包含 6 个核心 tabs 的预测模型
+3. **步骤 1**：如有需要，提取历史财务数据
+4. **步骤 2+**：建立包含 6 个核心 tabs 的预测模型
 5. 交付 Excel 模型
 
-**Output**：Excel Financial Model（.xlsx）
+**输出**：Excel 财务模型（.xlsx）
 - 6 个核心 tabs：
   1. **Revenue Model** - 按产品拆分（20-30 行）+ 按地区拆分（15-20 行）
   2. **Income Statement** - 完整 P&L，40-50 行项目，历史（3-5 年）+ 预测（5 年）
@@ -253,11 +251,11 @@ Optional:
   5. **Scenarios** - Bull/Base/Bear 对比表
   6. **DCF Inputs** - 为 Task 3 估值准备输入
 
-**File name**：`[Company]_Financial_Model_[Date].xlsx`
+**文件名**：`[Company]_Financial_Model_[Date].xlsx`
 
-**⚠️ 只交付这一份文件。不要交付 completion summaries，不要额外生成文档。**
+**⚠️ 只交付这一份文件。不要交付完成总结，不要额外生成文档。**
 
-**⚠️ DO NOT TAKE SHORTCUTS：**
+**⚠️ 不要走捷径：**
 - ✅ 如需提取财务数据，完整提取 3 张财务报表的所有项目（3-5 年）
 - ✅ 完整建立 6 个预测 tabs，细节齐全
 - ✅ 建立详细收入模型，含 20-30 行产品拆分和 15-20 行地区拆分
@@ -280,42 +278,42 @@ Optional:
 
 ## Task 3: Valuation Analysis
 
-**Purpose**：使用 DCF、comps 和 precedent transactions 进行综合估值。
+**目的**：使用 DCF、comps 和 precedent transactions 进行综合估值。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：Task 2 的财务模型
+**前置条件**：⚠️ 开始前验证
+- **必需**：Task 2 的财务模型
   - 预测 income statements
   - 预测 cash flows
   - Revenue 和 EBITDA forecasts
   - DCF inputs，unlevered FCF
 
-**⚠️ CRITICAL: DO NOT START THIS TASK UNLESS TASK 2 IS COMPLETE**
+**⚠️ 关键要求：在 Task 2 完成前，不得开始本任务**
 
 本任务依赖 Task 2 的财务模型。没有模型就开始，会导致输出不完整。
 
-**IF TASK 2 IS NOT COMPLETE**：立即停止，并告知用户必须先完成 Task 2（Financial Modeling）。不要尝试继续，也不要做 placeholder valuation。
+**如果 TASK 2 尚未完成**：立即停止，并告知用户必须先完成 Task 2（Financial Modeling）。不要尝试继续，也不要做占位式估值。
 
-**Input Verification**：
+**输入验证**：
 ```
 BEFORE STARTING:
 - [ ] Task 2 complete? (Financial model exists)
 - [ ] Model file path/location known?
 - [ ] Can access projected financials from model?
 
-Required from model:
+模型中必需内容：
 - [ ] Projected FCF (5 years)
 - [ ] Revenue projections
 - [ ] EBITDA projections
 - [ ] Terminal year metrics
 ```
 
-**Process**：
+**流程**：
 1. 验证财务模型可访问
 2. 加载 references/task3-valuation.md 中的详细说明
 3. 执行估值工作流
 4. 交付估值分析
 
-**Output**：Valuation Analysis（4-6 页 + Excel tabs）
+**输出**：估值分析（4-6 页 + Excel 标签页）
 - DCF analysis，含 sensitivity tables
 - Comparable companies（5-10 家 peers，含 statistical summary）
 - Precedent transactions，如适用
@@ -325,7 +323,7 @@ Required from model:
 - **Upside**：XX%
 - Key catalysts（3-5）
 
-**Files**：
+**文件**：
 - `[Company]_Valuation_Analysis_[Date].md`（书面估值分析文档）
 - 在 `[Company]_Financial_Model_[Date].xlsx`（Task 2 文件）中新增 Excel tabs
   - DCF tab，含 calculations
@@ -333,9 +331,9 @@ Required from model:
   - Comparable companies tab
   - Valuation summary tab
 
-**⚠️ 仅交付：1 个 markdown 文件 + 向现有 Excel 中增加 4 个 tabs。不要交付 completion summaries，不要额外生成文档。**
+**⚠️ 仅交付：1 个 markdown 文件 + 向现有 Excel 中增加 4 个 tabs。不要交付完成总结，不要额外生成文档。**
 
-**⚠️ DO NOT TAKE SHORTCUTS：**
+**⚠️ 不要走捷径：**
 - ✅ 完成完整 DCF 分析和 sensitivity matrix
 - ✅ 完整分析全部 5-10 家 comparable companies
 - ✅ comps 表中包含 statistical summary，max/75th/median/25th/min
@@ -355,24 +353,24 @@ Required from model:
 
 ## Task 4: Chart Generation
 
-**Purpose**：为报告生成 25-35 张专业财务图表。
+**目的**：为报告生成 25-35 张专业财务图表。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：Task 1 的公司研究
+**前置条件**：⚠️ 开始前验证
+- **必需**：Task 1 的公司研究
   - 公司历史和里程碑，用于 timeline charts
   - 管理层和组织结构，用于 org charts
   - 产品组合，用于 product charts
   - 客户细分，用于 customer charts
   - 竞争格局，用于 competitive charts
   - TAM 分析，用于 market size charts
-- **Required**：Task 2 的财务模型（已加上 Task 3 的估值 tabs）
+- **必需**：Task 2 的财务模型（已加上 Task 3 的估值 tabs）
   - 按产品 / 地区拆分收入数据，来自 Task 2 tabs
   - 利润率趋势，来自 Task 2 tabs
   - 情景对比数据，来自 Task 2 tabs
   - DCF sensitivity table，来自同一 Excel 中的 Task 3 tab
   - Comparable companies data，来自同一 Excel 中的 Task 3 tab
   - 估值区间，来自同一 Excel 中的 Task 3 tab
-- **Required**：外部市场数据
+- **必需**：外部市场数据
   - 历史股价数据，Yahoo Finance、Bloomberg 等
   - 历史估值倍数，用于历史趋势图
 
@@ -386,9 +384,9 @@ Required from model:
 - Task 3：已加入模型中的 valuation tabs，用于 6 张图
 - 外部数据访问，用于 2 张图
 
-不要尝试创建 placeholder charts，也不要因缺数据而跳过图表。
+不要尝试创建占位图表，也不要因缺数据而跳过图表。
 
-**Input Verification**：
+**输入验证**：
 ```
 BEFORE STARTING:
 - [ ] Task 1 complete? (Company research exists)
@@ -396,7 +394,7 @@ BEFORE STARTING:
 - [ ] Task 3 complete? (Valuation analysis exists)
 - [ ] Can access external market data sources?
 
-Required from Task 1:
+Task 1 必需内容：
 - [ ] Company history and milestones (for charts 05, 06)
 - [ ] Management team structure (for chart 07)
 - [ ] Product portfolio details (for chart 08)
@@ -404,40 +402,40 @@ Required from Task 1:
 - [ ] Competitive landscape analysis (for charts 16, 17, 18)
 - [ ] TAM sizing and market data (for chart 15)
 
-Required from Task 2:
+Task 2 必需内容：
 - [ ] Revenue by product (historical + projected) - for chart 03 ⭐
 - [ ] Revenue by geography (historical + projected) - for chart 04 ⭐
 - [ ] Income statement with margins (for charts 02, 10, 11)
 - [ ] Cash flow statement (for chart 12)
 - [ ] Scenario comparison data (for chart 14)
 
-Required from Task 3:
+Task 3 必需内容：
 - [ ] DCF sensitivity matrix - for chart 28 ⭐
 - [ ] DCF components (for chart 29)
 - [ ] Comparable companies data (for charts 30, 31)
 - [ ] Valuation ranges - for chart 32 ⭐
 
-Required from External Sources:
+外部来源必需内容：
 - [ ] Historical stock price data (for chart 01)
 - [ ] Historical valuation multiples (for chart 34)
 ```
 
-**Process**：
+**流程**：
 1. 验证模型与估值输出可访问
 2. 加载 references/task4-chart-generation.md 中的详细说明
 3. 执行图表生成工作流
 4. 将全部图表打包为 zip 文件
 5. 交付 zip 文件
 
-**Output**：25-35 张 Professional Chart Files（PNG/JPG，300 DPI），打包为 zip
+**输出**：25-35 张专业图表文件（PNG/JPG，300 DPI），打包为 zip
 
-**4 张 MANDATORY Charts**（必须存在）⭐：
+**4 张必需图表**（必须存在）⭐：
 - chart_03：Revenue by product（stacked area）
 - chart_04：Revenue by geography（stacked bar）
 - chart_28：DCF sensitivity（2-way heatmap）
 - chart_32：Valuation football field（horizontal bars）
 
-**25 张 REQUIRED Charts**（指定清单）：
+**25 张必需图表**（指定清单）：
 - Investment Summary：chart_01
 - Financial Performance：charts 02, 03⭐, 04⭐, 10, 11, 12, 14
 - Company 101：charts 05, 06, 07, 08, 09, 15, 16
@@ -445,18 +443,18 @@ Required from External Sources:
 - Scenario Analysis：chart 13
 - Valuation：charts 28⭐, 29, 30, 31, 32⭐, 33, 34
 
-**10 张 OPTIONAL Charts**（使总数达到 26-35）：
+**10 张可选图表**（使总数达到 26-35）：
 - charts 19-27, 35，客户获取、单位经济模型、产品路线图等
 
 **IMPORTANT**：Task 5 会嵌入创建出的**全部**图表（25-35 张），以达到视觉密度要求，每 200-300 词一张图。
 
-**File naming**：`chart_01_description.png`、`chart_02_description.png` 等
+**文件命名**：`chart_01_description.png`、`chart_02_description.png` 等
 
-**Deliverable**：`[Company]_Charts_[Date].zip`，包含所有 25-35 个图表文件 + chart_index.txt
+**交付物**：`[Company]_Charts_[Date].zip`，包含所有 25-35 个图表文件 + chart_index.txt
 
-**⚠️ 只交付这一份 ZIP 文件。不要交付 completion summaries，不要单独输出 chart list，不要额外生成文档。**
+**⚠️ 只交付这一份 ZIP 文件。不要交付完成总结，不要单独输出图表清单，不要额外生成文档。**
 
-**⚠️ DO NOT TAKE SHORTCUTS：**
+**⚠️ 不要走捷径：**
 - ✅ 至少创建全部 25 张 required charts
 - ✅ 包含全部 4 张 mandatory charts
 - ✅ 可选再加 1-10 张图，达到 26-35 张，提高视觉密度
@@ -480,22 +478,22 @@ Required from External Sources:
 
 ## Task 5: Report Assembly
 
-**Purpose**：撰写并组装最终的综合 DOCX 报告。
+**目的**：撰写并组装最终的综合 DOCX 报告。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：Task 1 的公司研究
+**前置条件**：⚠️ 开始前验证
+- **必需**：Task 1 的公司研究
   - 全部 6-8K 字内容
   - 管理层简介
   - 竞争分析
   - 风险评估
-- **Required**：Task 2 的财务模型
+- **必需**：Task 2 的财务模型
   - Excel 工作簿
   - 全部预测与情景
-- **Required**：Task 3 的估值分析
+- **必需**：Task 3 的估值分析
   - 目标价和评级
   - DCF、comps、precedent transactions
   - 全部估值数据
-- **Required**：Task 4 的图表文件
+- **必需**：Task 4 的图表文件
   - 含 25-35 张 PNG/JPG 图的 zip 文件
   - zip 中包含 chart index
 
@@ -511,28 +509,28 @@ Required from External Sources:
 
 不要尝试用 placeholder content、替代缺失章节，或组装不完整的报告。报告必须使用全部输入，并达到可直接发布的标准。
 
-**Input Verification**：
+**输入验证**：
 ```
 BEFORE STARTING - ALL TASKS MUST BE COMPLETE:
 
-Task 1 Verification:
+Task 1 验证：
 - [ ] Company research document exists? (6-8K words)
 - [ ] Management bios complete? (300-400 words × 3-4 execs)
 - [ ] Competitive analysis complete? (5-10 competitors)
 - [ ] Risk assessment complete? (8-12 risks)
 
-Task 2 Verification:
+Task 2 验证：
 - [ ] Financial model exists and can be opened?
 - [ ] Model has projections (5 years)?
 - [ ] Scenarios exist (Bull/Base/Bear)?
 
-Task 3 Verification:
+Task 3 验证：
 - [ ] Valuation analysis complete?
 - [ ] Price target determined?
 - [ ] Recommendation set? (BUY/HOLD/SELL)
 - [ ] DCF and comps complete?
 
-Task 4 Verification:
+Task 4 验证：
 - [ ] Chart zip file exists?
 - [ ] Can extract/access all 25-35 chart files from zip?
 - [ ] All 4 mandatory charts present?
@@ -545,7 +543,7 @@ Task 4 Verification:
 IF ANY VERIFICATION FAILS: Stop and complete missing task first.
 ```
 
-**Process**：
+**流程**：
 1. **CRITICAL**：开始前验证全部前置条件
 2. 加载 references/task5-report-assembly.md 中的详细说明
 3. 使用 Claude 内建 skills 执行报告组装：
@@ -559,7 +557,7 @@ IF ANY VERIFICATION FAILS: Stop and complete missing task first.
    - 创建高文字密度、每 200-300 词插入图表的报告
 4. 保存并交付最终 DOCX 报告
 
-**Key Principles**：
+**关键原则**：
 - 使用 Claude 的 DOCX 与 XLSX skills，而不是 Python 库
 - 使用真实文件操作，读 `.md` / `.xlsx` / `.png`，写 `.docx`
 - 优秀的股票研究报告应是**高文字密度 + 丰富说明性图片**，页面覆盖率 60-80%，平均每页至少一张图
@@ -587,16 +585,16 @@ IF ANY VERIFICATION FAILS: Stop and complete missing task first.
 
 **这是一份可直接发布的机构级研究成果，不能省力、不能省 token、不能省细节。**
 
-**Output**：Comprehensive Equity Research Report（.docx）
+**输出**：Comprehensive Equity Research Report（.docx）
 
-**Specifications**：
+**规格要求**：
 - **Length**：30-50 页，最低 30 页
 - **Word count**：10,000-15,000，最低 10,000 词
 - **Charts**：25-35 张嵌入图片
 - **Tables**：12-20 张综合表格
 - **Format**：专业 DOCX，带可点击超链接
 
-**Structure**：
+**报告结构**：
 - 第 1 页：Investment Summary，INITIATING COVERAGE 格式
 - 第 2-5 页：Investment thesis & risks
 - 第 6-17 页：Company 101
@@ -604,11 +602,11 @@ IF ANY VERIFICATION FAILS: Stop and complete missing task first.
 - 第 31-40 页：Valuation analysis
 - 第 41-50 页：Appendices
 
-**File name**：`[Company]_Initiation_Report_[Date].docx`
+**文件名**：`[Company]_Initiation_Report_[Date].docx`
 
 **⚠️ 只交付这 1 个 DOCX 文件。不要额外生成 executive summaries、highlights 文档或其他文件。**
 
-**Final Verification**：
+**最终验证**：
 - [ ] 报告页数为 30-50 页
 - [ ] 字数为 10,000-15,000
 - [ ] 嵌入了 25-35 张图

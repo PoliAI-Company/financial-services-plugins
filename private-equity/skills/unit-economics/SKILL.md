@@ -2,9 +2,9 @@
 
 description: 分析 PE 目标公司的单位经济，包括 ARR cohort、LTV/CAC、净留存、回本期、收入质量和利润率 waterfall。对软件 / SaaS、经常性收入和订阅业务尤其重要。适用于评估收入质量、构建 cohort 分析，或评估客户经济模型。触发词包括 "unit economics"、"cohort analysis"、"ARR analysis"、"LTV CAC"、"net retention"、"revenue quality" 或 "customer economics"。
 
-## Workflow
+## 工作流
 
-### Step 1: 识别业务模式
+### 第 1 步：识别业务模式
 
 先判断收入模式，以便调整分析框架：
 - **SaaS / Subscription**：ARR、净留存、cohort
@@ -12,7 +12,7 @@ description: 分析 PE 目标公司的单位经济，包括 ARR cohort、LTV/CAC
 - **Transaction / usage-based**：单笔交易收入、交易量趋势、take rate
 - **Hybrid**：按收入来源拆分
 
-### Step 2: 核心指标
+### 第 2 步：核心指标
 
 #### ARR / 收入质量
 - **ARR bridge**：期初 ARR → New → Expansion → Contraction → Churn → 期末 ARR
@@ -52,7 +52,7 @@ description: 分析 PE 目标公司的单位经济，包括 ARR cohort、LTV/CAC
 - 全成本口径的单位经济，获取、服务和留住一个客户的成本分别是多少
 - 分收入来源的毛利率，subscription、services、other
 
-### Step 3: 对标分析
+### 第 3 步：对标分析
 
 将单位经济与相关 benchmark 比较：
 - **SaaS Rule of 40**：增长率 + EBITDA margin > 40%
@@ -62,7 +62,7 @@ description: 分析 PE 目标公司的单位经济，包括 ARR cohort、LTV/CAC
 - **Gross retention**：最佳水平 >95%，良好 >90%，低于 85% 需警惕
 - **CAC payback**：最佳水平 <12 个月，良好 <18 个月，高于 24 个月需警惕
 
-### Step 4: 收入质量评分
+### 第 4 步：收入质量评分
 
 综合形成收入质量评估：
 
@@ -76,7 +76,7 @@ description: 分析 PE 目标公司的单位经济，包括 ARR cohort、LTV/CAC
 | Margin profile | | |
 | **Overall** | | |
 
-### Step 5: 输出
+### 第 5 步：输出
 
 - Excel 工作簿，包含 ARR bridge、cohort matrix、单位经济仪表盘
 - 汇总页，展示关键指标和 benchmark

@@ -71,13 +71,13 @@ argument-hint: "[company name or ticker] [quarter, e.g. Q3 2024]"
 ### 第 4 步：交付输出
 
 提供：
-1. **DOCX report**，8-12 页的业绩更新
-2. **Summary**，重点说明：
+1. **DOCX 报告**，8-12 页的业绩更新
+2. **摘要**，重点说明：
    - 关键指标的 beat/miss
    - 指引变化
    - 论点影响，正面 / 负面 / 中性
 
-## Report Structure Reference
+## 报告结构参考
 
 ```
 PAGE 1: EARNINGS SUMMARY

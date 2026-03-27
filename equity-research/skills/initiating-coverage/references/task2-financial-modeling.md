@@ -4,16 +4,16 @@
 
 ## 任务概览
 
-**Purpose**：提取历史财务数据，并建立包含预测和情景的综合 Excel 财务模型。
+**目的**：提取历史财务数据，并建立包含预测和情景的综合 Excel 财务模型。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：可以访问公司财务数据
+**前置条件**：⚠️ 开始前验证
+- **必需**：可以访问公司财务数据
   - 对上市公司：从 SEC EDGAR 获取最新 10-K 和近期 10-Q
   - 对私有公司：来自可获取来源的财务报表或估算
   - 或：由用户提供预先提取好的历史财务数据
-- **Optional**：Company research（Task 1），用于业务背景理解
+- **可选**：公司研究（Task 1），用于业务背景理解
 
-**Output**：Excel Financial Model（.xlsx），包含 6 个核心 tabs：
+**输出**：Excel 财务模型（.xlsx），包含 6 个核心标签页：
 1. Revenue Model
 2. Income Statement
 3. Cash Flow Statement

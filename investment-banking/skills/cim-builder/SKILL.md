@@ -2,9 +2,9 @@
 
 description: 为卖方并购流程搭建并起草 Confidential Information Memorandum。将公司信息整理成专业、面向投资人的文件，保持格式一致与叙事流畅。适用于准备卖方材料、起草 CIM，或为出售流程整理公司数据。触发词包括 "CIM"、"confidential information memorandum"、"offering memorandum"、"info memo"、"draft CIM" 和 "sell-side materials"。
 
-## Workflow
+## 工作流
 
-### Step 1: 收集源材料
+### 第 1 步：收集源材料
 
 询问可用输入：
 - 管理层演示材料
@@ -16,7 +16,7 @@ description: 为卖方并购流程搭建并起草 Confidential Information Memor
 - 过往演示材料或 board deck
 - Quality of earnings 报告，如果有
 
-### Step 2: CIM 结构
+### 第 2 步：CIM 结构
 
 标准 CIM 目录：
 
@@ -77,7 +77,7 @@ description: 为卖方并购流程搭建并起草 Confidential Information Memor
 - 产品目录
 - 管理层简介
 
-### Step 3: 起草指南
+### 第 3 步：起草指南
 
 - **Tone**：专业、客观、有说服力，但不过度夸张
 - **Narrative**：讲清楚这个业务为什么有吸引力、有防御性、且具备增长空间
@@ -86,7 +86,7 @@ description: 为卖方并购流程搭建并起草 Confidential Information Memor
 - **Length**：总长度 40 到 60 页，足够支持首轮报价判断，但不要长到买方不愿阅读
 - **Confidentiality**：加入免责声明页。除非卖方批准，否则敏感客户数据需匿名化
 
-### Step 4: 输出
+### 第 4 步：输出
 
 - Word document，`.docx`，采用专业格式
 - 单独的 Excel appendix，包含详细财务数据

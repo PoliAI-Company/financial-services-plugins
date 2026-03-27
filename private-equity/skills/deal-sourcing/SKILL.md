@@ -2,11 +2,11 @@
 
 description: PE 交易 sourcing 工作流，发现目标公司、检查 CRM 中是否已有关系，并起草个性化创始人外联邮件。适用于寻找新交易、在某个行业中筛选公司，或联系创始人。触发词包括 "find companies"、"source deals"、"draft founder email"、"check if we've seen this company" 或 "outreach to founder"。
 
-## Workflow
+## 工作流
 
 本技能遵循 3 步 sourcing 流程：
 
-### Step 1: 发现公司
+### 第 1 步：发现公司
 
 根据用户标准调研并识别潜在目标公司：
 
@@ -15,7 +15,7 @@ description: PE 交易 sourcing 工作流，发现目标公司、检查 CRM 中�
 - **信息来源**：使用 web search 查找符合标准的公司，查看行业报告、会议参会名单、行业媒体和竞争格局
 - **输出**：形成候选名单，包含公司名称、简介、估算收入 / 规模、所在地、创始人 / CEO 姓名、官网，以及为什么符合 thesis
 
-### Step 2: CRM 检查
+### 第 2 步：CRM 检查
 
 在外联前，先检查公司或创始人是否已经存在于机构 CRM 中：
 
@@ -25,7 +25,7 @@ description: PE 交易 sourcing 工作流，发现目标公司、检查 CRM 中�
 - 标记任何已有关系、以前 pass 过的情况或已知背景
 - **输出**：对每家公司标注为 "New"（无过往接触）、"Existing"（发现过往往来，附简述）或 "Previously Passed"（如有明确证据显示之前 pass 过）
 
-### Step 3: 起草创始人外联
+### 第 3 步：起草创始人外联
 
 为创始人 / CEO 起草个性化冷启动邮件：
 
@@ -39,14 +39,14 @@ description: PE 交易 sourcing 工作流，发现目标公司、检查 CRM 中�
 - **长度**：最多 4-6 句话，创始人通常很忙
 - **语气匹配**：如果用户以前发过类似外联邮件，先研究其语气和风格。可以在 Gmail 的 sent 邮件里搜索 "reaching out"、"introduction"、"partnership" 等关键词寻找样例
 
-### Email Draft Guidelines
+### 邮件草稿指引
 
 - 主题行要短且具体，引用公司或行业，不要写成 "Investment Opportunity"
 - 首次接触不要带附件
 - 要有清晰但低压的 CTA
 - 如可用，直接在 Gmail 中起草，否则输出为文本供用户复制
 
-## Example Interaction
+## 示例互动
 
 **User**: "Find me founder-owned industrial services companies in Texas doing $10-50M revenue"
 

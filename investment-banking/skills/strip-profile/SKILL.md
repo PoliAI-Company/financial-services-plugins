@@ -4,7 +4,7 @@ description: |
   为 pitch book、交易材料和客户演示创建专业的投资银行 strip profile，公司简介。生成 1 到 4 页高信息密度幻灯片，包含象限布局、图表和表格。
 ---
 
-## Workflow
+## 工作流
 
 ### 1. 明确需求
 - **Ask the user**: 是单页，还是多页，3 到 4 页？
@@ -18,7 +18,7 @@ description: |
 - **Estimates**: FactSet/CapIQ 一致预期中的 NTM revenue、EBITDA、EPS
 - **News**: 过去 90 天的新闻稿、M&A 活动、业绩指引变更
 
-**Required Metrics:**
+**必需指标：**
 - **Financials**: Revenue、EBITDA、margins，% 、EPS、FCF，覆盖 ±3 年
 - **Valuation**: Market Cap、EV、EV/Revenue、EV/EBITDA、P/E multiples
 - **Growth**: YoY growth rates，%

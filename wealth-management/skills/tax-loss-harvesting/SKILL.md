@@ -2,9 +2,9 @@
 
 description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存在未实现亏损的持仓，建议替代证券，并跟踪 wash sale 窗口。触发词包括 "tax-loss harvesting"、"TLH"、"harvest losses"、"tax losses"、"unrealized losses" 或 "year-end tax planning"。
 
-## Workflow
+## 工作流
 
-### Step 1: 识别候选项
+### 第 1 步：识别候选项
 
 扫描 taxable 账户中存在未实现亏损的持仓：
 
@@ -17,7 +17,7 @@ description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存�
 2. 优先短期亏损，可抵消按普通所得税税率征税的短期收益
 3. 跌幅百分比最大的持仓，短期内反弹概率可能更低
 
-### Step 2: 盈亏预算
+### 第 2 步：盈亏预算
 
 计算客户当前税务情况：
 
@@ -36,7 +36,7 @@ description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存�
 - 最多可用 $3,000 净亏损抵扣普通收入
 - 超出部分结转以后年度
 
-### Step 3: 替代证券
+### 第 3 步：替代证券
 
 对每个可收割候选，建议一个替代品，要求：
 - 保持相近市场暴露，同一资产类别、行业、地域
@@ -49,7 +49,7 @@ description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存�
 | Vanguard Total Intl (VXUS) | iShares MSCI ACWI ex-US (ACWX) | 暴露相近，指数不同 | Low |
 | Individual stock ABC | Sector ETF (XLK) | 更广泛暴露，无 wash sale 风险 | Moderate |
 
-### Step 4: Wash Sale 检查
+### 第 4 步：Wash Sale 检查
 
 执行前，确认不存在 wash sale：
 
@@ -63,7 +63,7 @@ description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存�
 |--------------|----------------------|-----------|-------------|------|
 | | | | | |
 
-### Step 5: 执行计划
+### 第 5 步：执行计划
 
 | Trade # | Account | Action | Security | Shares | Est. Proceeds | Est. Loss | Replacement | Notes |
 |---------|---------|--------|----------|--------|--------------|-----------|-------------|-------|
@@ -76,7 +76,7 @@ description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存�
 - 对组合的净影响很小，替代证券维持原有市场暴露
 - Wash sale window 管理：[dates]
 
-### Step 6: 收割后跟踪
+### 第 6 步：收割后跟踪
 
 30+ 天后，可选：
 - 换回原始证券，如有需要
@@ -84,7 +84,7 @@ description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存�
 - 更新成本基础记录
 - 为税务申报留存记录
 
-### Step 7: 输出
+### 第 7 步：输出
 
 - 收割机会清单，Excel
 - 交易执行表

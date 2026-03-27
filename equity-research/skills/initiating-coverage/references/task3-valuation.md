@@ -4,22 +4,22 @@
 
 ## 任务概览
 
-**Purpose**：使用 DCF、comparables 和 precedent transactions 进行综合估值。
+**目的**：使用 DCF、comparables 和 precedent transactions 进行综合估值。
 
-**Prerequisites**：⚠️ 开始前验证
-- **Required**：Task 2 的财务模型
+**前置条件**：⚠️ 开始前验证
+- **必需**：Task 2 的财务模型
   - 预测 income statements
   - 预测 cash flows
   - Revenue 和 EBITDA forecasts
   - DCF inputs，unlevered FCF
 
-**⚠️ CRITICAL: DO NOT START THIS TASK UNLESS TASK 2 IS COMPLETE**
+**⚠️ 关键要求：在 TASK 2 完成前，不得开始本任务**
 
 本任务依赖 Task 2 的财务模型。没有模型就开始会导致工作不完整。
 
-**IF TASK 2 IS NOT COMPLETE**：立即停止，并告知用户必须先完成 Task 2（Financial Modeling）。不要尝试继续，也不要创建 placeholder valuation。
+**如果 TASK 2 尚未完成**：立即停止，并告知用户必须先完成 Task 2（Financial Modeling）。不要尝试继续，也不要创建占位式估值。
 
-**Output**：Valuation Analysis（4-6 页 + Excel tabs）
+**输出**：估值分析（4-6 页 + Excel 标签页）
 - DCF analysis，含 sensitivity tables
 - Comparable companies analysis
 - Precedent transactions，如适用
@@ -173,7 +173,7 @@ Where:
   - Should not exceed long-term GDP growth
   - Use 2.5% as base case
 
-Example:
+示例：
 FCF(2029) = $500M
 g = 2.5%
 WACC = 10.8%
@@ -189,7 +189,7 @@ Terminal Value = EBITDA(2029) × Exit Multiple
 Where:
 - Exit Multiple = Current peer trading median (e.g., 12-15x EBITDA)
 
-Example:
+示例：
 EBITDA(2029) = $800M
 Exit Multiple = 13x
 
@@ -203,7 +203,7 @@ Terminal Value = $800M × 13x = $10,400M
 ```
 PV of Projected FCF = Σ [FCFt / (1 + WACC)^t] for t = 1 to 5
 
-Example:
+示例：
 Year    FCF      Discount    PV of FCF
         ($M)     Factor      ($M)
 2025    $250     1/(1.108)^1 = 0.9026    $226

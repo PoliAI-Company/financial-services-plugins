@@ -125,7 +125,7 @@ Online tutoring marketplaces (Preply, italki, Cambly)
 
 带 tab 的文本永远无法稳定对齐，看起来也不专业。始终要创建真正的表格对象。
 
-### Table Structure Guidelines
+### 表格结构规范
 
 1. **列对齐**：
    - 文本列左对齐，header 和正文都左对齐

@@ -2,9 +2,9 @@
 
 description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值创造计划，覆盖收入、成本和运营杠杆。包含 100 天优先事项、KPI 目标和责任落实框架。适用于规划交割后执行、准备 operating partner 材料，或制定可供董事会审阅的价值创造路线图。触发词包括 "value creation plan"、"100-day plan"、"post-close plan"、"EBITDA bridge"、"operating plan" 或 "value creation levers"。
 
-## Workflow
+## 工作流
 
-### Step 1: 基线评估
+### 第 1 步：基线评估
 
 了解起点：
 - 当前收入、EBITDA 和利润率
@@ -13,7 +13,7 @@ description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值�
 - 管理团队的优势与短板
 - 尽调中已识别的快速改善机会
 
-### Step 2: 价值创造杠杆
+### 第 2 步：价值创造杠杆
 
 将所有杠杆映射到持有期内的 EBITDA bridge：
 
@@ -45,7 +45,7 @@ description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值�
 - **Management upgrades**：关键岗位招聘，推动业务专业化
 - **ESG / governance**：建立董事会、改进报告机制
 
-### Step 3: EBITDA Bridge
+### 第 3 步：EBITDA Bridge
 
 构建从当前 EBITDA 到目标 EBITDA 的路径：
 
@@ -61,7 +61,7 @@ description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值�
 | **Pro Forma EBITDA** | | | | | |
 | **Margin** | | | | | |
 
-### Step 4: 100 天计划
+### 第 4 步：100 天计划
 
 确定交割后前 100 天的优先事项：
 
@@ -85,7 +85,7 @@ description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值�
 - 汇报每个价值创造杠杆的进展
 - 根据早期反馈调整计划
 
-### Step 5: KPI 仪表盘
+### 第 5 步：KPI 仪表盘
 
 定义用于追踪价值创造的指标：
 
@@ -99,7 +99,7 @@ description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值�
 | Employee turnover | | | CHRO | Monthly |
 | Cash conversion | | | CFO | Monthly |
 
-### Step 6: 输出
+### 第 6 步：输出
 
 - Word 文档或 PowerPoint，包含：
   - 执行摘要（1 页）

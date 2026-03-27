@@ -8,19 +8,19 @@
 
 ## 工具分类
 
-| Category | Placeholder | Tools | Description |
-|----------|-------------|-------|-------------|
-| Bond Pricing | `~~bond-pricing` | `bond_price`, `bond_future_price` | 为债券和债券期货定价，并返回完整分析指标 |
-| FX Pricing | `~~fx-pricing` | `fx_spot_price`, `fx_forward_price` | 外汇即期和远期定价 |
-| Interest Rate Curves | `~~ir-curves` | `interest_rate_curve`, `inflation_curve` | 国债收益率曲线和通胀盈亏平衡曲线 |
-| Credit Curves | `~~credit-curves` | `credit_curve` | 按发行人类型划分的信用利差曲线 |
-| FX Curves | `~~fx-curves` | `fx_forward_curve` | 外汇远期点曲线 |
-| Options | `~~options` | `option_value`, `option_template_list` | 带 Greeks 的期权估值 |
-| Swaps | `~~swaps` | `ir_swap` | 利率掉期定价 |
-| Volatility Surfaces | `~~volatility` | `fx_vol_surface`, `equity_vol_surface` | 外汇和股票隐含波动率曲面 |
-| Quantitative Analytics | `~~qa` | `qa_ibes_consensus`, `qa_company_fundamentals`, `qa_historical_equity_price`, `qa_macroeconomic` | 分析师预期、基本面、价格和宏观数据 |
-| Time Series | `~~time-series` | `tscc_historical_pricing_summaries` | 历史定价汇总，支持日内和跨日 |
-| Fixed Income Analytics | `~~yieldbook` | `yieldbook_bond_reference`, `yieldbook_cashflow`, `yieldbook_scenario`, `fixed_income_risk_analytics` | 债券参考数据、现金流、情景分析、OAS/久期 |
+| 类别 | 占位符 | 工具 | 说明 |
+|------|--------|------|------|
+| 债券定价 | `~~bond-pricing` | `bond_price`, `bond_future_price` | 为债券和债券期货定价，并返回完整分析指标 |
+| 外汇定价 | `~~fx-pricing` | `fx_spot_price`, `fx_forward_price` | 外汇即期和远期定价 |
+| 利率曲线 | `~~ir-curves` | `interest_rate_curve`, `inflation_curve` | 国债收益率曲线和通胀盈亏平衡曲线 |
+| 信用曲线 | `~~credit-curves` | `credit_curve` | 按发行人类型划分的信用利差曲线 |
+| 外汇曲线 | `~~fx-curves` | `fx_forward_curve` | 外汇远期点曲线 |
+| 期权 | `~~options` | `option_value`, `option_template_list` | 带 Greeks 的期权估值 |
+| 掉期 | `~~swaps` | `ir_swap` | 利率掉期定价 |
+| 波动率曲面 | `~~volatility` | `fx_vol_surface`, `equity_vol_surface` | 外汇和股票隐含波动率曲面 |
+| 量化分析 | `~~qa` | `qa_ibes_consensus`, `qa_company_fundamentals`, `qa_historical_equity_price`, `qa_macroeconomic` | 分析师预期、基本面、价格和宏观数据 |
+| 时间序列 | `~~time-series` | `tscc_historical_pricing_summaries` | 历史定价汇总，支持日内和跨日 |
+| 固定收益分析 | `~~yieldbook` | `yieldbook_bond_reference`, `yieldbook_cashflow`, `yieldbook_scenario`, `fixed_income_risk_analytics` | 债券参考数据、现金流、情景分析、OAS/久期 |
 
 ## 完整工具参考
 

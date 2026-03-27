@@ -92,7 +92,7 @@ CAGR = (End Value ÷ Start Value)^(1/n) - 1
 
 **Method:** 对所有来源取完整的最小值到最大值区间
 
-**Example:**
+**示例：**
 ```
 Sources: $14.9bn, $18.3bn, $21.1bn, $21.2bn, $22.1bn
 Consensus: $15-22bn (rounded to nearest $1bn)
@@ -102,7 +102,7 @@ Consensus: $15-22bn (rounded to nearest $1bn)
 
 **Method:** 剔除最高和最低值，取中间聚类区间
 
-**Example:**
+**示例：**
 ```
 Sources: 10.6%, 16.4%, 17.2%, 19.0%, 22.7%
 Exclude outliers: 10.6% (low), 22.7% (high)
@@ -114,7 +114,7 @@ Consensus: 16-19% or 16-17% (conservative)
 
 **Method:** 对市场规模区间中点应用 consensus CAGR
 
-**Example:**
+**示例：**
 ```
 Size range: $15-22bn → Midpoint: $18.5bn
 CAGR consensus: 16-17%
@@ -129,8 +129,8 @@ Consensus projection: $45-48bn
 
 以下是**常见惯例**，应根据数值量级和模板风格调整：
 
-| Value Type | Typical Rounding | Example |
-|------------|------------------|---------|
+| 数值类型 | 常见舍入方式 | 示例 |
+|----------|--------------|------|
 | Large market sizes ($10bn+) | 取整到最近 $1bn | 18.47 → $18bn |
 | Smaller market sizes (<$10bn) | 取整到最近 $0.5bn 或 $0.1bn | 2.3 → $2.5bn |
 | Size ranges | 匹配源数据精度 | 14.9-22.1 → $15-22bn |

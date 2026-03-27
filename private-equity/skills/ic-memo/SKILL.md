@@ -2,9 +2,9 @@
 
 description: 为 PE 交易审批起草结构化的投资委员会备忘录。将尽调发现、财务分析和交易条款整合为专业、可供 IC 使用的文档。适用于准备投资委员会会议、整理交易材料，或形成正式推荐意见。触发词包括 "write IC memo"、"investment committee memo"、"deal write-up"、"prepare IC materials" 或 "recommendation memo"。
 
-## Workflow
+## 工作流
 
-### Step 1: 收集输入
+### 第 1 步：收集输入
 
 从用户处收集，或从本次会话中已有分析里提取：
 
@@ -17,7 +17,7 @@ description: 为 PE 交易审批起草结构化的投资委员会备忘录。将
 - 价值创造计划 / 100 天计划
 - 回报分析（基准、上行、下行情景）
 
-### Step 2: 备忘录结构
+### 第 2 步：备忘录结构
 
 标准 IC memo 结构：
 
@@ -70,7 +70,7 @@ description: 为 PE 交易审批起草结构化的投资委员会备忘录。将
 - 明确建议：Proceed / Pass / Conditional proceed
 - 关键条件或后续步骤
 
-### Step 3: 输出格式
+### 第 3 步：输出格式
 
 - 默认：带专业排版的 Word 文档（.docx）
 - 备选：Markdown，便于快速审阅

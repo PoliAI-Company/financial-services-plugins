@@ -2,9 +2,9 @@
 
 description: 构建或更新一份全面财务规划，覆盖退休测算、教育金筹备、遗产规划和现金流分析。适用于新客户 onboarding、年度规划回顾，或情景建模。触发词包括 "financial plan"、"retirement plan"、"can I retire"、"education funding"、"estate plan"、"cash flow analysis" 或 "plan update"。
 
-## Workflow
+## 工作流
 
-### Step 1: 客户画像
+### 第 1 步：客户画像
 
 收集或确认：
 - **Demographics**：年龄、配偶年龄、受抚养人、寿命假设
@@ -16,7 +16,7 @@ description: 构建或更新一份全面财务规划，覆盖退休测算、教�
 - **Insurance**：寿险、伤残险、LTC、健康险
 - **Estate**：遗嘱、信托、受益人指定、赠与策略
 
-### Step 2: 现金流分析
+### 第 2 步：现金流分析
 
 构建年度现金流预测：
 
@@ -29,7 +29,7 @@ description: 构建或更新一份全面财务规划，覆盖退休测算、教�
 - 税率，边际税率和有效税率
 - 储蓄率，以及储蓄流向，pre-tax、Roth、taxable
 
-### Step 3: 退休测算
+### 第 3 步：退休测算
 
 **Accumulation Phase：**
 - 当前投资组合价值
@@ -50,7 +50,7 @@ description: 构建或更新一份全面财务规划，覆盖退休测算、教�
 - 资金不耗尽的概率，目标 >85%
 - "What if" 情景，如提前退休、市场下跌、更高支出
 
-### Step 4: 目标专项分析
+### 第 4 步：目标专项分析
 
 #### 教育金筹备
 - 子女年龄和目标入学时间
@@ -73,7 +73,7 @@ description: 构建或更新一份全面财务规划，覆盖退休测算、教�
 - 长期护理规划
 - 伞式责任险保障
 
-### Step 5: 情景建模
+### 第 5 步：情景建模
 
 运行关键情景：
 
@@ -86,7 +86,7 @@ description: 构建或更新一份全面财务规划，覆盖退休测算、教�
 | One spouse lives to 95 | | | |
 | Long-term care event | | | |
 
-### Step 6: 建议
+### 第 6 步：建议
 
 按优先级排列的行动项：
 1. 储蓄率调整
@@ -96,7 +96,7 @@ description: 构建或更新一份全面财务规划，覆盖退休测算、教�
 5. 遗产文件更新
 6. 受益人指定审查
 
-### Step 7: 输出
+### 第 7 步：输出
 
 - 财务规划文档，Word / PDF，15-25 页
 - 现金流预测表，Excel

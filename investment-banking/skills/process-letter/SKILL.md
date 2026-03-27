@@ -2,16 +2,16 @@
 
 description: 为卖方并购流程起草 process letter 和 bid instructions。覆盖初步意向指示，IOI，要求、final bid 程序，以及 management meeting 相关安排。触发词包括 "process letter"、"bid instructions"、"IOI letter"、"bid procedures"、"final round letter" 和 "management meeting invite"。
 
-## Workflow
+## 工作流
 
-### Step 1: 确定函件类型
+### 第 1 步：确定函件类型
 
 - **Initial process letter**：随 teaser/CIM 一并发送，用于说明流程和 IOI 要求
 - **IOI instructions**：针对首轮 indication of interest 的具体要求
 - **Second round / final bid letter**：尽调后提交有约束力报价的说明
 - **Management meeting invitation**：线下管理层会议安排
 
-### Step 2: Initial Process Letter / IOI Instructions
+### 第 2 步：Initial Process Letter / IOI Instructions
 
 **Header:**
 - 日期、交易代号
@@ -34,7 +34,7 @@ description: 为卖方并购流程起草 process letter 和 bid instructions。�
 5. **Confidentiality Reminder**：引用 NDA 与 data room access
 6. **Contact Information**：银行家联系人信息，用于提问
 
-### Step 3: Final Bid / Second Round Letter
+### 第 3 步：Final Bid / Second Round Letter
 
 除 IOI 之外的附加要求：
 
@@ -47,7 +47,7 @@ description: 为卖方并购流程起草 process letter 和 bid instructions。�
 7. **Binding vs. non-binding**：说明本阶段哪些内容具约束力
 8. **Evaluation criteria**：说明将如何评估报价，价格、确定性、速度、匹配度
 
-### Step 4: Management Meeting Invitation
+### 第 4 步：Management Meeting Invitation
 
 1. **Logistics**：日期、时间、地点，或视频链接、时长
 2. **Attendees**：公司哪几位出席，买方哪几位应参加
@@ -56,7 +56,7 @@ description: 为卖方并购流程起草 process letter 和 bid instructions。�
 5. **Materials**：将提供哪些资料，presentation deck、data room access
 6. **Follow-up**：会后提交补充问题的流程
 
-### Step 5: 输出
+### 第 5 步：输出
 
 - Word document，`.docx`，采用专业信函格式
 - Firm letterhead 占位

@@ -2,9 +2,9 @@
 
 description: 分析投资组合配置偏移，并生成跨账户的再平衡交易建议。会考虑税务影响、交易成本和 wash sale 规则。触发词包括 "rebalance"、"portfolio drift"、"allocation check"、"rebalancing trades" 或 "my portfolio is out of balance"。
 
-## Workflow
+## 工作流
 
-### Step 1: 当前状态
+### 第 1 步：当前状态
 
 对每个账户记录：
 - 账户类型，taxable、IRA、Roth、401k
@@ -12,7 +12,7 @@ description: 分析投资组合配置偏移，并生成跨账户的再平衡交�
 - 成本基础，针对 taxable 账户
 - 各持仓未实现盈亏
 
-### Step 2: 偏移分析
+### 第 2 步：偏移分析
 
 将当前配置与 IPS 目标对比：
 
@@ -30,7 +30,7 @@ description: 分析投资组合配置偏移，并生成跨账户的再平衡交�
 
 标记超出再平衡带宽的资产，通常为 ±3-5%。
 
-### Step 3: 交易建议
+### 第 3 步：交易建议
 
 生成将配置拉回目标的交易：
 
@@ -47,21 +47,21 @@ description: 分析投资组合配置偏移，并生成跨账户的再平衡交�
 |---------|--------|----------|----------|--------|-----------|
 | | Buy/Sell | | | Rebalance / TLH | ST gain / LT gain / Loss |
 
-### Step 4: 资产位置审查
+### 第 4 步：资产位置审查
 
 优化不同资产放在哪类账户：
 - **Tax-deferred (IRA/401k)**：债券、REITs、高换手基金，税拖累最大
 - **Roth**：预期增长最高的资产，享受免税增长
 - **Taxable**：税务效率高的股票资产，index funds、ETFs、munis，以及适合 tax-loss harvesting 的持仓
 
-### Step 5: 执行
+### 第 5 步：执行
 
 - 各账户的总交易量
 - 预计交易成本
 - 预计税务影响，已实现盈亏
 - 对配置偏移的净改善效果
 
-### Step 6: 输出
+### 第 6 步：输出
 
 - 偏移分析表
 - 建议交易清单，Excel

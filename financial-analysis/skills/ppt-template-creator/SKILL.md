@@ -198,7 +198,7 @@ for shape in slide.shapes:
                 p.level = level
 ```
 
-## Example: Cover Slide
+## 示例：封面页
 
 ```python
 slide = prs.slides.add_slide(prs.slide_layouts[[COVER_IDX]])
@@ -211,7 +211,7 @@ for shape in slide.shapes:
             shape.text = "Presentation Title | Date"
 ```
 
-## Example: Content Slide
+## 示例：内容页
 
 ```python
 slide = prs.slides.add_slide(prs.slide_layouts[[CONTENT_IDX]])

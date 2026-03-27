@@ -2,9 +2,9 @@
 
 description: 为 PE 交易评估快速构建 IRR/MOIC 敏感性分析表。围绕进入倍数、杠杆、退出倍数、增长和持有期情景建模回报。适用于快速评估一笔交易、对关键假设做压力测试，或准备 IC 回报展示页。触发词包括 "returns analysis"、"IRR sensitivity"、"MOIC table"、"what's the return at"、"model the returns" 或 "back of the envelope"。
 
-## Workflow
+## 工作流
 
-### Step 1: 收集交易输入
+### 第 1 步：收集交易输入
 
 向用户询问，或从先前分析中提取：
 
@@ -34,7 +34,7 @@ description: 为 PE 交易评估快速构建 IRR/MOIC 敏感性分析表。围�
 - 退出倍数（EV / EBITDA）
 - 退出 EBITDA（根据增长假设计算）
 
-### Step 2: 基准情景回报
+### 第 2 步：基准情景回报
 
 计算：
 
@@ -56,7 +56,7 @@ description: 为 PE 交易评估快速构建 IRR/MOIC 敏感性分析表。围�
 - 债务偿还贡献
 - 费用 / 支出拖累
 
-### Step 3: 敏感性分析表
+### 第 3 步：敏感性分析表
 
 构建双变量敏感性矩阵：
 
@@ -76,7 +76,7 @@ description: 为 PE 交易评估快速构建 IRR/MOIC 敏感性分析表。围�
 
 每个单元格同时显示 IRR 和 MOIC，格式为 IRR / MOIC。
 
-### Step 4: 情景分析
+### 第 4 步：情景分析
 
 构建 3 个情景：
 
@@ -89,7 +89,7 @@ description: 为 PE 交易评估快速构建 IRR/MOIC 敏感性分析表。围�
 | MOIC | | | |
 | IRR | | | |
 
-### Step 5: 输出
+### 第 5 步：输出
 
 - Excel 工作簿，包含：
   - 假设页

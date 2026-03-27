@@ -2,9 +2,9 @@
 
 description: 为 due diligence 会议做准备，包括管理层演示、专家网络电话、客户访谈和顾问会议。生成有针对性的问题清单、可引用的 benchmark，以及需要重点追问的红旗。适用于任何尽调会议或电话前。触发词包括 "prep for management meeting"、"diligence call prep"、"expert call questions"、"customer reference questions" 或 "meeting prep for [company]"。
 
-## Workflow
+## 工作流
 
-### Step 1: 会议背景
+### 第 1 步：会议背景
 
 向用户询问：
 - **Meeting type**：管理层演示、专家电话、客户访谈、顾问同步、现场走访
@@ -13,7 +13,7 @@ description: 为 due diligence 会议做准备，包括管理层演示、专家�
 - **What you already know**：过往会议、CIM、数据室发现
 - **Key concerns**：需要重点挖掘的具体问题
 
-### Step 2: 生成问题清单
+### 第 2 步：生成问题清单
 
 按优先级和主题组织问题。问题结构取决于会议类型：
 
@@ -64,7 +64,7 @@ description: 为 due diligence 会议做准备，包括管理层演示、专家�
 - 你续约 / 扩单的意愿有多大，什么会改变这个判断
 - 如果他们提价 10-20%，你的反应会是什么
 
-### Step 3: 基准与背景
+### 第 3 步：基准与背景
 
 针对每个关键主题，提供相关 benchmark：
 - 行业增长率和利润率水平
@@ -72,7 +72,7 @@ description: 为 due diligence 会议做准备，包括管理层演示、专家�
 - 来自 CIM 或数据室中值得追问的数据点
 - 不同数据来源之间需要澄清的差异
 
-### Step 4: 需要深挖的红旗
+### 第 4 步：需要深挖的红旗
 
 基于已知信息，标记需要追问的具体领域：
 - CIM 或财务数据中的不一致
@@ -81,7 +81,7 @@ description: 为 due diligence 会议做准备，包括管理层演示、专家�
 - 异常会计处理
 - 数据室缺失项目
 
-### Step 5: 输出
+### 第 5 步：输出
 
 一页式会议准备文档：
 1. **Meeting logistics**：谁参加、何时、何地、时长

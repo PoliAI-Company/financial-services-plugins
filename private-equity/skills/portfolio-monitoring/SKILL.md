@@ -2,15 +2,15 @@
 
 description: 跟踪并分析组合公司相对于计划的表现。读取月度 / 季度财务包，Excel、PDF，提取 KPI，标记相对预算的偏差，并生成汇总仪表盘。适用于审阅组合公司财报、准备董事会材料，或监控 covenant 合规。触发词包括 "review portfolio company"、"monthly financials"、"how is [company] performing"、"covenant check" 或 "portfolio update"。
 
-## Workflow
+## 工作流
 
-### Step 1: 读取财务包
+### 第 1 步：读取财务包
 
 - 接收用户提供的组合公司财务包，Excel 工作簿、PDF 或 CSV
 - 提取关键财务指标：Revenue、EBITDA、现金余额、未偿债务、capex、营运资金
 - 识别报告期间，并与上期及预算 / 计划进行比较
 
-### Step 2: KPI 提取与偏差分析
+### 第 2 步：KPI 提取与偏差分析
 
 需要跟踪的关键指标，可根据公司所在行业调整：
 
@@ -29,7 +29,7 @@ description: 跟踪并分析组合公司相对于计划的表现。读取月度 
 - Backlog / pipeline
 - Churn / retention rates
 
-### Step 3: 标记并汇总
+### 第 3 步：标记并汇总
 
 - **Green**：与计划差异在 5% 以内
 - **Yellow**：低于计划 5-15%，需要讨论
@@ -42,7 +42,7 @@ description: 跟踪并分析组合公司相对于计划的表现。读取月度 
 4. Covenant compliance 状态，如适用
 5. 给管理层的问题清单
 
-### Step 4: 趋势分析
+### 第 4 步：趋势分析
 
 如果提供了多个期间：
 - 绘制关键指标的时间趋势图，revenue、EBITDA、cash

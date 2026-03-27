@@ -2,9 +2,9 @@
 
 description: 为潜在客户创建专业投资建议书。覆盖机构方法论、建议配置、预期结果和收费结构。适用于新客户 pitch，或展示新的投资策略。触发词包括 "investment proposal"、"prospect presentation"、"pitch new client"、"proposal for [client]" 或 "new client presentation"。
 
-## Workflow
+## 工作流
 
-### Step 1: 潜在客户背景
+### 第 1 步：潜在客户背景
 
 收集：
 - **Prospect name** 及家庭情况
@@ -16,7 +16,7 @@ description: 为潜在客户创建专业投资建议书。覆盖机构方法论�
 - **Fee sensitivity**：目前支付多少费用
 - **Competition**：还在比较哪些机构
 
-### Step 2: 建议书结构
+### 第 2 步：建议书结构
 
 **I. About Our Firm**（1 页）
 - 机构概览、历史、AUM
@@ -62,14 +62,14 @@ description: 为潜在客户创建专业投资建议书。覆盖机构方法论�
 - 前 90 天会发生什么
 - 所需文件和后续步骤
 
-### Step 3: 定制化
+### 第 3 步：定制化
 
 - 语气要匹配潜在客户类型，企业高管、小企业主、退休人士
 - 若其持有集中股票仓位，必须直接回应这个问题
 - 若其在拿你和 robo-advisors 比较，重点强调规划能力和关系价值
 - 若其对价格敏感，先讲总价值和结果，而不是先讲费用
 
-### Step 4: 输出
+### 第 4 步：输出
 
 - 带机构品牌的 PowerPoint 演示稿，12-15 页
 - PDF 留档版本

@@ -2,9 +2,9 @@
 
 description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影响、协同效应敏感性及 purchase price allocation。适用于评估潜在收购、为 pitch 准备 merger consequences analysis，或就交易条款提供建议。触发词包括 "merger model"、"accretion dilution"、"M&A model"、"pro forma EPS"、"merger consequences" 和 "deal impact analysis"。
 
-## Workflow
+## 工作流
 
-### Step 1: 收集输入
+### 第 1 步：收集输入
 
 **Acquirer:**
 - 公司名称、当前股价、流通股数
@@ -26,7 +26,7 @@ description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影
 - 交易费用与融资费用
 - 预期交割日期
 
-### Step 2: Purchase Price Analysis
+### 第 2 步：Purchase Price Analysis
 
 | Item | Value |
 |------|-------|
@@ -38,7 +38,7 @@ description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影
 | EV / EBITDA implied | |
 | P/E implied | |
 
-### Step 3: Sources & Uses
+### 第 3 步：Sources & Uses
 
 | Sources | $ | Uses | $ |
 |---------|---|------|---|
@@ -48,7 +48,7 @@ description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影
 | | | Financing fees | |
 | **Total** | | **Total** | |
 
-### Step 4: Pro Forma EPS，Accretion / Dilution
+### 第 4 步：Pro Forma EPS，Accretion / Dilution
 
 按年度计算，Year 1 到 3：
 
@@ -65,7 +65,7 @@ description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影
 | **Pro forma EPS** | | | |
 | **Accretion / (Dilution) %** | | | |
 
-### Step 5: 敏感性分析
+### 第 5 步：敏感性分析
 
 **Accretion/Dilution vs. Synergies and Offer Premium:**
 
@@ -83,11 +83,11 @@ description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影
 | Year 1 | | | | | |
 | Year 2 | | | | | |
 
-### Step 6: 盈亏平衡协同效应
+### 第 6 步：盈亏平衡协同效应
 
 计算该交易在 Year 1 实现 EPS 中性的最低协同效应水平。
 
-### Step 7: 输出
+### 第 7 步：输出
 
 - Excel workbook，包含：
   - Assumptions 标签页

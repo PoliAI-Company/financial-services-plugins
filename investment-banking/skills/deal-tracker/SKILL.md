@@ -2,9 +2,9 @@
 
 description: 跟踪多个在执行交易的里程碑、截止日期、行动事项和状态更新。维护交易管线视图，并提示即将到来的截止日期及逾期事项。适用于管理交易项目、跟踪流程里程碑，或准备每周交易审阅。触发词包括 "deal tracker"、"deal status"、"where are we on"、"process update"、"deal pipeline" 和 "weekly deal review"。
 
-## Workflow
+## 工作流
 
-### Step 1: 交易设置
+### 第 1 步：交易设置
 
 针对每笔交易，记录：
 - **Deal name / code name**: Project [Name]
@@ -16,7 +16,7 @@ description: 跟踪多个在执行交易的里程碑、截止日期、行动事�
 - **Team**: 分配的 MD、VP、Associate、Analyst
 - **Key dates**: Engagement date、CIM distribution、IOI deadline、management meetings、final bid deadline、target close
 
-### Step 2: 里程碑跟踪
+### 第 2 步：里程碑跟踪
 
 按交易跟踪关键里程碑：
 
@@ -43,7 +43,7 @@ description: 跟踪多个在执行交易的里程碑、截止日期、行动事�
 
 Status: On Track / At Risk / Delayed / Complete
 
-### Step 3: 行动事项
+### 第 3 步：行动事项
 
 维护一份覆盖所有交易的行动事项滚动清单：
 
@@ -51,7 +51,7 @@ Status: On Track / At Risk / Delayed / Complete
 |--------|------|-------|----------|----------|--------|
 | | | | | P0/P1/P2 | Open/Done/Blocked |
 
-### Step 4: 每周交易审阅
+### 第 4 步：每周交易审阅
 
 为每周团队会议生成摘要：
 
@@ -68,7 +68,7 @@ Status: On Track / At Risk / Delayed / Complete
 - 管线中的新委托 / pitch
 - 本季度预期 closing
 
-### Step 5: 输出
+### 第 5 步：输出
 
 - Excel workbook，包含：
   - Pipeline overview，所有交易，每行一笔

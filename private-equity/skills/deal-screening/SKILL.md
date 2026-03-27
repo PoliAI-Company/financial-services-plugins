@@ -2,9 +2,9 @@
 
 description: 快速筛查流入的交易机会，包括 CIM、teaser 和中介材料，判断其是否符合基金投资标准。提取关键交易指标，执行 pass/fail 框架，并输出一页式 screening memo。适用于审阅新进入的 deal flow、分流 inbound 材料，或决定是否进行第一次电话沟通。触发词包括 "screen this deal"、"review this CIM"、"should we look at this"、"triage this teaser" 或 "deal screening"。
 
-## Workflow
+## 工作流
 
-### Step 1: 提取交易事实
+### 第 1 步：提取交易事实
 
 从提供的 CIM、teaser 或描述中提取：
 
@@ -18,7 +18,7 @@ description: 快速筛查流入的交易机会，包括 CIM、teaser 和中介�
 - **Key customers**：客户集中度风险
 - **Key risks**：显而易见的红旗
 
-### Step 2: 对照标准筛查
+### 第 2 步：对照标准筛查
 
 应用基金的投资标准，如未知则向用户询问：
 
@@ -35,7 +35,7 @@ description: 快速筛查流入的交易机会，包括 CIM、teaser 和中介�
 | Customer concentration | | | |
 | Management continuity | | | |
 
-### Step 3: 快速判断
+### 第 3 步：快速判断
 
 给出 3 部分评估：
 
@@ -44,7 +44,7 @@ description: 快速筛查流入的交易机会，包括 CIM、teaser 和中介�
 3. **Bear case**（2-3 条）：关键风险和顾虑
 4. **Key questions**：第一次电话前必须搞清楚的问题
 
-### Step 4: 输出
+### 第 4 步：输出
 
 一页式 screening memo，适合分享给 partners 或用于 IC quick screen。
 

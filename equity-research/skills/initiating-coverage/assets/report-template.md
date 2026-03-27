@@ -242,7 +242,7 @@ Appendices & Disclosures...........................................31
 
 ## PAGES 8-19: COMPANY 101
 
-### Company Description（1 页）
+### 公司描述（1 页）
 
 **Overview**
 [3-4 段说明：
@@ -314,7 +314,7 @@ Appendices & Disclosures...........................................31
 ```
 [Product Name]
 
-Description:
+描述：
 [What it does, key features]
 
 Target Customers:
