@@ -1,16 +1,16 @@
-# Schemas Reference
+# Schemas 参考
 
-Additional table formats not shown in main SKILL.md.
+主 SKILL.md 中未展示的其他表格格式。
 
-## M&A Transaction Table
+## 并购交易表
 
 | Acquirer | Target | Date | Deal Value | Multiple | Rationale |
 |----------|--------|------|------------|----------|-----------|
 | Company A | Company B | MMM YYYY | $X.XB | X.Xx EV/Rev | [Strategic logic] |
 
-State multiple methodology: "X.Xx EV/Revenue" or "X.Xx EV/EBITDA"
+注明倍数方法："X.Xx EV/Revenue" 或 "X.Xx EV/EBITDA"
 
-## Scenario Analysis Table
+## 情景分析表
 
 | Scenario | Probability | Valuation | Key Assumptions |
 |----------|-------------|-----------|-----------------|
@@ -18,7 +18,7 @@ State multiple methodology: "X.Xx EV/Revenue" or "X.Xx EV/EBITDA"
 | Base | XX% | $XXB | [Specific, quantified] |
 | Bear | XX% | $XXB | [Specific, quantified] |
 
-## Slide Structure
+## 幻灯片结构
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

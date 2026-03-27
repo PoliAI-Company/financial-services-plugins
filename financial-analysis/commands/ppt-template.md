@@ -1,31 +1,31 @@
 ---
-description: Create a reusable PPT template skill from a PowerPoint template file
-argument-hint: "[path to .pptx or .potx file]"
+description: 从 PowerPoint 模板文件创建可复用的 PPT 模板 skill
+argument-hint: "[.pptx 或 .potx 文件路径]"
 allowed-tools: ["Read", "Write", "Bash", "Glob"]
 ---
 
-# PPT Template Creator Command
+# PPT 模板创建命令
 
-Create a self-contained PPT template skill from a user-provided PowerPoint template.
+根据用户提供的 PowerPoint 模板创建一个自包含的 PPT 模板 skill。
 
-## Instructions
+## 说明
 
-1. **Ask for the template file** if not provided:
+1. **如果未提供模板文件，则索取模板文件**：
    - "Please provide the path to your PowerPoint template file (.pptx or .potx)"
-   - The template should contain the slide layouts and branding you want to use
+   - 模板应包含你想使用的幻灯片版式和品牌元素
 
-2. **Load the ppt-template-creator skill**:
-   - Use the `skill: "ppt-template-creator"` tool to load the full skill instructions
-   - Follow the workflow in the skill to analyze the template and generate a new skill
+2. **加载 ppt-template-creator skill**：
+   - 使用 `skill: "ppt-template-creator"` 工具加载完整 skill 说明
+   - 按照该 skill 中的工作流分析模板并生成新的 skill
 
-3. **Gather additional info**:
-   - Company/template name (for naming the skill)
-   - Primary use cases (pitch decks, board materials, client presentations, etc.)
+3. **收集额外信息**：
+   - 公司名或模板名（用于命名 skill）
+   - 主要使用场景（融资路演材料、董事会材料、客户演示等）
 
-4. **Execute the skill workflow**:
-   - Analyze template structure (layouts, placeholders, dimensions)
-   - Generate skill directory with assets/ and SKILL.md
-   - Create example presentation to validate
-   - Package the skill
+4. **执行 skill 工作流**：
+   - 分析模板结构（版式、占位符、尺寸）
+   - 生成带有 assets/ 和 SKILL.md 的 skill 目录
+   - 创建示例演示文稿进行验证
+   - 打包 skill
 
-5. **Deliver the packaged skill** to the user
+5. **将打包好的 skill 交付给用户**

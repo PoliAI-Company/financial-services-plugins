@@ -1,8 +1,8 @@
 ---
-description: Create a competitive landscape analysis
-argument-hint: "[company or industry]"
+description: 创建竞争格局分析
+argument-hint: "[公司或行业]"
 ---
 
-Load the `competitive-analysis` skill and build a competitive landscape analysis for the specified company or industry.
+加载 `competitive-analysis` skill，并为指定公司或行业构建竞争格局分析。
 
-If a company/industry is provided as an argument, use it. Otherwise ask the user what they want to analyze.
+如果参数中提供了公司或行业，则直接使用。否则请询问用户他们想分析什么。

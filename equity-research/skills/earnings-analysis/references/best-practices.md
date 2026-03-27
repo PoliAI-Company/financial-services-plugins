@@ -1,222 +1,211 @@
-# Best Practices, Examples, and Quality Guidelines
+# 最佳实践、示例与质量指南
 
-This document provides examples, tips for success, common mistakes to avoid, and comprehensive quality checklists.
+本文档提供示例、成功建议、需要避免的常见错误，以及完整的质量检查清单。
 
-## Example Headlines
+## 标题示例
 
-### Good Earnings Update Headlines:
+### 好的 Earnings Update 标题：
 - "Nike Q2 FY24: DTC Strength Offsets Wholesale Weakness - Maintaining OW, PT $95"
 - "Tesla Q3'24: Cybertruck Ramp Ahead of Plan - Raising Estimates, PT to $285"
 - "LVMH Q4'24: Fashion & Leather Resilient, Wines Weak - In-Line, Reiterating Buy"
 - "Apple Q1 FY24: Services Beat, iPhone Miss - Mixed Quarter, Lowering PT to $185"
 
-### Bad Headlines (Avoid):
-- "Nike Quarterly Update" (too generic, no takeaway)
-- "Company Reports Earnings" (states obvious, no analysis)
-- "Q3 Results Analysis" (no company name, no view)
+### 差的标题（避免）：
+- "Nike Quarterly Update"（过于泛泛，没有结论）
+- "Company Reports Earnings"（只是陈述事实，没有分析）
+- "Q3 Results Analysis"（没有公司名称，也没有观点）
 
-## Tips for Success
+## 成功建议
 
-1. **Speed matters**: Published 24-48hrs post-earnings, not days later
+1. **速度很重要**：要在业绩后 24-48 小时内发布，而不是拖延数天
+2. **结论前置**：是 beat 还是 miss？预测上调还是下调？
+3. **量化一切**："Strong" 没有意义，"$150M beat on $1.2B revenue" 才清晰
+4. **聚焦驱动因素**：不要只写 "revenue beat"，而要解释原因
+5. **把推导过程展示出来**：Old estimates → New estimates，并说明原因
+6. **若变化有实质性，就更新目标价**：预测变化超过 5% 时，通常目标价也应变动
+7. **要覆盖电话会内容**：引用管理层评论，不要只分析新闻稿
+8. **与 peers 比较**：如果同行也已发布业绩，要说明相对表现
+9. **保持简洁**：这不是 initiation report，要聚焦季度业绩
+10. **图表要突出趋势**：季度进展图通常最有价值
 
-2. **Lead with conclusion**: Beat or miss? Up or down estimates?
+## 常见错误，务必避免
 
-3. **Quantify everything**: "Strong" means nothing, "$150M beat on $1.2B revenue" is clear
+❌ **过于全面**：不要把 quarterly results 写成 initiation-length report
 
-4. **Focus on drivers**: Don't just say "revenue beat", explain WHY
+❌ **没有明确 beat / miss**：必须用这一点作为开头
 
-5. **Show the work**: Old estimates → New estimates with reasons
+❌ **不更新预测**：必须给出更新后的 forward estimates
 
-6. **Update price target if material**: If estimates change >5%, usually PT changes too
+❌ **语言模糊**：只写 "strong performance" 而不量化
 
-7. **Acknowledge the call**: Reference management commentary, don't just analyze the press release
+❌ **忽略 guidance**：若公司给出指引，必须充分分析
 
-8. **Compare to peers**: If similar companies reported, note relative performance
+❌ **节奏太慢**：业绩 5 天后才发布，相关性已经下降
 
-9. **Be concise**: This is NOT a comprehensive report, stay focused on quarterly results
+❌ **重复公司基础信息**：不要花 3 页去解释公司是做什么的
 
-10. **Chart the trends**: Quarterly progression charts are most valuable
+❌ **不更新 price target**：若 estimates 发生实质变化，PT 通常也应变化
 
-## Common Mistakes to Avoid
+❌ **没有 investment impact**：必须把结果与 thesis 和 rating 连接起来
 
-❌ **Too comprehensive**: Don't write an initiation-length report for quarterly results
+❌ **缺少 citations**：每个数字都必须有带可点击超链接的来源
 
-❌ **Missing beat/miss**: Lead with whether results beat or missed expectations
+❌ **纯文本 URL**：所有 URL 都必须格式化成可点击 hyperlinks
 
-❌ **Not updating estimates**: Must provide updated forward estimates
+## 综合质量控制清单
 
-❌ **Vague language**: "Strong performance" without quantification
+在交付 earnings update 之前，确认以下内容：
 
-❌ **Ignoring guidance**: If company guides, analyze it thoroughly
+### 内容与分析检查
 
-❌ **Too slow**: Publishing 5+ days after earnings loses relevance
+**Beat/Miss Analysis：**
+- [ ] 报告以 beat/miss 分析开头
+- [ ] 偏差以具体数字量化，例如 "beat by $120M or 3%"
+- [ ] 解释结果为何偏离预期
+- [ ] 对每个关键指标，revenue、EPS、margins 等，逐项分析
 
-❌ **Rehashing basics**: Don't spend 3 pages explaining what the company does
+**Metrics & Performance：**
+- [ ] 所有关键指标都包含 YoY 对比
+- [ ] 在相关情况下包含 QoQ 对比
+- [ ] 提供分部 / 地区 / 产品拆分
+- [ ] 分析 operating metrics，customers、ARPU、units 等
 
-❌ **Missing price target update**: If estimates changed materially, PT should too
+**Guidance & Estimates：**
+- [ ] 若有 guidance，已分析其变化并量化
+- [ ] 若无 guidance，已明确写出
+- [ ] 已提供 current year updated estimates
+- [ ] 已提供 next year updated estimates
+- [ ] Old vs. new estimates 展示清楚
+- [ ] 明确解释调整了什么，以及原因
 
-❌ **No investment impact**: Must connect results to thesis and rating
+**Valuation & Rating：**
+- [ ] 如结果足以影响 valuation，则已更新 price target
+- [ ] 如 PT 未变，已明确说明维持不变
+- [ ] 解释 valuation methodology
+- [ ] Rating 已确认或调整，且有清晰理由
+- [ ] 已评估并更新 investment thesis，如有需要
 
-❌ **Missing citations**: Every number needs a source with clickable hyperlinks
+### 格式与长度检查
 
-❌ **Plain text URLs**: All URLs must be formatted as clickable hyperlinks
+**整体结构：**
+- [ ] 报告为 8-12 页，不能更短也不能过长
+- [ ] 第 1 页符合 earnings summary 格式
+- [ ] 第 1 页标题含 "EARNINGS UPDATE"，而不是 "Initiating Coverage"
+- [ ] 标题应体现事件属性，例如 "Strong Q3 Results..."
 
-## Comprehensive Quality Control Checklist
+**Tables：**
+- [ ] 包含 1-3 张 summary tables，而不是 comprehensive tables
+- [ ] 所有表都有清晰列标题
+- [ ] 所有表的 header row 都有底纹
+- [ ] 所有表底部都有 source lines
+- [ ] Estimates table 显示 old vs. new 和 change column
 
-Before delivering earnings update, verify all items below:
+**Charts：**
+- [ ] 文档中嵌入 8-12 张图
+- [ ] 所有图上方都有 "Figure X - [Title]" caption
+- [ ] 所有图下方都有 "Source: [Source]" line
+- [ ] 图表聚焦季度趋势
+- [ ] 图表能突出变化，beat/miss、estimate revisions
+- [ ] 图表风格专业
 
-### Content & Analysis Checklist
+### 引用与来源检查 ⭐⭐⭐ 强制要求
 
-**Beat/Miss Analysis:**
-- [ ] Beat/miss analysis leads the report
-- [ ] Specific variances quantified (e.g., "beat by $120M or 3%")
-- [ ] Explanation of WHY results differed from expectations
-- [ ] Analysis of each key metric (revenue, EPS, margins, etc.)
+**Figure & Table Citations：**
+- [ ] 每个 figure 都有具体文档与日期来源
+- [ ] 每个 table 都有具体文档引用
+- [ ] 需要时包含页码或 slide number
 
-**Metrics & Performance:**
-- [ ] All key metrics discussed with YoY comparisons
-- [ ] QoQ comparisons included where relevant
-- [ ] Segment/geographic/product breakdowns provided
-- [ ] Operating metrics analyzed (customers, ARPU, units, etc.)
+**Beat/Miss Citations：**
+- [ ] beat/miss 分析注明一致预期来源，Bloomberg、FactSet 等
+- [ ] 一致预期来源带有 "as of" 日期，且为业绩前日期
+- [ ] 公司披露结果引用 earnings release 或 10-Q
 
-**Guidance & Estimates:**
-- [ ] Guidance changes analyzed and quantified (if provided)
-- [ ] If no guidance, this is explicitly noted
-- [ ] Updated estimates provided for current year
-- [ ] Updated estimates provided for next year
-- [ ] Old vs. new estimates clearly shown
-- [ ] Explanation of what changed and why
+**Guidance Citations：**
+- [ ] 当前 guidance 引用当季 earnings call transcript 或 release
+- [ ] prior guidance 引用上一季度材料
+- [ ] 当前与 prior guidance 两者都提供 hyperlink
 
-**Valuation & Rating:**
-- [ ] Price target updated (if warranted by results)
-- [ ] If PT unchanged, explicitly maintained
-- [ ] Valuation methodology explained
-- [ ] Rating confirmed or changed with clear rationale
-- [ ] Investment thesis assessed and updated if needed
+**Statistics & Metrics：**
+- [ ] 关键统计有脚注和来源
+- [ ] 脚注引用具体文档与页码 / slide number
+- [ ] 管理层引言要注明 speaker name 和 source document
 
-### Format & Length Checklist
+**Hyperlinks：** ⭐⭐⭐ CRITICAL
+- [ ] 所有 URL 都是可点击 hyperlinks，而不是纯文本
+- [ ] Hyperlinks 使用有意义的显示文本
+- [ ] 在 Word 文档中显示为蓝色、带下划线
+- [ ] 已测试 hyperlinks 且有效，Ctrl+Click 能打开正确页面
+- [ ] 所有 SEC filings 链接到 EDGAR viewer
+- [ ] 所有 earnings materials，release、transcript、presentation，都已超链接
+- [ ] 用于对比的 prior quarter materials 也已超链接
+- [ ] 文档中不出现 raw URLs
 
-**Overall Structure:**
-- [ ] Report is 8-12 pages (not shorter, not longer)
-- [ ] Page 1 has earnings summary format
-- [ ] Page 1 has "EARNINGS UPDATE" in title (NOT "Initiating Coverage")
-- [ ] Event-driven title (e.g., "Strong Q3 Results...")
+**Sources Section：**
+- [ ] 报告末尾包含 "Sources & References" section
+- [ ] 该 section 列出所有 earnings materials 及日期
+- [ ] 所有材料都带可点击 hyperlinks
+- [ ] 包含一致预期数据来源，即使订阅数据没有公开链接
+- [ ] 包含 prior period references
 
-**Tables:**
-- [ ] 1-3 summary tables included (NOT comprehensive tables)
-- [ ] All tables have clear column headers
-- [ ] All tables have header row shading
-- [ ] All tables have source lines at bottom
-- [ ] Estimates table shows old vs. new with change column
+### 准确性检查
 
-**Charts:**
-- [ ] 8-12 charts embedded throughout document
-- [ ] All charts have "Figure X - [Title]" caption above
-- [ ] All charts have "Source: [Source]" line below
-- [ ] Charts focus on quarterly trends
-- [ ] Charts highlight changes (beat/miss, revisions)
-- [ ] Charts use professional styling
+**Numerical Accuracy：**
+- [ ] 数字与公司披露数据完全一致
+- [ ] 所有计算正确
+- [ ] Estimate changes 计算正确
+- [ ] 估值计算无误
+- [ ] 图表与文字描述一致
 
-### Citations & Sources Checklist ⭐⭐⭐ MANDATORY
+**Factual Accuracy：**
+- [ ] ticker symbol 无拼写错误
+- [ ] company name 无拼写错误
+- [ ] 日期准确且最新
+- [ ] quarter / year 引用正确
+- [ ] 年份标记正确，A 表示 actual，E 表示 estimate
 
-**Figure & Table Citations:**
-- [ ] Every figure has specific source with document name and date
-- [ ] Every table has specific source with document reference
-- [ ] Source citations include page numbers or slide numbers where applicable
+### 时效性检查
 
-**Beat/Miss Citations:**
-- [ ] Beat/miss analysis cites consensus source (Bloomberg, FactSet, etc.)
-- [ ] Consensus source includes "as of" date (pre-earnings close)
-- [ ] Company reported results cited to earnings release or 10-Q
+**Publication Timing：**
+- [ ] 报告在业绩发布后 24-48 小时内完成
+- [ ] 如晚于 48 小时，需明确说明是 delayed reaction
+- [ ] ✅ 已通过搜索验证全部数据来自最新季度
+- [ ] ✅ 未依赖 knowledge cutoff，而是主动搜索了最新数据
+- [ ] 一致预期使用的是业绩前数据，而不是业绩后更新值
+- [ ] 报告中没有使用过时信息
+- [ ] earnings release 日期在最近 1-3 个月内，而不是半年前
 
-**Guidance Citations:**
-- [ ] Current guidance cited to earnings call transcript or release
-- [ ] Prior guidance cited to previous quarter's materials
-- [ ] Both current and prior guidance sources hyperlinked
+### 写作风格检查
 
-**Statistics & Metrics:**
-- [ ] Key statistics have footnotes with sources
-- [ ] Footnotes reference specific documents and page/slide numbers
-- [ ] Management quotes cite speaker name and source document
+**Clarity & Directness：**
+- [ ] 先写数字，例如 "Revenue grew 15% to $1.2B"，不要写 "Strong revenue"
+- [ ] 使用 "vs." 而不是 "versus"
+- [ ] 保持直接和简洁
+- [ ] 只聚焦新增内容，而不是重复公司基础信息
+- [ ] 避免模糊用语，如 "strong performance"
 
-**Hyperlinks:** ⭐⭐⭐ CRITICAL
-- [ ] ALL URLs are CLICKABLE HYPERLINKS (not plain text)
-- [ ] Hyperlinks formatted with meaningful display text
-- [ ] Blue, underlined hyperlink formatting in Word document
-- [ ] Hyperlinks tested and working (Ctrl+Click opens correct page)
-- [ ] All SEC filings hyperlinked to EDGAR viewer
-- [ ] All earnings materials hyperlinked (release, transcript, presentation)
-- [ ] Prior quarter materials hyperlinked for comparison
-- [ ] No raw URLs displayed anywhere in document
+**Professional Standards：**
+- [ ] 全文保持机构级语气
+- [ ] 术语前后一致
+- [ ] 没有口语化表达
+- [ ] 财务表述规范
 
-**Sources Section:**
-- [ ] "Sources & References" section included at end of report
-- [ ] Section lists all earnings materials with dates
-- [ ] All materials have clickable hyperlinks
-- [ ] Consensus data sources listed (even if no link for subscription data)
-- [ ] Prior period references included
+## 交付前最终检查
 
-### Accuracy Checklist
+### 5 分钟快速复核：
+1. **Page 1**：Rating 清楚吗？Price target 更新了吗？Key takeaways 是否有力度？
+2. **Numbers**：Reported results 是否与公司 press release 完全一致？
+3. **Citations**：抽查 3-4 个 figure / table，是否都带有带超链接的来源？
+4. **Estimates**：Old vs. new 展示清楚吗？变化原因解释清楚吗？
+5. **Charts**：是否已嵌入全部 8-12 张图？编号和 caption 是否齐全？
+6. **Length**：是否为 8-12 页，而不是 6 页或 15 页？
+7. **Hyperlinks**：测试 3-4 个 hyperlink，Ctrl+Click 是否正常？
+8. **Timeliness**：是否在业绩后 48 小时内发布？
 
-**Numerical Accuracy:**
-- [ ] Numbers match company's reported results exactly
-- [ ] Math checks out in all calculations
-- [ ] Estimate changes calculated correctly
-- [ ] Valuation math is accurate
-- [ ] Charts match text descriptions
+如果上述项目都无问题，报告即可交付。
 
-**Factual Accuracy:**
-- [ ] No typos in ticker symbol
-- [ ] No typos in company name
-- [ ] Dates are current and accurate
-- [ ] Quarter/year references are correct
-- [ ] Year notation correct (A for actual, E for estimate)
+## 交付时的摘要格式
 
-### Timeliness Checklist
-
-**Publication Timing:**
-- [ ] Report published within 24-48 hours of earnings release
-- [ ] If later than 48 hours, acknowledged as "delayed reaction"
-- [ ] ✅ **VERIFIED all data is from LATEST quarter by searching for recent earnings**
-- [ ] ✅ **Did NOT rely on knowledge cutoff - actively searched for current data**
-- [ ] Consensus estimates are pre-earnings (not post-earnings)
-- [ ] No outdated information included
-- [ ] Earnings release date is within last 1-3 months (not 6+ months old)
-
-### Writing Style Checklist
-
-**Clarity & Directness:**
-- [ ] Lead with numbers ("Revenue grew 15% to $1.2B" not "Strong revenue")
-- [ ] Use "vs." not "versus"
-- [ ] Be direct and concise throughout
-- [ ] Focus on what's NEW (not rehashing company basics)
-- [ ] Avoid vague language ("strong performance" without quantification)
-
-**Professional Standards:**
-- [ ] Institutional tone maintained
-- [ ] Consistent terminology throughout
-- [ ] No informal language
-- [ ] Proper financial notation
-
-## Pre-Delivery Final Check
-
-Run through this quick final check before sending report to user:
-
-### 5-Minute Final Review:
-1. **Page 1**: Rating clear? Price target updated? Key takeaways compelling?
-2. **Numbers**: Do reported results match company's press release exactly?
-3. **Citations**: Spot check 3-4 figures/tables - all have sources with clickable hyperlinks?
-4. **Estimates**: Old vs. new clearly shown? Changes explained?
-5. **Charts**: All 8-12 embedded? All numbered and captioned?
-6. **Length**: Is it 8-12 pages (not 6, not 15)?
-7. **Hyperlinks**: Test 3-4 hyperlinks - do they work with Ctrl+Click?
-8. **Timeliness**: Is this being published within 48 hours of earnings?
-
-If all items check out, the report is ready for delivery.
-
-## Summary Delivery Format
-
-When delivering the completed report to the user, provide this summary:
+交付完成后的简要说明采用以下格式：
 
 ```
 [Company] Q[X] [Year] Earnings Update Complete

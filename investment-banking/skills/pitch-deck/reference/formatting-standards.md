@@ -1,60 +1,60 @@
-# Formatting Standards Reference
+# 格式标准参考
 
-This reference file contains general PowerPoint formatting guidance for pitch deck creation. These are best practices that should be adapted to the specific template being used.
+本参考文件汇总了创建 pitch deck 时常见的 PowerPoint 格式原则。这些是通用最佳实践，应根据实际使用的模板进行调整。
 
 ---
 
 ## Table of Contents
 
-1. [Visual Hierarchy and Layout](#visual-hierarchy-and-layout)
-2. [Text Formatting](#text-formatting)
-3. [Table Creation](#table-creation)
-4. [Chart and Image Handling](#chart-and-image-handling)
-5. [Data Visualization](#data-visualization)
-6. [Font Consistency](#font-consistency)
-7. [Template Adaptation](#template-adaptation)
+1. [视觉层级与版式](#视觉层级与版式)
+2. [文本格式](#文本格式)
+3. [表格创建](#表格创建)
+4. [图表和图片处理](#图表和图片处理)
+5. [数据可视化](#数据可视化)
+6. [字体一致性](#字体一致性)
+7. [模板适配](#模板适配)
 
 ---
 
-## Visual Hierarchy and Layout
+## 视觉层级与版式
 
-### Box and Section Layout
+### 框体和分区布局
 
-Slide layouts vary based on content requirements and template design. Common elements include:
-- Header sections with titles and subtitles
-- Content boxes with label sidebars
-- Tables for structured data
-- Charts for visual data representation
-- Footnote bars at slide bottom
+幻灯片布局会因内容和模板设计而不同。常见元素包括：
+- 含标题和副标题的页眉区域
+- 带标签侧栏的内容框
+- 用于结构化数据的表格
+- 用于可视化数据的图表
+- 位于页脚的 footnote 区
 
-The specific layout should follow the template provided. Common content types and their typical structures:
-- **Market definition slides**: Label boxes with bullet content + commentary sections
-- **TAM/sizing slides**: Metrics callouts + data tables + key takeaways
-- **Competitive analysis**: Comparison tables or matrices
-- **Financial summaries**: Charts with supporting data tables
+具体布局应以实际模板为准。常见内容类型及典型结构包括：
+- **Market definition slides**：标签框 + bullet 内容 + commentary 区
+- **TAM/sizing slides**：核心指标 callout + 数据表 + 关键结论
+- **Competitive analysis**：对比表或矩阵
+- **Financial summaries**：图表 + 支撑数据表
 
-### Alignment Principles
+### 对齐原则
 
-**Vertical alignment of parallel sections:**
+**上下平行区域的垂直对齐：**
 
-Boxes that are vertically stacked should have consistent:
-- Left margin position
-- Bullet indentation
-- Text start position
-- Box width
+上下堆叠的框在以下方面应保持一致：
+- 左边距位置
+- Bullet 缩进
+- 文本起始位置
+- 框宽
 
-Boxes that are horizontally adjacent should have consistent:
-- Top position
-- Height (where content allows)
-- Internal padding
+左右相邻的框在以下方面应保持一致：
+- 顶部位置
+- 高度，若内容允许
+- 内边距
 
 ---
 
-## Text Formatting
+## 文本格式
 
 ### Bullet Point Structure
 
-Avoid unstructured text dumps. Break content into scannable bullet points.
+不要堆砌未经整理的文本。应把内容拆成便于快速浏览的 bullet。
 
 **Illustrative Correct Structure:**
 ```
@@ -77,26 +77,26 @@ Online tutoring marketplaces (Preply, italki, Cambly)
 
 | Context | Symbol | Usage |
 |---------|--------|-------|
-| Included/Positive | ✓ (checkmark) | Items within scope, features present |
-| Excluded/Negative | × (cross) | Items outside scope, features absent |
-| Neutral list | • (bullet) | General enumeration, commentary |
-| Numbered sequence | 1. 2. 3. | Process steps, rankings |
-| Sub-bullets | ‣ or – | Secondary points under main bullets |
+| Included/Positive | ✓ (checkmark) | 范围内项目、已存在特性 |
+| Excluded/Negative | × (cross) | 范围外项目、缺失特性 |
+| Neutral list | • (bullet) | 普通列举或说明 |
+| Numbered sequence | 1. 2. 3. | 流程步骤、排名 |
+| Sub-bullets | ‣ or – | 主 bullet 下的次级信息 |
 
-Adapt symbol usage to match the template's existing conventions.
+应根据模板现有风格来选择符号。
 
 ### Bullet Consistency
 
-All bullets within a box/section should have identical formatting:
-- Same bullet symbol throughout the box (unless intentionally differentiated)
-- Same indent level for all primary bullets
-- Same bullet size
-- Same spacing between bullet and text
-- Same font size for all bullet text at same level
+同一框 / 同一区域内的 bullet 必须格式一致：
+- 符号一致，除非有意区分
+- 主 bullet 缩进一致
+- Bullet 大小一致
+- Bullet 与正文之间间距一致
+- 同层级 bullet 正文字号一致
 
 ### Font Size Guidelines
 
-These are typical ranges - adjust based on template specifications:
+以下是常见区间，应根据模板要求调整：
 
 | Element | Typical Size (pt) | Style |
 |---------|-------------------|-------|
@@ -110,121 +110,121 @@ These are typical ranges - adjust based on template specifications:
 
 ### Text Density Guidelines
 
-- **Maximum 6-7 bullets** per content box (adjust based on space)
-- **Maximum 2 lines** per bullet point
-- **Parenthetical examples** on same line or indented below
-- **Avoid orphan words** - adjust line breaks to avoid single words on new lines
+- 每个内容框**最多 6 到 7 个 bullets**，根据空间可略调
+- 每条 bullet **最多 2 行**
+- **括号示例**可放在同一行，或下一行缩进显示
+- **避免孤行词**，不要让单个词单独换到下一行
 
 ---
 
-## Table Creation
+## 表格创建
 
-### CRITICAL: Use Actual Table Objects
+### CRITICAL: 使用真正的 Table Objects
 
-**Tables must be actual table objects, NOT text with tab spacing.**
+**表格必须是 table object，绝不能是用 tab 间隔的文本。**
 
-Text with tabs will never align properly and looks unprofessional. Always create proper table objects.
+带 tab 的文本永远无法稳定对齐，看起来也不专业。始终要创建真正的表格对象。
 
 ### Table Structure Guidelines
 
-1. **Column alignment**:
-   - Text columns: Left-aligned (both header and content)
-   - Numeric columns: Center-aligned or right-aligned
-   - Headers should align with their column content
+1. **列对齐**：
+   - 文本列左对齐，header 和正文都左对齐
+   - 数值列居中或右对齐
+   - Header 的对齐方式要与该列正文一致
 
-2. **Header row**:
-   - Bold text
-   - Shaded background (use template's brand color)
-   - Contrasting text color for readability
-   - Alignment matches column content alignment
+2. **Header row**：
+   - 粗体
+   - 带底色，使用模板品牌色
+   - 文字颜色必须具备足够对比度
+   - 对齐方式与正文列一致
 
-3. **Alternating rows** (optional):
-   - Light shading on alternate rows improves readability
+3. **Alternating rows**，可选：
+   - 交替浅底色有助于阅读
 
-4. **Summary/Total row**:
-   - Bold text
-   - Heavier top border (separator line)
-   - Distinct background shading
+4. **Summary/Total row**：
+   - 粗体
+   - 上方加粗分隔线
+   - 使用不同底色区分
 
-5. **Table width**:
-   - Fill the designated section width
-   - Avoid tables floating in white space
+5. **Table width**：
+   - 填满指定区域宽度
+   - 不要让表格漂在大片空白中
 
-### For XML implementation patterns, see [`xml-reference.md`](xml-reference.md#table-implementation)
+### XML 实现模式见 [`xml-reference.md`](xml-reference.md#table-implementation)
 
 ---
 
-## Chart and Image Handling
+## 图表和图片处理
 
-### Pasting Charts from Excel
+### 从 Excel 粘贴图表
 
-When pasting charts from Excel:
+从 Excel 粘贴图表时：
 
-1. **Paste the chart ONLY** - do not include source data tables
-2. **Resize to fill the designated area** - charts should not appear as tiny thumbnails
-3. **Maintain aspect ratio** - do not distort the chart
-4. **Verify readability** - axis labels, legends, data labels must be legible
+1. **只粘贴图表本体**，不要连源数据表一起带进来
+2. **放大到填满指定区域**，图表不能像缩略图一样缩在角落
+3. **保持纵横比**，不要拉伸变形
+4. **检查可读性**，坐标轴、图例、数据标签都必须清晰可读
 
-### Pasting Tables from Excel
+### 从 Excel 粘贴表格
 
-When pasting tables from Excel:
+从 Excel 粘贴表格时：
 
-1. **Paste the formatted table ONLY** - exclude any source data or calculations
-2. **Resize to fill the designated area** - table should occupy its full section
-3. **Verify column widths** - adjust so text is not truncated
-4. **Check formatting preservation** - colors, borders, fonts may need adjustment
+1. **只粘贴格式化后的表格**，排除源数据与计算过程
+2. **放大到填满指定区域**
+3. **检查列宽**，确保文字没有被截断
+4. **检查格式是否保留**，颜色、边框、字体可能需要手动微调
 
 ### Size Guidelines
 
-**Minimum sizing principles:**
-- Charts: Should occupy a substantial portion of their designated area
-- Tables: Fill the designated section width completely
-- Images: Sized appropriately for context, never thumbnail-sized
+**最低尺寸原则：**
+- 图表应占据其指定区域的大部分空间
+- 表格应完全填满指定区域宽度
+- 图片大小应与上下文匹配，绝不能像缩略图
 
-**Indicators of undersized visuals (avoid these):**
-- Chart occupies small fraction of available space
-- Text labels are unreadable
-- Large empty areas surrounding the visual
-- Visual appears as a "thumbnail"
+**缩得太小的典型迹象，应避免：**
+- 图表只占可用空间的一小部分
+- 标签无法阅读
+- 视觉元素周围留下大片空白
+- 看起来像一个小缩略图
 
 ### Proper Sizing Workflow
 
-1. Identify the target area dimensions
-2. Paste the chart/table
-3. Immediately resize to fill the target area
-4. Verify all text remains readable
-5. Adjust internal elements if needed (legend position, axis labels)
+1. 先识别目标区域的尺寸
+2. 粘贴图表 / 表格
+3. 立即调整大小以填满目标区域
+4. 检查所有文字是否仍然清晰可读
+5. 必要时调整内部元素，图例位置、坐标轴标签等
 
 ---
 
-## Data Visualization
+## 数据可视化
 
-### Key Metrics Display
+### 核心指标展示
 
-When displaying key metrics (e.g., TAM, CAGR, projections), consider showing relationships between values rather than listing them statically:
+展示核心指标时，例如 TAM、CAGR、projections，应尽量体现它们之间的关系，而不是静态罗列：
 
-- **Visual flow indicators**: Shapes (arrows, chevrons, connectors) showing progression
-- **Size hierarchy**: Larger font for primary metrics, smaller for labels
-- **Spatial arrangement**: Position elements to show logical flow
+- **Visual flow indicators**：用箭头、chevron、connector 等 shape 展示推进关系
+- **Size hierarchy**：主要指标字体更大，标签更小
+- **Spatial arrangement**：用空间布局体现逻辑关系
 
 ### Arrow and Flow Indicators
 
-If using arrows or flow indicators:
-- Use PowerPoint shape objects, not text characters
-- Do not use text-based arrows (→, ⟹) in the final presentation
-- Create arrows using PowerPoint's shape tools or via XML shape elements
+如果使用箭头或流向指示：
+- 使用 PowerPoint shape objects，不要用文本字符
+- 最终演示中不要出现 `→`、`⟹` 这类文本箭头
+- 用 PowerPoint 的 shape 工具，或用 XML shape 元素创建箭头
 
-**For XML implementation, see [`xml-reference.md`](xml-reference.md#arrow-shapes)**
+**XML 实现见 [`xml-reference.md`](xml-reference.md#arrow-shapes)**
 
 ---
 
-## Font Consistency
+## 字体一致性
 
 ### Cross-Box Font Consistency
 
-All text boxes at the same hierarchy level should use identical font sizes.
+所有处于同一层级的文本框都应使用完全一致的字号。
 
-**Same-level boxes that should match:**
+**需要一致的同层级框包括：**
 
 | Box Type | Should Match With |
 |----------|-------------------|
@@ -236,27 +236,27 @@ All text boxes at the same hierarchy level should use identical font sizes.
 
 ### Verification Process
 
-1. Identify all text boxes at the same hierarchy level
-2. Check font size of each box
-3. If any box differs, adjust all to match
-4. Default to the larger size if content fits; otherwise use the smaller size consistently
+1. 识别所有同层级文本框
+2. 检查每个框的字号
+3. 如有差异，统一调整
+4. 如果都能容纳内容，优先采用较大字号，否则统一采用较小字号
 
-**Exception**: Sub-bullets or secondary text may use smaller font than primary bullets, but this must be consistent across ALL boxes.
+**Exception**：Sub-bullets 或次级说明可以比主 bullet 小，但必须在所有同类框中保持一致。
 
 ---
 
-## Template Adaptation
+## 模板适配
 
-These standards should be adapted to match the specific template being used:
+这些标准应根据实际模板进行适配：
 
-1. **Colors**: Use the template's brand colors rather than prescribing specific colors
-2. **Fonts**: Use the template's font family
-3. **Spacing**: Match the template's existing spacing conventions
-4. **Layout**: Follow the template's section structure
+1. **Colors**：使用模板品牌色，而不是机械套用固定颜色
+2. **Fonts**：使用模板指定字体
+3. **Spacing**：遵循模板现有的间距规则
+4. **Layout**：遵循模板原有版式结构
 
-The key principles that remain constant regardless of template:
-- Text must be readable against its background
-- Tables must be actual table objects
-- Content should fill available space appropriately
-- Formatting should be consistent across parallel elements
-- Charts/images should be properly sized
+无论模板如何变化，以下原则始终不变：
+- 文本必须与背景形成足够对比
+- 表格必须是真正的 table object
+- 内容应合理填满可用空间
+- 平行元素之间的格式应保持一致
+- 图表 / 图片尺寸必须合适

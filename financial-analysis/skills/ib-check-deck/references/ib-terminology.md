@@ -1,49 +1,49 @@
-# IB Terminology Reference
+# IB 术语参考
 
-## Casual to Professional Replacements
+## 口语化到专业化替换
 
 | Casual/Informal | IB Standard |
 |-----------------|-------------|
-| "a lot of growth" | "significant growth" or "X% growth" |
-| "pretty good margins" | "attractive margins" or "margins of X%" |
+| "a lot of growth" | "significant growth" 或 "X% growth" |
+| "pretty good margins" | "attractive margins" 或 "margins of X%" |
 | "they bought the company" | "the company was acquired" |
 | "big deal" | "transformative transaction" |
-| "cheap valuation" | "attractive valuation" or "valuation discount" |
+| "cheap valuation" | "attractive valuation" 或 "valuation discount" |
 | "expensive" | "premium valuation" |
-| "make more money" | "enhance profitability" or "drive margin expansion" |
-| "getting bigger" | "pursuing growth" or "expanding operations" |
-| "cut costs" | "implement cost optimization" or "drive operational efficiencies" |
-| "good fit" | "strategic fit" or "compelling strategic rationale" |
-| "help with" | "support" or "facilitate" |
-| "a bunch of" | "multiple" or "numerous" |
-| "kind of" / "sort of" | [remove or be specific] |
-| "really" / "very" | [remove or quantify] |
-| "tons of" | "substantial" or quantify |
-| "huge" | "significant" or quantify |
-| "pretty much" | [remove or be precise] |
-| "basically" | [remove or clarify] |
+| "make more money" | "enhance profitability" 或 "drive margin expansion" |
+| "getting bigger" | "pursuing growth" 或 "expanding operations" |
+| "cut costs" | "implement cost optimization" 或 "drive operational efficiencies" |
+| "good fit" | "strategic fit" 或 "compelling strategic rationale" |
+| "help with" | "support" |
+| "a bunch of" | "multiple" 或 "numerous" |
+| "kind of" / "sort of" | [删除或写得更具体] |
+| "really" / "very" | [删除或量化] |
+| "tons of" | "substantial" 或量化 |
+| "huge" | "significant" 或量化 |
+| "pretty much" | [删除或表达更精确] |
+| "basically" | [删除或澄清] |
 
-## Language Patterns to Avoid
+## 需要避免的语言模式
 
-- **Contractions**: Don't → Do not, won't → will not
-- **Exclamation points**: Generally inappropriate for IB materials
-- **First-person**: "We think..." → "Management believes..." or passive voice
-- **Superlatives without evidence**: "best-in-class" requires supporting data
-- **Vague quantifiers**: "some", "many", "several" → specific numbers
+- **Contractions**：Don't → Do not，won't → will not
+- **感叹号**：通常不适用于投行材料
+- **第一人称**："We think..." → "Management believes..." 或使用被动语态
+- **没有证据支持的最高级**："best-in-class" 必须有支持数据
+- **模糊量词**："some"、"many"、"several" → 给出具体数字
 
-## Preferred Phrasing Patterns
+## 优先使用的表达模式
 
-**Growth narratives**:
+**增长叙事：**
 - "Demonstrated track record of X% revenue CAGR"
 - "Consistent margin expansion over [period]"
 - "Proven ability to generate organic growth"
 
-**Market position**:
+**市场地位：**
 - "#X player in [specific segment]"
 - "Leading provider of [specific offering]"
 - "Differentiated positioning through [specific attribute]"
 
-**Strategic rationale**:
+**战略逻辑：**
 - "Compelling strategic fit driven by..."
 - "Attractive value creation opportunity through..."
 - "Synergy potential of $Xm from [specific sources]"

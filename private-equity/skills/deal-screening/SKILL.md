@@ -1,28 +1,28 @@
-# Deal Screening
+# 交易初筛
 
-description: Quickly screen inbound deal flow — CIMs, teasers, and broker materials — against the fund's investment criteria. Extracts key deal metrics, runs a pass/fail framework, and outputs a one-page screening memo. Use when reviewing new deal flow, triaging inbound materials, or deciding whether to take a first call. Triggers on "screen this deal", "review this CIM", "should we look at this", "triage this teaser", or "deal screening".
+description: 快速筛查流入的交易机会，包括 CIM、teaser 和中介材料，判断其是否符合基金投资标准。提取关键交易指标，执行 pass/fail 框架，并输出一页式 screening memo。适用于审阅新进入的 deal flow、分流 inbound 材料，或决定是否进行第一次电话沟通。触发词包括 "screen this deal"、"review this CIM"、"should we look at this"、"triage this teaser" 或 "deal screening"。
 
 ## Workflow
 
-### Step 1: Extract Deal Facts
+### Step 1: 提取交易事实
 
-From the provided CIM, teaser, or description, extract:
+从提供的 CIM、teaser 或描述中提取：
 
-- **Company**: Name, location, sector/subsector
-- **Description**: What they do (1-2 sentences)
-- **Financials**: Revenue, EBITDA, margins, growth rate
-- **Deal type**: Platform, add-on, recap, minority, carve-out
-- **Asking price / valuation**: Multiple, enterprise value if stated
-- **Seller motivation**: Why selling now
-- **Management**: Rolling or exiting
-- **Key customers**: Concentration risk
-- **Key risks**: Obvious red flags
+- **Company**：名称、所在地、行业 / 子行业
+- **Description**：业务内容，1-2 句话
+- **Financials**：收入、EBITDA、利润率、增长率
+- **Deal type**：平台型、add-on、recap、少数股权、carve-out
+- **Asking price / valuation**：倍数，如有则包括企业价值
+- **Seller motivation**：当前出售原因
+- **Management**：继续跟投还是退出
+- **Key customers**：客户集中度风险
+- **Key risks**：显而易见的红旗
 
-### Step 2: Screen Against Criteria
+### Step 2: 对照标准筛查
 
-Apply the fund's investment criteria (ask user if not known):
+应用基金的投资标准，如未知则向用户询问：
 
-| Criterion | Target | Actual | Pass/Fail |
+| 标准 | 目标 | 实际 | Pass/Fail |
 |-----------|--------|--------|-----------|
 | Revenue range | | | |
 | EBITDA range | | | |
@@ -35,23 +35,23 @@ Apply the fund's investment criteria (ask user if not known):
 | Customer concentration | | | |
 | Management continuity | | | |
 
-### Step 3: Quick Assessment
+### Step 3: 快速判断
 
-Provide a 3-part assessment:
+给出 3 部分评估：
 
-1. **Verdict**: Pass / Further Diligence / Hard Pass
-2. **Bull case** (2-3 bullets): Why this could be a good deal
-3. **Bear case** (2-3 bullets): Key risks and concerns
-4. **Key questions**: What you'd need to answer on a first call
+1. **Verdict**：Pass / Further Diligence / Hard Pass
+2. **Bull case**（2-3 条）：这笔交易为什么可能值得看
+3. **Bear case**（2-3 条）：关键风险和顾虑
+4. **Key questions**：第一次电话前必须搞清楚的问题
 
-### Step 4: Output
+### Step 4: 输出
 
-One-page screening memo suitable for sharing with partners or an IC quick screen.
+一页式 screening memo，适合分享给 partners 或用于 IC quick screen。
 
 ## Important Notes
 
-- Speed matters — screening should take minutes, not hours
-- Be direct about red flags. Don't bury concerns
-- If financials seem inconsistent or incomplete, flag it explicitly
-- Ask for the fund's criteria upfront if this is the first screening
-- Save screening criteria in memory for future deals once confirmed
+- 速度很重要，初筛应该以分钟计，而不是小时计
+- 对红旗要直接，不要把担忧埋在字里行间
+- 如果财务数据看起来不一致或不完整，要明确指出
+- 如果这是第一次做 screening，先向用户确认基金标准
+- 标准一旦确认，就把 screening criteria 保存下来，方便后续交易复用

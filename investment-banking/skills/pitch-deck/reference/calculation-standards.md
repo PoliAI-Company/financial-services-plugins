@@ -1,18 +1,18 @@
-# Calculation Verification Reference
+# 计算校验参考
 
-This file provides formulas and guidelines for verifying pre-calculated values in source data before populating templates. Source data should already contain calculated figures—use these formulas to verify accuracy.
+本文件提供公式和指引，用于在填充模板前校验源数据中已经预先计算好的数值。源数据通常应已包含计算结果，这里的公式用于验证准确性。
 
-## Contents
+## 目录
 
-- [Key Verification Formulas](#key-verification-formulas)
-- [Consensus Methodology](#consensus-methodology)
-- [Rounding Guidelines](#rounding-guidelines)
-- [Verification Checklist](#verification-checklist)
-- [Red Flags to Investigate](#red-flags-to-investigate)
+- [关键校验公式](#关键校验公式)
+- [Consensus 方法](#consensus-方法)
+- [舍入指引](#舍入指引)
+- [校验清单](#校验清单)
+- [需要调查的红旗信号](#需要调查的红旗信号)
 
 ---
 
-## Key Verification Formulas
+## 关键校验公式
 
 ### CAGR Projection
 
@@ -22,9 +22,9 @@ Future Value = Present Value × (1 + CAGR)^n
 ```
 
 **Variables:**
-- Present Value: Current/base year market size
-- CAGR: Compound Annual Growth Rate (as decimal, e.g., 16.4% = 0.164)
-- n: Number of years between base and target year
+- Present Value: 当前 / 基准年的市场规模
+- CAGR: 复合年增长率，按小数表示，例如 16.4% = 0.164
+- n: 基准年与目标年之间的年数
 
 **Verification example:**
 ```
@@ -33,7 +33,7 @@ Source claims: $22.1bn (2024) at 16.4% CAGR = $55.0bn (2030)
 Verify: 22.1 × (1.164)^6 = 22.1 × 2.488 = 55.0 ✓
 ```
 
-**Calculating n (years):** Count years between base and target year. Examples: 2024→2030 = 6 years, 2025→2030 = 5 years.
+**Calculating n (years):** 计算基准年与目标年之间的年数。例如 2024→2030 = 6 年，2025→2030 = 5 年。
 
 ### Valuation Multiples
 
@@ -84,13 +84,13 @@ CAGR = (End Value ÷ Start Value)^(1/n) - 1
 
 ---
 
-## Consensus Methodology
+## Consensus 方法
 
-When source data contains multiple estimates, verify consensus calculations:
+当源数据包含多个估计值时，要验证 consensus 计算逻辑：
 
 ### Size Consensus (Range)
 
-**Method:** Full min-max range across all sources
+**Method:** 对所有来源取完整的最小值到最大值区间
 
 **Example:**
 ```
@@ -100,7 +100,7 @@ Consensus: $15-22bn (rounded to nearest $1bn)
 
 ### CAGR Consensus (Central Cluster)
 
-**Method:** Exclude outliers (highest and lowest), use central cluster range
+**Method:** 剔除最高和最低值，取中间聚类区间
 
 **Example:**
 ```
@@ -112,7 +112,7 @@ Consensus: 16-19% or 16-17% (conservative)
 
 ### Projection Consensus
 
-**Method:** Apply consensus CAGR to midpoint of size range
+**Method:** 对市场规模区间中点应用 consensus CAGR
 
 **Example:**
 ```
@@ -125,70 +125,70 @@ Consensus projection: $45-48bn
 
 ---
 
-## Rounding Guidelines
+## 舍入指引
 
-These are **typical conventions** — adjust based on the magnitude of values and template style:
+以下是**常见惯例**，应根据数值量级和模板风格调整：
 
 | Value Type | Typical Rounding | Example |
 |------------|------------------|---------|
-| Large market sizes ($10bn+) | Nearest $1bn | 18.47 → $18bn |
-| Smaller market sizes (<$10bn) | Nearest $0.5bn or $0.1bn | 2.3 → $2.5bn |
-| Size ranges | Match precision of sources | 14.9-22.1 → $15-22bn |
-| CAGR | Whole % or 0.5% | 16.4% → 16% or 16.5% |
-| Market share | Nearest 5% or match source | 27.7% → 25% or 30% |
-| Revenue ($m) | 1 decimal | 18.47 → $18.5m |
-| Multiples | 1 decimal | 9.688 → 9.7x |
+| Large market sizes ($10bn+) | 取整到最近 $1bn | 18.47 → $18bn |
+| Smaller market sizes (<$10bn) | 取整到最近 $0.5bn 或 $0.1bn | 2.3 → $2.5bn |
+| Size ranges | 匹配源数据精度 | 14.9-22.1 → $15-22bn |
+| CAGR | 整数 % 或 0.5% | 16.4% → 16% 或 16.5% |
+| Market share | 取整到最近 5% 或与源数据一致 | 27.7% → 25% 或 30% |
+| Revenue ($m) | 保留 1 位小数 | 18.47 → $18.5m |
+| Multiples | 保留 1 位小数 | 9.688 → 9.7x |
 
 **Rounding principles:**
-- Rounding should not materially change the figure — for smaller values, use finer precision
-- Consistency matters more than precision — use same rounding across similar figures
-- When creating ranges, round down for low end, round up for high end
-- For summary statistics (mean, median), match precision of input data
+- 舍入不能实质改变数值含义，数值越小，越应保留更细精度
+- 一致性比极致精度更重要，相似数据应采用同样的舍入方式
+- 做区间时，低值向下取整，高值向上取整
+- 对均值、中位数等摘要统计，精度应与输入数据保持一致
 
 ---
 
-## Verification Checklist
+## 校验清单
 
-Before using any calculated value from source data:
+使用源数据中的任何计算值前，请先检查：
 
 ### Formula Verification
-- [ ] Projection uses correct CAGR formula: `PV × (1 + r)^n`
-- [ ] Multiples calculated as EV ÷ Metric (not reversed)
-- [ ] Growth rates use correct base year in denominator
-- [ ] Percentage shares sum to ~100% where applicable
+- [ ] Projection 使用了正确的 CAGR 公式：`PV × (1 + r)^n`
+- [ ] Multiple 按 `EV ÷ Metric` 计算，没有反过来
+- [ ] 增长率分母使用了正确的基准年
+- [ ] 适用时，各项份额加总约等于 100%
 
 ### Input Verification
-- [ ] Base year figures match source documents
-- [ ] CAGR/growth rates match stated source methodology
-- [ ] Time periods (n) calculated correctly
-- [ ] Currency and units consistent ($bn vs $m)
+- [ ] 基准年数据与源文件一致
+- [ ] CAGR / 增长率与源文件声明的方法一致
+- [ ] 时间跨度 `n` 计算正确
+- [ ] 货币和单位一致，$bn 与 $m 没有混淆
 
 ### Output Verification
-- [ ] Calculated result matches source's stated figure
-- [ ] If mismatch, investigate methodology difference
-- [ ] Rounding applied consistently
-- [ ] Results are plausible (no order-of-magnitude errors)
+- [ ] 计算结果与源文件给出的结果一致
+- [ ] 如果不一致，已调查方法差异
+- [ ] 舍入方式前后一致
+- [ ] 结果在量级上合理，没有数量级错误
 
 ### Consensus Verification
-- [ ] All sources included in range calculations
-- [ ] Outlier exclusion methodology documented
-- [ ] Midpoint calculations use correct averaging
-- [ ] Range bounds represent actual min/max or documented subset
+- [ ] 区间计算已纳入所有来源
+- [ ] 剔除 outlier 的方法已记录
+- [ ] 中点计算使用了正确的平均方法
+- [ ] 区间上下限确实对应最小 / 最大值，或是已说明的子集
 
 ---
 
-## Red Flags to Investigate
+## 需要调查的红旗信号
 
 **Projection mismatches:**
-- Calculated projection differs from source by >5%
-- Likely cause: Different base year, different CAGR, or rounding
+- 你的 projection 与源文件差异超过 5%
+- 常见原因：基准年不同、CAGR 不同、舍入不同
 
 **Multiple mismatches:**
-- Calculated multiple differs from source
-- Likely cause: Different metric definition (LTM vs. NTM, Revenue vs. Net Revenue)
+- 你算出的 multiple 与源文件不一致
+- 常见原因：口径不同，LTM vs. NTM，Revenue vs. Net Revenue
 
 **Consensus mismatches:**
-- Your consensus differs from source's consensus
-- Likely cause: Source excluded certain data points, different outlier treatment
+- 你的 consensus 与源文件的 consensus 不同
+- 常见原因：源文件排除了部分数据点，或 outlier 处理方式不同
 
-**When in doubt:** Note the discrepancy in a footnote and show your calculation methodology.
+**When in doubt:** 在脚注中记录差异，并展示你的计算方法。

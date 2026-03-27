@@ -1,57 +1,57 @@
 ---
-description: Analyze a bond's relative value vs yield curves and credit spreads with scenario stress testing
+description: 结合收益率曲线、信用利差和情景压力测试分析债券相对价值
 argument-hint: "<ISIN, RIC, or CUSIP> [vs benchmark]"
 ---
 
-# Analyze Bond Relative Value
+# 分析债券相对价值
 
-> This command uses LSEG bond pricing, yield curves, credit curves, and scenario analysis tools. See [CONNECTORS.md](../CONNECTORS.md) for available tools.
+> 这个命令使用 LSEG 债券定价、收益率曲线、信用曲线和情景分析工具。可用工具见 [CONNECTORS.md](../CONNECTORS.md)。
 
-Perform relative value analysis on one or more bonds by combining pricing analytics, yield curve context, credit spread decomposition, and rate shock scenarios.
+通过结合定价分析、收益率曲线背景、信用利差拆解和利率冲击情景，对一只或多只债券进行相对价值分析。
 
-See the **bond-relative-value** skill for domain knowledge on spread frameworks and rich/cheap assessment.
+利差框架和贵贱判断的领域知识见 **bond-relative-value** skill。
 
-## Workflow
+## 工作流
 
-### 1. Gather Bond Identifiers
+### 1. 收集债券标识符
 
-Ask the user for:
-- Bond identifier(s) — ISIN, RIC, or CUSIP (required)
-- Optional benchmark bond for comparison
-- Valuation date (optional, defaults to today)
+向用户询问：
+- 债券标识符，必填，可使用 ISIN、RIC 或 CUSIP
+- 可选的基准债券，用于比较
+- 估值日期，可选，默认今天
 
-### 2. Price the Bond(s)
+### 2. 为债券定价
 
-Call `bond_price` with the identifier(s).
+使用标识符调用 `bond_price`。
 
-Extract: clean/dirty price, yield, duration, convexity, DV01, currency.
+提取 clean/dirty price、yield、duration、convexity、DV01 和 currency。
 
-If benchmark provided, price that too.
+如果提供了基准债券，也为其定价。
 
-### 3. Get the Risk-Free Yield Curve
+### 3. 获取无风险收益率曲线
 
-Call `interest_rate_curve` (list then calculate) for the bond's currency.
+为债券货币调用 `interest_rate_curve`，先 list 再 calculate。
 
-Interpolate at the bond's maturity to compute G-spread.
+在债券到期点插值，计算 G-spread。
 
-### 4. Get the Credit Spread Curve
+### 4. 获取信用利差曲线
 
-Call `credit_curve` (search by country/issuerType, then calculate).
+调用 `credit_curve`，先按 country 或 issuerType 搜索，再 calculate。
 
-Compute residual spread = bond G-spread minus credit curve spread at matching maturity. Positive residual = cheap; negative = rich.
+计算 residual spread，也就是债券 G-spread 减去对应到期期限上的信用曲线利差。正 residual 表示偏便宜，负 residual 表示偏贵。
 
-### 5. Run Scenario Analysis
+### 5. 运行情景分析
 
-Call `yieldbook_scenario` with parallel rate shifts: -100bp, -50bp, 0bp, +50bp, +100bp.
+使用平行利率冲击调用 `yieldbook_scenario`，包括 -100bp、-50bp、0bp、+50bp、+100bp。
 
-Extract price change and P&L under each scenario.
+提取各情景下的价格变化和 P&L。
 
-### 6. Synthesize the Report
+### 6. 综合报告
 
-Present: bond summary table, spread decomposition (G-spread, credit spread, residual), scenario P&L table, and rich/cheap assessment.
+展示债券摘要表、利差拆解，包括 G-spread、信用利差和 residual、情景 P&L 表，以及贵贱判断。
 
-If benchmark provided, include side-by-side comparison.
+如果提供了基准债券，加入并排比较。
 
-## Output Format
+## 输出格式
 
-Lead with the rich/cheap assessment and supporting evidence. Follow with spread decomposition and scenario tables.
+先给出贵贱判断及其支撑证据，然后展示利差拆解和情景表。

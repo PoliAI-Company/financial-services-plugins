@@ -1,65 +1,65 @@
-# Connectors
+# 连接器
 
-This plugin connects to the **LFA MCP Server**, which provides financial analytics tools from LSEG (London Stock Exchange Group). All tools are served by a single MCP server — no additional connectors are needed.
+该插件连接到 **LFA MCP Server**，它提供来自 LSEG 的金融分析工具。所有工具都由一个 MCP 服务器统一提供，不需要额外连接器。
 
-## How Commands Reference Tools
+## 命令如何引用工具
 
-Commands in this plugin reference MCP tools by their exact tool name (e.g., `bond_price`, `interest_rate_curve`). The tools are organized into categories for clarity:
+这个插件中的命令使用工具的精确名称来引用 MCP 工具，例如 `bond_price`、`interest_rate_curve`。为方便理解，这些工具按类别组织如下：
 
-## Tool Categories
+## 工具分类
 
 | Category | Placeholder | Tools | Description |
 |----------|-------------|-------|-------------|
-| Bond Pricing | `~~bond-pricing` | `bond_price`, `bond_future_price` | Price bonds and bond futures with full analytics |
-| FX Pricing | `~~fx-pricing` | `fx_spot_price`, `fx_forward_price` | FX spot and forward rate pricing |
-| Interest Rate Curves | `~~ir-curves` | `interest_rate_curve`, `inflation_curve` | Government yield curves and inflation breakevens |
-| Credit Curves | `~~credit-curves` | `credit_curve` | Credit spread curves by issuer type |
-| FX Curves | `~~fx-curves` | `fx_forward_curve` | FX forward point curves |
-| Options | `~~options` | `option_value`, `option_template_list` | Option valuation with Greeks |
-| Swaps | `~~swaps` | `ir_swap` | Interest rate swap pricing |
-| Volatility Surfaces | `~~volatility` | `fx_vol_surface`, `equity_vol_surface` | FX and equity implied vol surfaces |
-| Quantitative Analytics | `~~qa` | `qa_ibes_consensus`, `qa_company_fundamentals`, `qa_historical_equity_price`, `qa_macroeconomic` | Analyst estimates, fundamentals, prices, macro data |
-| Time Series | `~~time-series` | `tscc_historical_pricing_summaries` | Historical pricing summaries (interday/intraday) |
-| Fixed Income Analytics | `~~yieldbook` | `yieldbook_bond_reference`, `yieldbook_cashflow`, `yieldbook_scenario`, `fixed_income_risk_analytics` | Bond reference data, cashflows, scenarios, OAS/duration |
+| Bond Pricing | `~~bond-pricing` | `bond_price`, `bond_future_price` | 为债券和债券期货定价，并返回完整分析指标 |
+| FX Pricing | `~~fx-pricing` | `fx_spot_price`, `fx_forward_price` | 外汇即期和远期定价 |
+| Interest Rate Curves | `~~ir-curves` | `interest_rate_curve`, `inflation_curve` | 国债收益率曲线和通胀盈亏平衡曲线 |
+| Credit Curves | `~~credit-curves` | `credit_curve` | 按发行人类型划分的信用利差曲线 |
+| FX Curves | `~~fx-curves` | `fx_forward_curve` | 外汇远期点曲线 |
+| Options | `~~options` | `option_value`, `option_template_list` | 带 Greeks 的期权估值 |
+| Swaps | `~~swaps` | `ir_swap` | 利率掉期定价 |
+| Volatility Surfaces | `~~volatility` | `fx_vol_surface`, `equity_vol_surface` | 外汇和股票隐含波动率曲面 |
+| Quantitative Analytics | `~~qa` | `qa_ibes_consensus`, `qa_company_fundamentals`, `qa_historical_equity_price`, `qa_macroeconomic` | 分析师预期、基本面、价格和宏观数据 |
+| Time Series | `~~time-series` | `tscc_historical_pricing_summaries` | 历史定价汇总，支持日内和跨日 |
+| Fixed Income Analytics | `~~yieldbook` | `yieldbook_bond_reference`, `yieldbook_cashflow`, `yieldbook_scenario`, `fixed_income_risk_analytics` | 债券参考数据、现金流、情景分析、OAS/久期 |
 
-## Complete Tool Reference
+## 完整工具参考
 
 ### Bond Domain
-- **`bond_price`** — Calculate bond pricing, valuation, and analytics. Accepts ISIN, RIC, CUSIP, or AssetId. Returns yield, duration, convexity, DV01, accrued interest. Supports what-if scenarios via price/yield overrides.
-- **`bond_future_price`** — Calculate bond future pricing and analytics. Returns fair value, cheapest-to-deliver identification, delivery basket, conversion factors, and contract DV01.
+- **`bond_price`**，计算债券价格、估值与分析指标。支持 ISIN、RIC、CUSIP 或 AssetId。返回收益率、久期、凸性、DV01、应计利息。支持通过价格或收益率覆盖进行 what-if 情景分析。
+- **`bond_future_price`**，计算债券期货价格和分析指标。返回公允价值、最便宜可交割券识别结果、交割篮子、转换因子和合约 DV01。
 
 ### FX Domain
-- **`fx_spot_price`** — FX spot rate pricing for ISO currency pairs. Returns mid/bid/ask rates.
-- **`fx_forward_price`** — FX forward rate pricing at specific tenors or dates. Returns forward points, outright rates, and carry.
+- **`fx_spot_price`**，针对 ISO 货币对的外汇即期定价。返回中间价、买价和卖价。
+- **`fx_forward_price`**，按特定期限或日期进行外汇远期定价。返回远期点、远期汇率和 carry。
 
 ### Curves Domain
-- **`interest_rate_curve`** — Government yield curves. Two-phase: list available curves, then calculate curve points. Returns par/zero rates, discount factors, forward rates.
-- **`credit_curve`** — Credit spread curves. Search by country and issuer type (Corporate, Sovereign, Agency, etc.), then calculate spread term structure.
-- **`inflation_curve`** — Inflation breakeven curves. Search by country/currency, then calculate breakeven rates and real yields.
-- **`fx_forward_curve`** — FX forward point curves. List curves, then calculate forward points across all standard tenors.
+- **`interest_rate_curve`**，国债收益率曲线。两阶段流程，先列出可用曲线，再计算曲线点。返回平价利率、零息利率、贴现因子和远期利率。
+- **`credit_curve`**，信用利差曲线。可按国家和发行人类型搜索，例如 Corporate、Sovereign、Agency 等，然后计算利差期限结构。
+- **`inflation_curve`**，通胀盈亏平衡曲线。可按国家或货币搜索，然后计算盈亏平衡通胀率和实际收益率。
+- **`fx_forward_curve`**，外汇远期点曲线。先列出曲线，再计算标准期限上的远期点。
 
 ### Swaps Domain
-- **`ir_swap`** — Interest rate swap pricing. Two-phase: list templates by currency/index, then price swaps at specified tenors. Returns par rates, DV01, NPV.
+- **`ir_swap`**，利率掉期定价。两阶段流程，先按货币或指数列模板，再按期限定价。返回平价利率、DV01 和 NPV。
 
 ### Options Domain
-- **`option_value`** — Option valuation supporting vanilla, barrier, binary, and Asian options. Returns premium, full Greeks (delta, gamma, vega, theta, rho), and risk metrics.
-- **`option_template_list`** — List available option templates for pricing.
+- **`option_value`**，期权估值，支持香草、障碍、二元和亚洲期权。返回权利金、完整 Greeks 和风险指标。
+- **`option_template_list`**，列出可用于定价的期权模板。
 
 ### Volatility Domain
-- **`fx_vol_surface`** — FX volatility surface generation using SABR model. Returns vol surface across tenors and delta strikes.
-- **`equity_vol_surface`** — Equity implied volatility surface. Supports equities/indices via RIC and futures via RICROOT.
+- **`fx_vol_surface`**，使用 SABR 模型生成外汇波动率曲面。返回各期限和 Delta 执行价上的波动率曲面。
+- **`equity_vol_surface`**，股票隐含波动率曲面。支持通过 RIC 处理股票和指数，通过 RICROOT 处理期货。
 
 ### Quantitative Analytics Domain
-- **`qa_ibes_consensus`** — IBES analyst consensus estimates (EPS, revenue, EBITDA, DPS). Forward-looking estimates with analyst count, dispersion, and high/low ranges.
-- **`qa_company_fundamentals`** — Reported company financials (income statement, balance sheet metrics). Historical fiscal year data.
-- **`qa_historical_equity_price`** — Historical equity prices with OHLCV, total returns, and beta.
-- **`qa_macroeconomic`** — Macroeconomic indicators database. Search by mnemonic or description, retrieve latest values or time series.
+- **`qa_ibes_consensus`**，IBES 分析师一致预期，覆盖 EPS、收入、EBITDA、DPS。提供前瞻预期、分析师数量、离散度及高低区间。
+- **`qa_company_fundamentals`**，公司已披露财务数据，包括利润表和资产负债表指标。提供历史财政年度数据。
+- **`qa_historical_equity_price`**，历史股票价格，带 OHLCV、总回报和 beta。
+- **`qa_macroeconomic`**，宏观经济指标数据库。可按助记符或描述搜索，获取最新值或时间序列。
 
 ### Time Series Domain
-- **`tscc_historical_pricing_summaries`** — Historical pricing summaries for any RIC. Supports interday (daily, weekly, monthly) and intraday (1min to 1hr) intervals.
+- **`tscc_historical_pricing_summaries`**，任意 RIC 的历史定价汇总。支持跨日频率，比如日、周、月，也支持日内频率，比如 1 分钟到 1 小时。
 
 ### Fixed Income Analytics (YieldBook) Domain
-- **`yieldbook_bond_reference`** — Bond reference data: security type, sector, ratings, coupon, maturity, issuer.
-- **`yieldbook_cashflow`** — Bond cashflow projections: future coupon and principal payment schedules.
-- **`yieldbook_scenario`** — Bond scenario analysis: price/yield under parallel rate shifts.
-- **`fixed_income_risk_analytics`** — Bond risk analytics: OAS, effective duration, key rate durations, convexity.
+- **`yieldbook_bond_reference`**，债券参考数据，包括证券类型、行业、评级、票息、到期日、发行人。
+- **`yieldbook_cashflow`**，债券现金流预测，包括未来票息和本金支付安排。
+- **`yieldbook_scenario`**，债券情景分析，输出平行利率冲击下的价格和收益率。
+- **`fixed_income_risk_analytics`**，债券风险分析，包括 OAS、有效久期、关键利率久期和凸性。

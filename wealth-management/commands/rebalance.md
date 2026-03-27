@@ -1,8 +1,8 @@
 ---
-description: Analyze drift and generate rebalancing trades
+description: 分析偏移并生成再平衡交易
 argument-hint: "[client name or account]"
 ---
 
-Load the `portfolio-rebalance` skill to analyze allocation drift and recommend tax-aware rebalancing trades.
+加载 `portfolio-rebalance` skill，分析配置偏移并给出税务友好的再平衡交易建议。
 
-If a client or account is provided, use it. Otherwise ask for the portfolio to analyze.
+如果提供了客户或账户，就直接使用。否则向用户询问需要分析的投资组合。

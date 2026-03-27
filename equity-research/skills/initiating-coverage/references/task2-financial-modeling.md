@@ -1,19 +1,19 @@
-# Task 2: Financial Modeling - Detailed Workflow
+# 任务 2：财务建模 - 详细工作流
 
-This document provides step-by-step instructions for executing Task 2 (Financial Modeling) of the initiating-coverage skill.
+本文档提供执行 initiating-coverage skill 中 Task 2（Financial Modeling）的逐步说明。
 
-## Task Overview
+## 任务概览
 
-**Purpose**: Extract historical financials and build comprehensive Excel financial model with projections and scenarios.
+**Purpose**：提取历史财务数据，并建立包含预测和情景的综合 Excel 财务模型。
 
-**Prerequisites**: ⚠️ Verify before starting
-- **Required**: Access to company financial data
-  - For public companies: Latest 10-K and recent 10-Qs from SEC EDGAR
-  - For private companies: Financial statements or estimates from available sources
-  - OR: Pre-extracted historical financials provided by user
-- **Optional**: Company research (Task 1) for business context
+**Prerequisites**：⚠️ 开始前验证
+- **Required**：可以访问公司财务数据
+  - 对上市公司：从 SEC EDGAR 获取最新 10-K 和近期 10-Q
+  - 对私有公司：来自可获取来源的财务报表或估算
+  - 或：由用户提供预先提取好的历史财务数据
+- **Optional**：Company research（Task 1），用于业务背景理解
 
-**Output**: Excel Financial Model (.xlsx) with 6 essential tabs:
+**Output**：Excel Financial Model（.xlsx），包含 6 个核心 tabs：
 1. Revenue Model
 2. Income Statement
 3. Cash Flow Statement
@@ -23,185 +23,185 @@ This document provides step-by-step instructions for executing Task 2 (Financial
 
 ---
 
-## Input Verification
+## 输入验证
 
-**BEFORE STARTING - CHECK:**
+**开始前检查：**
 
-**Option A: Extract financials directly (most common)**
-- [ ] Have access to 10-K filings (public company)?
-- [ ] OR have access to financial statements (private company)?
-- [ ] Ready to create Excel file for historical extraction?
+**Option A: 直接提取财务数据（最常见）**
+- [ ] 是否可以访问 10-K filings（上市公司）？
+- [ ] 或可以访问财务报表（私有公司）？
+- [ ] 是否准备好创建 Excel 文件用于历史数据提取？
 
-**Option B: User has pre-extracted financials**
-- [ ] Historical financials file provided? (.xlsx or other format)
-- [ ] Contains 3-5 years of income statement, cash flow, balance sheet?
-- [ ] Data is clean and ready to use?
+**Option B: 用户已提供预提取财务数据**
+- [ ] 是否提供了历史财务数据文件？`.xlsx` 或其他格式
+- [ ] 是否包含 3-5 年 income statement、cash flow、balance sheet？
+- [ ] 数据是否干净且可直接使用？
 
-**Optional Context:**
-- [ ] Company research (Task 1) complete for business understanding?
+**Optional Context：**
+- [ ] 是否已完成 Task 1 的公司研究，用于业务理解？
 
-**IF VERIFICATION FAILS**: Stop and obtain access to financial statements (10-K or equivalent) before proceeding.
-
----
-
-## Model Structure and Formatting
-
-### Color Coding (Industry Standard)
-- **Blue text**: Hardcoded inputs (user can change)
-- **Black text**: Formulas and calculations
-- **Green text**: Links to other sheets
-- **Red text**: Errors or flags (should be resolved)
-
-### Formatting Standards
-- Professional borders and shading
-- Clear section headers
-- Grouped rows for collapsibility
-- Named ranges for key inputs/outputs
-- No hardcoded numbers in formulas (except constants like 12 months)
-- Clear units ($ thousands, $ millions, etc.)
-
-### Formula Best Practices
-- All numbers should flow from assumptions
-- Change an assumption → entire model updates
-- No circular references
-- Use named ranges for key cells
-- Keep formulas simple and auditable
-- Add comments for complex calculations
+**IF VERIFICATION FAILS**：停止，并先获取财务报表访问权限，10-K 或同等级资料。
 
 ---
 
-## Step-by-Step Modeling Workflow
+## 模型结构与格式
 
-### Step 1: Extract Historical Financials
+### 颜色编码（行业标准）
+- **Blue text**：硬编码输入，用户可修改
+- **Black text**：公式与计算
+- **Green text**：其他工作表链接
+- **Red text**：错误或警示，应被消除
 
-**If historical financials are already extracted, skip to Step 2.**
+### 格式标准
+- 专业边框与底纹
+- 清晰的区块标题
+- 支持折叠的 grouped rows
+- 关键输入 / 输出使用 named ranges
+- 公式中不要硬编码数字，除非是 12 个月这类常数
+- 明确单位，$ thousands、$ millions 等
 
-**For Public Companies:**
+### 公式最佳实践
+- 所有数字都应从假设出发流转
+- 修改一个假设 → 整个模型联动更新
+- 不要有 circular references
+- 对关键单元格使用 named ranges
+- 公式保持简单、可审计
+- 对复杂计算添加注释
 
-1. **Download 10-K Filing**
-   - Go to SEC EDGAR (https://www.sec.gov/edgar/searchedgar/companysearch.html)
-   - Search for company name or ticker
-   - Download latest 10-K (annual report)
-   - Navigate to Item 8: Financial Statements and Supplementary Data
+---
 
-2. **Create Historical Financials Excel File**
-   - File name: `[Company]_Historical_Financials_[Date].xlsx`
-   - This file will be the foundation for the model
+## 分步建模工作流
 
-3. **Extract Income Statement (3-5 years)**
-   - Create Sheet 1: "Historical Income Statement"
-   - Extract ALL line items for 3-5 years:
-     - Revenue (total and by segment if disclosed)
+### 第 1 步：提取历史财务数据
+
+**如果历史财务数据已经提取好，可跳到第 2 步。**
+
+**针对上市公司：**
+
+1. **下载 10-K Filing**
+   - 进入 SEC EDGAR：`https://www.sec.gov/edgar/searchedgar/companysearch.html`
+   - 搜索公司名称或 ticker
+   - 下载最新 10-K（年报）
+   - 找到 Item 8: Financial Statements and Supplementary Data
+
+2. **创建 Historical Financials Excel 文件**
+   - 文件名：`[Company]_Historical_Financials_[Date].xlsx`
+   - 该文件将作为后续模型基础
+
+3. **提取 Income Statement（3-5 年）**
+   - 创建 Sheet 1："Historical Income Statement"
+   - 提取全部 line items：
+     - Revenue，总收入及如有披露则按分部
      - Cost of revenue / COGS
      - Gross profit
-     - Operating expenses (R&D, Sales & Marketing, G&A broken out)
-     - EBITDA (calculate if not disclosed: EBIT + D&A)
+     - Operating expenses，拆出 R&D、Sales & Marketing、G&A
+     - EBITDA，如未披露则自行计算：EBIT + D&A
      - EBIT / Operating income
-     - Interest expense/income
-     - Other income/expense
+     - Interest expense / income
+     - Other income / expense
      - Pre-tax income
-     - Income tax and tax rate
+     - Income tax 和 tax rate
      - Net income
-     - EPS (basic and diluted)
-     - Shares outstanding (basic and diluted)
+     - EPS，basic 和 diluted
+     - Shares outstanding，basic 和 diluted
 
-4. **Extract Cash Flow Statement (3-5 years)**
-   - Create Sheet 2: "Historical Cash Flow"
-   - Extract ALL line items:
-     - Operating activities (starting from net income)
+4. **提取 Cash Flow Statement（3-5 年）**
+   - 创建 Sheet 2："Historical Cash Flow"
+   - 提取全部 line items：
+     - Operating activities，从 net income 起
      - Depreciation & amortization
      - Stock-based compensation
-     - Changes in working capital (receivables, inventory, payables)
+     - Changes in working capital，receivables、inventory、payables
      - Cash from operations
-     - Investing activities (CapEx, acquisitions)
-     - Financing activities (debt issuance/repayment, equity, dividends)
+     - Investing activities，CapEx、acquisitions
+     - Financing activities，debt issuance / repayment、equity、dividends
      - Net change in cash
      - Beginning and ending cash
 
-5. **Extract Balance Sheet (3-5 years)**
-   - Create Sheet 3: "Historical Balance Sheet"
-   - Extract ALL line items:
-     - Current assets (cash, receivables, inventory, other)
-     - Non-current assets (PP&E, intangibles, goodwill)
+5. **提取 Balance Sheet（3-5 年）**
+   - 创建 Sheet 3："Historical Balance Sheet"
+   - 提取全部 line items：
+     - Current assets，cash、receivables、inventory、other
+     - Non-current assets，PP&E、intangibles、goodwill
      - Total assets
-     - Current liabilities (payables, accrued expenses, current debt)
-     - Non-current liabilities (long-term debt, deferred taxes)
+     - Current liabilities，payables、accrued expenses、current debt
+     - Non-current liabilities，long-term debt、deferred taxes
      - Total liabilities
-     - Shareholders' equity (common stock, retained earnings)
+     - Shareholders' equity，common stock、retained earnings
      - Total liabilities + equity
 
-6. **Calculate Historical Metrics**
-   - Create Sheet 4: "Historical Metrics"
-   - Calculate from statements:
-     - Revenue growth % (YoY)
+6. **计算历史指标**
+   - 创建 Sheet 4："Historical Metrics"
+   - 从三张报表计算：
+     - Revenue growth %（YoY）
      - Gross margin %
      - EBITDA margin %
      - Operating margin %
      - Net margin %
-     - Free cash flow (CFO - CapEx)
+     - Free cash flow（CFO - CapEx）
      - FCF margin %
-     - ROIC (approximate: NOPAT / Invested Capital)
+     - ROIC（近似：NOPAT / Invested Capital）
      - Debt/Equity ratio
-     - Current ratio (Current Assets / Current Liabilities)
+     - Current ratio（Current Assets / Current Liabilities）
 
-7. **Document Sources and Notes**
-   - Create Sheet 5: "Notes"
-   - Document:
-     - 10-K filing date and fiscal year end
-     - Any one-time items or adjustments noted
-     - Non-GAAP vs GAAP differences
-     - Segment breakdown (if revenue split by product/geography)
-     - Data quality notes and limitations
+7. **记录来源与说明**
+   - 创建 Sheet 5："Notes"
+   - 记录：
+     - 10-K filing date 和 fiscal year end
+     - 任何一次性项目或调整
+     - Non-GAAP 与 GAAP 差异
+     - 分部拆分，如按产品 / 地区披露收入
+     - 数据质量说明与局限性
 
-**For Private Companies:**
+**针对私有公司：**
 
-1. **Gather Available Data**
-   - Financial statements (if available)
-   - Press releases with revenue figures
-   - Funding announcements
-   - Industry estimates or comparable company data
+1. **收集可获得数据**
+   - 财务报表，如有
+   - 含收入数据的 press releases
+   - 融资公告
+   - 行业估算或可比公司数据
 
-2. **Create Simplified Historical File**
-   - Estimated revenue (if available)
-   - Estimated margins (from comparables if needed)
-   - Key ratios and metrics
-   - Document all assumptions and sources
+2. **创建简化版历史文件**
+   - 估算收入，如可获得
+   - 估算利润率，如需借助可比公司
+   - 关键比率和指标
+   - 记录全部假设和来源
 
-**Verification:**
-- [ ] All 3 financial statements extracted (3-5 years)
-- [ ] Numbers reconcile across statements (net income ties)
-- [ ] Key metrics calculated correctly
-- [ ] Excel file saved and can be opened
-- [ ] Data sources documented (10-K dates, page numbers)
+**Verification：**
+- [ ] 已提取 3 张财务报表，3-5 年
+- [ ] 报表间数字勾稽正确，net income 一致
+- [ ] 关键指标计算正确
+- [ ] Excel 文件已保存且可打开
+- [ ] 数据来源已记录，10-K 日期、页码等
 
-**Foundation for projection model is now complete. Proceed to Step 2.**
+**投射模型基础现已完成。进入第 2 步。**
    - Capital expenditures
    - Working capital items
    - Debt and interest expense
-   - Share count (basic and diluted)
+   - Share count（basic 和 diluted）
 
-3. **Organize historical data for entry**
-   - Prepare 3-5 years of actuals
-   - Will be entered directly into Income Statement, Cash Flow Statement, and Balance Sheet tabs
-   - Historical years in columns, projected years following
+3. **整理历史数据供录入**
+   - 准备 3-5 年 actuals
+   - 将其直接录入 Income Statement、Cash Flow Statement、Balance Sheet tabs
+   - 历史年份放在前列，预测年份在后
 
-4. **Calculate historical trends**
+4. **计算历史趋势**
    - Revenue CAGR
    - Margin progression
    - OpEx leverage
    - Working capital patterns
-   - CapEx as % of revenue
-   - These trends will inform projection assumptions
+   - CapEx 占收入比例
+   - 这些趋势将用于支持预测假设
 
-**Note**: Assumptions will be documented directly in each tab as blue text inputs, not in a separate tab.
+**Note**：假设将直接记录在各个 tab 的蓝色输入单元格中，而不是单独放在一个 tab。
 
-### Step 2: Model Revenue
+### 第 2 步：建立 Revenue Model
 
-**CRITICAL: This is the most important and detailed part of the model.**
+**CRITICAL：这是模型中最重要、也最细致的部分。**
 
-#### A. Revenue by Product/Category (20-30 rows)
+#### A. Revenue by Product / Category（20-30 行）
 
-Create detailed table:
+创建详细表：
 ```
                         2021A   2022A   2023A   2024A   2025E   2026E   2027E   2028E   2029E
 Product Category A
@@ -224,17 +224,17 @@ TOTAL REVENUE           XX      XX      XX      XX      XX      XX      XX      
 Total Revenue Growth %  -       X%      X%      X%      X%      X%      X%      X%      X%
 ```
 
-**Key Requirements:**
-- Show absolute revenue ($M) for each category
-- Calculate % of total revenue for each category
-- Show YoY growth % for each category
-- Must have granular sub-categories (not just 3-5 top-level categories)
-- Show mix shift over time
-- Link all projections to Assumptions tab
+**关键要求：**
+- 展示每个 category 的绝对收入（$M）
+- 计算每个 category 占总收入比例
+- 展示每个 category 的 YoY 增长率
+- 必须做到 granular sub-categories，而不仅是 3-5 个大类
+- 展示业务 mix shift
+- 所有预测都要联动到 Assumptions tab
 
-#### B. Revenue by Geography (15-20 rows)
+#### B. Revenue by Geography（15-20 行）
 
-Create detailed table:
+创建详细表：
 ```
                         2021A   2022A   2023A   2024A   2025E   2026E   2027E   2028E   2029E
 North America
@@ -263,12 +263,12 @@ Rest of World
 TOTAL REVENUE           XX      XX      XX      XX      XX      XX      XX      XX      XX
 ```
 
-**Verification:**
-- Revenue by product total = Revenue by geography total = Total revenue
-- All percentages sum to 100%
-- Growth rates calculated correctly
+**Verification：**
+- 按产品拆分总收入 = 按地区拆分总收入 = Total revenue
+- 所有百分比加总为 100%
+- 增长率计算正确
 
-#### C. Revenue by Channel (if applicable)
+#### C. Revenue by Channel（如适用）
 
 ```
                         2021A   2022A   2023A   2024A   2025E   2026E   2027E   2028E   2029E
@@ -284,19 +284,19 @@ Other Channels          XX      XX      XX      XX      XX      XX      XX      
 TOTAL REVENUE           XX      XX      XX      XX      XX      XX      XX      XX      XX
 ```
 
-### Step 3: Model Operating Expenses
+### 第 3 步：建立 Operating Expenses 模型
 
 #### A. Cost of Revenue
-1. **Break down COGS components**
-   - Product costs (materials, manufacturing)
-   - Shipping and logistics
+1. **拆分 COGS 组成部分**
+   - 产品成本，材料、制造
+   - Shipping 和 logistics
    - Service delivery costs
-   - Other direct costs
+   - 其他直接成本
 
-2. **Link to revenue**
-   - Calculate COGS as % of revenue
-   - Model gross margin by year
-   - Link to Assumptions tab
+2. **与收入联动**
+   - 计算 COGS 占收入比例
+   - 按年份建模 gross margin
+   - 联动到 Assumptions tab
 
 #### B. R&D Expenses
 ```
@@ -333,13 +333,13 @@ Total G&A               XX      XX      XX      XX      XX      XX      XX      
 ```
 
 #### E. Depreciation & Amortization
-- Link to CapEx schedule
-- Apply depreciation rates from Assumptions
-- Calculate annual D&A
+- 联动到 CapEx schedule
+- 根据 Assumptions 中的折旧率建模
+- 计算年度 D&A
 
-### Step 4: Build Income Statement
+### 第 4 步：建立 Income Statement
 
-**Create full P&L with 40-50 line items:**
+**创建完整 P&L，40-50 个 line items：**
 
 ```
 INCOME STATEMENT        2021A   2022A   2023A   2024A   2025E   2026E   2027E   2028E   2029E
@@ -395,7 +395,7 @@ Basic EPS               $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   
 Diluted EPS             $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   $X.XX   $X.XX
 ```
 
-### Step 5: Build Cash Flow Statement
+### 第 5 步：建立 Cash Flow Statement
 
 ```
 CASH FLOW STATEMENT     2021A   2022A   2023A   2024A   2025E   2026E   2027E   2028E   2029E
@@ -440,9 +440,9 @@ Beginning Cash          XX      XX      XX      XX      XX      XX      XX      
 Ending Cash             XX      XX      XX      XX      XX      XX      XX      XX      XX
 ```
 
-### Step 6: Build Balance Sheet
+### 第 6 步：建立 Balance Sheet
 
-Create full balance sheet with 35-45 line items:
+创建完整 balance sheet，35-45 个 line items：
 
 ```
 BALANCE SHEET           2021A   2022A   2023A   2024A   2025E   2026E   2027E   2028E   2029E
@@ -497,13 +497,13 @@ TOTAL LIAB + EQUITY     XX      XX      XX      XX      XX      XX      XX      
 BALANCE CHECK           OK      OK      OK      OK      OK      OK      OK      OK      OK
 ```
 
-**Balance Check Formula:**
-- Total Assets must equal Total Liabilities + Equity for each year
-- Flag any imbalances in red
+**Balance Check Formula：**
+- 对每一年，Total Assets 必须等于 Total Liabilities + Equity
+- 任何不平衡都要用红色标示
 
-### Step 7: Build DCF Inputs Tab
+### 第 7 步：建立 DCF Inputs Tab
 
-Prepare inputs for valuation (Task 3):
+为估值（Task 3）准备输入：
 
 ```
 DCF INPUTS              2025E   2026E   2027E   2028E   2029E
@@ -525,9 +525,9 @@ Terminal Year Metrics:
   2029E Unlevered FCF   $XXX
 ```
 
-### Step 8: Build Scenarios Tab
+### 第 8 步：建立 Scenarios Tab
 
-Create three scenarios with different assumptions:
+创建三种情景及其差异化假设：
 
 #### Scenario Assumptions Table
 ```
@@ -553,113 +553,113 @@ Metric                          Bull        Base        Bear
 Cumulative FCF 2025-2029 ($M)   $XXX        $XXX        $XXX
 ```
 
-**Document scenario rationale:**
-- Bull case: [Describe optimistic but achievable assumptions]
-- Base case: [Describe most likely scenario]
-- Bear case: [Describe downside risks and triggers]
+**记录情景逻辑：**
+- Bull case：[描述乐观但可实现的假设]
+- Base case：[描述最可能发生的情景]
+- Bear case：[描述下行风险与触发因素]
 
-### Step 9: Quality Check
+### 第 9 步：质量检查
 
-**Verify model integrity:**
-1. [ ] Test all formulas (spot check calculations)
-2. [ ] Change assumption → verify model updates correctly
-3. [ ] Test scenario switching
-4. [ ] Verify color coding (blue/black/green)
-5. [ ] Check balance sheet balances for all years
-6. [ ] Verify no circular references (Excel will flag)
-7. [ ] Check for hardcoded numbers in projections
-8. [ ] Verify all cross-sheet links work
-9. [ ] Test that revenue totals tie across all tabs
-10. [ ] Review formatting and presentation
-
----
-
-## Quality Standards
-
-### Model Integrity
-- All formulas link properly across sheets
-- No hardcoded numbers in projections (except in Assumptions tab)
-- No circular references
-- Balance sheet balances for all years
-- Scenario switching works properly
-
-### Completeness
-- All 6 essential tabs: Revenue Model, Income Statement, Cash Flow Statement, Balance Sheet, Scenarios, DCF Inputs
-- 40-50 line items in Income Statement
-- 20-30 rows in Revenue Model (product breakdown)
-- 15-20 rows in Revenue Model (geography breakdown)
-- Full cash flow and balance sheet with all line items
-- Bull/Base/Bear scenarios complete
-
-### Professional Formatting
-- Consistent color coding (blue/black/green)
-- Clear headers and labels
-- Proper borders and shading
-- Named ranges for key cells
-- Grouped rows for collapsibility
-- Units clearly labeled ($ thousands vs. $ millions)
-
-### Documentation
-- Assumptions documented with rationale (blue text cells with comments)
-- Data sources noted in cell comments or notes section within tabs
-- Complex calculations explained with comments
-- Methodology described
+**验证模型完整性：**
+1. [ ] 检查公式，抽样测试关键计算
+2. [ ] 修改假设，确认模型联动更新正确
+3. [ ] 测试情景切换
+4. [ ] 验证颜色编码，blue/black/green
+5. [ ] 检查所有年份的 balance sheet 是否平衡
+6. [ ] 验证无 circular references，Excel 会提示
+7. [ ] 检查预测中是否出现硬编码数字
+8. [ ] 验证所有跨表链接是否正常
+9. [ ] 测试 revenue totals 在各 tabs 中是否一致
+10. [ ] 审查格式和展示质量
 
 ---
 
-## File Naming Convention
+## 质量标准
 
-Save the financial model as:
+### 模型完整性
+- 所有公式在不同工作表之间正确联动
+- 预测部分不出现硬编码数字，除 Assumptions tab 外
+- 无 circular references
+- 所有年份 balance sheet 平衡
+- 情景切换运作正确
+
+### 完整性
+- 6 个核心 tabs 完整存在：Revenue Model、Income Statement、Cash Flow Statement、Balance Sheet、Scenarios、DCF Inputs
+- Income Statement 含 40-50 个 line items
+- Revenue Model 中按产品拆分 20-30 行
+- Revenue Model 中按地区拆分 15-20 行
+- 完整 cash flow 和 balance sheet，含所有项目
+- Bull/Base/Bear 情景完整
+
+### 专业格式
+- 一致的颜色编码，blue/black/green
+- 清晰标题与标签
+- 合理边框与底纹
+- 关键单元格使用 named ranges
+- grouped rows 支持折叠
+- 单位清晰，$ thousands vs. $ millions
+
+### 文档记录
+- 假设附带逻辑说明，蓝色输入格及注释
+- 数据来源记录在单元格注释或 tabs 内 notes section
+- 对复杂计算加注释解释
+- 方法论描述清楚
+
+---
+
+## 文件命名规范
+
+财务模型命名为：
 `[Company]_Financial_Model_[Date].xlsx`
 
-Example: `Tesla_Financial_Model_2024-10-27.xlsx`
+示例：`Tesla_Financial_Model_2024-10-27.xlsx`
 
 ---
 
-## Success Criteria
+## 成功标准
 
-A successful financial model should:
-1. Have all 6 essential tabs (Revenue Model, Income Statement, Cash Flow Statement, Balance Sheet, Scenarios, DCF Inputs)
-2. Be fully dynamic (change assumption → model updates)
-3. Have no hardcoded numbers in projections
-4. Include detailed revenue breakdowns (20-30 rows by product, 15-20 rows by geography)
-5. Contain 40-50 line items in Income Statement
-6. Include Bull/Base/Bear scenarios
-7. Be professionally formatted with color coding
-8. Balance properly (balance sheet, cash flows)
-9. Be auditable and easy to follow
-10. Support valuation analysis with proper FCF calculations
+一个成功的财务模型应当：
+1. 拥有全部 6 个核心 tabs
+2. 完全动态化，修改假设即可联动更新
+3. 预测中不存在硬编码数字
+4. 包含详细收入拆分，按产品 20-30 行，按地区 15-20 行
+5. Income Statement 含 40-50 个 line items
+6. 包含 Bull/Base/Bear 情景
+7. 格式专业，颜色编码规范
+8. 勾稽正确，balance sheet 与 cash flow 平衡
+9. 可审计、易追踪
+10. 能为估值分析提供正确 FCF 输入
 
 ---
 
-## Common Model Types - Special Considerations
+## 常见模型类型 - 特殊考虑
 
-### High-Growth Tech/SaaS
-- Focus on ARR growth and net retention
-- Model by product line and geography
-- Heavy R&D and S&M spend
-- Path to profitability timeline
-- Unit economics (LTV/CAC)
+### High-Growth Tech / SaaS
+- 重点看 ARR growth 和 net retention
+- 按产品线和地区建模
+- R&D 与 S&M 投入较高
+- 盈利路径时间线
+- Unit economics，LTV/CAC
 
-### E-commerce/Retail
-- Revenue by product category and channel
-- Store count and comp store growth (if applicable)
-- Inventory turns and working capital
-- Fulfillment costs
+### E-commerce / Retail
+- 按产品类别和渠道拆分收入
+- 店铺数量与同店增长，如适用
+- 库存周转与营运资本
+- 履约成本
 - Customer acquisition
 
-### Manufacturing/Industrial
-- Production capacity utilization
-- Raw material costs and pricing
-- Gross margin bridge (volume/price/mix/cost)
-- CapEx heavy models
+### Manufacturing / Industrial
+- 产能利用率
+- 原材料成本与定价
+- Gross margin bridge，量 / 价 / mix / 成本
+- 重 CapEx 模型
 - Working capital cycles
 
 ---
 
-## Next Steps
+## 下一步
 
-After completing Task 2, the financial model will be used for:
-- **Task 3 (Valuation)**: DCF inputs, projected financials
-- **Task 4 (Charts)**: Data for revenue trends, margin charts, scenario comparisons
-- **Task 5 (Report Assembly)**: Financial data for report tables and analysis
+完成 Task 2 后，财务模型将用于：
+- **Task 3 (Valuation)**：提供 DCF inputs 和预测财务数据
+- **Task 4 (Charts)**：提供收入趋势、利润率图和情景对比图的数据
+- **Task 5 (Report Assembly)**：为报告表格和定量分析提供财务数据

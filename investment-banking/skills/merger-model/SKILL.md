@@ -1,30 +1,30 @@
 # Merger Model
 
-description: Build accretion/dilution analysis for M&A transactions. Models pro forma EPS impact, synergy sensitivities, and purchase price allocation. Use when evaluating a potential acquisition, preparing merger consequences analysis for a pitch, or advising on deal terms. Triggers on "merger model", "accretion dilution", "M&A model", "pro forma EPS", "merger consequences", or "deal impact analysis".
+description: 为并购交易构建增厚/摊薄分析。建模 pro forma EPS 影响、协同效应敏感性及 purchase price allocation。适用于评估潜在收购、为 pitch 准备 merger consequences analysis，或就交易条款提供建议。触发词包括 "merger model"、"accretion dilution"、"M&A model"、"pro forma EPS"、"merger consequences" 和 "deal impact analysis"。
 
 ## Workflow
 
-### Step 1: Gather Inputs
+### Step 1: 收集输入
 
 **Acquirer:**
-- Company name, current share price, shares outstanding
-- LTM and NTM EPS (GAAP and adjusted)
+- 公司名称、当前股价、流通股数
+- LTM 和 NTM EPS，GAAP 与 adjusted
 - P/E multiple
-- Pre-tax cost of debt, tax rate
-- Cash on balance sheet, existing debt
+- 税前债务成本、税率
+- 资产负债表现金、现有债务
 
 **Target:**
-- Company name, current share price, shares outstanding (if public)
-- LTM and NTM EPS or net income
-- Enterprise value or equity value
+- 公司名称、当前股价、流通股数，若为上市公司
+- LTM 和 NTM EPS 或净利润
+- Enterprise value 或 equity value
 
 **Deal Terms:**
-- Offer price per share (or premium to current)
-- Consideration mix: % cash vs. % stock
-- New debt raised to fund cash portion
-- Expected synergies (revenue and cost) and phase-in timeline
-- Transaction fees and financing costs
-- Expected close date
+- 每股出价，或相对当前股价的溢价
+- 对价结构，现金占比与股票占比
+- 为现金部分融资而新增的债务
+- 预期协同效应，收入和成本，以及释放节奏
+- 交易费用与融资费用
+- 预期交割日期
 
 ### Step 2: Purchase Price Analysis
 
@@ -48,9 +48,9 @@ description: Build accretion/dilution analysis for M&A transactions. Models pro 
 | | | Financing fees | |
 | **Total** | | **Total** | |
 
-### Step 4: Pro Forma EPS (Accretion / Dilution)
+### Step 4: Pro Forma EPS，Accretion / Dilution
 
-Calculate year-by-year (Year 1-3):
+按年度计算，Year 1 到 3：
 
 | | Standalone | Pro Forma | Accretion/(Dilution) |
 |---|-----------|-----------|---------------------|
@@ -65,7 +65,7 @@ Calculate year-by-year (Year 1-3):
 | **Pro forma EPS** | | | |
 | **Accretion / (Dilution) %** | | | |
 
-### Step 5: Sensitivity Analysis
+### Step 5: 敏感性分析
 
 **Accretion/Dilution vs. Synergies and Offer Premium:**
 
@@ -83,26 +83,26 @@ Calculate year-by-year (Year 1-3):
 | Year 1 | | | | | |
 | Year 2 | | | | | |
 
-### Step 6: Breakeven Synergies
+### Step 6: 盈亏平衡协同效应
 
-Calculate the minimum synergies needed for the deal to be EPS-neutral in Year 1.
+计算该交易在 Year 1 实现 EPS 中性的最低协同效应水平。
 
-### Step 7: Output
+### Step 7: 输出
 
-- Excel workbook with:
-  - Assumptions tab
+- Excel workbook，包含：
+  - Assumptions 标签页
   - Sources & uses
   - Pro forma income statement
   - Accretion/dilution summary
   - Sensitivity tables
   - Breakeven analysis
-- One-page merger consequences summary for pitch book
+- 用于 pitch book 的单页 merger consequences summary
 
 ## Important Notes
 
-- Always show both GAAP and adjusted (cash) EPS where relevant
-- Stock deals: use acquirer's current price for exchange ratio, note dilution from new shares
-- Include purchase price allocation — goodwill and intangible amortization matter for GAAP EPS
-- Synergy phase-in is critical — Year 1 is often only 25-50% of run-rate synergies
-- Don't forget foregone interest income on cash used and new interest expense on debt raised
-- Tax rate on synergies and interest adjustments should match the acquirer's marginal rate
+- 在相关场景下，始终同时展示 GAAP 与 adjusted，cash，EPS
+- 股票对价交易中，使用收购方当前股价计算 exchange ratio，并说明新发股份带来的摊薄
+- 要纳入 purchase price allocation，goodwill 与 intangible amortization 会影响 GAAP EPS
+- 协同效应释放节奏很关键，Year 1 往往只能实现 run-rate synergy 的 25% 到 50%
+- 不要漏掉动用现金带来的利息收入损失，以及新增债务的利息费用
+- 协同效应和利息调整所用税率应与收购方边际税率一致

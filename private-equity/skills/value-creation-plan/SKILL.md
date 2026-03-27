@@ -1,55 +1,55 @@
-# Value Creation Plan
+# 价值创造计划
 
-description: Structure post-acquisition value creation plans with revenue, cost, and operational levers mapped to an EBITDA bridge. Includes 100-day priorities, KPI targets, and accountability frameworks. Use when planning post-close execution, preparing operating partner materials, or building a board-ready value creation roadmap. Triggers on "value creation plan", "100-day plan", "post-close plan", "EBITDA bridge", "operating plan", or "value creation levers".
+description: 以 EBITDA bridge 为主线，梳理并结构化收购后的价值创造计划，覆盖收入、成本和运营杠杆。包含 100 天优先事项、KPI 目标和责任落实框架。适用于规划交割后执行、准备 operating partner 材料，或制定可供董事会审阅的价值创造路线图。触发词包括 "value creation plan"、"100-day plan"、"post-close plan"、"EBITDA bridge"、"operating plan" 或 "value creation levers"。
 
 ## Workflow
 
-### Step 1: Baseline Assessment
+### Step 1: 基线评估
 
-Understand the starting point:
-- Current revenue, EBITDA, and margins
-- Organizational structure and capabilities
-- Key operational metrics by function
-- Management team strengths and gaps
-- Quick wins already identified during diligence
+了解起点：
+- 当前收入、EBITDA 和利润率
+- 组织架构与能力现状
+- 各职能的关键运营指标
+- 管理团队的优势与短板
+- 尽调中已识别的快速改善机会
 
-### Step 2: Value Creation Levers
+### Step 2: 价值创造杠杆
 
-Map all levers to an EBITDA bridge over the hold period:
+将所有杠杆映射到持有期内的 EBITDA bridge：
 
-#### Revenue Growth Levers
-- **Organic growth**: Price increases, volume growth, market expansion
-- **Cross-sell / upsell**: New products to existing customers
-- **New market entry**: Geographic expansion, new verticals, new channels
-- **Sales force effectiveness**: Hire reps, improve conversion, shorten cycle
-- **M&A / add-ons**: Bolt-on acquisitions to add revenue and capabilities
+#### 收入增长杠杆
+- **Organic growth**：提价、销量增长、市场扩张
+- **Cross-sell / upsell**：向现有客户销售新产品
+- **New market entry**：地域扩张、新垂直领域、新渠道
+- **Sales force effectiveness**：招聘销售、提升转化率、缩短销售周期
+- **M&A / add-ons**：通过 bolt-on acquisitions 增加收入和能力
 
-For each lever:
-- Current state → Target state
-- Revenue impact ($)
-- Timeline to impact
-- Investment required
-- Confidence level (high/medium/low)
+对每个杠杆都要说明：
+- 当前状态 → 目标状态
+- 收入影响（$）
+- 见效时间线
+- 所需投入
+- 置信度（高 / 中 / 低）
 
-#### Margin Expansion Levers
-- **Pricing optimization**: Price increases, mix shift, bundling
-- **COGS reduction**: Procurement savings, supplier consolidation, automation
-- **OpEx optimization**: Overhead reduction, shared services, offshoring
-- **Technology investment**: Automation, systems integration, data analytics
-- **Scale leverage**: Fixed cost leverage as revenue grows
+#### 利润率提升杠杆
+- **Pricing optimization**：提价、产品组合优化、打包销售
+- **COGS reduction**：采购节省、供应商整合、自动化
+- **OpEx optimization**：间接费用削减、共享服务、离岸化
+- **Technology investment**：自动化、系统集成、数据分析
+- **Scale leverage**：收入增长带来的固定成本摊薄
 
-#### Strategic / Multiple Expansion
-- **Platform building**: Add-on acquisitions, tuck-ins
-- **Recurring revenue shift**: Move from project to recurring/subscription
-- **Market positioning**: Category leadership, brand building
-- **Management upgrades**: Key hires to professionalize the business
-- **ESG / governance**: Board formation, reporting improvements
+#### 战略 / 倍数提升
+- **Platform building**：附加收购、tuck-in
+- **Recurring revenue shift**：从项目型收入转向经常性 / 订阅型收入
+- **Market positioning**：类目领导地位、品牌建设
+- **Management upgrades**：关键岗位招聘，推动业务专业化
+- **ESG / governance**：建立董事会、改进报告机制
 
 ### Step 3: EBITDA Bridge
 
-Build the walk from current to target EBITDA:
+构建从当前 EBITDA 到目标 EBITDA 的路径：
 
-| Lever | Year 1 | Year 2 | Year 3 | Year 4 | Year 5 |
+| 杠杆 | Year 1 | Year 2 | Year 3 | Year 4 | Year 5 |
 |-------|--------|--------|--------|--------|--------|
 | Base EBITDA | | | | | |
 | Organic revenue growth | | | | | |
@@ -61,35 +61,35 @@ Build the walk from current to target EBITDA:
 | **Pro Forma EBITDA** | | | | | |
 | **Margin** | | | | | |
 
-### Step 4: 100-Day Plan
+### Step 4: 100 天计划
 
-Prioritize the first 100 days post-close:
+确定交割后前 100 天的优先事项：
 
 **Days 1-30: Stabilize & Assess**
-- Management alignment and retention (sign employment agreements, set comp)
-- Quick wins — pricing, obvious cost cuts, low-hanging fruit
-- Detailed operational assessment by function
-- Customer communication plan
-- Set up reporting and KPI dashboards
+- 管理层对齐与留任，签署雇佣协议，明确激励方案
+- 快速改善机会，如提价、显而易见的成本削减、低垂果实
+- 按职能开展详细运营评估
+- 客户沟通计划
+- 建立报告机制和 KPI 仪表盘
 
 **Days 31-60: Plan & Initiate**
-- Finalize strategic plan and communicate to organization
-- Launch top 3-5 value creation initiatives
-- Begin add-on M&A pipeline development
-- Hire for critical gaps
-- Implement new reporting cadence (weekly flash, monthly review, quarterly board)
+- 最终敲定战略计划并向组织传达
+- 启动最重要的 3-5 项价值创造举措
+- 开始推进 add-on M&A 管道建设
+- 补齐关键岗位招聘
+- 实施新的报告节奏，weekly flash、monthly review、quarterly board
 
 **Days 61-100: Execute & Measure**
-- First results from quick-win initiatives
-- First board meeting with operating metrics
-- Progress report on each value creation lever
-- Adjust plan based on early learnings
+- 看到快速举措的首批成果
+- 举行第一次包含运营指标的董事会会议
+- 汇报每个价值创造杠杆的进展
+- 根据早期反馈调整计划
 
-### Step 5: KPI Dashboard
+### Step 5: KPI 仪表盘
 
-Define the metrics that will track value creation:
+定义用于追踪价值创造的指标：
 
-| KPI | Current | Year 1 Target | Owner | Reporting Frequency |
+| KPI | 当前值 | Year 1 Target | 负责人 | 报告频率 |
 |-----|---------|---------------|-------|-------------------|
 | Revenue | | | CEO | Monthly |
 | EBITDA | | | CFO | Monthly |
@@ -99,22 +99,22 @@ Define the metrics that will track value creation:
 | Employee turnover | | | CHRO | Monthly |
 | Cash conversion | | | CFO | Monthly |
 
-### Step 6: Output
+### Step 6: 输出
 
-- Word document or PowerPoint with:
-  - Executive summary (1 page)
-  - EBITDA bridge chart
-  - Value creation levers detail (1 page per lever)
-  - 100-day plan timeline
-  - KPI dashboard
-  - Accountability matrix (who owns what)
-- Excel model backing the EBITDA bridge
+- Word 文档或 PowerPoint，包含：
+  - 执行摘要（1 页）
+  - EBITDA bridge 图表
+  - 价值创造杠杆详情（每个杠杆 1 页）
+  - 100 天计划时间线
+  - KPI 仪表盘
+  - 责任矩阵，谁负责什么
+- 支撑 EBITDA bridge 的 Excel 模型
 
-## Important Notes
+## 重要说明
 
-- Be realistic about timing — most PE value creation takes 12-24 months to show in financials
-- Quick wins matter for momentum and credibility, but don't over-rotate on cost cuts at the expense of growth
-- Management buy-in is critical — co-develop the plan, don't impose it
-- Track initiative-level P&L impact, not just top-line EBITDA — you need to know what's working
-- Add-on M&A is often the largest value creation lever — start the pipeline on Day 1
-- Always pressure-test assumptions with operating partners or industry experts
+- 时间判断要现实，大多数 PE 价值创造需要 12-24 个月才会在财务上体现出来
+- 快速成果对 momentum 和管理层信心很重要，但不要为了短期降本牺牲增长
+- 管理层 buy-in 至关重要，要与其共同制定计划，而不是强加
+- 要跟踪到单项举措的 P&L 影响，不只是看总 EBITDA，你需要知道到底什么在起作用
+- Add-on M&A 往往是最大的价值创造杠杆，Day 1 就应启动项目储备
+- 始终用 operating partners 或行业专家来压力测试关键假设

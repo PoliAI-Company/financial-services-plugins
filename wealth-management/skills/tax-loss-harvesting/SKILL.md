@@ -1,25 +1,25 @@
-# Tax-Loss Harvesting
+# 税损收割
 
-description: Identify tax-loss harvesting opportunities across taxable accounts. Finds positions with unrealized losses, suggests replacement securities, and tracks wash sale windows. Triggers on "tax-loss harvesting", "TLH", "harvest losses", "tax losses", "unrealized losses", or "year-end tax planning".
+description: 在 taxable 账户中识别 tax-loss harvesting 机会。找出存在未实现亏损的持仓，建议替代证券，并跟踪 wash sale 窗口。触发词包括 "tax-loss harvesting"、"TLH"、"harvest losses"、"tax losses"、"unrealized losses" 或 "year-end tax planning"。
 
 ## Workflow
 
-### Step 1: Identify Candidates
+### Step 1: 识别候选项
 
-Scan taxable accounts for positions with unrealized losses:
+扫描 taxable 账户中存在未实现亏损的持仓：
 
 | Security | Asset Class | Cost Basis | Current Value | Unrealized Loss | Holding Period | % Loss |
 |----------|-----------|-----------|---------------|-----------------|---------------|--------|
 | | | | | | ST / LT | |
 
-**Prioritize by:**
-1. Largest absolute loss (biggest tax benefit)
-2. Short-term losses first (offset short-term gains taxed at ordinary income rates)
-3. Positions with the largest % loss (less likely to recover quickly)
+**优先级规则：**
+1. 绝对亏损金额最大，税务收益最大
+2. 优先短期亏损，可抵消按普通所得税税率征税的短期收益
+3. 跌幅百分比最大的持仓，短期内反弹概率可能更低
 
-### Step 2: Gain/Loss Budget
+### Step 2: 盈亏预算
 
-Calculate the client's tax situation:
+计算客户当前税务情况：
 
 | Category | Amount |
 |----------|--------|
@@ -30,75 +30,75 @@ Calculate the client's tax situation:
 | Carryforward losses from prior years | |
 | **Target harvesting amount** | |
 
-**Tax savings estimate:**
-- Short-term losses × marginal ordinary income rate
-- Long-term losses × capital gains rate
-- Up to $3,000 net loss deduction against ordinary income
-- Excess carries forward
+**税务节省估算：**
+- 短期亏损 × 边际普通所得税率
+- 长期亏损 × 资本利得税率
+- 最多可用 $3,000 净亏损抵扣普通收入
+- 超出部分结转以后年度
 
-### Step 3: Replacement Securities
+### Step 3: 替代证券
 
-For each harvest candidate, suggest a replacement that:
-- Maintains similar market exposure (same asset class, sector, geography)
-- Is NOT "substantially identical" (wash sale rule)
-- Has similar risk/return characteristics
+对每个可收割候选，建议一个替代品，要求：
+- 保持相近市场暴露，同一资产类别、行业、地域
+- 不是 "substantially identical"，避免触发 wash sale
+- 风险 / 回报特征相近
 
 | Sell | Replace With | Reason | Tracking Error Risk |
 |------|-------------|--------|-------------------|
-| SPDR S&P 500 (SPY) | iShares Core S&P 500 (IVV) | Same index, different fund family | Minimal |
-| Vanguard Total Intl (VXUS) | iShares MSCI ACWI ex-US (ACWX) | Similar exposure, different index | Low |
-| Individual stock ABC | Sector ETF (XLK) | Broader exposure, no wash sale risk | Moderate |
+| SPDR S&P 500 (SPY) | iShares Core S&P 500 (IVV) | 同类指数暴露，不同基金公司 | Minimal |
+| Vanguard Total Intl (VXUS) | iShares MSCI ACWI ex-US (ACWX) | 暴露相近，指数不同 | Low |
+| Individual stock ABC | Sector ETF (XLK) | 更广泛暴露，无 wash sale 风险 | Moderate |
 
-### Step 4: Wash Sale Check
+### Step 4: Wash Sale 检查
 
-Before executing, verify no wash sales:
+执行前，确认不存在 wash sale：
 
-- Check ALL accounts in the household (taxable, IRA, Roth, spouse accounts)
-- 30-day lookback: Did we buy substantially identical securities in the last 30 days?
-- 30-day forward: Block repurchase of the same security for 30 days
-- Check for dividend reinvestment plans (DRIPs) that could trigger wash sales
-- Document the wash sale window for each trade
+- 检查家庭层面所有账户，taxable、IRA、Roth、配偶账户
+- 向前看 30 天，过去 30 天是否买入了实质相同证券
+- 向后看 30 天，未来 30 天内禁止回补同一证券
+- 检查 dividend reinvestment plans，DRIPs，它们也可能触发 wash sale
+- 为每笔交易记录 wash sale 窗口
 
 | Security Sold | Wash Sale Window Start | Window End | DRIP Active? | Risk |
 |--------------|----------------------|-----------|-------------|------|
 | | | | | |
 
-### Step 5: Execution Plan
+### Step 5: 执行计划
 
 | Trade # | Account | Action | Security | Shares | Est. Proceeds | Est. Loss | Replacement | Notes |
 |---------|---------|--------|----------|--------|--------------|-----------|-------------|-------|
 | | | Sell | | | | | | |
 | | | Buy | | | | | | |
 
-**Summary:**
-- Total estimated losses harvested: $
-- Estimated tax savings: $ (at marginal rate of %)
-- Net portfolio impact: minimal (replacement securities maintain exposure)
-- Wash sale window management: [dates]
+**Summary：**
+- 预计收割总亏损：$
+- 预计节税：$，按边际税率 % 估算
+- 对组合的净影响很小，替代证券维持原有市场暴露
+- Wash sale window 管理：[dates]
 
-### Step 6: Post-Harvest Tracking
+### Step 6: 收割后跟踪
 
-After 30+ days, optionally:
-- Swap back to original securities (if preferred)
-- Maintain replacement securities (if no reason to switch back)
-- Update cost basis records
-- Document for tax reporting
+30+ 天后，可选：
+- 换回原始证券，如有需要
+- 持续持有替代证券，如无必要换回
+- 更新成本基础记录
+- 为税务申报留存记录
 
-### Step 7: Output
+### Step 7: 输出
 
-- Harvest opportunity list (Excel)
-- Trade execution sheet
-- Wash sale tracking calendar
-- Tax savings estimate summary
-- Replacement security rationale
+- 收割机会清单，Excel
+- 交易执行表
+- Wash sale 跟踪日历
+- 税务节省估算摘要
+- 替代证券选择理由
 
 ## Important Notes
 
-- Wash sale rules are strict — violations disallow the loss AND adjust cost basis
-- Substantially identical means same security, not same asset class — ETFs tracking different indexes are generally fine
-- Always coordinate across all household accounts including retirement accounts
-- Consider the long-term cost basis step-down — harvesting resets cost basis, which means more gains later
-- Year-end is prime harvesting season but opportunities exist throughout the year
-- Mutual fund capital gains distributions in December can create additional harvesting urgency
-- Document everything for tax reporting and compliance
-- Not all losses are worth harvesting — transaction costs and tracking error have real costs
+- Wash sale 规则很严格，违规会导致亏损不得抵扣，并且要调整成本基础
+- Substantially identical 指的是同一证券，不是同一资产类别，跟踪不同指数的 ETF 通常问题不大
+- 始终在家庭所有账户层面统筹，包括退休账户
+- 也要考虑长期成本基础被下调的代价，收割会重置成本基础，未来可能产生更多收益税
+- 年底是收割高峰，但全年都可能出现机会
+- 12 月 mutual fund capital gains distributions 可能会提高收割紧迫度
+- 为税务申报和合规完整记录所有动作
+- 不是所有亏损都值得收割，交易成本和 tracking error 都是真实成本

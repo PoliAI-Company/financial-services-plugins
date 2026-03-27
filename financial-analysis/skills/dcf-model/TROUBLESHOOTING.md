@@ -1,40 +1,40 @@
-# DCF Model Troubleshooting Guide
+# DCF 模型故障排查指南
 
-**When to read this file:** If recalc.py shows errors OR valuation results seem unreasonable OR case selector not working properly.
+**何时阅读此文件：** 如果 recalc.py 显示错误，或估值结果看起来不合理，或 case selector 不能正常工作。
 
-## Model Returns Error Values
+## 模型返回错误值
 
-### #REF! Errors
-- Usually caused by formulas referencing wrong rows after headers were inserted
-- Solution: Rebuild with correct row references, or start over following layout planning
-- Prevention: Define all row positions BEFORE writing formulas
+### #REF! 错误
+- 通常由插入标题后公式引用错误行引起
+- 解决方案：使用正确的行引用重建，或按布局规划从头开始
+- 预防：在写公式**之前**定义所有行位置
 
-### #DIV/0! Errors
-- Division by zero or empty cells
-- Solution: Add IF statements to handle zeros: `=IF([Divisor]=0,0,[Numerator]/[Divisor])`
+### #DIV/0! 错误
+- 分母为零或单元格为空
+- 解决方案：加入 IF 语句处理零值：`=IF([Divisor]=0,0,[Numerator]/[Divisor])`
 
-### #VALUE! Errors
-- Wrong data type in calculation (text instead of number)
-- Solution: Verify all inputs are formatted as numbers
+### #VALUE! 错误
+- 计算中数据类型错误（文本而不是数字）
+- 解决方案：确认所有输入都格式化为数字
 
-## Valuation Seems Unreasonable
+## 估值看起来不合理
 
-### Implied price far too high
-- Check terminal value isn't >80% of EV
-- Verify terminal growth < WACC
-- Review if growth assumptions are realistic
-- Consider if margins are too optimistic
+### 隐含股价过高
+- 检查终值是否超过 EV 的 80%
+- 验证 terminal growth < WACC
+- 检查增长假设是否现实
+- 考虑利润率是否过于乐观
 
-### Implied price far too low
-- Verify net debt vs net cash is correct
-- Check if WACC is too high
-- Review if projections are too conservative
-- Consider if terminal growth is too low
+### 隐含股价过低
+- 确认净负债与净现金判断是否正确
+- 检查 WACC 是否过高
+- 检查预测是否过于保守
+- 考虑 terminal growth 是否过低
 
-## Case Selector Not Working
+## Case Selector 无法工作
 
-### Consolidation column not updating when switching scenarios
-- Verify case selector cell contains 1, 2, or 3
-- Check INDEX/OFFSET formulas reference correct row range and selector cell
-- Ensure absolute references ($B$6) are used for selector
-- Test by manually changing the selector cell and verifying projection values update
+### 切换场景时 consolidation column 不更新
+- 验证 case selector 单元格包含 1、2 或 3
+- 检查 INDEX/OFFSET 公式是否引用了正确的行范围和 selector 单元格
+- 确保 selector 使用绝对引用（`$B$6`）
+- 手动修改 selector 单元格并验证预测值是否更新

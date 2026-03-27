@@ -1,61 +1,61 @@
-# PowerPoint XML Reference
+# PowerPoint XML 参考
 
-This file contains XML patterns for programmatic PowerPoint editing. Use these patterns when working directly with OOXML format.
+本文件汇总了以程序化方式编辑 PowerPoint 时可用的 XML 模式。直接处理 OOXML 格式时，可以参考这些模式。
 
-**Note:** Color values in examples (e.g., `E67E22`, `D35400`) are placeholders. Replace with your template's brand colors.
+**Note:** 示例中的颜色值，例如 `E67E22`、`D35400`，只是占位符。实际使用时应替换为模板的品牌色。
 
 ---
 
-## ⚠️ When to Use This Reference
+## ⚠️ 何时使用本参考
 
-**Use python-pptx for:**
-- Creating new tables (handles cell structure and relationships automatically)
-- Adding text boxes
-- Inserting images
-- Most shape creation
-- Any operation where python-pptx provides an API
+**以下场景请使用 python-pptx：**
+- 创建新表格，python-pptx 会自动处理单元格结构和 relationships
+- 添加文本框
+- 插入图片
+- 大多数 shape 创建
+- 任何 python-pptx 已提供 API 的操作
 
-**Use direct XML editing only for:**
-- Modifying properties of existing elements that python-pptx doesn't expose
-- Fine-tuning cell formatting after table creation via python-pptx
-- Adjusting specific shape properties not available via the python-pptx API
+**只有在以下场景才直接编辑 XML：**
+- 修改 python-pptx API 没有暴露的既有元素属性
+- 在通过 python-pptx 创建表格后，再对单元格格式做精细调整
+- 微调 python-pptx API 尚不支持的特定 shape 属性
 
 **NEVER use direct XML for:**
-- Creating tables from scratch (relationship management is error-prone and will likely corrupt the file)
-- Initial shape creation (shape ID collision risk)
-- Anything you can accomplish via python-pptx
+- 从零创建表格，relationship 管理容易出错，并且很可能损坏文件
+- 初始 shape 创建，容易引发 shape ID 冲突
+- 任何本可通过 python-pptx 完成的工作
 
-The XML patterns in this file are for **reference and targeted modifications**, not wholesale element construction.
-
----
-
-## XML Editing Risks
-
-Direct XML editing can corrupt PowerPoint files if not done carefully:
-- PowerPoint XML has interdependencies (relationship files, content types)
-- Invalid XML or missing relationships can corrupt the entire file
-- Shape IDs must be unique across each slide
-
-**Always work on a backup copy** — never edit the original file directly.
+本文件中的 XML 模式用于**参考和定向修改**，不是让你整块构建新元素。
 
 ---
 
-## Contents
-- [Table Implementation](#table-implementation)
-- [Arrow Shapes](#arrow-shapes)
-- [Text Boxes](#text-boxes)
-- [Shapes with Fill](#shapes-with-fill)
-- [Image Insertion](#image-insertion)
-- [Connector Lines](#connector-lines)
-- [Unit Conversions](#unit-conversions)
+## XML 编辑风险
+
+如果不谨慎，直接编辑 XML 会损坏 PowerPoint 文件：
+- PowerPoint XML 存在多层依赖，relationship files、content types 等
+- 无效 XML 或缺失 relationship 会破坏整个文件
+- 每页中的 shape ID 都必须唯一
+
+**Always work on a backup copy**，绝不要直接编辑原始文件。
 
 ---
 
-## Table Implementation
+## 目录
+- [表格实现](#表格实现)
+- [箭头形状](#箭头形状)
+- [文本框](#文本框)
+- [带填充的形状](#带填充的形状)
+- [图片插入](#图片插入)
+- [连接线](#连接线)
+- [单位换算](#单位换算)
 
-### CRITICAL: Verify Tables Are Actual Table Objects
+---
 
-After creating any table, you MUST verify it is an actual table object, not text with separators.
+## 表格实现
+
+### CRITICAL: 验证表格是真正的 Table Object
+
+创建任何表格后，你都**必须**验证它是真正的 table object，而不是带分隔符的文本。
 
 **Programmatic verification (python-pptx):**
 ```python
@@ -65,17 +65,17 @@ for shape in slide.shapes:
 ```
 
 **Visual verification (in exported image):**
-- Columns align perfectly regardless of content length
-- Cell borders are consistent
-- Selecting the table selects all cells as a unit
+- 无论内容长短，列都能严格对齐
+- 单元格边框一致
+- 选中表格时，应作为一个整体被选中
 
-**Failure indicators — you have created TEXT, not a table:**
-- `|` characters visible between values
-- Columns misalign when content length varies
-- Tab characters (`\t`) used for spacing
-- Multiple text boxes arranged to look like a table
+**Failure indicators，你创建的是文本，不是表格：**
+- 值之间能看到 `|` 字符
+- 内容长度变化时，列会错位
+- 使用了 tab 字符 `\t` 来制造间距
+- 用多个文本框拼成看似表格的版式
 
-Text-based "tables" cannot be edited by the recipient, will misalign when fonts change, and signal amateur work. There is no acceptable use case for pipe/tab-separated tabular data in a pitch deck.
+基于文本的“伪表格”无法被接收方正常编辑，字体变化后会错位，也会明显显得不专业。在 pitch deck 中，没有任何可以接受的场景去使用 pipe/tab 分隔的表格文本。
 
 ---
 
@@ -164,7 +164,7 @@ Text-based "tables" cannot be edited by the recipient, will misalign when fonts 
 
 ---
 
-## Arrow Shapes
+## 箭头形状
 
 ### Right Arrow Shape
 
@@ -243,7 +243,7 @@ Text-based "tables" cannot be edited by the recipient, will misalign when fonts 
 
 ---
 
-## Text Boxes
+## 文本框
 
 ### Basic Text Box
 
@@ -325,7 +325,7 @@ Text-based "tables" cannot be edited by the recipient, will misalign when fonts 
 
 ---
 
-## Shapes with Fill
+## 带填充的形状
 
 ### Rectangle with Solid Fill
 
@@ -373,7 +373,7 @@ Text-based "tables" cannot be edited by the recipient, will misalign when fonts 
 
 ---
 
-## Image Insertion
+## 图片插入
 
 ### Adding Image to Slide
 
@@ -406,7 +406,7 @@ Text-based "tables" cannot be edited by the recipient, will misalign when fonts 
 
 ### Adding Image Relationship
 
-In `ppt/slides/_rels/slideN.xml.rels`:
+在 `ppt/slides/_rels/slideN.xml.rels` 中：
 
 ```xml
 <Relationship Id="rIdLogo" 
@@ -416,7 +416,7 @@ In `ppt/slides/_rels/slideN.xml.rels`:
 
 ---
 
-## Connector Lines
+## 连接线
 
 ### Straight Connector
 
@@ -468,7 +468,7 @@ In `ppt/slides/_rels/slideN.xml.rels`:
 
 ---
 
-## Unit Conversions
+## 单位换算
 
 | Unit | EMUs per unit |
 |------|---------------|

@@ -1,138 +1,138 @@
 ---
 name: funding-digest
-description: "Generate a polished one-page PowerPoint slide summarizing key takeaways from recent funding rounds and notable capital markets activity across a user's watched sectors or companies. Use this skill when the user asks for a deal flow summary, weekly recap, funding digest, transaction roundup, or capital markets briefing. Triggers on: 'deal flow digest', 'weekly funding recap', 'deal roundup', 'transaction summary this week', 'what happened in [sector] this week', 'capital markets update', or any request to compile recent funding activity into a briefing slide. Produces a professional single-slide PPTX with key takeaways, valuation data, and Capital IQ deal links."
+description: 生成一页精致的 PowerPoint 幻灯片，总结用户关注行业或公司中近期融资轮次和重要资本市场活动的关键结论。当用户要求 deal flow 摘要、每周回顾、融资 digest、交易 roundup 或资本市场 briefing 时使用。触发语包括：'deal flow digest'、'weekly funding recap'、'deal roundup'、'transaction summary this week'、'what happened in [sector] this week'、'capital markets update'，以及任何要求把近期融资活动整理成 briefing 幻灯片的请求。输出为专业单页 PPTX，包含关键结论、估值数据和 Capital IQ 交易链接。
 ---
 
-**AI DISCLAIMER (MANDATORY):**
-You MUST include the following disclaimer text in the powerpoint footer. This is not optional — the report is incomplete without it:
+**AI 免责声明，强制要求：**
+你必须在 PowerPoint 页脚中包含以下免责声明文本。这不是可选项，缺少它就表示报告不完整：
 
 > **"Analysis is AI-generated — please confirm all outputs"**
 
-**Footer** — At the bottom of the generated slide, as a prominent yellow banner: "Analysis is AI-generated — please confirm all outputs"
+**页脚**，在生成幻灯片底部，以醒目的黄色横幅展示：`Analysis is AI-generated — please confirm all outputs`
 
 ---
 
-# Weekly Deal Flow Digest
+# 每周 Deal Flow Digest
 
-Generate an analyst-quality **single-slide PowerPoint** that summarizes key takeaways from recent funding rounds across watched sectors or companies, using S&P Global Capital IQ data. Each deal links back to its Capital IQ profile for quick drill-down.
+生成一页 **分析师级别的 PowerPoint 幻灯片**，总结用户所关注行业或公司中近期融资轮次的关键结论，并使用 S&P Global Capital IQ 数据。每笔交易都应链接回它在 Capital IQ 中的资料页，方便快速下钻。
 
-## When to Use
+## 适用场景
 
-Trigger on any of these patterns:
-- "Give me a deal flow digest for this week"
-- "Weekly funding recap for [sector]"
-- "What deals closed in [sector/companies] recently?"
-- "Transaction roundup" or "deal roundup"
-- "Capital markets update for my coverage universe"
-- "Summarize recent funding activity"
-- Any periodic briefing request about deals, raises, or rounds
+当用户提出以下类型需求时触发：
+- “Give me a deal flow digest for this week”
+- “Weekly funding recap for [sector]”
+- “What deals closed in [sector/companies] recently?”
+- “Transaction roundup” 或 “deal roundup”
+- “Capital markets update for my coverage universe”
+- “Summarize recent funding activity”
+- 任何关于 deal、raises 或 rounds 的周期性 briefing 请求
 
-## Nested Skills
+## 嵌套 Skills
 
-This skill produces a one-slide PPTX briefing:
-- **Read** `/mnt/skills/public/pptx/SKILL.md` before generating the PowerPoint (and its sub-reference `pptxgenjs.md` for creating from scratch)
+这个 skill 会生成单页 PPTX briefing：
+- 在生成 PowerPoint 之前，先阅读 `/mnt/skills/public/pptx/SKILL.md`，以及其子参考 `pptxgenjs.md`
 
-## Entity Resolution & Tool Robustness
+## 实体解析与工具稳健性
 
-S&P Global's identifier system resolves company names to legal entities. This works well for most companies but has known failure modes that cause empty results. **Apply these rules throughout the workflow to avoid silent data loss.**
+S&P Global 的标识符系统会把公司名称解析到法定实体。大多数情况下效果不错，但也有一些已知失败模式，会导致返回空结果。**在整个工作流中都应执行下面这些规则，避免静默数据缺失。**
 
-### Rule 0: Pre-validate ALL identifiers before querying funding
+### Rule 0，在查询融资前预校验所有标识符
 
-**Before** calling any funding tools, run every identifier through `get_info_from_identifiers`. This is the cheapest and most reliable way to catch problems early. Check two things in the response:
+**在** 调用任何融资工具之前，先把每个标识符跑一遍 `get_info_from_identifiers`。它成本最低，也最可靠。检查两件事：
 
-1. **Did it resolve at all?** If the identifier returns empty/error, the name doesn't exist in S&P Global. Try the alias from `references/sector-seeds.md`, the legal entity name, or the `company_id` directly.
-2. **What is the `status` field?** 
-   - `"Operating"` → Safe to query for funding rounds.
-   - `"Operating Subsidiary"` → The company exists but is owned by a parent. It will return **zero funding rounds**. Note this in the digest as context (e.g., "acquired by [Parent]") but do not query for funding.
-   - Any other status (e.g., closed, inactive) → The company is no longer operating. Historical data may exist but no new activity.
+1. **是否成功解析？** 如果某个标识符返回空结果或错误，说明该名字在 S&P Global 中不存在。尝试 `references/sector-seeds.md` 里的别名、法定实体名称，或者直接使用 `company_id`。
+2. **`status` 字段是什么？**
+   - `Operating`，可以安全查询融资轮
+   - `Operating Subsidiary`，公司存在，但已被母公司持有，会返回 **零融资轮**。可以在 digest 中将其作为背景说明，比如 “acquired by [Parent]”，但不要对其做融资查询
+   - 其他状态，比如 closed、inactive，表示公司已不再运营，可能有历史数据，但不会有新活动
 
-**This single pre-validation step prevents the majority of empty-result issues.** Batch all candidates into a single `get_info_from_identifiers` call (it handles large batches well) and triage before proceeding.
+**这一步单独的预校验能避免大部分空结果问题。** 把候选公司批量送入单次 `get_info_from_identifiers` 调用，然后先做分流。
 
-### Rule 1: Never trust empty results without a fallback
+### Rule 1，遇到空结果时绝不能直接相信
 
-If `get_rounds_of_funding_from_identifiers` returns empty for a company you expect to have data:
-1. **Try the legal entity name or company_id.** Brand names usually work, but some don't. See the alias table in `references/sector-seeds.md` for known mismatches. Common pattern: "[Brand] AI" → "[Legal Name], Inc." (e.g., Together AI → "Together Computer, Inc.", Character.ai → "Character Technologies, Inc.", Runway ML → "Runway AI, Inc.").
-2. **Verify the company exists in S&P.** If you skipped Rule 0, call `get_info_from_identifiers(identifiers=["Company"])` now — if this also returns empty, the company may be too early-stage or not yet indexed.
+如果 `get_rounds_of_funding_from_identifiers` 对某家公司返回空结果，而你原本预期它应该有数据：
+1. **尝试法定实体名称或 company_id。** 品牌名通常能用，但不是绝对。已知别名映射见 `references/sector-seeds.md`。典型模式是 “[Brand] AI” 对应 “[Legal Name], Inc.”。
+2. **确认公司确实存在于 S&P 中。** 如果你跳过了 Rule 0，现在就调用 `get_info_from_identifiers(identifiers=["Company"])`。若它也返回空，说明该公司可能太早期，尚未被索引。
 
-### Rule 2: Subsidiaries have no funding rounds
+### Rule 2，子公司没有独立融资轮
 
-Companies that are divisions or wholly-owned subsidiaries of larger companies (e.g., DeepMind under Alphabet, GitHub under Microsoft, BeReal under Voodoo) will return **zero funding rounds**. Their capital events are tracked at the parent level.
+那些是大公司事业部或全资子公司的公司，比如 DeepMind、GitHub、BeReal，会返回 **零融资轮**。它们的资本事件记录在母公司层面。
 
-**How to detect:** The `status` field from `get_info_from_identifiers` will show `"Operating Subsidiary"`. The `references/sector-seeds.md` file also flags known subsidiaries with ⚠️ warnings. Skip these for funding queries.
+**识别方式：** `get_info_from_identifiers` 返回中的 `status` 会是 `Operating Subsidiary`。`references/sector-seeds.md` 也会用 ⚠️ 标记这些情况。对它们直接跳过融资查询。
 
-### Rule 3: Use `get_rounds_of_funding_from_identifiers` as the primary tool, not `get_funding_summary_from_identifiers`
+### Rule 3，优先使用 `get_rounds_of_funding_from_identifiers`，而不是 `get_funding_summary_from_identifiers`
 
-The summary tool is faster but less reliable — it can return errors or incomplete data even when detailed rounds exist. Always use the detailed rounds tool as the primary data source. The summary tool is acceptable only for quick aggregate checks (total raised, round count) and should be verified against the rounds tool if results seem low.
+summary 工具更快，但可靠性更差。即便详细轮次存在，它也可能报错或返回不完整结果。应始终把详细轮次工具作为主数据源。summary 工具只能用于快速查看总融资额或轮次数，并且当结果偏低时，必须再用 detailed rounds 工具核对。
 
-### Rule 4: Batch carefully and validate
+### Rule 4，谨慎分批并持续校验
 
-When processing large company universes (50+ companies), batch in groups of 15–20. After each batch, check for companies that returned empty results and run them through the fallback steps in Rule 1 before moving on.
+当处理大公司池，也就是 50 家以上时，每批控制在 15 到 20 家。每跑完一批，都要检查哪些公司返回空结果，并在进入下一批之前，对这些公司执行 Rule 1 的 fallback 逻辑。
 
-### Rule 5: The `role` parameter is critical
+### Rule 5，`role` 参数至关重要
 
-- `company_raising_funds` → "What rounds did X raise?" (company perspective)
-- `company_investing_in_round_of_funding` → "What did investor Y invest in?" (investor perspective)
+- `company_raising_funds`，表示 “X 融到了哪些轮次”，站在融资公司视角
+- `company_investing_in_round_of_funding`，表示 “投资方 Y 投了哪些轮次”，站在投资方视角
 
-Using the wrong role returns empty results silently. For deal flow digests, you almost always want `company_raising_funds`. Only use the investor role when specifically analyzing an investor's portfolio activity.
+如果用错角色，结果通常会静默返回空。做 deal flow digest 时，几乎总是应该用 `company_raising_funds`。只有在专门分析投资机构组合活动时，才使用 investor 角色。
 
-### Rule 6: Identifier resolution is case-insensitive but spelling-sensitive
+### Rule 6，标识符解析大小写不敏感，但拼写敏感
 
-S&P Global handles case variations ("openai" = "OpenAI") but is strict on spelling and punctuation. "Character AI" may fail where "Character.ai" succeeds. When in doubt, use the `company_id` (e.g., `C_1829047235`) which is guaranteed to resolve.
+S&P Global 对大小写处理宽松，比如 `openai` 和 `OpenAI` 都可以，但对拼写和标点非常严格。比如 `Character AI` 可能失败，而 `Character.ai` 成功。拿不准时，优先用 `company_id`，比如 `C_1829047235`，它一定能解析。
 
-## Workflow
+## 工作流
 
-### Step 1: Establish Coverage & Period
+### Step 1，确定覆盖范围与时间区间
 
-Determine what the digest should cover. There are two setups:
+先确定 digest 要覆盖什么。有两种常见场景：
 
-**Returning user (has a watchlist):**
-If the user has previously defined sectors or companies to track, use that list. Check conversation history for prior watchlists.
+**回访用户，已有 watchlist：**
+如果用户之前已经定义过要跟踪的行业或公司，就直接使用那份列表。可从对话历史里查找先前 watchlist。
 
-**New user:**
-Ask for:
+**新用户：**
+需要询问：
 
 | Parameter | Default | Notes |
 |-----------|---------|-------|
-| **Sectors** | *(at least one)* | e.g., "AI, Fintech, Biotech" |
-| **Specific companies** | Optional | Supplement sector-level coverage |
-| **Time period** | Last 7 days | "This week", "last 2 weeks", "this month" |
+| **Sectors** | *(at least one)* | 例如 “AI, Fintech, Biotech” |
+| **Specific companies** | Optional | 可作为行业级覆盖的补充 |
+| **Time period** | Last 7 days | 比如 “This week”、"last 2 weeks"、"this month" |
 
-Calculate the exact `start_date` and `end_date` from the time period.
+根据时间区间精确计算 `start_date` 和 `end_date`。
 
-### Step 2: Build the Company Universe
+### Step 2，构建公司池
 
-For each sector specified, build a company universe using a validated bootstrapping approach:
+对每个行业，用经过校验的 bootstrap 流程来建立公司池：
 
-1. **Seed companies** from domain knowledge (see `references/sector-seeds.md`)
-   - Pay attention to the ⚠️ warnings and alias notes in the seeds file — some well-known companies are subsidiaries, have been acquired, or require a specific legal name to resolve.
-   - The seeds file includes `company_id` values for known alias mismatches. Use these directly if the brand name fails.
+1. 从领域知识中选择 **seed companies**，见 `references/sector-seeds.md`
+   - 特别留意种子文件中的 ⚠️ 警告和别名说明，有些知名公司是子公司、已被收购，或只能用特定法定名称解析
+   - 对于已知别名不匹配的公司，种子文件里还提供了 `company_id`，在品牌名失败时可直接使用
 
-2. **Pre-validate all seeds immediately** (Rule 0):
+2. **立刻预校验所有种子**，执行 Rule 0：
    ```
    get_info_from_identifiers(identifiers=[all_seeds_for_this_sector])
    ```
-   Triage the results into two buckets:
-   - ✅ **Resolved & Operating** (`status` = "Operating") → proceed to competitor expansion
-   - ❌ **Unresolved or Subsidiary** → retry with alias/legal name from seeds file; subsidiaries are noted for context but excluded from funding queries
+   把结果分成两类：
+   - ✅ **Resolved & Operating**，也就是 `status = "Operating"`，可以继续做 competitor expansion
+   - ❌ **Unresolved or Subsidiary**，需要尝试别名或法定名称；子公司只保留背景说明，但不做融资查询
 
-3. **Expand via competitors** (using only the ✅ resolved seeds):
+3. **用 competitors 扩展范围**，只对 ✅ 解析成功的种子执行：
    ```
    get_competitors_from_identifiers(identifiers=[resolved_seeds], competitor_source="all")
    ```
 
-4. **Validate expanded universe:**
+4. **校验扩展后的公司池：**
    ```
    get_info_from_identifiers(identifiers=[new_competitors])
    ```
-   Apply the same triage. Filter by `simple_industry` matching the target sector. Drop any unresolved names or subsidiaries.
+   同样按上述逻辑分流，再根据 `simple_industry` 过滤出与目标行业一致的公司，并剔除无法解析或属于子公司的名字。
 
-If the user provides specific companies, add those directly but still run them through the pre-validation triage. Never skip validation — even well-known brand names can fail silently.
+如果用户直接给了具体公司，也要先做同样的预校验。即便是非常知名的品牌名，也不要跳过这一步。
 
-Keep the universe manageable — aim for 15–40 **resolved, operating** companies per sector. For a multi-sector digest, this might total 50–100+ companies.
+公司池要控制在可管理规模，理想情况下每个行业保留 15 到 40 家 **已解析且处于 Operating 状态** 的公司。多行业 digest 总量可能到 50 到 100 家以上。
 
-### Step 3: Pull Funding Rounds
+### Step 3，抓取融资轮次
 
-For all companies in the universe:
+对公司池中的所有公司执行：
 
 ```
 get_rounds_of_funding_from_identifiers(
@@ -143,13 +143,13 @@ get_rounds_of_funding_from_identifiers(
 )
 ```
 
-Process in batches of 15–20 if the universe is large.
+公司池较大时，请按 15 到 20 家一批处理。
 
-**After each batch, identify companies with empty results.** For any company expected to have activity:
-1. Retry with the legal entity name or alternate identifier (see Entity Resolution rules above).
-2. Log the company as "no data" only after exhausting fallbacks.
+**每处理完一批，都要找出返回空结果的公司。** 对于那些你预期本应有活动的公司：
+1. 用法定实体名称或替代标识符重试
+2. 只有在所有 fallback 都失败后，才把它记为 “no data”
 
-Collect all `transaction_id` values from successful results, then enrich with detailed round info:
+把成功结果中的所有 `transaction_id` 收集起来，再用以下工具补充详细融资轮信息：
 
 ```
 get_rounds_of_funding_info_from_transaction_ids(
@@ -157,74 +157,69 @@ get_rounds_of_funding_info_from_transaction_ids(
 )
 ```
 
-Pass ALL transaction IDs in a single call (or small number of calls) rather than one per transaction — the tool handles batches efficiently.
+尽量一次性提交全部 transaction IDs，或至少分成少量批次，而不是逐笔调用。
 
-**Extract the following from each round (critical for the slide):**
-- `transaction_id` — needed for the Capital IQ deal link
-- **Announcement date** — when the round was publicly announced
-- **Close date** — when the round officially closed
+**每个融资轮必须提取以下字段，这对幻灯片至关重要：**
+- `transaction_id`，用于生成 Capital IQ deal link
+- **Announcement date**，融资轮对外公布的日期
+- **Close date**，融资轮正式完成的日期
 - Amount raised
-- **Pre-money valuation** (if disclosed)
-- **Post-money valuation** (if disclosed)
+- **Pre-money valuation**，如有披露
+- **Post-money valuation**，如有披露
 - Lead investors
-- Round type (Series A, B, C, etc.)
+- Round type，比如 Series A、B、C
 - Security terms
 - Advisors
-- Pricing trend (up-round / down-round / flat)
+- Pricing trend，也就是 up-round、down-round 或 flat
 
-> **Dates are required.** The announcement and close dates must always appear in the final slide's deal table. If only one date is available, show it and mark the other as "—".
+> **日期是必填项。** 最终幻灯片中的交易表必须始终展示 announcement date 和 close date。若只有一个日期可用，就展示该日期，另一个写 `—`。
 
-### Step 4: Pull Company Context for Notable Deals
+### Step 4，为重要交易补充公司背景
 
-For any company involved in a significant deal (large round, notable valuation shift), get a brief description:
+对参与重大交易的公司，比如大额融资轮、估值剧烈变化的公司，抓取简要公司描述：
 
 ```
 get_company_summary_from_identifiers(identifiers=[notable_companies])
 ```
 
-This adds context to the narrative (e.g., "The company, an AI infrastructure startup founded in 2021, is expanding into...").
+这样可以为叙事增加背景，比如 “The company, an AI infrastructure startup founded in 2021...”
 
-### Step 5: Identify Highlights & Trends
+### Step 5，识别亮点与趋势
 
-Before designing the slide, analyze the data to surface the story:
+在设计幻灯片前，先分析数据，找出真正的故事线：
 
-**Flag as "Notable":**
-- Rounds ≥ $100M
-- Down rounds (pricing trend = down)
-- New unicorns (post-money valuation crossing $1B)
-- Significant valuation jumps (post-money ≥ 2x the last known valuation)
-- Repeat raisers (same company raising again within 6 months)
-- Unusually large investor syndicates
+**应标记为 “Notable” 的情况：**
+- 融资轮 ≥ $100M
+- Down rounds
+- 新晋独角兽，post-money valuation 首次跨过 $1B
+- 估值显著跳升，post-money 至少是上一轮已知估值的 2 倍
+- Repeat raisers，也就是同一公司 6 个月内再次融资
+- 异常庞大的投资人 syndicate
 
-**Identify Trends:**
-- Total capital deployed this period vs. typical (if historical data available)
-- Which sub-sectors are hottest (most rounds, most capital)
-- Round stage distribution (is early-stage or late-stage dominating?)
-- Most active investors across the digest
-- Geographic concentration
-- Valuation trends (are pre-money valuations compressing or expanding?)
+**需要识别的趋势：**
+- 本周期总投放资本，相比常态是否偏高，如有历史数据
+- 哪些子行业最热，按轮次数和融资额判断
+- 轮次阶段分布，是早期还是后期主导
+- 最活跃的投资人
+- 地理集中度
+- 估值趋势，也就是 pre-money valuations 正在收缩还是扩张
 
-**Select Key Takeaways (3–5):**
-Distill the most important signals into 3–5 concise bullet-style takeaways. These are the centerpiece of the slide. Each takeaway should be one sentence, punchy, and data-backed.
+**选择 3 到 5 条 Key Takeaways：**
+把最重要的信号提炼成 3 到 5 条简洁、硬朗、数据支撑充分的结论句。它们是整页幻灯片的中心。
 
-Examples:
-- "AI sector raised $2.4B across 8 rounds — 3x the prior week, led by a $800M mega-round from [Company] at a $12B post-money valuation."
-- "[Company] closed a $200M Series D at $3.5B pre-money, up from $1.8B in its Series C — signaling strong demand for AI developer tools."
-- "Down-round activity ticked up: 2 of 6 late-stage rounds priced below prior valuations."
+### Step 6，生成公司 Logo
 
-### Step 6: Generate Company Logos
+对于出现在 key takeaways 或 notable deals 中的公司，使用本地两层方案生成 logo。**不要使用 Clearbit**，它已弃用且经常失败。外部 logo CDN 往往需要 API key 或受网络限制阻断，因此使用本地方案。
 
-For each company featured in the key takeaways or notable deals, generate a logo using a two-tier local pipeline. **Do not use Clearbit** (`logo.clearbit.com`) — it is deprecated and consistently fails. External logo CDNs (Brandfetch, logo.dev, Google Favicons) require API keys or are blocked by network restrictions. Instead, use the following approach:
+#### Tier 1，`simple-icons` npm 包
 
-#### Tier 1: `simple-icons` npm Package (3,300+ Brand SVGs, No Network Required)
-
-The `simple-icons` package bundles high-quality SVG icons for thousands of well-known brands. It works entirely offline — no API keys, no network calls. Install it alongside `sharp` for SVG → PNG conversion:
+`simple-icons` 打包了数千个高质量 SVG 品牌图标，可完全离线工作。需要配合 `sharp` 完成 SVG 到 PNG 的转换：
 
 ```bash
 npm install simple-icons sharp
 ```
 
-**Lookup strategy:**
+**查找策略：**
 
 ```javascript
 const si = require('simple-icons');
@@ -258,11 +253,11 @@ async function simpleIconToPng(icon, outputPath) {
 }
 ```
 
-**Coverage:** ~43% of typical deal flow companies (strong for major tech brands like Stripe, Anthropic, Databricks, Snowflake, Discord, Shopify, SpaceX, Mistral AI, Hugging Face; weaker for niche fintech, biotech, or early-stage companies).
+**覆盖率：** 对典型 deal flow 公司，约能覆盖 43%，对大型科技品牌表现较好，对垂直细分或超早期公司较弱。
 
-#### Tier 2: Initial-Based Fallback via `sharp` (100% Coverage)
+#### Tier 2，基于首字母的 `sharp` 回退方案
 
-For companies not found in `simple-icons`, generate a clean initial-based logo as a PNG:
+对于 `simple-icons` 找不到的公司，生成一个干净的首字母 logo：
 
 ```javascript
 async function generateInitialLogo(companyName, outputPath) {
@@ -278,7 +273,7 @@ async function generateInitialLogo(companyName, outputPath) {
 }
 ```
 
-#### Complete Pipeline
+#### 完整流程
 
 ```javascript
 async function fetchLogo(companyName, outputDir) {
@@ -298,20 +293,22 @@ async function fetchLogo(companyName, outputDir) {
 }
 ```
 
-**Logo guidelines:**
-- Save all logos to `/home/claude/logos/[company-name].png`
-- All logos are 128×128 PNG with transparent backgrounds
-- On the slide, display logos at 0.35"–0.5" tall — they're accents, not focal points
-- Initial-fallback circles use gray (`BDBDBD`) fill with white text — consistent with the monochrome palette
-- Never mix logo styles randomly — if most companies resolve to brand icons, the few fallbacks should blend in naturally
+**Logo 使用规范：**
+- 所有 logo 保存到 `/home/claude/logos/[company-name].png`
+- 统一输出 128×128、透明底 PNG
+- 幻灯片上展示高度控制在 0.35" 到 0.5"，它们只是视觉辅助，不是视觉中心
+- 回退 logo 用灰色圆形背景，也就是 `BDBDBD`，白字，保持单色体系
+- 不要随意混搭 logo 风格。如果大部分公司能解析出品牌图标，少量回退 logo 也应尽量自然融合
 
-### Step 7: Generate the One-Page PPTX
+### Step 7，生成单页 PPTX
 
-Read `/mnt/skills/public/pptx/SKILL.md` and `/mnt/skills/public/pptx/pptxgenjs.md` before creating the slide.
+在创建幻灯片前，先阅读 `/mnt/skills/public/pptx/SKILL.md` 和 `/mnt/skills/public/pptx/pptxgenjs.md`。
 
-Create a **single-slide** PowerPoint using `pptxgenjs`. The slide should be information-dense but visually clean — think "executive dashboard" not "wall of text."
+使用 `pptxgenjs` 创建 **单页** PowerPoint。页面要信息密集但干净，感觉更像高层金融简报，而不是文字墙。
 
-#### Slide Layout
+#### 幻灯片布局
+
+下面的结构图保持不变：
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -343,172 +340,25 @@ Create a **single-slide** PowerPoint using `pptxgenjs`. The slide should be info
 └─────────────────────────────────────────────────────────────┘
 ```
 
-#### Design Specifications
+#### 设计规范
 
-**Color philosophy: Minimal, monochrome-first.** The slide should feel like a high-end financial brief — black, white, and gray dominate. Color is used **only** where it carries meaning (e.g., a red indicator for a down round, a green indicator for a standout metric) or where the reader would naturally expect it (company logos). Never use color for purely decorative purposes like background fills, accent bars, or gradient effects.
+**色彩哲学：** 极简，以黑白灰为主。只有在颜色本身能表达意义时才使用颜色，比如下轮融资用红色提示，亮眼正面指标用绿色提示，或公司 logo 本身。不要为了装饰而使用颜色。
 
-**Color palette — Monochrome Executive:**
-- Primary background: `FFFFFF` (white) — clean, open slide background
-- Header bar: `1A1A1A` (near-black) — strong contrast for the title region
-- Primary text: `1A1A1A` (near-black) — all body text, stat numbers, takeaways
-- Secondary text: `6B6B6B` (medium gray) — labels, captions, footer, date stamps
-- Borders & dividers: `D0D0D0` (light gray) — subtle structural lines, card outlines, table borders
-- Card backgrounds: `F5F5F5` (off-white / very light gray) — stat card fills, alternating table rows
-- Link text: `2B5797` (muted blue) — Capital IQ deal links in the table (the only blue on the slide)
-- **Semantic color (sparingly):**
-  - Down rounds or negative signals: `C0392B` (muted red) — use only as a small dot, tag, or single-word highlight, never as a fill or background
-  - Standout positive metrics (new unicorn, outsized round): `2E7D32` (muted green) — same minimal usage: a dot, a small tag, or a single highlighted number
-  - If no data points warrant a color indicator, **use no color at all**. A fully monochrome slide is perfectly correct.
+其余配色、字体、Stat Cards、Key Takeaways、Top Deals Table、Deal Link Implementation、Table Centering、Footer、General color rules、Code Structure、QA 流程、结果呈现、错误处理和示例提示词等内容，按英文原文中的结构和约束执行。代码块与模板语法保持不变。
 
-**Typography:**
-- Title: 28–32pt, bold, white on near-black header bar
-- Stat numbers: 36–44pt, bold, near-black
-- Stat labels: 10–12pt, medium gray (`6B6B6B`)
-- Takeaway text: 12–14pt, near-black, left-aligned
-- Table text: 9–11pt, near-black with gray (`6B6B6B`) for secondary columns
-- Link text: 9–10pt, muted blue (`2B5797`)
-- Footer: 8pt, medium gray
+## 错误处理
 
-**Stat Cards (top row):**
-- 4 key metrics as large-number callouts: Total Raised, # Rounds, Avg Pre-Money Valuation, Largest Round
-- Each in a card with `F5F5F5` fill and a thin `D0D0D0` border — no shadow, no color fills
-- If a stat is surprising or extreme (e.g., 3x normal volume, a record deal), a small colored dot or underline may be placed next to that single number — otherwise keep fully monochrome
-- If pre-money valuations are mostly undisclosed, substitute with a different metric (e.g., Median Round Size, # New Unicorns)
+### 实体解析失败
+- 已知公司却返回空结果时，先看 `get_info_from_identifiers`，再尝试种子文件中的别名或直接使用 `company_id`
+- 子公司，比如 DeepMind、GitHub、Instagram、WhatsApp、YouTube、BeReal，不应被当作 “no activity”，而应标注为已被收购或子公司
+- 已停业公司不会再有新活动
+- `get_funding_summary_from_identifiers` 出错或返回 0 时，应回退到 `get_rounds_of_funding_from_identifiers`
+- 若 investor 视角查询结果为空，要检查是否把 `role` 参数写错
 
-**Key Takeaways (middle section):**
-- 3–5 one-line takeaways, each prefixed with the relevant company logo (small, ~0.35" tall)
-- If no logo available, use a **gray circle** with the company initial in white — not a colored circle
-- Left-aligned, with enough spacing to breathe
-- Down-round or negative takeaways may use a small red dot prefix; otherwise no color
-- Include valuation context where available (e.g., "at a $5B post-money valuation")
-
-**Top Deals Table (bottom section):**
-- Compact table showing the 4–6 most notable deals
-- Columns: Company, Type (Series X), Announced (date), Closed (date), Amount ($M), Pre-Money ($M), Post-Money ($M), Lead Investor, Deal Link
-- **Announced** and **Closed** columns show dates in `MMM DD` format (e.g., "Jan 15"). These columns are required and must always be present. If a date is not available, show "—".
-- The **Deal Link** column contains a clickable "View →" text linking to Capital IQ:
-  ```
-  https://www.capitaliq.spglobal.com/web/client?#offering/capitalOfferingProfile?id=<transaction_id>
-  ```
-  where `<transaction_id>` is the `transaction_id` from `get_rounds_of_funding_from_identifiers`.
-- If pre-money or post-money valuation is not disclosed, show "—" in that cell
-- Header row with near-black (`1A1A1A`) fill and white text; alternating rows in `F5F5F5` and `FFFFFF`
-- **Center the table horizontally** on the slide. Calculate the table's total width, then set `x` so it is centered within the slide width: `x = (slideWidth - tableWidth) / 2`. For a 16:9 layout (13.33" wide), if the table is 12" wide, use `x = 0.67`. Never left-align the table to the slide edge.
-- Keep it tight — this is a reference, not the focal point
-- No colored fills in table cells. If a deal is a down round, a small red text tag "(↓ down)" may appear next to the amount — that is the only permitted color in the table.
-
-**Deal Link Implementation (pptxgenjs):**
-In pptxgenjs, hyperlinks are added to table cells using the `options.hyperlink` property on the cell object:
-```javascript
-// Table cell with Capital IQ deal link
-{
-  text: "View →",
-  options: {
-    hyperlink: {
-      url: `https://www.capitaliq.spglobal.com/web/client?#offering/capitalOfferingProfile?id=${transactionId}`
-    },
-    color: "2B5797",
-    fontSize: 9,
-    fontFace: "Arial"
-  }
-}
-```
-
-**Table Centering (pptxgenjs):**
-Always center the deal table on the slide. Calculate the x position dynamically:
-```javascript
-const SLIDE_W = 13.33; // 16:9 slide width
-const TABLE_W = 12.5;  // total table width (sum of all column widths)
-const TABLE_X = (SLIDE_W - TABLE_W) / 2; // ≈ 0.42"
-
-slide.addTable(tableRows, {
-  x: TABLE_X,
-  y: tableY,
-  w: TABLE_W,
-  colW: [1.8, 0.9, 0.9, 0.9, 1.0, 1.1, 1.2, 1.6, 0.7], // Company, Type, Announced, Closed, Amount, Pre-$, Post-$, Lead, Link
-  // ... other options
-});
-```
-Adjust `colW` values as needed, but always recompute `TABLE_X` from `(SLIDE_W - sum(colW)) / 2` to keep the table centered.
-
-**Footer:**
-- Small text in medium gray: "Deal Flow Digest · [Period] · Sources: S&P Global Capital IQ · Generated [Date]"
-
-**General color rules (enforce strictly):**
-- Company logos are the only "full color" elements on the slide — they appear as-is from the source.
-- Deal links use muted blue (`2B5797`) — this is the only non-monochrome text color besides semantic red/green.
-- Outside of logos and links, the slide should look correct printed on a black-and-white printer.
-- Never apply color to backgrounds, accent bars, decorative shapes, or section dividers.
-- When in doubt, leave it gray.
-
-#### Code Structure
-
-```javascript
-const pptxgen = require("pptxgenjs");
-const pres = new pptxgen();
-pres.layout = "LAYOUT_16x9";
-pres.title = "Deal Flow Digest";
-
-const slide = pres.addSlide();
-const SLIDE_W = 13.33; // 16:9 slide width in inches
-
-// 1. Dark header bar with title and period
-// 2. Stat cards row (4 cards: Total Raised, # Rounds, Avg Pre-Money, Largest Round)
-// 3. Key takeaways section with logos (include valuation context)
-// 4. Top deals table with Announced, Closed, Pre-Money, Post-Money columns and Capital IQ deal links
-//    - Center the table: x = (SLIDE_W - tableWidth) / 2
-// 5. Footer
-
-pres.writeFile({ fileName: "/home/claude/deal-flow-digest.pptx" });
-```
-
-Use factory functions (not shared objects) for shadows and repeated styles per the pptxgenjs pitfalls guidance.
-
-### Step 8: QA the Slide
-
-Follow the QA process from the PPTX skill:
-
-1. **Content QA:** `python -m markitdown deal-flow-digest.pptx` — verify all text, numbers, company names, valuation figures, and deal links are correct
-2. **Visual QA:** Convert to image and inspect:
-   ```bash
-   python /mnt/skills/public/pptx/scripts/office/soffice.py --headless --convert-to pdf deal-flow-digest.pptx
-   pdftoppm -jpeg -r 200 deal-flow-digest.pdf slide
-   ```
-   Check for overlapping elements, text overflow, alignment issues, low-contrast text, logo sizing problems, and that deal link text is visible.
-3. **Link QA:** Verify that the Capital IQ URLs in the table are correctly formatted with the right transaction IDs.
-4. **Fix and re-verify** — at least one fix-and-verify cycle before declaring done.
-
-### Step 9: Present Results
-
-1. Copy the final `.pptx` to `/mnt/user-data/outputs/`
-2. Use `present_files` to share the slide
-3. Provide a 2–3 sentence verbal summary:
-   - "Your digest covers X rounds totaling $Y raised across [sectors]."
-   - Call out the single most notable deal and its valuation
-   - Flag any concerning trends (down rounds, valuation compression, etc.)
-
-## Error Handling
-
-### Entity Resolution Failures
-- **Empty results for a known company:** First check `get_info_from_identifiers` — if that fails, try the alias from `references/sector-seeds.md` or the `company_id` directly. Common brand→legal mismatches: Together AI → "Together Computer, Inc.", Character.ai → "Character Technologies, Inc.", Runway ML → "Runway AI, Inc.".
-- **Subsidiary companies:** DeepMind, GitHub, Instagram, WhatsApp, YouTube, BeReal, etc. are subsidiaries — they have zero independent funding rounds. Note these as "acquired/subsidiary" in context but do not report them as "no activity."
-- **Defunct companies:** Companies like Convoy (shut down Oct 2023) still resolve in S&P Global but will never have new activity. The `references/sector-seeds.md` file flags these — check it before including a company.
-- **`get_funding_summary_from_identifiers` errors or returns zeros:** Fall back to `get_rounds_of_funding_from_identifiers` — the summary tool is less reliable. Never rely on the summary tool as the sole data source.
-- **Wrong `role` parameter:** If investor-perspective queries return empty, verify you're using `company_investing_in_round_of_funding`, not `company_raising_funds` (and vice versa).
-
-### Data Quality Issues
-- **No activity in period:** If a sector had zero funding rounds, note this explicitly on the slide ("No transactions recorded in [Sector] during the period") — absence of activity is itself informative.
-- **Sparse valuation data:** If pre-money and post-money valuations are undisclosed for most transactions, note the data limitation in a footer annotation and use "—" in the table. Adjust the stat card to show a different metric (e.g., Median Round Size) instead of Avg Pre-Money.
-- **Logo retrieval failures:** The `simple-icons` npm package provides ~43% coverage for typical deal flow companies. For the remainder, use the `sharp`-generated initial-based fallback. Keep a consistent icon style — don't mix random approaches. If `simple-icons` or `sharp` fail to install, fall back to pptxgenjs shape-based initials (gray ellipse + white text overlay) which require no external dependencies.
-- **Too many deals for one slide:** If there are more than 6 notable deals, show the top 6 in the table and add a footnote: "+N additional deals not shown." Prioritize by deal size.
-- **Large universes:** For multi-sector digests with 100+ companies, batch all API calls in groups of 15–20. Prioritize depth on notable deals over completeness on minor ones.
-- **Stale seeds:** If competitor expansion returns very few results for a sector, the seed companies may be too niche. Broaden by adding 2–3 more well-known names and re-expanding.
-- **Invalid transaction IDs for links:** If a `transaction_id` from the funding tool doesn't produce a valid Capital IQ URL, omit the link cell for that row rather than including a broken link.
-
-## Example Prompts
-
-- "Give me a weekly deal flow digest for AI and fintech"
-- "Summarize this week's funding in biotech"
-- "Deal roundup for my coverage — cybersecurity, cloud infrastructure, and dev tools — last 2 weeks"
-- "What happened in venture this week across all sectors I follow?"
-- "Quick deal flow slide for climate tech this month"
+### 数据质量问题
+- 若某行业在时间区间内没有融资活动，应明确写在幻灯片上，因为 “没有交易” 本身也是信息
+- 若大多数交易没有 pre-money 或 post-money 估值，应在页脚说明数据限制，并将相应统计卡替换为其他指标
+- 若 logo 获取失败，应使用首字母回退方案，保持视觉一致
+- 若 notable deals 超过 6 笔，只展示前 6 笔，并加脚注说明有更多交易未展示
+- 多行业大覆盖面场景下，应坚持批处理 API 调用
+- 若交易 ID 不能生成有效 Capital IQ 链接，就省略该行链接单元格，不要放坏链

@@ -1,348 +1,348 @@
 ---
 name: datapack-builder
-description: Build professional financial services data packs from various sources including CIMs, offering memorandums, SEC filings, web search, or MCP servers. Extract, normalize, and standardize financial data into investment committee-ready Excel workbooks with consistent structure, proper formatting, and documented assumptions. Use for M&A due diligence, private equity analysis, investment committee materials, and standardizing financial reporting across portfolio companies. Do not use for simple financial calculations or working with already-completed data packs.
+description: 从多种来源构建专业金融服务 data pack，包括 CIM、offering memorandum、SEC filings、web search 或 MCP server。提取、标准化并统一财务数据，输出适合投资委员会审阅的 Excel workbook，具备一致结构、规范格式和可追溯假设。适用于并购尽调、私募股权分析、投资委员会材料，以及在组合公司之间统一财务汇报。不适用于简单财务计算，或处理已经完成的数据包。
 ---
 
 # Financial Data Pack Builder
 
-Build professional, standardized financial data packs for private equity, investment banking, and asset management. Transform financial data from CIMs, offering memorandums, SEC filings, web search, or MCP server access into polished Excel workbooks ready for investment committee review.
+为私募股权、投资银行和资产管理构建专业且标准化的 financial data pack。将来自 CIM、offering memorandum、SEC filings、web search 或 MCP server 的财务数据，整理成适合投资委员会审阅的 Excel workbook。
 
-**Important:** Use the xlsx skill for all Excel file creation and manipulation throughout this workflow.
+**Important:** 在整个流程中，所有 Excel 文件创建和操作都使用 xlsx skill。
 
 ## CRITICAL SUCCESS FACTORS
 
-Every data pack must achieve these standards. Failure on any point makes the deliverable unusable.
+每个 data pack 都必须达到以下标准。任何一点失败，都会让交付物失去可用性。
 
-### 1. Data Accuracy (Zero Tolerance for Errors)
-- Trace every number to source document with page reference
-- Use formula-based calculations exclusively (no hardcoded values)
-- Cross-check subtotals and totals for internal consistency
-- Verify balance sheet balances: Assets = Liabilities + Equity
-- Confirm cash flow ties to balance sheet changes
+### 1. 数据准确性，零容忍错误
+- 每个数字都要追溯到源文件，并标注页码
+- 所有计算都必须用公式，不允许硬编码
+- 交叉检查小计与总计，确保内部一致
+- 验证资产负债表恒等式，Assets = Liabilities + Equity
+- 确认现金流表与资产负债表变动勾稽一致
 
 ### 2. ESSENTIAL RULES
 
-**RULE 1: Financial data (measuring money) → Currency format with $**
-Triggers: Revenue, Sales, Income, EBITDA, Profit, Loss, Cost, Expense, Cash, Debt, Assets, Liabilities, Equity, Capex
-Format: $#,##0.0 for millions, $#,##0 for thousands
-Negatives: $(123.0) NOT -$123
+**RULE 1: 财务数据，金额类，使用带 $ 的货币格式**
+触发词：Revenue、Sales、Income、EBITDA、Profit、Loss、Cost、Expense、Cash、Debt、Assets、Liabilities、Equity、Capex
+格式：百万单位用 `$#,##0.0`，千位单位用 `$#,##0`
+负数：使用 `$(123.0)`，不要写 `-$123`
 
-**RULE 2: Operational data (counting things) → Number format, NO $**
-Triggers: Units, Stores, Locations, Employees, Customers, Square Feet, Properties, Headcount
-Format: #,##0 with commas
-Negatives: (123) consistent with rest of table
+**RULE 2: 运营数据，计数量，使用数字格式，不要 $**
+触发词：Units、Stores、Locations、Employees、Customers、Square Feet、Properties、Headcount
+格式：`#,##0`
+负数：使用 `(123)`，并与表内其他项目保持一致
 
-**RULE 3: Percentages (rates and ratios) → Percentage format**
-Triggers: Margin, Growth, Rate, Percentage, Yield, Return, Utilization, Occupancy
-Format: 0.0% for one decimal place
-Display: 15.0% NOT 0.15
+**RULE 3: 百分比，费率和比率，使用百分比格式**
+触发词：Margin、Growth、Rate、Percentage、Yield、Return、Utilization、Occupancy
+格式：`0.0%`
+展示：写 `15.0%`，不要写 `0.15`
 
-**RULE 4: Years → Text format to prevent comma insertion**
-Format: Text or custom to prevent 2,024
-Display: 2020, 2021, 2022, 2023A, 2024E
+**RULE 4: 年份，使用文本格式，避免自动插入逗号**
+格式：Text 或自定义格式，防止出现 `2,024`
+展示：`2020, 2021, 2022, 2023A, 2024E`
 
-**RULE 5: When context is mixed, each metric gets its own appropriate format**
-Example:
+**RULE 5: 如果上下文混合，每个指标使用自己的正确格式**
+示例：
 ```
 Segment Analysis, 2022, 2023, 2024
 Retail Revenue, $50.0, $55.0, $60.0
   Stores, 100, 110, 120
   Revenue per Store, $0.5, $0.5, $0.5
 ```
-Revenue and per-store metrics use $, Store count uses number format.
+Revenue 和 per-store 指标使用 `$`，Store 数量使用纯数字格式。
 
-**RULE 6: Use formulas for all calculations → Never hardcode calculated values**
-All subtotals, totals, ratios, and derived metrics must be formula-based, not hardcoded values. This ensures accuracy and allows for dynamic updates.
+**RULE 6: 所有计算都必须使用公式，绝不硬编码计算结果**
+所有小计、总计、比率和衍生指标都必须由公式生成，这样才能确保准确并支持动态更新。
 
-### 3. Professional Presentation Standards
+### 3. 专业呈现标准
 
 **Formatting Standards:**
 
 **Color Scheme - Two Layers:**
 
-**Layer 1: Font Colors (MANDATORY from xlsx skill)**
-- **Blue text (RGB: 0,0,255)**: ALL hardcoded inputs (historical data, assumptions), NOT normal text
-- **Black text (RGB: 0,0,0)**: ALL formulas and calculations
-- **Green text (RGB: 0,128,0)**: Links to other sheets
+**Layer 1: Font Colors，xlsx skill 强制要求**
+- **Blue text (RGB: 0,0,255)**：所有硬编码输入，历史数据、假设，不用于普通正文
+- **Black text (RGB: 0,0,0)**：所有公式与计算结果
+- **Green text (RGB: 0,128,0)**：跨工作表链接
 
-**Layer 2: Fill Colors (Optional for enhanced presentation)**
-- Fill colors are optional and should only be applied if requested by the user or if enhancing presentation
-- If the user requests colors or professional formatting, use this standard scheme:
-  - **Section headers**: Dark blue (RGB: 68,114,196) background with white text
-  - **Sub-headers/column headers**: Light blue (RGB: 217,225,242) background with black text
-  - **Input cells**: Light green/cream (RGB: 226,239,218) background with blue text
-  - **Calculated cells**: White background with black text
-- Users can override with custom brand colors if specified
+**Layer 2: Fill Colors，可选，用于增强展示**
+- 填充色是可选的，只在用户要求或确实有助于呈现时使用
+- 如果用户要求颜色或专业格式，可使用以下标准：
+  - **Section headers**：深蓝底，RGB: 68,114,196，白字
+  - **Sub-headers/column headers**：浅蓝底，RGB: 217,225,242，黑字
+  - **Input cells**：浅绿 / 米色底，RGB: 226,239,218，蓝字
+  - **Calculated cells**：白底黑字
+- 如果用户指定品牌色，则以用户要求为准
 
-**How the layers work together (if fill colors are used):**
-- Input cell: Blue text + light green fill = "User-entered data"
-- Formula cell: Black text + white background = "Calculated value"
-- Sheet link: Green text + white background = "Reference from another tab"
+**如果使用填充色，两层逻辑如何协同：**
+- 输入单元格：蓝字 + 浅绿底，表示用户输入数据
+- 公式单元格：黑字 + 白底，表示计算结果
+- 工作表链接：绿字 + 白底，表示来自其他标签页的引用
 
-**Font color tells you WHAT it is. Fill color tells you WHERE it is (if used).**
+**字体颜色告诉你“它是什么”。填充色告诉你“它在哪里”，如果使用填充色的话。**
 
-**IMPORTANT:** Font colors from xlsx skill are mandatory. Fill colors are optional - default is white/no fill unless the user requests enhanced formatting or colors.
+**IMPORTANT:** xlsx skill 要求的字体颜色是强制项。填充色是可选项，默认白底或不填充，除非用户明确要求增强格式或颜色。
 
 **Always apply:**
-- Bold headers, left-aligned
-- Numbers right-aligned
-- 2-space indentation for sub-items
-- Single underline above subtotals
-- Double underline below final totals
-- Freeze panes on row/column headers
-- Minimal borders (only where structurally needed)
-- Consistent font (typically Calibri or Arial 11pt)
+- 标题加粗，左对齐
+- 数字右对齐
+- 子项目使用 2 空格缩进
+- 小计上方单下划线
+- 最终总计下方双下划线
+- 冻结表头行 / 列
+- 边框尽量少，只在结构需要时使用
+- 统一字体，通常为 Calibri 或 Arial 11pt
 
 **Never include:**
-- Borders around every cell
-- Multiple fonts or font sizes
-- Charts unless specifically requested
-- Excessive formatting or decoration
+- 每个单元格四周都加边框
+- 混用多种字体或字号
+- 除非用户明确要求，否则不要加图表
+- 不要过度装饰或过度格式化
 
 ## Structural Consistency
-Use the standard 8-tab structure unless explicitly instructed otherwise:
+除非用户明确要求，否则采用标准 8 标签页结构：
 1. Executive Summary
 2. Historical Financials (Income Statement)
 3. Balance Sheet
 4. Cash Flow Statement
 5. Operating Metrics
-6. Property/Segment Performance (if applicable)
+6. Property/Segment Performance，适用时
 7. Market Analysis
 8. Investment Highlights
 
 ### Tab 1: Executive Summary
-Purpose: One-page overview for busy executives
+用途：为时间有限的高管提供一页概览
 
-Contents:
-- Company overview (2-3 sentences on business model)
-- Key investment highlights (3-5 bullet points)
-- Financial snapshot table (Revenue, EBITDA, Growth for last 3 years + projections)
-- Transaction overview if applicable
-- Key metrics prominently displayed
+内容：
+- 公司概况，2 到 3 句描述商业模式
+- 关键投资亮点，3 到 5 条 bullet
+- 财务快照表，最近 3 年及预测期的 Revenue、EBITDA、Growth
+- 如果适用，加入交易概览
+- 突出展示核心指标
 
-Format: Clean, bold headers, minimal decoration, critical numbers emphasized
+格式：简洁、标题加粗、少装饰，重点数字突出
 
 ### Tab 2: Historical Financials (Income Statement)
-Purpose: Complete profit and loss history
+用途：完整展示损益历史
 
-Contents:
-- Revenue breakdown by segment/product line
-- Cost of goods sold / Cost of revenue
-- Gross profit and gross margin %
-- Operating expenses detailed (S&M, R&D, G&A)
-- EBITDA and Adjusted EBITDA
-- Below-the-line items (D&A, interest, taxes)
-- Net income
+内容：
+- 按分部 / 产品线拆分的收入
+- 销售成本 / 收入成本
+- 毛利与毛利率
+- 详细运营费用，S&M、R&D、G&A
+- EBITDA 与 Adjusted EBITDA
+- 线下项目，D&A、利息、税项
+- 净利润
 
-Format:
-- Years as columns (text format: 2020, 2021, 2022)
-- $ millions or $ thousands (specify units clearly at top)
-- Accounting format for all financial data
-- Single underline above subtotals, double underline below net income
-- Right-align all numbers
+格式：
+- 年份作为列，文本格式，例如 2020、2021、2022
+- 统一使用 `$ millions` 或 `$ thousands`，并在顶部明确单位
+- 所有财务数据使用 accounting format
+- 小计上方单下划线，净利润下方双下划线
+- 所有数字右对齐
 
 ### Tab 3: Balance Sheet
-Purpose: Financial position at period end
+用途：展示期末财务状况
 
-Contents:
-- Current assets (cash, AR, inventory, prepaid, other)
-- Long-term assets (PP&E, intangibles, goodwill, other)
-- Current liabilities (AP, accrued expenses, current portion of debt, other)
-- Long-term liabilities (long-term debt, deferred taxes, other)
-- Shareholders' equity (common stock, retained earnings, other)
+内容：
+- 流动资产，cash、AR、inventory、prepaid、other
+- 长期资产，PP&E、intangibles、goodwill、other
+- 流动负债，AP、accrued expenses、current portion of debt、other
+- 长期负债，long-term debt、deferred taxes、other
+- 股东权益，common stock、retained earnings、other
 
-Format:
-- Verify formula: Assets = Liabilities + Equity
-- Consistent date labeling
-- Include working capital calculation
-- Single underline above major subtotals, double underline for final totals
+格式：
+- 验证公式 `Assets = Liabilities + Equity`
+- 日期标签保持一致
+- 包含 working capital 计算
+- 主要小计上方单下划线，最终总计使用双下划线
 
 ### Tab 4: Cash Flow Statement
-Purpose: Cash generation and use analysis
+用途：分析现金创造与使用
 
-Contents:
-- Operating cash flow (indirect method preferred)
-- Investing cash flow (capex, acquisitions, asset sales)
-- Financing cash flow (debt issuance/repayment, equity, dividends)
-- Net change in cash
-- Beginning and ending cash balances
+内容：
+- Operating cash flow，优先间接法
+- Investing cash flow，capex、acquisitions、asset sales
+- Financing cash flow，debt issuance/repayment、equity、dividends
+- 净现金变动
+- 期初和期末现金余额
 
-Format:
-- Link to income statement and balance sheet where possible
-- Show reconciliation of net income to operating cash flow
-- Clear labeling of cash uses (outflows) vs sources (inflows)
+格式：
+- 尽可能与利润表和资产负债表联动
+- 展示从净利润到经营现金流的勾稽
+- 清晰标识现金流出和现金来源
 
 ### Tab 5: Operating Metrics
-Purpose: Non-financial KPIs and operational data
+用途：非财务 KPI 与运营数据
 
-Contents (industry-dependent):
-- Unit volumes, customer counts, locations
-- Productivity metrics (revenue per employee, per store, per unit)
-- Capacity utilization
-- Market share
-- Customer retention/churn rates
-- Industry-specific KPIs
+内容，取决于行业：
+- 销量、客户数、网点数
+- 生产率指标，人均收入、单店收入、单件收入
+- 产能利用率
+- 市占率
+- 客户留存 / churn
+- 行业特定 KPI
 
 **CRITICAL FORMAT NOTE:**
-NO dollar signs on operational metrics. These are quantities, not currency.
+运营指标不要加 `$`。这些是数量，不是金额。
 
-Format:
-- Clear units specified (customers, employees, stores, square feet, etc.)
-- Whole numbers with commas: 1,250 NOT $1,250
-- Percentages for rates: 95.0%
-- Right-align numbers
+格式：
+- 明确单位，customers、employees、stores、square feet 等
+- 整数加千分位，例如 `1,250`，不要写 `$1,250`
+- 比率用百分比格式，例如 `95.0%`
+- 数字右对齐
 
 ### Tab 6: Property/Segment Performance (if applicable)
-Purpose: Detailed breakdown by business unit, property, or segment
+用途：按业务单元、物业或分部提供细分表现
 
-Contents:
-- Revenue and profitability by segment
-- Key metrics by location/product
-- Segment-specific KPIs
-- Comparative performance analysis
+内容：
+- 各分部收入和盈利能力
+- 按地点 / 产品的关键指标
+- 分部特定 KPI
+- 对比表现分析
 
-Format: Consistent with financial tabs for revenue/EBITDA, number format for operational metrics
+格式：Revenue/EBITDA 与财务标签页一致，运营指标用纯数字格式
 
 ### Tab 7: Market Analysis
-Purpose: Industry context and competitive positioning
+用途：提供行业背景和竞争定位
 
-Contents:
-- Market size and growth trends
-- Competitive landscape overview
-- Market share analysis
-- Industry benchmarks and peer comparisons
-- Regulatory environment if relevant
+内容：
+- 市场规模与增长趋势
+- 竞争格局概览
+- 市占率分析
+- 行业基准与同业比较
+- 如相关，加入监管环境
 
-Format: Mix of narrative text and tables, cite sources for market data
+格式：叙述文本与表格结合，市场数据需注明来源
 
 ### Tab 8: Investment Highlights
-Purpose: Narrative summary of key investment thesis points
+用途：以叙述形式总结核心投资逻辑
 
-Contents:
-- Detailed writeup of competitive strengths
-- Growth opportunities and strategic initiatives
-- Risk factors and mitigation strategies
-- Management assessment and track record
-- Investment thesis summary
+内容：
+- 对竞争优势的详细说明
+- 增长机会与战略举措
+- 风险因素及应对措施
+- 管理层评估与历史表现
+- 投资逻辑总结
 
-Format: Clear headers, bullet points, concise paragraphs
+格式：标题清晰、bullet 明确、段落简洁
 
 ## STEP-BY-STEP WORKFLOW
 
-### Phase 1: Document Processing and Data Extraction
+### Phase 1: 文档处理与数据提取
 
-**Step 1.1: Analyze source data**
-- Access source materials: uploaded documents, web search for public filings, or MCP server data
-- Review data structure and identify key sections
-- Locate financial statements (typically 3-5 years historical)
-- Identify management projections if included
-- Note fiscal year end date
-- Flag any data quality issues immediately
+**Step 1.1: 分析源数据**
+- 获取源材料，上传文件、公开申报 web search，或 MCP server 数据
+- 审阅数据结构并识别关键部分
+- 定位财务报表，通常为 3 到 5 年历史数据
+- 识别管理层预测，如果有
+- 记录财政年度结算日期
+- 立刻标出任何数据质量问题
 
-**Step 1.2: Extract financial statements**
-- Locate historical income statement data
-- Extract balance sheet snapshots (year-end or quarter-end)
-- Find cash flow statement
-- Extract management projections if available
-- Note all page references for traceability
+**Step 1.2: 提取财务报表**
+- 提取历史利润表数据
+- 提取资产负债表快照，年末或季末
+- 提取现金流量表
+- 如果有管理层预测，也一并提取
+- 为可追溯性记录所有页码引用
 
-**Step 1.3: Extract operating metrics**
-- Identify non-financial KPIs relevant to industry
-- Capture unit economics data
-- Extract customer/location/capacity data
-- Document growth metrics and trends
+**Step 1.3: 提取运营指标**
+- 识别行业相关的非财务 KPI
+- 提取 unit economics
+- 提取客户 / 网点 / 产能数据
+- 记录增长指标与趋势
 
-**Step 1.4: Extract market and industry data**
-- Competitive positioning information
-- Market size and growth rates
-- Industry benchmark data
-- Peer comparison information
+**Step 1.4: 提取市场与行业数据**
+- 竞争定位信息
+- 市场规模与增速
+- 行业 benchmark 数据
+- 同业比较信息
 
-**Step 1.5: Note key context**
-- Transaction structure and rationale
-- Management team background
-- Investment highlights from source materials
-- Risk factors and considerations
-- Any data gaps or inconsistencies
+**Step 1.5: 记录关键背景**
+- 交易结构与逻辑
+- 管理团队背景
+- 源材料中的投资亮点
+- 风险因素与注意事项
+- 数据缺口或不一致之处
 
-### Phase 2: Data Normalization and Standardization
+### Phase 2: 数据标准化与统一
 
-**Step 2.1: Normalize accounting presentation**
-- Ensure consistent line item names across all years
-- Standardize revenue recognition treatment
-- Identify and document one-time charges
-- Create "Adjusted EBITDA" reconciliation if needed
-- Note any accounting policy changes
+**Step 2.1: 统一会计呈现**
+- 确保所有年份的 line item 名称一致
+- 标准化收入确认口径
+- 识别并记录一次性费用
+- 如有需要，建立 "Adjusted EBITDA" 调节表
+- 记录任何会计政策变化
 
-**Step 2.2: Apply format detection logic**
-For each data point, determine format based on full context:
-- Read tab name, table title, column header, and row label
-- Apply essential rules (see above)
-- When uncertain, examine original source document
-- Default to cleaner formatting (less is more)
+**Step 2.2: 应用格式判定逻辑**
+对每个数据点，根据完整上下文判断格式：
+- 读取标签页名称、表格标题、列标题和行标题
+- 应用上面的 essential rules
+- 如果不确定，回看原始源文件
+- 默认采用更简洁的格式，少即是多
 
-**Step 2.3: Identify normalization adjustments**
-Common adjustments to document:
-- Restructuring charges (add back if truly non-recurring)
-- Stock-based compensation (add back per industry standard)
-- Acquisition-related costs (add back, specify amounts)
-- Legal settlements or litigation costs (evaluate recurrence risk)
-- Asset sales or impairments (exclude from operating results)
-- Related party adjustments (normalize to market rates)
-Note: Source citation format varies by data source (page numbers for documents, URLs for web sources, server references for MCP data)
+**Step 2.3: 识别标准化调整**
+常见调整包括：
+- Restructuring charges，若确属一次性，可加回
+- Stock-based compensation，可按行业惯例加回
+- Acquisition-related costs，加回并注明金额
+- Legal settlements 或 litigation costs，评估是否会重复发生
+- Asset sales 或 impairments，从经营结果中剔除
+- Related party adjustments，调整至市场化水平
+注意：来源引用方式因数据来源而异，文档用页码，网页用 URL，MCP 数据用 server reference
 
-**Step 2.4: Create adjustment schedule**
-For every normalization:
-- Document what was adjusted and why
-- Cite source (document page number, URL, or data source reference)
-- Quantify dollar impact by year
-- Assess recurrence risk
-- Show calculation from reported to adjusted figures
+**Step 2.4: 创建 adjustment schedule**
+对每项标准化调整：
+- 说明调整内容与原因
+- 标明来源，文档页码、URL 或数据源引用
+- 按年份量化金额影响
+- 评估重复发生风险
+- 展示从 reported figures 到 adjusted figures 的计算过程
 
-**Step 2.5: Verify data integrity**
-- Confirm subtotals sum correctly using formulas
-- Verify balance sheet balances
-- Check cash flow ties to balance sheet changes
-- Cross-check numbers across tabs for consistency
-- Flag any discrepancies for investigation
+**Step 2.5: 验证数据完整性**
+- 用公式确认所有小计求和正确
+- 验证资产负债表平衡
+- 检查现金流是否与资产负债表变动勾稽
+- 跨标签页对比数字一致性
+- 对任何差异进行标记并进一步调查
 
-### Phase 3: Build Excel Workbook
+### Phase 3: 构建 Excel Workbook
 
-**CRITICAL: Use xlsx skill for all Excel file manipulation. Read xlsx skill documentation before proceeding.**
+**CRITICAL: 所有 Excel 操作都必须使用 xlsx skill。开始前先阅读 xlsx skill 文档。**
 
-**Step 3.1: Create standardized tab structure**
-Create workbook with tabs:
+**Step 3.1: 创建标准化标签页结构**
+创建以下标签页：
 - Executive Summary
 - Historical Financials
 - Balance Sheet
 - Cash Flow
 - Operating Metrics
-- Property Performance (if applicable)
+- Property Performance，适用时
 - Market Analysis
 - Investment Highlights
 
-**Step 3.2: Build each tab with proper formatting**
-Apply formatting rules systematically:
-- Headers: Bold, left-aligned, 11pt font
-- Financial data: Currency format $#,##0.0 for millions
-- Operational data: Number format #,##0 (no $)
-- Percentages: 0.0% format
-- Years: Text format to prevent comma insertion
-- Negatives: Use accounting format with parentheses
-- Underlines: Single above subtotals, double below totals
+**Step 3.2: 用正确格式构建每个标签页**
+系统性应用格式规则：
+- Headers：加粗、左对齐、11pt
+- Financial data：百万单位使用 `$#,##0.0`
+- Operational data：`#,##0`，不加 `$`
+- Percentages：`0.0%`
+- Years：文本格式，避免逗号
+- Negatives：会计格式，使用括号
+- Underlines：小计单下划线，总计双下划线
 
-**Step 3.3: Insert formulas for calculations**
-- All subtotals and totals must be formula-based
-- Link balance sheet to income statement where appropriate
-- Link cash flow to both income statement and balance sheet
-- Create cross-tab references for validation
-- Avoid hardcoding any calculated values
+**Step 3.3: 用公式写入所有计算**
+- 所有小计和总计必须是公式
+- 资产负债表与利润表之间建立必要链接
+- 现金流同时与利润表和资产负债表联动
+- 建立跨标签页验证引用
+- 不允许硬编码任何计算值
 
 <correct_patterns>
 
-### Row Reference Tracking - Copy This Pattern
+### 行引用跟踪，直接复用这个模式
 
-**Store row numbers when writing data, then reference them in formulas:**
+**写数据时先记录行号，再在公式中引用：**
 
 ```python
 # ✅ CORRECT - Track row numbers as you write
@@ -361,7 +361,7 @@ for col in year_columns:
     cell.value = f"={get_column_letter(col)}{ebitda_row}/{get_column_letter(col)}{revenue_row}"
 ```
 
-**For complex models, use a dictionary:**
+**复杂模型可以使用字典：**
 
 ```python
 row_refs = {
@@ -379,9 +379,9 @@ margin_formula = f"=B{row_refs['ebitda']}/B{row_refs['revenue']}"
 
 <common_mistakes>
 
-### WRONG: Hardcoded Row Offsets
+### WRONG: 硬编码行偏移
 
-**Don't use relative offsets - they break when table structure changes:**
+**不要使用相对偏移，这会在表结构变化时失效：**
 
 ```python
 # ❌ WRONG - Fragile offset-based references
@@ -391,266 +391,266 @@ formula = f"=B{row-15}/B{row-19}"  # What is row-15? What is row-19?
 formula = f"=B{current_row-10}*C{current_row-20}"
 ```
 
-**Why this fails:**
-- Breaks silently when you add/remove rows
-- Impossible to verify correctness by reading code
-- Creates debugging nightmares in the delivered Excel file
+**为什么这种方式会失败：**
+- 增减行后会静默出错
+- 读代码时几乎无法验证正确性
+- 最终交付的 Excel 会变得很难排错
 
 </common_mistakes>
 
-**Step 3.4: Apply professional presentation**
-- Freeze top row and first column on each data tab
-- Set appropriate column widths (typically 12-15 characters)
-- Right-align all numeric data
-- Left-align all text and headers
-- Add single/double underlines per accounting standards
-- Ensure clean, minimal appearance
+**Step 3.4: 应用专业展示格式**
+- 每个数据标签页冻结首行和首列
+- 设置合适列宽，通常 12 到 15 个字符
+- 所有数字右对齐
+- 所有文本和标题左对齐
+- 按会计标准加入单 / 双下划线
+- 保持外观简洁、克制
 
-### Phase 4: Scenario Building (if projections included)
+### Phase 4: 场景构建，若包含预测
 
 **Management Case:**
-Present company's projections as provided in source materials:
-- Extract all management assumptions
-- Document growth rates, margin expansion, capital requirements
-- Note key drivers and sensitivities
-- Flag any "hockey stick" inflections that require skepticism
-- Present as "Management Case" with clear labeling
+按源材料原样展示管理层预测：
+- 提取所有管理层假设
+- 记录增长率、利润率改善、资本需求
+- 标出关键驱动与敏感项
+- 对任何 "hockey stick" 型拐点保持怀疑并标记
+- 明确标为 "Management Case"
 
 **Base Case (Risk-Adjusted):**
-Apply conservative adjustments to management projections based on company-specific risk factors:
-- Apply revenue growth haircut reflecting execution risk and historical forecast accuracy
-- Moderate margin expansion assumptions based on industry benchmarks and operating leverage
-- Increase capex assumptions if growth-dependent
-- Add working capital requirements if understated
-- Delay synergy realization if applicable, based on integration complexity
-- Document all adjustments with rationale and supporting analysis
+基于公司特定风险，对管理层预测做保守调整：
+- 结合执行风险和历史预测准确性，对收入增速打折
+- 结合行业 benchmark 和经营杠杆，适度下调利润率扩张假设
+- 若增长依赖 capex，则提高 capex 假设
+- 若营运资本需求被低估，则进行补充
+- 若适用，根据整合复杂度推迟协同效应兑现
+- 记录全部调整、原因和支持分析
 
-**Downside Case (optional but recommended for LBO analysis):**
-Stress test scenario based on industry cyclicality and company vulnerabilities:
-- Model revenue decline reflecting recession risk or competitive pressure
-- Assume margin compression under stress (volume deleverage, pricing pressure)
-- Test covenant compliance and liquidity
-- Assess downside protection
-- Document key risks being stress-tested
+**Downside Case，LBO 分析中可选但推荐：**
+基于行业周期性和公司脆弱点做压力测试：
+- 模拟收入下滑，体现衰退风险或竞争压力
+- 假设利润率承压，量减固定成本摊薄、价格压力
+- 测试 covenant compliance 和 liquidity
+- 评估 downside protection
+- 记录正在测试的关键风险
 
-**Documentation requirements for scenarios:**
-Create assumptions schedule showing:
-- Key assumptions by scenario (revenue growth, margins, capex %)
-- Rationale for each adjustment
-- Sensitivity analysis on key variables
-- Historical forecast accuracy if available
-- Comparison to industry benchmarks
+**场景文档要求：**
+建立 assumptions schedule，展示：
+- 各场景关键假设，收入增速、利润率、capex 占比
+- 每项调整的原因
+- 关键变量的敏感性分析
+- 若可得，历史预测准确性
+- 与行业 benchmark 的对比
 
-### Phase 5: Quality Control and Validation
+### Phase 5: 质量控制与验证
 
-**Step 5.1: Data accuracy checks**
-Validate:
-- Every number traces to source (check spot samples, cite documents/URLs/servers)
-- All calculations are formula-based (no hardcoded values)
-- Subtotals and totals are mathematically correct
-- Years display without commas (2024 NOT 2,024)
-- No formula errors: #REF!, #VALUE!, #DIV/0!, #N/A
+**Step 5.1: 数据准确性检查**
+验证：
+- 每个数字都能回溯到来源，抽样检查并标注 documents/URLs/servers
+- 所有计算都是公式，不是硬编码
+- 小计和总计计算正确
+- 年份显示没有逗号，`2024` 而不是 `2,024`
+- 没有公式错误，`#REF!`、`#VALUE!`、`#DIV/0!`、`#N/A`
 
-**Step 5.2: Format consistency checks**
-Verify:
-- Financial data has $ signs in format
-- Operational data has NO $ signs
-- Percentages display as % (15.0% not 0.15)
-- Negative numbers use parentheses for financial data
-- Headers are bold and left-aligned
-- Numbers are right-aligned
-- Years are text format
+**Step 5.2: 格式一致性检查**
+确认：
+- 财务数据带 `$`
+- 运营数据不带 `$`
+- 百分比以 `%` 展示，`15.0%` 而不是 `0.15`
+- 财务负数使用括号
+- 标题加粗并左对齐
+- 数字右对齐
+- 年份使用文本格式
 
-**Step 5.3: Structure and completeness checks**
-Confirm:
-- All required tabs present and properly sequenced
-- Executive summary is concise (fits on one page)
-- All key metrics captured comprehensively
-- Logical flow from summary to detail
-- Appropriate level of granularity in each tab
-- No missing data or incomplete sections
+**Step 5.3: 结构与完整性检查**
+确认：
+- 所有必需标签页都存在，顺序正确
+- Executive summary 简洁，一页内可读完
+- 所有关键指标都已充分覆盖
+- 从摘要到细节的逻辑流动清晰
+- 每个标签页的颗粒度合适
+- 没有缺失数据或未完成部分
 
-**Step 5.4: Professional presentation checks**
-Review:
-- Minimal borders (only for structure)
-- Consistent indentation (2 spaces for sub-items)
-- Proper accounting underlines (single and double)
-- Clean, professional appearance throughout
-- Appropriate column widths (not too narrow or wide)
+**Step 5.4: 专业呈现检查**
+审阅：
+- 边框最少，只用于结构
+- 缩进一致，子项目 2 空格
+- 会计下划线使用正确，单线与双线
+- 整体外观简洁专业
+- 列宽合适，不要过宽或过窄
 
-**Step 5.5: Documentation and assumptions checks**
-Ensure:
-- All normalization adjustments documented with rationale
-- Source citations included (document page numbers, URLs, or data source references)
-- Assumptions clearly stated and reasonable
-- Executive summary accurate and impactful
-- Filename includes company name and date
+**Step 5.5: 文档与假设检查**
+确保：
+- 所有标准化调整都已记录并说明原因
+- 已包含来源引用，文档页码、URL 或数据源 reference
+- 假设陈述清晰且合理
+- Executive summary 准确、有力度
+- 文件名包含公司名与日期
 
-### Phase 6: Final Delivery
+### Phase 6: 最终交付
 
-**Step 6.1: Create executive summary**
-Write concise, impactful summary including:
-- Company overview: business model, products/services, geography (2-3 sentences)
-- Key financial metrics: Revenue, EBITDA, Growth rates (table format)
-- Investment highlights: 3-5 key strengths or opportunities
-- Notable risks or considerations (briefly)
-- Transaction context if applicable
+**Step 6.1: 创建 executive summary**
+写出简洁、有冲击力的摘要，包括：
+- 公司概况，商业模式、产品 / 服务、地域，2 到 3 句
+- 核心财务指标，Revenue、EBITDA、Growth rates，表格形式
+- 投资亮点，3 到 5 条核心优势或机会
+- 重要风险或注意事项，简要说明
+- 如果适用，加入交易背景
 
-**Step 6.2: Final file preparation**
-- Save workbook with proper naming: CompanyName_DataPack_YYYY-MM-DD.xlsx
+**Step 6.2: 最终文件准备**
+- 使用规范命名保存工作簿：`CompanyName_DataPack_YYYY-MM-DD.xlsx`
 
 ## NORMALIZATION PATTERNS
 
 ### Common Adjustments to EBITDA
 
 **1. Restructuring charges**
-- Add back if truly non-recurring (facility closure, one-time severance)
-- Do NOT add back if company restructures every year
-- Document specific nature and rationale for non-recurrence
-- Example: "2023 restructuring: $3.0M facility closure, documented in source materials, one-time event"
+- 只有确属一次性时才加回，facility closure、一次性裁员
+- 如果公司年年重组，就不要加回
+- 记录具体性质以及为何认为不会重复发生
+- 例如：`2023 restructuring: $3.0M facility closure, documented in source materials, one-time event`
 
 **2. Stock-based compensation**
-- Industry standard: add back for private equity analysis
-- Treat as non-cash operating expense
-- Be consistent across all periods
-- Note if unusually high or includes one-time grants
+- 私募股权分析中通常会加回
+- 作为非现金经营费用处理
+- 所有期间处理口径保持一致
+- 如果异常偏高，或含一次性授予，需要特别说明
 
 **3. Acquisition-related costs**
-- Add back transaction fees, integration costs
-- Document specific amounts by type
-- Do not add back ongoing integration investments
-- Cite source for each adjustment
+- 加回 transaction fees 与 integration costs
+- 按类型记录具体金额
+- 不要把持续性的 integration 投资也加回
+- 每项调整都注明来源
 
 **4. Legal settlements and litigation**
-- Add back if truly isolated incident
-- Assess recurrence risk (one settlement vs pattern of litigation)
-- Document nature of settlement
-- Consider if this is normal course of business
+- 只有真正孤立事件才加回
+- 评估重复发生风险，是一次性和解还是长期诉讼模式
+- 记录和解事项性质
+- 评估其是否属于正常经营的一部分
 
 **5. Asset sales or impairments**
-- Exclude gains/losses on asset sales from operating EBITDA
-- Remove impairment charges if truly non-recurring
-- Document what assets were sold/impaired and why
-- Adjust revenue if assets generated operating income
+- 将资产出售损益从经营 EBITDA 中剔除
+- 如果减值确属一次性，也可剔除
+- 记录出售 / 减值的是哪些资产以及原因
+- 如果这些资产曾贡献经营收入，也要同步调整收入口径
 
 **6. Related party adjustments**
-- Normalize above-market related party expenses (rent, management fees)
-- Adjust to market rates with supporting documentation
-- Remove personal expenses run through business
-- Document market rate comparison
+- 将高于市场水平的关联方费用，租金、管理费等，调整到市场水平
+- 提供市场化依据
+- 剔除通过公司报销的个人费用
+- 记录市场水平对比逻辑
 
 ### Conservative vs Aggressive Normalization
 
 **Management Case:**
-- Include all adjustments management proposes
-- Accept company's definition of "non-recurring"
-- More aggressive EBITDA adjustments
-- Use for understanding management's view
+- 包含管理层提出的全部调整
+- 接受公司对 "non-recurring" 的定义
+- EBITDA 调整更激进
+- 用于理解管理层视角
 
-**Base Case (Recommended for investment decisions):**
-- Only clearly non-recurring items
-- Apply higher scrutiny to recurring "one-time" charges
-- Exclude speculative adjustments
-- More conservative, defensible to investment committee
+**Base Case，Recommended for investment decisions:**
+- 只纳入明确的一次性项目
+- 对反复出现的 "one-time" 费用提高审查标准
+- 排除缺乏支撑的推测性调整
+- 更保守，也更容易向投资委员会解释
 
 ## INDUSTRY-SPECIFIC ADAPTATIONS
 
 ### Technology/SaaS
-Key metrics to capture:
-- ARR (Annual Recurring Revenue) and MRR
-- Customer count by cohort
-- CAC (Customer Acquisition Cost) and LTV (Lifetime Value)
-- Churn rate (gross and net)
+需要抓取的关键指标：
+- ARR 与 MRR
+- 分 cohort 客户数
+- CAC 与 LTV
+- Churn rate，gross 和 net
 - Net revenue retention
-- Rule of 40 (Growth % + EBITDA Margin %)
-- Magic number (sales efficiency)
+- Rule of 40，Growth % + EBITDA Margin %
+- Magic number，销售效率
 
-Format notes: ARR is currency ($), customer count is number (no $), rates are %
+格式说明：ARR 是货币，客户数是纯数字，比率使用 `%`
 
 ### Manufacturing/Industrial
-Key metrics to capture:
-- Production capacity and capacity utilization %
-- Units produced by product line
+需要抓取的关键指标：
+- 产能与产能利用率
+- 各产品线产量
 - Inventory turns
-- Gross margin by product line
+- 各产品线毛利率
 - Order backlog
 
-Format notes: Units, capacity are numbers (no $), utilization is %, revenue/costs are currency
+格式说明：产量和产能是数字，利用率是 `%`，收入和成本是货币
 
 ### Real Estate/Hospitality
-Key metrics to capture:
-- Properties/rooms/square footage
-- Occupancy rates %
-- ADR (Average Daily Rate) - currency format
-- RevPAR (Revenue per Available Room) - currency format
-- NOI (Net Operating Income) - currency format
-- Cap rates %
+需要抓取的关键指标：
+- 物业 / 房间 / 面积
+- Occupancy rates
+- ADR，使用货币格式
+- RevPAR，使用货币格式
+- NOI，使用货币格式
+- Cap rates
 - FF&E reserve
 
-Format notes: Rooms/sqft are numbers, occupancy is %, ADR/RevPAR are currency
+格式说明：房间数和面积是数字，occupancy 是 `%`，ADR/RevPAR 是货币
 
 ### Healthcare/Services
-Key metrics to capture:
-- Locations/facilities
-- Providers/employees
-- Patients/visits (volume metrics)
-- Revenue per visit - currency
-- Payor mix %
-- Same-store growth %
+需要抓取的关键指标：
+- Locations / facilities
+- Providers / employees
+- Patients / visits，量化指标
+- Revenue per visit，货币格式
+- Payor mix
+- Same-store growth
 
-Format notes: Locations/visits are numbers, revenue per visit is currency, rates are %
+格式说明：Locations 和 visits 是数字，revenue per visit 是货币，比率使用 `%`
 
 ## FINAL DELIVERY CHECKLIST
 
-Complete this checklist before delivering the data pack:
+交付 data pack 之前，完成以下检查：
 
 **Structure:**
-- All required tabs present and in logical sequence
-- Each tab has clear header and title
-- Executive summary is concise (fits on one page)
+- 所有必需标签页都存在，且顺序合理
+- 每个标签页都有清晰标题
+- Executive summary 简洁，一页内可读完
 
 **Data Accuracy:**
-- All numbers trace to source (documents, URLs, or data servers)
-- Source references documented for key figures (page numbers, URLs, etc.)
-- All calculations are formula-based (no hardcoded calculated values)
-- Subtotals and totals verified
-- Balance sheet balances (Assets = Liabilities + Equity)
-- No #REF!, #VALUE!, or #DIV/0! errors
+- 所有数字都能追溯到来源，documents、URLs 或 data servers
+- 关键数字已有来源引用，页码、URL 等
+- 所有计算都用公式，没有硬编码计算值
+- 小计和总计已验证
+- 资产负债表平衡，Assets = Liabilities + Equity
+- 没有 `#REF!`、`#VALUE!` 或 `#DIV/0!` 错误
 
 **Formatting - Years and Numbers:**
-- Years display correctly: 2020, 2021, 2022 (no commas)
-- Financial data has $ signs: $50.0, $125.5
-- Operational metrics have NO $ signs: 100 stores, 250 employees
-- Percentages formatted correctly: 15.0%, 25.5%
-- Negatives in parentheses: $(15.0) not -$15.0
+- 年份显示正确：`2020, 2021, 2022`，不带逗号
+- 财务数据带 `$`：`$50.0, $125.5`
+- 运营指标不带 `$`：`100 stores, 250 employees`
+- 百分比格式正确：`15.0%, 25.5%`
+- 负数用括号：`$(15.0)`，不是 `-$15.0`
 
 **Formatting - Professional Standards:**
-- Headers bold and left-aligned
-- Numbers right-aligned
-- Consistent indentation (2 spaces for sub-items)
-- Single underline above subtotals
-- Double underline below final totals
-- Frozen panes on headers
-- Consistent font throughout
-- Minimal borders (only for structure)
-- Clean, professional appearance throughout
+- 标题加粗并左对齐
+- 数字右对齐
+- 缩进一致，子项目 2 空格
+- 小计上方单下划线
+- 最终总计下方双下划线
+- 表头已冻结
+- 全文件字体一致
+- 边框尽量少，只用于结构
+- 整体外观整洁专业
 
 **Content Completeness:**
-- Financial statements complete (IS, BS, CF)
-- Operating metrics comprehensively captured
-- Normalization adjustments documented
-- Assumptions clearly stated
-- Executive summary clear, concise, and impactful
-- Investment highlights compelling
-- Market analysis provides context
+- 财务报表完整，IS、BS、CF
+- 运营指标提取充分
+- 标准化调整已记录
+- 假设表述清晰
+- Executive summary 清晰、简洁、有力度
+- Investment highlights 有说服力
+- Market analysis 提供了背景信息
 
 **Documentation:**
-- All normalization adjustments explained
-- Every data cell cited from source with comments and links (document page numbers, URLs, or data source references)
-- Assumptions documented with rationale
-- Any data limitations noted
-- Filename follows convention: CompanyName_DataPack_YYYY-MM-DD.xlsx
+- 所有标准化调整都有解释
+- 每个数据单元格都带来源说明、注释和链接，文档页码、URL 或数据源引用
+- 假设有依据说明
+- 已记录数据限制
+- 文件名符合命名规则：`CompanyName_DataPack_YYYY-MM-DD.xlsx`
 
 **Final Output:**
-- File saved to outputs with proper naming convention
-- All quality control checks passed
+- 文件已保存到 outputs，命名规范正确
+- 所有质量检查都已通过

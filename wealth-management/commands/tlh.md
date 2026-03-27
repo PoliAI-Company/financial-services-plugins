@@ -1,8 +1,8 @@
 ---
-description: Identify tax-loss harvesting opportunities
+description: 识别税损收割机会
 argument-hint: "[client name or account]"
 ---
 
-Load the `tax-loss-harvesting` skill to scan taxable accounts for harvestable losses, suggest replacement securities, and manage wash sale windows.
+加载 `tax-loss-harvesting` skill，扫描 taxable 账户中的可收割亏损，建议替代证券，并管理 wash sale 窗口。
 
-If a client or account is provided, use it. Otherwise ask for the portfolio to scan.
+如果提供了客户或账户，就直接使用。否则向用户询问需要扫描的投资组合。

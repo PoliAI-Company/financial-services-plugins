@@ -1,16 +1,16 @@
-# Report Structure and Templates
+# 报告结构与模板
 
-This document provides complete page-by-page templates and formatting requirements for the earnings update DOCX report.
+本文档提供 earnings update DOCX 报告的逐页模板与格式要求。
 
-## Complete Report Structure
+## 完整报告结构
 
-**REPORT STRUCTURE:**
+**REPORT STRUCTURE：**
 
 ---
 
 ## PAGE 1: EARNINGS SUMMARY
 
-**Top Section - Header:**
+**顶部区域 - Header：**
 ```
 [COMPANY NAME] ([TICKER])
 [QUARTER] [YEAR] EARNINGS UPDATE
@@ -22,7 +22,7 @@ Price (as of [date]): $XX.XX
 Price Target: [OLD → NEW if changed, or MAINTAIN $XXX]
 ```
 
-**Top Section - Quick Summary Box:**
+**顶部区域 - Quick Summary Box：**
 ```
 EARNINGS SUMMARY
 ─────────────────────────────────────────────────
@@ -38,9 +38,9 @@ Key Takeaways:
 ■ [Takeaway 3 - one sentence]
 ```
 
-**Main Content - Investment Impact (3-4 bullets):**
+**主体内容 - Investment Impact（3-4 条 bullets）：**
 
-Use ■ character with **bold headers** and paragraph-length explanations:
+使用 ■ 字符、**粗体标题** 和段落长度解释：
 
 ```
 ■ **Results beat on strong [segment/geography/product], maintaining positive momentum**
@@ -65,7 +65,7 @@ view.
 [Investment conclusion paragraph...]
 ```
 
-**Bottom Section - Updated Estimates Table:**
+**底部区域 - Updated Estimates Table：**
 
 ```
 UPDATED FINANCIAL ESTIMATES
@@ -87,13 +87,13 @@ Source: Company data, [Firm Name] estimates.
 
 ## PAGES 2-3: DETAILED RESULTS ANALYSIS
 
-Break down results by:
+按以下维度拆解结果：
 
-### Revenue Analysis (1 page)
-- Total revenue beat/miss explanation
-- Segment/geographic/product breakdown
-- YoY and sequential trends
-- Comparison to guidance (if provided)
+### Revenue Analysis（1 页）
+- Total revenue beat / miss 的解释
+- 按 segment / geography / product 拆分
+- YoY 与 sequential trends
+- 与 guidance 对比，如有
 
 **Table: Quarterly Revenue Progression**
 ```
@@ -107,11 +107,11 @@ Note: Q[X] = [Quarter] [Year]
 Source: Company reports, [Firm Name] analysis
 ```
 
-### Profitability Analysis (1 page)
-- Gross margin analysis (drivers, trends)
-- Operating margin analysis
-- Below-the-line items (interest, tax, etc.)
-- EPS reconciliation (adjusted vs. GAAP)
+### Profitability Analysis（1 页）
+- Gross margin 分析，驱动因素与趋势
+- Operating margin 分析
+- Below-the-line items，利息、税等
+- EPS reconciliation，adjusted vs. GAAP
 
 **Table: Margin Analysis**
 ```
@@ -127,7 +127,7 @@ Key Drivers:
 - [Negative driver 2]
 ```
 
-**Embed 2-3 charts on these pages:**
+**在这两页中嵌入 2-3 张图：**
 - Chart 1: Quarterly revenue progression
 - Chart 2: Quarterly EPS progression
 - Chart 3: Margin trends
@@ -136,11 +136,11 @@ Key Drivers:
 
 ## PAGES 4-5: KEY METRICS & GUIDANCE
 
-### Business Metrics (1 page)
-- Customer count, ARPU, units, store count, etc.
-- Whatever metrics company emphasizes
-- Comparison to expectations
-- Trends and outlook
+### Business Metrics（1 页）
+- 客户数、ARPU、units、store count 等
+- 公司的核心经营指标
+- 与预期的比较
+- 趋势与前景
 
 **Table: Key Operating Metrics**
 ```
@@ -152,14 +152,14 @@ Key Drivers:
 Source: Company reports
 ```
 
-### Guidance & Outlook (1 page)
-- What guidance was provided (if any)
-- Comparison to prior guidance
-- Comparison to Street estimates
-- Our assessment of achievability
-- Key assumptions
+### Guidance & Outlook（1 页）
+- 提供了什么 guidance，如有
+- 与 prior guidance 对比
+- 与 Street estimates 对比
+- 对其可实现性的判断
+- 关键假设
 
-**If guidance provided:**
+**如果提供了 guidance：**
 ```
 MANAGEMENT GUIDANCE vs. ESTIMATES
 ─────────────────────────────────────────────────────────────────
@@ -170,18 +170,18 @@ FY2024E EPS          $X.XX-X.XX      $X.XX-X.XX      Raised    $X.XX
 Our Take: [Brief assessment of guidance]
 ```
 
-**Embed 2-3 charts:**
+**嵌入 2-3 张图：**
 - Chart 4: Key metrics trends
 - Chart 5: Guidance vs. Street comparison
-- Chart 6: Revenue by segment/geography
+- Chart 6: Revenue by segment / geography
 
 ---
 
 ## PAGES 6-7: UPDATED INVESTMENT THESIS
 
-### Thesis Impact Assessment (1-2 pages)
+### Thesis Impact Assessment（1-2 页）
 
-For each key thesis pillar, assess impact of results:
+对每个关键 thesis pillar 评估本季度结果的影响：
 
 ```
 ■ **Thesis Pillar 1: [Original thesis statement]**
@@ -201,12 +201,12 @@ results impact this specific thesis element.]
 [Similar analysis]
 ```
 
-### Risks Update (0.5 pages)
-- Any new risks identified?
-- Have existing risks been mitigated or worsened?
-- Brief assessment
+### Risks Update（0.5 页）
+- 是否识别出新的风险？
+- 现有风险被缓解了还是恶化了？
+- 简要评估
 
-**Embed 1-2 charts:**
+**嵌入 1-2 张图：**
 - Chart 7: Valuation vs. historical
 - Chart 8: Estimate revision comparison
 
@@ -214,9 +214,9 @@ results impact this specific thesis element.]
 
 ## PAGES 8-10: VALUATION & ESTIMATES
 
-### Updated Valuation (1-2 pages)
+### Updated Valuation（1-2 页）
 
-**DCF Update:**
+**DCF Update：**
 ```
 Updated DCF inputs based on Q[X] results:
 - Revenue growth FY24E: X.X% → X.X% (raised/lowered)
@@ -227,13 +227,13 @@ Updated DCF inputs based on Q[X] results:
 Updated DCF fair value: $XXX (prior: $XXX)
 ```
 
-**Comparable Companies:**
+**Comparable Companies：**
 ```
 [Company] trades at XX.Xx NTM P/E vs. peer median of XX.Xx (-X% discount).
 Given [rationale], we believe [premium/discount/inline] valuation is warranted.
 ```
 
-**Price Target Methodology:**
+**Price Target Methodology：**
 ```
 Our $XXX price target (prior: $XXX) is based on:
 - XX% DCF
@@ -245,7 +245,7 @@ Implied upside: +XX% from current price of $XXX
 
 ### Updated Estimates Detail
 
-Provide updated estimates for at least current year and next year:
+至少给出当前财年和下一财年的 updated estimates：
 
 ```
 DETAILED ESTIMATE UPDATES
@@ -275,71 +275,71 @@ EV/EBITDA (x)        XX.Xx    XX.Xx              XX.Xx
 Source: [Firm Name] estimates
 ```
 
-**Embed 1-2 charts:**
-- Chart 9: P/E or EV/EBITDA bands
-- Chart 10: Price target walk (old → new)
+**嵌入 1-2 张图：**
+- Chart 9: P/E 或 EV/EBITDA bands
+- Chart 10: Price target walk，old → new
 
 ---
 
-## PAGES 11-12: APPENDIX (Optional)
+## PAGES 11-12: APPENDIX（可选）
 
-### Detailed Quarterly Models (if space allows)
+### Detailed Quarterly Models（如篇幅允许）
 - Income statement detail
 - Cash flow highlights
 - Balance sheet highlights
 
-### Call Transcript Highlights (optional)
-- Key Q&A excerpts
-- Notable management quotes
+### Call Transcript Highlights（可选）
+- 关键 Q&A 摘录
+- 值得关注的管理层原话
 
-### Peer Comparison (if peers have reported)
-- How results compare to competitors
-- Market share implications
+### Peer Comparison（如 peers 也已披露业绩）
+- 结果与竞争对手相比如何
+- 对市场份额意味着什么
 
-**Embed final charts:**
+**嵌入最后几张图：**
 - Chart 11: Peer comparison
 - Chart 12: Additional supporting charts
 
 ---
 
-## FORMATTING REQUIREMENTS
+## 格式要求
 
-### 1. Page 1 Requirements
-- Clear rating (MAINTAIN OUTPERFORM, RAISE TO BUY, etc.)
-- Updated price target prominently displayed
-- Summary table with old/new estimates
-- 3-4 paragraph-length bullets with ■ character
+### 1. Page 1 要求
+- 评级必须清晰，MAINTAIN OUTPERFORM、RAISE TO BUY 等
+- Updated price target 要醒目展示
+- Summary table 展示 old / new estimates
+- 使用 ■ 字符写 3-4 条段落式 bullet
 
-### 2. All Tables Requirements
-- Source line at bottom
-- Clear column headers
-- Shading for header rows
+### 2. All Tables 要求
+- 底部必须有 source line
+- 清晰的列标题
+- Header rows 使用底纹
 
-### 3. All Charts Requirements
-- "Figure X - [Title]" caption above
-- "Source: [Source]" line below
-- Professional styling
+### 3. All Charts 要求
+- 上方 caption："Figure X - [Title]"
+- 下方来源行："Source: [Source]"
+- 专业风格
 
-### 4. Year Notation
-- Use A for actual (Q3'24A)
-- Use E for estimate (Q4'24E)
+### 4. 年份标记
+- Actual 使用 A，例如 Q3'24A
+- Estimate 使用 E，例如 Q4'24E
 
-### 5. Writing Style
-- Lead with numbers ("Revenue grew 15% to $1.2B" not "Strong revenue growth")
-- Use "vs." not "versus"
-- Be direct and concise
-- Focus on what's NEW
+### 5. 写作风格
+- 先写数字，例如 "Revenue grew 15% to $1.2B"，而不是 "Strong revenue growth"
+- 使用 "vs." 而不是 "versus"
+- 直接、简洁
+- 只聚焦新增内容
 
-### 6. Hyperlink Requirements ⭐⭐⭐
-- ALL URLs must be clickable hyperlinks in Word
-- Blue, underlined text that opens on Ctrl+Click
-- Display text meaningful (not raw URL)
-- Every source citation should have clickable link where applicable
-- No plain text URLs - always format as hyperlinks
+### 6. 超链接要求 ⭐⭐⭐
+- 所有 URL 都必须是 Word 中可点击的 hyperlinks
+- 显示为蓝色带下划线文本，可 Ctrl+Click 打开
+- 显示文本要有意义，不直接暴露原始 URL
+- 每个 source citation 在适用时都应提供可点击链接
+- 不要留下纯文本 URL，统一格式化为 hyperlinks
 
-## Citation Examples for Specific Content
+## 针对不同内容的引用示例
 
-### For Beat/Miss Analysis:
+### Beat/Miss Analysis：
 ```
 Revenue of $2.45B beat consensus of $2.39B by $60M (2.5%)¹
 
@@ -347,7 +347,7 @@ Revenue of $2.45B beat consensus of $2.39B by $60M (2.5%)¹
   [Hyperlink "earnings release" to: https://investor.company.com/news/q3-2024-earnings]
 ```
 
-### For Guidance:
+### Guidance：
 ```
 Management raised FY2024 revenue guidance to $9.8-10.0B from prior $9.5-9.7B²
 
@@ -357,7 +357,7 @@ Management raised FY2024 revenue guidance to $9.8-10.0B from prior $9.5-9.7B²
   [Hyperlink "Q2 earnings call" to August transcript]
 ```
 
-### For Key Metrics:
+### Key Metrics：
 ```
 Enterprise customers grew 23% YoY to 845, with net revenue retention at 128%³
 

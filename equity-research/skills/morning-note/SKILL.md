@@ -1,34 +1,34 @@
 # Morning Note
 
-description: Draft concise morning meeting notes summarizing overnight developments, trade ideas, and key events for coverage stocks. Designed for the 7am morning meeting format — tight, opinionated, actionable. Triggers on "morning note", "morning meeting", "what happened overnight", "trade idea", "morning call prep", or "daily note".
+description: 起草简洁的晨会纪要，总结隔夜动态、交易想法和覆盖股票的关键事件。为早上 7 点晨会格式设计，简短、有观点、可执行。在用户提到 "morning note"、"morning meeting"、"what happened overnight"、"trade idea"、"morning call prep" 或 "daily note" 时触发。
 
-## Workflow
+## 工作流
 
-### Step 1: Overnight Developments
+### 第 1 步：隔夜动态
 
-Scan for relevant events across coverage universe:
+扫描覆盖范围内与之相关的事件：
 
-**Earnings & Guidance**
-- Any coverage companies reporting overnight or pre-market?
-- Earnings surprises (beat/miss on revenue, EPS, key metrics)
-- Guidance changes (raised, lowered, maintained)
+**业绩与指引**
+- 是否有覆盖公司在隔夜或盘前发布业绩？
+- 业绩超预期或低于预期，收入、EPS、关键指标
+- 指引变化，上调、下调、维持
 
-**News & Events**
-- M&A announcements or rumors
-- Management changes
-- Product launches or regulatory decisions
-- Analyst upgrades/downgrades from competitors
-- Macro data or policy changes affecting the sector
+**新闻与事件**
+- 并购公告或市场传闻
+- 管理层变动
+- 产品发布或监管决策
+- 竞争对手分析师上调或下调评级
+- 影响该板块的宏观数据或政策变化
 
-**Market Context**
-- Overnight futures / pre-market moves
-- Sector ETF performance
-- Relevant commodity or currency moves
-- Key economic data releases today
+**市场背景**
+- 隔夜期货 / 盘前走势
+- 板块 ETF 表现
+- 相关大宗商品或汇率波动
+- 当天将发布的关键经济数据
 
-### Step 2: Morning Note Format
+### 第 2 步：晨会简报格式
 
-Keep it tight — a morning note should be readable in 2 minutes:
+保持紧凑，晨会简报应能在 2 分钟内读完：
 
 ---
 
@@ -36,28 +36,28 @@ Keep it tight — a morning note should be readable in 2 minutes:
 **[Sector Coverage]**
 
 **Top Call: [Headline — the one thing PMs need to hear]**
-- 2-3 sentences on the key development and why it matters
-- Stock impact: price target, rating reiteration/change
+- 用 2-3 句话说明核心进展及其重要性
+- 对股价的影响，目标价、评级重申或调整
 
 **Overnight/Pre-Market Developments**
-- [Company A]: One-line summary of earnings/news + our take
-- [Company B]: One-line summary + our take
-- [Sector/Macro]: Relevant sector-wide development
+- [Company A]：业绩/新闻一行总结 + 我们的观点
+- [Company B]：一行总结 + 我们的观点
+- [Sector/Macro]：与板块相关的广泛动态
 
 **Key Events Today**
-- [Time]: [Company] earnings call
-- [Time]: Economic data release (expectations vs. our view)
-- [Time]: Conference or investor day
+- [Time]：[Company] 业绩电话会
+- [Time]：经济数据发布，市场预期 vs. 我们的判断
+- [Time]：会议或投资者日
 
-**Trade Ideas** (if any)
-- [Long/Short] [Company]: 1-2 sentence thesis + catalyst
-- Risk: What would make this wrong
+**Trade Ideas**（如有）
+- [Long/Short] [Company]：1-2 句话论点 + 催化剂
+- Risk：什么情况会让这个判断失效
 
 ---
 
-### Step 3: Quick Takes on Earnings
+### 第 3 步：业绩快速观点
 
-If a coverage company reported, provide a quick reaction:
+如果覆盖公司发布了业绩，给出快速反应：
 
 | Metric | Consensus | Actual | Beat/Miss |
 |--------|-----------|--------|-----------|
@@ -66,21 +66,21 @@ If a coverage company reported, provide a quick reaction:
 | [Key metric] | | | |
 | Guidance | | | |
 
-**Our Take**: 2-3 sentences — is this good or bad for the stock? Does it change our thesis?
+**Our Take**：2-3 句话，这对股价是利好还是利空？是否改变我们的投资论点？
 
-**Action**: Maintain / Upgrade / Downgrade rating? Adjust price target?
+**Action**：维持 / 上调 / 下调评级？是否调整目标价？
 
-### Step 4: Output
+### 第 4 步：输出
 
-- Markdown text for email/Slack distribution
-- Word document if formal distribution is needed
-- Keep to 1 page max — PMs and traders won't read more
+- 用于邮件 / Slack 分发的 Markdown 文本
+- 如需正式分发，则输出 Word 文档
+- 控制在 1 页以内，PM 和交易员不会读更长的内容
 
-## Important Notes
+## 重要说明
 
-- Be opinionated — morning notes that just summarize news without a view are useless
-- Lead with the most important thing — don't bury the headline
-- "No news" is a valid morning note — say "nothing material overnight, maintaining positioning"
-- Distinguish between actionable events (earnings, M&A) and noise (minor analyst notes, non-events)
-- Time-stamp your takes — if you're writing at 6am, note that pre-market may change by open
-- If you're wrong, own it in the next morning note — credibility matters more than being right every time
+- 要有明确观点，只总结新闻却不给判断的晨会简报没有价值
+- 先说最重要的事，不要把标题埋在后面
+- "No news" 也是有效的晨会简报，可以写 "隔夜无重大变化，维持现有配置"
+- 区分可交易事件，业绩、并购，和噪音，轻微分析师观点、无实质进展
+- 给观点加时间戳，如果你在早上 6 点写，要注明盘前情况在开盘前可能变化
+- 如果判断错了，在下一份晨会简报中正面承认，可信度比每次都对更重要

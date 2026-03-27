@@ -1,308 +1,308 @@
-# Content Mapping Reference
+# 内容映射参考
 
-This file provides guidance for mapping source data to pitch deck template sections. The process is template-agnostic—these principles apply regardless of the specific template design.
+本文件说明如何把源数据映射到 pitch deck 模板的不同区域。该流程与具体模板无关，这些原则适用于任何模板设计。
 
-## Contents
+## 目录
 
-- [Template Analysis Process](#template-analysis-process)
-- [Content Mapping Workflow](#content-mapping-workflow)
-- [Common Slide Types and Data Requirements](#common-slide-types-and-data-requirements)
-- [Mapping Verification Checklist](#mapping-verification-checklist)
-- [Handling Data-Template Mismatches](#handling-data-template-mismatches)
-- [Template-Specific Adaptation](#template-specific-adaptation)
-
----
-
-## Template Analysis Process
-
-Before populating any template, analyze its structure:
-
-### Step 1: Identify All Content Areas
-
-Scan each slide for:
-- **Title/header placeholders** — Where slide titles go
-- **Subtitle/definition areas** — Secondary headers or definitions
-- **Content boxes** — Main content areas (may have label sidebars)
-- **Table placeholders** — Areas designated for tabular data
-- **Chart/visual areas** — Spaces for charts, diagrams, or images
-- **Metric callout boxes** — Highlighted key figures
-- **Footnote/source bars** — Bottom areas for citations and notes
-- **Logo placeholder** — Usually top-right corner
-
-### Step 2: Note Template Conventions
-
-Each template has its own style. Observe:
-- **Color scheme** — What colors are used for headers, backgrounds, accents?
-- **Font choices** — What fonts and sizes are already set?
-- **Box styling** — Do content boxes have sidebars, borders, or shading?
-- **Bullet styles** — What bullet symbols does the template use?
-- **Alignment patterns** — How are parallel sections aligned?
-
-### Step 3: Identify Instruction vs. Output Areas
-
-Templates often include guidance:
-- **Instruction boxes** — Colored boxes with guidance text (often yellow background, white text)
-- **Placeholder text** — Text in [brackets] indicating what to replace
-- **Example content** — Sample content showing expected format
-
-**Key distinction**: Instruction boxes tell you what to do; they should be reformatted or removed in final output. Output areas are where your content goes.
+- [模板分析流程](#模板分析流程)
+- [内容映射工作流](#内容映射工作流)
+- [常见 Slide 类型及数据要求](#常见-slide-类型及数据要求)
+- [映射校验清单](#映射校验清单)
+- [处理数据与模板不匹配](#处理数据与模板不匹配)
+- [按模板做定制适配](#按模板做定制适配)
 
 ---
 
-## Content Mapping Workflow
+## 模板分析流程
 
-### Step 1: Inventory Source Data
+在填充任何模板之前，先分析其结构：
 
-Create a list of all available data:
-- Market size figures and ranges
-- Growth rates (CAGR, YoY)
-- Company names and descriptions
-- Segment definitions
-- Financial metrics
-- Source citations and dates
-- Footnote content
+### Step 1: 识别所有内容区域
 
-### Step 2: Match Data to Template Sections
+逐页检查并识别：
+- **Title/header placeholders**，标题放置位置
+- **Subtitle/definition areas**，副标题或定义区
+- **Content boxes**，主要内容区域，可能带标签侧栏
+- **Table placeholders**，专门留给表格的数据区
+- **Chart/visual areas**，图表、示意图或图片区域
+- **Metric callout boxes**，用于突出关键数字的框
+- **Footnote/source bars**，页面底部的来源与说明区
+- **Logo placeholder**，通常在右上角
 
-For each template section, identify:
+### Step 2: 记录模板惯例
+
+每个模板都有自己的风格。重点观察：
+- **Color scheme**，标题、背景、强调色分别用什么颜色
+- **Font choices**，已有文字使用了什么字体和字号
+- **Box styling**，内容框是否带侧栏、边框或底色
+- **Bullet styles**，模板默认用什么 bullet 符号
+- **Alignment patterns**，平行区域如何对齐
+
+### Step 3: 区分指导区域与输出区域
+
+模板中经常带有说明信息：
+- **Instruction boxes**，彩色指导框，通常黄底白字
+- **Placeholder text**，方括号中的提示文字
+- **Example content**，用于展示预期格式的示例内容
+
+**关键区别：** Instruction boxes 告诉你要做什么，最终输出中应被删除或重设格式。Output areas 才是你真正放内容的地方。
+
+---
+
+## 内容映射工作流
+
+### Step 1: 盘点源数据
+
+列出所有可用数据：
+- 市场规模数字及区间
+- 增长率，CAGR、YoY
+- 公司名称及描述
+- 分部定义
+- 财务指标
+- 来源引用及日期
+- Footnote 内容
+
+### Step 2: 将数据匹配到模板区域
+
+对每个模板区域，明确：
 
 | Template Section | Required Data | Source Location |
 |------------------|---------------|-----------------|
 | [Section name] | [Data needed] | [Where to find it] |
 
-### Step 3: Identify Gaps
+### Step 3: 识别缺口
 
-After mapping, note:
-- **Missing data** — Template requires data not in sources
-- **Extra data** — Sources contain data with no template home
-- **Format mismatches** — Data exists but in wrong format
+映射完成后，记录：
+- **Missing data**，模板需要但源数据没有
+- **Extra data**，源数据有但模板没有位置容纳
+- **Format mismatches**，数据存在，但格式不对
 
-### Step 4: Resolve Gaps Before Populating
+### Step 4: 在填充前先解决缺口
 
-- Missing data: Flag for user or search for additional sources
-- Extra data: Confirm if it should be excluded or if template needs adjustment
-- Format mismatches: Transform data to required format
+- Missing data：标记给用户，或继续寻找额外来源
+- Extra data：确认是否应排除，或模板是否需要调整
+- Format mismatches：先把数据转成模板所需格式
 
 ---
 
-## Common Slide Types and Data Requirements
+## 常见 Slide 类型及数据要求
 
-These are typical data requirements for common slide types. Your specific template may vary—always follow the template's actual structure.
+以下是常见 slide 类型的典型数据要求。实际模板可能不同，始终以模板真实结构为准。
 
 ### Market Definition Slides
 
 **Typical content areas:**
-- Segments included in scope (with examples/key players)
-- Segments excluded from scope (with examples)
-- Market definition text
-- Scope rationale/justification
+- 纳入范围的 segments，附示例 / 关键玩家
+- 排除范围的 segments，附示例
+- 市场定义文字
+- Scope rationale / justification
 
 **Data mapping considerations:**
-- Source data should clearly distinguish included vs. excluded segments
-- Key players should be mapped to their respective segments
-- Definition text should align with how sources define the market
+- 源数据应明确区分 included 与 excluded segments
+- Key players 应被正确映射到各自 segment
+- 定义文本应与源文件的方法口径一致
 
 **Data typically needed:**
-- List of market segments to include (with key player examples)
-- List of market segments to exclude (with examples)
-- Market definition text
-- Scope rationale or justification
+- 需要纳入的 market segments 列表，附 key player 示例
+- 需要排除的 market segments 列表，附示例
+- 市场定义文本
+- Scope rationale 或 justification
 
-**Formatting principle:** Parallel sections (included vs. excluded) should use matching formatting.
+**Formatting principle:** 平行区域，included vs. excluded，应采用匹配的格式。
 
 **Verification questions:**
-- Does every segment have the appropriate symbol (✓ for included, × for excluded)?
-- Are key players correctly assigned to segments?
-- Does the definition match the source methodology?
+- 每个 segment 是否都用了正确符号，✓ 表示 included，× 表示 excluded？
+- 关键玩家是否被放到了正确的 segment 中？
+- 定义是否与源文件的方法论一致？
 
 ### Market Sizing / TAM Slides
 
 **Typical content areas:**
-- Current market size (with year)
-- Growth rate (CAGR with period)
-- Future projection (with target year)
-- Source-by-source breakdown table
-- Consensus/summary figures
-- Key takeaways or insights
+- 当前市场规模，附年份
+- 增长率，CAGR 与时间段
+- 未来 projection，附目标年份
+- 按来源拆分的数据表
+- Consensus / summary figures
+- Key takeaways 或 insight
 
 **Data typically needed:**
-- Market size figures with base year
-- Growth rates (CAGR with time period)
-- Projection figures with target year
-- Source citations for each data point
+- 基准年市场规模数字
+- 增长率，含时间区间
+- 目标年份 projection 数字
+- 每个数据点的来源引用
 
-**Example column headers:** Source | [Base Year] Size | CAGR | [Target Year] Projection
+**Example column headers:** `Source | [Base Year] Size | CAGR | [Target Year] Projection`
 
-**Formatting principle:** If showing multiple sources, include a consensus/summary row.
+**Formatting principle:** 如果展示多个来源，应加入 consensus / summary 行。
 
 **Data mapping considerations:**
-- Multiple sources may have different estimates—map each to table rows
-- Consensus figures require calculation from individual sources
-- Projections should be verifiable using CAGR formula
+- 不同来源可能给出不同估计值，每个来源应映射为表中一行
+- Consensus figures 需要由各来源数据计算得出
+- Projection 应能用 CAGR 公式手动验证
 
 **Verification questions:**
-- Do all source figures match original documents?
-- Is the consensus calculated correctly (not just copied from one source)?
-- Are projection years consistent across all figures?
-- Do CAGR-based projections match when manually verified?
+- 所有来源数字是否都与原始文件一致？
+- Consensus 是否正确计算，而不是直接复制单一来源？
+- 所有 projection 年份是否一致？
+- 手动校验时，CAGR projection 是否成立？
 
 ### Competitive Landscape Slides
 
 **Typical content areas:**
-- Comparison table with competitors as columns
-- Feature/capability rows
-- Financial metric rows (revenue, growth, market share)
-- Key observations or positioning notes
+- 以 competitor 为列的 comparison table
+- Feature / capability 行
+- 财务指标行，revenue、growth、market share
+- 关键观察或 positioning notes
 
 **Data typically needed:**
-- List of competitors to compare
-- Features or capabilities for each
-- Financial metrics (revenue, growth, market share) if available
-- Time period for financial data
+- 需要比较的 competitor 名单
+- 每家的 feature 或 capability
+- 财务指标，若可得
+- 财务数据对应的时间区间
 
-**Formatting principle:** Subject company should be visually distinguished from competitors (e.g., bold text, different background color, border, or positioned in rightmost column).
+**Formatting principle:** Subject company 应被视觉上区分出来，例如粗体、不同底色、边框，或放在最右一列。
 
 **Data mapping considerations:**
-- Ensure all competitors from source data are included
-- Feature comparisons should use consistent criteria
-- Financial figures should be from comparable periods
+- 确保源数据中的所有 competitor 都被纳入
+- Feature 比较必须使用一致标准
+- 财务数据必须来自可比时间段
 
 **Verification questions:**
-- Are all competitors from the source data represented?
-- Is the subject company visually distinguished?
-- Are financial figures from the same time period?
-- Is the ✓/× usage consistent and accurate?
+- 源数据中的 competitor 是否都已出现？
+- Subject company 是否有明显视觉区分？
+- 财务数字是否来自同一时期？
+- ✓ / × 的使用是否一致且准确？
 
 ### Financial Summary Slides
 
 **Typical content areas:**
-- Key metric callouts (headline figures)
-- Historical financials table (actuals)
-- Projected financials table (estimates)
-- Growth rates and margins
-- Optional trend charts
+- 关键指标 callout
+- 历史财务表，actuals
+- 预测财务表，estimates
+- 增长率与利润率
+- 可选趋势图
 
 **Data typically needed:**
-- Historical financials (actuals) for recent years
-- Projected financials (estimates) for future years
-- Key metrics: Revenue, Growth %, Margins, EBITDA
+- 最近几年的 historical financials，actuals
+- 未来几年的 projected financials，estimates
+- 核心指标，Revenue、Growth %、Margins、EBITDA
 
-**Example column headers:** Metric | FY[Year-2] | FY[Year-1] | FY[Year]A | FY[Year+1]E | FY[Year+2]E
+**Example column headers:** `Metric | FY[Year-2] | FY[Year-1] | FY[Year]A | FY[Year+1]E | FY[Year+2]E`
 
-**Formatting principle:** Clearly distinguish historical (A) from projected (E) data.
+**Formatting principle:** 历史数据，A，与预测数据，E，必须清晰区分。
 
 **Data mapping considerations:**
-- Clearly distinguish historical (A) from projected (E) data
-- Ensure metric definitions match source (Revenue vs. Net Revenue, EBITDA vs. Adjusted EBITDA)
-- Growth rates should be calculated consistently
+- 历史期和预测期必须区分清楚
+- 指标定义要与来源一致，Revenue vs. Net Revenue，EBITDA vs. Adjusted EBITDA
+- 增长率计算方法保持一致
 
 **Verification questions:**
-- Are historical vs. projected periods clearly labeled?
-- Do calculated growth rates match source or manual calculation?
-- Are metric definitions consistent with source documents?
+- 历史期与预测期是否明确标注？
+- 计算出的增长率是否与来源一致，或与手工计算一致？
+- 指标定义是否与源文件一致？
 
 ### Transaction Comparables Slides
 
 **Typical content areas:**
-- Transaction table (date, target, acquirer, deal value)
-- Valuation multiples (EV/Revenue, EV/EBITDA)
-- Summary statistics (mean, median, high, low)
-- Implied valuation for subject company
+- 交易表，Date、Target、Acquirer、Deal Value
+- 估值 multiples，EV/Revenue、EV/EBITDA
+- Summary statistics，mean、median、high、low
+- 对 subject company 的 implied valuation
 
 **Data typically needed:**
-- Transaction details: Date, Target, Acquirer, Deal Value
-- Valuation multiples: EV/Revenue, EV/EBITDA
-- Subject company metrics for implied valuation
+- 交易详情：Date、Target、Acquirer、Deal Value
+- Valuation multiples：EV/Revenue、EV/EBITDA
+- Subject company 的相关指标，用于 implied valuation
 
-**Formatting principle:** Include summary statistics (Mean, Median, High, Low) for multiples.
+**Formatting principle:** 必须提供 multiple 的 summary statistics，Mean、Median、High、Low。
 
 **Data mapping considerations:**
-- Multiples should be calculated from transaction data, not just copied
-- Summary statistics require calculation across all transactions
-- Implied valuation applies multiples to subject company metrics
+- Multiple 应由交易数据计算，而不只是照抄
+- Summary statistics 需要对所有交易做统计
+- Implied valuation 需要将 multiple 应用于 subject company 指标
 
 **Verification questions:**
-- Are all relevant transactions from the source included?
-- Are multiples calculated correctly (EV ÷ Metric)?
-- Do summary statistics cover all transactions in the table?
-- Is implied valuation clearly labeled as illustrative?
+- 相关交易是否都已纳入？
+- Multiple 是否按 `EV ÷ Metric` 正确计算？
+- Summary statistics 是否覆盖表中所有交易？
+- Implied valuation 是否明确标注为 illustrative？
 
 ---
 
-## Mapping Verification Checklist
+## 映射校验清单
 
-Before moving to formatting, verify mapping completeness:
+进入格式阶段前，请先验证映射完整性：
 
 ### Data Completeness
-- [ ] Every template placeholder has mapped source data
-- [ ] All source citations are recorded for footnotes
-- [ ] No placeholder [brackets] remain unmapped
+- [ ] 每个模板 placeholder 都已匹配到源数据
+- [ ] 所有来源引用都已记录，供 footnotes 使用
+- [ ] 没有方括号 placeholder 未被映射
 
 ### Data Accuracy
-- [ ] Figures match original source documents exactly
-- [ ] Years and time periods are correctly noted
-- [ ] Company names are spelled correctly
-- [ ] Calculated values (consensus, projections, multiples) verified
+- [ ] 数字与原始来源逐项一致
+- [ ] 年份与时间区间记录正确
+- [ ] 公司名称拼写正确
+- [ ] 计算值，consensus、projection、multiple，已验证
 
 ### Logical Consistency
-- [ ] Included vs. excluded segments are logically coherent
-- [ ] Historical data precedes projected data chronologically
-- [ ] Comparison data uses consistent time periods
-- [ ] Totals and subtotals sum correctly
+- [ ] Included 与 excluded segments 逻辑一致
+- [ ] 历史数据在时间上先于预测数据
+- [ ] 对比数据来自一致时间区间
+- [ ] 总计与小计计算正确
 
 ### Source Attribution
-- [ ] Every data point can be traced to a source
-- [ ] Source names and publication years recorded
-- [ ] Footnote numbers assigned for special notes
+- [ ] 每个数据点都能追溯到来源
+- [ ] 已记录来源名称与发布日期年份
+- [ ] 特殊说明的 footnote 编号已分配
 
 ---
 
-## Handling Data-Template Mismatches
+## 处理数据与模板不匹配
 
-### Template Requires More Data Than Available
-
-**Options:**
-1. Flag the gap explicitly for user review
-2. Mark section as "Data not available" with explanation
-3. Search for additional sources if appropriate
-4. Recommend template adjustment if data doesn't exist
-
-**Do not:** Fabricate data or make unsupported estimates.
-
-### Source Has More Data Than Template Accommodates
+### 模板要求的数据多于现有数据
 
 **Options:**
-1. Include most relevant/recent data points
-2. Summarize or aggregate where appropriate
-3. Add footnotes referencing additional available data
-4. Recommend template expansion if data is critical
+1. 明确标记缺口，交由用户审阅
+2. 将该区域标记为 "Data not available"，并说明原因
+3. 如适合，可继续寻找额外来源
+4. 如果数据本身不存在，建议调整模板
 
-### Data Format Doesn't Match Template Format
+**Do not:** 不要捏造数据，也不要做没有依据的估计。
+
+### 源数据多于模板可容纳的内容
+
+**Options:**
+1. 选取最相关、最新的数据点
+2. 在合适时进行汇总或聚合
+3. 在脚注中补充说明还有更多可用数据
+4. 如果这些数据非常关键，可建议扩展模板
+
+### 数据格式与模板格式不匹配
 
 **Common transformations:**
-- Individual figures → Range (use min-max from sources)
-- Detailed breakdown → Summary category
-- Annual figures → CAGR (calculate from endpoints)
-- Absolute values → Percentages (calculate share)
-- Multiple sources → Consensus (apply methodology)
+- 单一数字 → 区间，用来源中的 min-max
+- 详细拆分 → 汇总类别
+- 年度数字 → CAGR，用两端点计算
+- 绝对值 → 百分比，计算占比
+- 多个来源 → Consensus，应用既定方法
 
-### Template Uses Different Terminology
+### 模板术语与源数据术语不同
 
 **Resolution process:**
-1. Identify template term and source term
-2. Confirm they refer to the same concept
-3. Use template terminology in output
-4. Add footnote if clarification needed
+1. 识别模板用词与源数据用词
+2. 确认两者指向同一概念
+3. 输出中使用模板术语
+4. 如有必要，通过脚注补充说明
 
 ---
 
-## Template-Specific Adaptation
+## 按模板做定制适配
 
-Remember: This guidance describes common patterns, not requirements. Always:
+请记住，这份参考描述的是常见模式，不是硬性要求。始终遵循以下原则：
 
-1. **Follow the template** — If template uses different section names, use those
-2. **Match template style** — Use template's existing fonts, colors, bullet styles
-3. **Preserve template structure** — Don't rearrange sections unless necessary
-4. **Respect template spacing** — Content should fit designated areas without overflow
+1. **Follow the template**，如果模板使用不同的 section 名称，就以模板为准
+2. **Match template style**，使用模板的字体、颜色和 bullet 风格
+3. **Preserve template structure**，除非确有必要，不要重排页面结构
+4. **Respect template spacing**，内容必须装进指定区域，不能溢出
 
-The goal is to populate the template as designed, not to redesign it.
+目标是按模板原本设计把内容填进去，而不是重新设计模板。

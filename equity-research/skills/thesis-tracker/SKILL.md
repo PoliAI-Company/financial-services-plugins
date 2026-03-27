@@ -1,36 +1,36 @@
 # Thesis Tracker
 
-description: Maintain and update investment theses for portfolio positions and watchlist names. Track key data points, catalysts, and thesis milestones over time. Use when updating a thesis with new information, reviewing position rationale, or checking if a thesis is still intact. Triggers on "update thesis for [company]", "is my thesis still intact", "thesis check", "add data point to [company]", or "review my positions".
+description: 维护并更新组合持仓和观察名单的投资论点。随着时间跟踪关键数据点、催化剂和论点里程碑。适用于用新信息更新论点、复盘持仓逻辑，或检查论点是否仍然成立。在用户提到 "update thesis for [company]"、"is my thesis still intact"、"thesis check"、"add data point to [company]" 或 "review my positions" 时触发。
 
-## Workflow
+## 工作流
 
-### Step 1: Define or Load Thesis
+### 第 1 步：定义或载入论点
 
-If creating a new thesis:
-- **Company**: Name and ticker
-- **Position**: Long or Short
-- **Thesis statement**: 1-2 sentence core thesis (e.g., "Long ACME — margin expansion from pricing power + operating leverage as mix shifts to software")
-- **Key pillars**: 3-5 supporting arguments
-- **Key risks**: 3-5 risks that would invalidate the thesis
-- **Catalysts**: Upcoming events that could prove/disprove the thesis (earnings, product launches, regulatory decisions)
-- **Target price / valuation**: What's it worth if the thesis plays out
-- **Stop-loss trigger**: What would make you exit
+如果是在创建新论点：
+- **Company**：公司名称和 ticker
+- **Position**：Long 或 Short
+- **Thesis statement**：1-2 句话的核心论点，例如 "Long ACME，随着业务结构向软件迁移，定价权与经营杠杆将推动利润率扩张"
+- **Key pillars**：3-5 个支撑论据
+- **Key risks**：3-5 个会使论点失效的风险
+- **Catalysts**：即将到来的、可验证或证伪该论点的事件，例如业绩、产品发布、监管决定
+- **Target price / valuation**：若论点兑现，这只股票值多少钱
+- **Stop-loss trigger**：什么情况会让你退出
 
-If updating an existing thesis, ask the user for the new data point or development.
+如果是更新已有论点，询问用户新的数据点或进展。
 
-### Step 2: Update Log
+### 第 2 步：更新日志
 
-For each new data point or development:
+对每一个新的数据点或进展，记录：
 
-- **Date**: When this happened
-- **Data point**: What changed (earnings beat, management departure, competitor move, etc.)
-- **Thesis impact**: Does this strengthen, weaken, or neutralize a specific pillar?
-- **Action**: No change / Increase position / Trim / Exit
-- **Updated conviction**: High / Medium / Low
+- **Date**：事件发生时间
+- **Data point**：发生了什么变化，业绩超预期、管理层离职、竞争对手动作等
+- **Thesis impact**：这会强化、削弱还是中性影响某一论点支柱？
+- **Action**：No change / Increase position / Trim / Exit
+- **Updated conviction**：High / Medium / Low
 
-### Step 3: Thesis Scorecard
+### 第 3 步：论点评分卡
 
-Maintain a running scorecard:
+维护一份持续更新的评分卡：
 
 | Pillar | Original Expectation | Current Status | Trend |
 |--------|---------------------|----------------|-------|
@@ -38,27 +38,27 @@ Maintain a running scorecard:
 | Margin expansion | Behind | Margins flat YoY | Concerning |
 | New product launch | Pending | Delayed to Q2 | Watch |
 
-### Step 4: Catalyst Calendar
+### 第 4 步：催化剂日历
 
-Track upcoming catalysts:
+跟踪即将发生的催化剂：
 
 | Date | Event | Expected Impact | Notes |
 |------|-------|-----------------|-------|
 | | | | |
 
-### Step 5: Output
+### 第 5 步：输出
 
-Thesis summary suitable for:
-- Morning meeting discussion
-- Portfolio review
-- Risk committee presentation
+输出适用于以下场景的论点总结：
+- 晨会讨论
+- 组合复盘
+- 风险委员会汇报
 
-Format: Concise markdown or Word doc with the scorecard, recent updates, and current conviction level.
+格式为简洁的 markdown 或 Word 文档，包含评分卡、近期更新和当前信心水平。
 
-## Important Notes
+## 重要说明
 
-- A thesis should be falsifiable — if nothing could disprove it, it's not a thesis
-- Track disconfirming evidence as rigorously as confirming evidence
-- Review theses at least quarterly, even when nothing dramatic has happened
-- If the user manages multiple positions, offer to do a full portfolio thesis review
-- Store thesis data in a structured format so it can be referenced across sessions
+- 一个论点必须是可证伪的，如果没有任何事情能否定它，那它就不是论点
+- 对反面证据的跟踪应与支持性证据同样严格
+- 即使没有重大变化，也至少按季度复盘一次论点
+- 如果用户管理多个持仓，可以提出做一次完整的组合论点复盘
+- 以结构化格式保存论点数据，便于跨会话引用

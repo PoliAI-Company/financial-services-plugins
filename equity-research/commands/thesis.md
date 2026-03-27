@@ -1,8 +1,8 @@
 ---
-description: Create or update an investment thesis
+description: 创建或更新投资论点
 argument-hint: "[company ticker]"
 ---
 
-Load the `thesis-tracker` skill to create a new thesis or update an existing one with new data points.
+加载 `thesis-tracker` skill，以创建新的投资论点，或结合新的数据点更新现有论点。
 
-If a ticker is provided, use it. Otherwise ask the user which position to review.
+如果提供了 ticker，就使用它。否则询问用户要复盘哪个持仓。

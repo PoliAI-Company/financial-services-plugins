@@ -1,279 +1,151 @@
 ---
 name: competitive-analysis
-description: Framework for building competitive landscape decks — market positioning, competitor deep-dives, comparative analysis, strategic synthesis. Use when the user asks for a competitive landscape, competitor analysis, peer comparison, market positioning assessment, strategic review, or investment memo deck. Also triggers on "who are the competitors to X", "benchmark X against peers", "build a market map", or any request to systematically evaluate competitive dynamics across an industry.
+description: 用于构建竞争格局 deck 的框架，包括市场定位、竞争对手深度剖析、对比分析和战略综合。当用户要求竞争格局、竞争者分析、同业对比、市场定位评估、战略审阅或投资备忘录 deck 时使用。也会在“who are the competitors to X”“benchmark X against peers”“build a market map”或任何需要系统性评估某一行业竞争动态的请求中触发。
 ---
 
-# Competitive Landscape Mapping
+# 竞争格局映射
 
-Build a complete competitive analysis deck. This is a two-phase process: gather requirements and get outline approval first, then build.
+构建完整的竞争分析 deck。这是一个两阶段流程：先收集需求并获得大纲批准，然后再开始制作。
 
-## Environment check
+## 环境检查
 
-This skill works in both the PowerPoint add-in and chat. Identify which you're in before starting — the mechanics differ, the workflow doesn't:
+这个 skill 同时适用于 PowerPoint 插件和聊天环境。开始前先识别你所在的环境，具体操作方式不同，但流程不变：
 
-- **Add-in** — the deck is open live; build slides directly into it.
-- **Chat** — generate a `.pptx` file (or build into one the user uploaded).
+- **Add-in** — deck 已实时打开，直接在其中构建幻灯片。
+- **Chat** — 生成 `.pptx` 文件，或者在用户上传的文件中进行构建。
 
-Everything below applies in both.
+以下所有内容在两种环境下都适用。
 
-## Phase 1 — Scope the analysis
+## 第 1 阶段：界定分析范围
 
-Competitive analysis means different things to different people. Before any research or slide-building, use `ask_user_question` to pin down what they actually want. Don't guess — a 20-slide peer benchmarking deck and a 5-slide market map are both "competitive analysis" and take completely different shapes.
+竞争分析对不同人含义不同。在进行任何研究或做幻灯片之前，用 `ask_user_question` 弄清楚用户真正想要什么。不要猜。20 页的同业基准测试 deck 和 5 页的市场地图都可以被称为“competitive analysis”，但结构完全不同。
 
-Gather in one round if you can (the tool takes up to 4 questions):
+如果可以，尽量一轮问完：
 
-- **Scope** — Single target company with competitors around it? Or multi-company side-by-side with no protagonist?
-- **Competitor set** — Which companies are in scope? If the user names them, use exactly those. If they say "the usual suspects," propose a set and confirm.
-- **Audience and depth** — Quick read for someone already in the space, or a full primer? This drives whether you need market sizing, industry economics, and history — or can skip to the comparison.
-- **Investment context** — Do they need bull/base/bear scenarios and signposts? That's Step 9 below; skip it if this is a strategic review rather than an investment thesis.
+- **范围** — 是围绕单一目标公司展开，还是多个公司并排比较且没有主角公司？
+- **竞争者集合** — 哪些公司在范围内？如果用户指名，就严格使用这些。若他们说“the usual suspects”，先提出一组并确认。
+- **受众与深度** — 是给已经熟悉行业的人快速阅读，还是完整 primer？这会决定你是否需要市场规模、行业经济性、历史沿革，还是可以直接进入比较。
+- **投资语境** — 他们是否需要 bull/base/bear 场景和 signposts？那对应下面第 9 步。如果这是战略复盘而非投资 thesis，可以跳过。
 
-If they've uploaded an Excel/CSV with competitor data, confirm which columns map to which metrics before you start pulling numbers. Source-file fidelity matters: use values exactly as given, don't recalculate or re-round.
+如果他们上传了包含竞争者数据的 Excel/CSV，在开始拉数之前，确认列和指标的映射。必须忠于源文件：使用提供的值，不自行重算，不擅自重新取整。
 
-## Phase 2 — Outline, approve, then build
+## 第 2 阶段：先出大纲、再获批准、然后制作
 
-**Do not create slides until the outline is approved.** Propose slide titles and one-line content notes, present them to the user, get a yes. A competitive deck is 10-20 slides of interlocking content — rebuilding because slide 4 was wrong is expensive. The outline is the cheap iteration point.
+**在大纲获批前，不要创建任何幻灯片。** 先提出幻灯片标题和一句话内容说明，展示给用户，获得确认。竞争分析 deck 通常有 10 到 20 页，内容彼此关联。如果第 4 页方向错了，重做代价很高。大纲才是最便宜的迭代点。
 
-When proposing the outline, `ask_user_question` works well for the structural decisions: which positioning visualization (2×2 matrix / radar / tier diagram — Step 5 below), how to group competitors (by business model / segment / posture — Step 4). These are taste calls the user likely has an opinion on.
+在提大纲时，可以用 `ask_user_question` 处理结构性选择，例如第 5 步中的定位可视化（2×2 matrix / radar / tier diagram），或第 4 步中的竞争者分组方式（按商业模式 / 细分 / 姿态）。这些通常是用户有明确偏好的地方。
 
----
+## 标准，贯穿始终
 
-## Standards — apply throughout
+### 忠于提示
 
-### Prompt fidelity
+用户一旦指定某项内容，那就是要求，而不是建议：
+- **Slide titles and section names** — 要保持完全一致。如果用户说 "Overview and Competitive Scope"，不要擅自改成 "FY2024 Competitive Landscape"。
+- **Chart vs. table** — 二者不可互换。"Embedded chart" 必须是真正的图表对象，不是伪装成图表的格式化表格。
+- **完整数据系列** — 如果用户列了 7 个竞争者，就必须包含全部 7 个。如果他们给的是 2015-2025，就要包含每一年。
+- **精确数值和比率** — "surpasses DoorDash 4:1, Lyft 8:1" 就是这些比率，不是 "7.6x Lyft"。
 
-When the user specifies something, that's a requirement, not a suggestion:
-- **Slide titles and section names** — exact wording. If they say "Overview and Competitive Scope," don't swap in "FY2024 Competitive Landscape."
-- **Chart vs. table** — not interchangeable. "Embedded chart" means a real chart object with data labels on the bars/slices, not a formatted table.
-- **Complete data series** — if they list 7 competitors, include all 7. If they show 2015-2025, include every year.
-- **Exact values and ratios** — "surpasses DoorDash 4:1, Lyft 8:1" means those ratios, not "7.6x Lyft."
+### 来源质量，来源冲突时的优先级
 
-### Source quality, when sources conflict
+1. 10-K / annual reports（审计过）
+2. Earnings calls / investor presentations（管理层口径）
+3. Sell-side research（分析师预测，对私有公司规模估计有帮助）
+4. Industry reports（McKinsey、Gartner，用于市场规模与趋势）
+5. News（只用于近期进展，且要用一手来源校验）
 
-1. 10-Ks / annual reports (audited)
-2. Earnings calls / investor presentations (management commentary)
-3. Sell-side research (analyst estimates, useful for private company sizing)
-4. Industry reports (McKinsey, Gartner — market sizing, trends)
-5. News (recent developments only; verify against primary sources)
+### 数据可比性
 
-### Data comparability
+- 所有竞争者指标必须来自相同财年，不一致时要显式标注
+- 各家公司的指标定义必须一致
+- 国际公司需统一换算为 USD，并注明汇率和日期
+- 缺失数据用 `-` 或 `N/A` + `[E]` 标记估计值，不要留空白
+- 每一个数字都要有引用：`[Company] [Document] ([Date])`
 
-- All competitor metrics from the same fiscal year; flag exceptions explicitly ("FY24" vs "H1 2024")
-- Same metric definitions across competitors
-- Convert to USD for international; note the exchange rate and date
-- Missing data shows as "-" or "N/A" with an "[E]" flag for estimates — never blank
-- Every number has a citation: "[Company] [Document] ([Date])"
+### 设计
 
-### Design
+- **幻灯片标题要表达洞察，不只是分类标签。**
+- **Signposts 必须量化。**
+- **评级要显示具体值。**
+- **图表必须是真正的图表对象。**
 
-- **Slide titles are insights, not labels.** "Scale leaders pulling away from niche players" — not "Competitive Analysis."
-- **Signposts are quantified.** "Margin below 40%" — not "margins decline."
-- **Ratings show the actual.** "●●● $160B" — not just "●●●."
-- **Charts are real chart objects** — not text tables dressed up to look like charts.
+## 分析工作流
 
-**Typography** — set explicitly, don't rely on defaults:
-- Slide titles: 28-32pt bold
-- Section headers: 18-20pt bold
-- Body text: 14-16pt (never below 14pt)
-- Table text: 14pt
-- Sources/footnotes: 14pt, gray
-- Same element type = same size throughout the deck
+### 第 0 步：定义行业关键指标
 
-**Charts:**
-- Legend inside the chart boundary, not floating over the plot area
-- Right-side legend for pies (≤6 slices), bottom legend for line/bar (≤4 series)
-- More than 6 series → split into multiple charts or use a table
-- Pie charts show percentages on slices, not just in the legend
+先回答：这个行业真正看哪 3 到 5 个指标？并在所有竞争者中一致使用。
 
-**Tables:**
-- Light gray header row, bold
-- Right-align numbers, left-align text
-- Enough cell padding that text doesn't touch borders
+### 第 1 步：市场背景
 
-**Color:** 2-3 colors max. Muted — navy, gray, one accent. Same color meanings throughout.
+包括规模、增长、驱动因素、逆风因素，并附来源。
 
-### What's strict vs. flexible
+### 第 2 步：行业经济性
 
-| Always | Case-by-case |
+梳理价值如何在行业中流动。具体方式取决于行业结构。
+
+### 第 3 步：目标公司画像
+
+用表格总结收入、增长、利润率、盈利能力、客户、留存、市场份额等。
+
+### 第 4 步：竞争者映射
+
+按最适合的视角分组，例如商业模式、细分、竞争姿态或来源背景。
+
+### 第 5 步：定位可视化
+
+| 类型 | 适用场景 |
 |---|---|
-| Exact titles/sections when user specifies | Creative titles when they don't |
-| Chart when user says chart; table when they say table | Visualization type when unspecified |
-| Every competitor/data point they list | Number of competitors when unspecified |
-| Exact values when specified | Rounding when precision unspecified |
-| Titles fit without overflow | Number of competitor categories |
-| No overlapping elements | Which dimensions to compare |
+| 2×2 matrix | 存在两个主导竞争因素 |
+| Radar/spider | 多维度比较 |
+| Tier diagram | 自然分层明显 |
+| Value chain map | 垂直行业 |
+| Ecosystem map | 平台型市场 |
 
----
+关于不同行业可用的 2×2 坐标轴组合，见 `references/frameworks.md`。
 
-## Analysis workflow
+### 第 6 步：竞争者深度剖析
 
-### Step 0 — Industry-defining metrics
+每个竞争者使用两张表：
+- 一张指标表
+- 一张定性表
 
-Before anything else: what 3-5 metrics does this industry actually run on? Use these consistently across every competitor.
+### 第 7 步：对比分析
 
-| Industry | Key metrics |
-|---|---|
-| SaaS | ARR, NRR, CAC payback, LTV/CAC, Rule of 40 |
-| Payments | GPV, take rate, attach rate, transaction margin |
-| Marketplaces | GMV, take rate, buyer/seller ratio, repeat rate |
-| Retail | Same-store sales, inventory turns, sales per sq ft |
-| Logistics | Volume, cost per unit, on-time delivery %, capacity utilization |
+从规模、增长、利润率等维度做并排比较。
 
-Industry not listed — pick the metrics investors and operators benchmark on.
+### 第 8 步：战略背景
 
-### Step 1 — Market context
+并购交易（倍数、逻辑）、合作趋势、融资模式、监管发展。关于 M&A transaction table 格式，见 `references/schemas.md`。
 
-Size, growth, drivers, headwinds. With sources.
+### 第 9 步：综合判断
 
-Correct: "Embedded payments is $80-100B in 2024, growing 20-25% CAGR (McKinsey 2024)"
-Wrong: "The market is large and growing rapidly"
+进行 moat assessment，分别评估 network effects、switching costs、scale economies 和 intangible assets。
 
-### Step 2 — Industry economics
+如果属于投资语境，则加入 bull/base/bear 场景分析。若在第 1 阶段已确认不需要，可跳过。
 
-Map how value flows. Approach depends on industry structure:
-- **Vertically structured** — value chain layers, typical margin at each
-- **Platform/network** — ecosystem participants, value flows between them
-- **Fragmented** — consolidation dynamics, margin differences by scale
+## 质量检查清单
 
-### Step 3 — Target company profile
-
-```
-| Metric | Value |
-|---|---|
-| Revenue | $4.96B |
-| Growth | +26% YoY |
-| Gross Margin | 45% |
-| Profitability | $373M Adj. EBITDA |
-| Customers | 134K |
-| Retention | 92% |
-| Market Share | ~15% |
-```
-
-Multi-segment companies add a breakdown:
-
-```
-| Segment | Revenue | Rev YoY | Rev % | EBITDA | EBITDA YoY | Margin |
-|---|---|---|---|---|---|---|
-| Seg A | $25.1B | +26% | 57% | $6.5B | +31% | 26% |
-| Seg B | $13.8B | +31% | 31% | $2.5B | +64% | 18% |
-| Seg C | $5.1B | -2% | 12% | -$74M | -16% | -1% |
-| Total | $44.0B | +18% | 100% | $6.5B* | - | 15% |
-```
-*Note corporate costs if applicable
-
-### Step 4 — Competitor mapping
-
-Group by whichever lens fits (this is a good `ask_user_question` decision if the user hasn't specified):
-- By business model — platform / vertical / horizontal
-- By segment — enterprise / SMB / consumer
-- By posture — direct / adjacent / emerging
-- By origin — incumbent / disruptor / new entrant
-
-### Step 5 — Positioning visualization
-
-| Type | When |
-|---|---|
-| 2×2 matrix | Two dominant competitive factors |
-| Radar/spider | Multi-factor comparison |
-| Tier diagram | Natural clustering into strategic groups |
-| Value chain map | Vertical industries |
-| Ecosystem map | Platform markets |
-
-See `references/frameworks.md` for 2×2 axis pairs by industry.
-
-### Step 6 — Competitor deep-dives
-
-Two tables per competitor.
-
-**Metrics:**
-```
-| Metric | Value |
-|---|---|
-| Revenue | $X.XB |
-| Growth | +XX% YoY |
-| Gross Margin | XX% |
-| Market Cap | $X.XB |
-| Profitability | $XXXM EBITDA |
-| Customers | XXK |
-| Retention | XX% |
-| Market Share | ~XX% |
-```
-
-**Qualitative:**
-```
-| Category | Assessment |
-|---|---|
-| Business | What they do (1 sentence) |
-| Strengths | 2-3 bullets |
-| Weaknesses | 2-3 bullets |
-| Strategy | Current priorities |
-```
-
-### Step 7 — Comparative analysis
-
-```
-| Dimension | Company A | Company B | Company C |
-|---|---|---|---|
-| Scale | ●●● $160B | ●●○ $45B | ●○○ $8B |
-| Growth | ●●○ +26% | ●●● +35% | ●●○ +22% |
-| Margins | ●●○ 7.5% | ●○○ 3.2% | ●●● 15% |
-```
-
-### Step 8 — Strategic context
-
-M&A transactions (multiples, rationale), partnership trends, capital raising patterns, regulatory developments. See `references/schemas.md` for the M&A transaction table format.
-
-### Step 9 — Synthesis
-
-**Moat assessment** — rate each competitor Strong / Moderate / Weak on:
-
-| Moat | What to assess |
-|---|---|
-| Network effects | User/supplier flywheel strength; cross-side vs same-side |
-| Switching costs | Technical integration depth, contractual lock-in, behavioral habits |
-| Scale economies | Unit cost advantages at volume; minimum efficient scale |
-| Intangible assets | Brand, proprietary data, regulatory licenses, patents |
-
-**Required synthesis elements:**
-- Durable advantages (hard to replicate) — map to moat categories
-- Structural vulnerabilities (hard to fix)
-- Current state vs. trajectory
-
-**For investment contexts** (skip if the Phase 1 scoping said no):
-
-```
-| Scenario | Probability | Key driver |
-|---|---|---|
-| Bull | 30% | Market share gains, margin expansion |
-| Base | 50% | Current trajectory continues |
-| Bear | 20% | Competitive pressure, margin compression |
-```
-
----
-
-## Quality checklist
-
-Before finishing:
+完成前检查：
 
 **Prompt fidelity**
-- Slide titles match what the user specified, verbatim
-- Charts where they said chart; tables where they said table
-- Every competitor/year/data point they listed is present
-- Exact values and formats as specified
+- 幻灯片标题与用户指定完全一致
+- 该用图表的地方用图表，该用表格的地方用表格
+- 用户列出的每个竞争者/年份/数据点都出现了
+- 数值和格式与要求一致
 
 **Data consistency**
-- Source-file values extracted directly, not recalculated
-- Same metric shows the same value on every slide it appears
-- Same decimal precision as the source
+- 源文件中的值直接提取，不自行重算
+- 同一指标在不同幻灯片中数值一致
+- 小数精度与来源保持一致
 
 **Layout**
-- Titles fit without overflow
-- No overlapping elements
-- All text within containers, no clipping
+- 标题不溢出
+- 元素不重叠
+- 文本不裁切
 
 **Content**
-- Every number has a citation
-- All metrics from the same fiscal period (or flagged)
-- Slide titles state insights, not topics
-- Charts are real chart objects
+- 每个数字都有引用
+- 所有指标来自同一财务期间，或已标注差异
+- 幻灯片标题表达洞察，而不是主题名
+- 图表是真正的图表对象
 
-Run standard visual verification checks on every slide — this catches overlaps, overflow, and low-contrast text that don't show up when you're reading back the XML.
+对每一页执行标准视觉验证，捕捉重叠、溢出和低对比度文本等 XML 阅读无法发现的问题。

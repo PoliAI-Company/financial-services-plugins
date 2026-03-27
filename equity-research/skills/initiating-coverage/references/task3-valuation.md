@@ -1,83 +1,83 @@
-# Task 3: Valuation Analysis - Detailed Workflow
+# 任务 3：估值分析 - 详细工作流
 
-This document provides step-by-step instructions for executing Task 3 (Valuation Analysis) of the initiating-coverage skill.
+本文档提供执行 initiating-coverage skill 中 Task 3（Valuation Analysis）的逐步说明。
 
-## Task Overview
+## 任务概览
 
-**Purpose**: Perform comprehensive valuation using DCF, comparables, and precedent transactions.
+**Purpose**：使用 DCF、comparables 和 precedent transactions 进行综合估值。
 
-**Prerequisites**: ⚠️ Verify before starting
-- **Required**: Financial model from Task 2
-  - Projected income statements
-  - Projected cash flows
-  - Revenue and EBITDA forecasts
-  - DCF inputs (unlevered FCF)
+**Prerequisites**：⚠️ 开始前验证
+- **Required**：Task 2 的财务模型
+  - 预测 income statements
+  - 预测 cash flows
+  - Revenue 和 EBITDA forecasts
+  - DCF inputs，unlevered FCF
 
 **⚠️ CRITICAL: DO NOT START THIS TASK UNLESS TASK 2 IS COMPLETE**
 
-This task requires the financial model from Task 2. Starting without it will result in incomplete work.
+本任务依赖 Task 2 的财务模型。没有模型就开始会导致工作不完整。
 
-**IF TASK 2 IS NOT COMPLETE**: Stop immediately and inform the user that Task 2 (Financial Modeling) must be completed first. Do not attempt to proceed or create placeholder valuations.
+**IF TASK 2 IS NOT COMPLETE**：立即停止，并告知用户必须先完成 Task 2（Financial Modeling）。不要尝试继续，也不要创建 placeholder valuation。
 
-**Output**: Valuation Analysis (4-6 pages + Excel tabs)
-- DCF analysis with sensitivity tables
+**Output**：Valuation Analysis（4-6 页 + Excel tabs）
+- DCF analysis，含 sensitivity tables
 - Comparable companies analysis
-- Precedent transactions (if applicable)
+- Precedent transactions，如适用
 - Valuation football field
-- Price target and recommendation
+- Price target 和 recommendation
 
 ---
 
-## Input Verification
+## 输入验证
 
-**BEFORE STARTING - CHECK:**
-- [ ] Task 2 complete? (Financial model exists)
-- [ ] Model file path/location known?
-- [ ] Can access projected financials from model?
+**开始前检查：**
+- [ ] Task 2 完成了吗？财务模型存在
+- [ ] 模型文件路径 / 位置已知？
+- [ ] 可以从模型中访问 projected financials？
 
-**Required from model:**
-- [ ] Projected FCF (5 years)
+**模型中必须具备：**
+- [ ] 5 年 projected FCF
 - [ ] Revenue projections
 - [ ] EBITDA projections
 - [ ] Terminal year metrics
-- [ ] Balance sheet data (debt, cash, shares)
+- [ ] Balance sheet data，debt、cash、shares
 
-**IF VERIFICATION FAILS**: Stop and complete Task 2 (Financial Modeling) before proceeding.
+**IF VERIFICATION FAILS**：停止，并先完成 Task 2（Financial Modeling）。
 
 ---
 
-## Detailed Methodology Reference
+## 详细方法参考
 
-For deep dive on valuation methodologies, formulas, and theory, see:
+如需深入了解估值方法、公式和理论，请参见：
 **[valuation-methodologies.md](valuation-methodologies.md)**
 
-This workflow document focuses on execution steps. Reference the methodology file for:
-- DCF theory and formulas
-- WACC calculation details
-- Terminal value methods
-- Comparable companies theory
-- Precedent transactions theory
+本工作流文件聚焦执行步骤。方法论文件涵盖：
+- DCF 理论与公式
+- WACC 计算细节
+- Terminal value 方法
+- Comparable companies 理论
+- Precedent transactions 理论
 
 ---
 
-## Step-by-Step Valuation Workflow
+## 分步估值工作流
 
-### Step 1: Extract Data from Financial Model
+### 第 1 步：从财务模型中提取数据
 
-**From Task 2's financial model, extract:**
+**从 Task 2 的财务模型中提取：**
 
-1. **Projected Financials (5 years)**
-   - Revenue by year (2025E-2029E)
-   - EBITDA by year
-   - EBIT by year
+1. **Projected Financials（5 年）**
+   - 按年份 Revenue（2025E-2029E）
+   - EBITDA 按年
+   - EBIT 按年
    - Tax rate
-   - D&A by year
-   - CapEx by year
-   - Change in NWC by year
+   - D&A 按年
+   - CapEx 按年
+   - Change in NWC 按年
 
 2. **Unlevered Free Cash Flow**
    ```
-   Extract from DCF Inputs tab in financial model:
+   从财务模型的 DCF Inputs tab 提取：
 
                    2025E   2026E   2027E   2028E   2029E
    EBIT            $XXX    $XXX    $XXX    $XXX    $XXX
@@ -89,26 +89,26 @@ This workflow document focuses on execution steps. Reference the methodology fil
    = Unlevered FCF $XXX    $XXX    $XXX    $XXX    $XXX
    ```
 
-3. **Balance Sheet Data (current)**
+3. **Balance Sheet Data（当前）**
    - Total debt
    - Cash & equivalents
-   - Net debt (Debt - Cash)
+   - Net debt，Debt - Cash
    - Diluted shares outstanding
 
 4. **Scenario Data**
-   - Bull case revenue CAGR and terminal margin
-   - Base case revenue CAGR and terminal margin
-   - Bear case revenue CAGR and terminal margin
+   - Bull case revenue CAGR 和 terminal margin
+   - Base case revenue CAGR 和 terminal margin
+   - Bear case revenue CAGR 和 terminal margin
 
-### Step 2: Build DCF Analysis
+### 第 2 步：建立 DCF Analysis
 
-#### A. Calculate WACC
+#### A. 计算 WACC
 
-**1. Determine Risk-Free Rate**
-   - Use 10-year Treasury yield (check current rate)
-   - Example: 4.0-4.5% as of late 2024
+**1. 确定 Risk-Free Rate**
+   - 使用 10-year Treasury yield，查当前利率
+   - 例如 late 2024 的 4.0-4.5%
 
-**2. Determine Cost of Equity (CAPM)**
+**2. 确定 Cost of Equity（CAPM）**
    ```
    Cost of Equity = Risk-Free Rate + Beta × Equity Risk Premium
 
@@ -121,7 +121,7 @@ This workflow document focuses on execution steps. Reference the methodology fil
    Cost of Equity = 4.2% + 1.3 × 5.5% = 11.35%
    ```
 
-**3. Determine Cost of Debt**
+**3. 确定 Cost of Debt**
    ```
    Cost of Debt = Current borrowing rate or implied yield on bonds
 
@@ -133,12 +133,12 @@ This workflow document focuses on execution steps. Reference the methodology fil
    Cost of Debt (after-tax) = 6.5% × (1 - 25% tax rate) = 4.875%
    ```
 
-**4. Determine Capital Structure**
+**4. 确定 Capital Structure**
    ```
-   Use market values (not book values):
+   使用 market values，而不是 book values：
 
    Market Value of Equity (E) = Share Price × Shares Outstanding
-   Market Value of Debt (D) = Total Debt (use book value if bonds not traded)
+   Market Value of Debt (D) = Total Debt (如果债券不交易则可用账面值)
    Total Value (V) = E + D
 
    Weight of Equity = E / V
@@ -150,7 +150,7 @@ This workflow document focuses on execution steps. Reference the methodology fil
    V = $5,500M (100%)
    ```
 
-**5. Calculate WACC**
+**5. 计算 WACC**
    ```
    WACC = (E/V × Cost of Equity) + (D/V × Cost of Debt × (1 - Tax Rate))
 
@@ -161,9 +161,9 @@ This workflow document focuses on execution steps. Reference the methodology fil
    Round to: 10.8% for base case
    ```
 
-#### B. Calculate Terminal Value
+#### B. 计算 Terminal Value
 
-**Method 1: Perpetuity Growth (Preferred)**
+**Method 1: Perpetuity Growth（优先）**
 ```
 Terminal Value = FCF(2029) × (1 + g) / (WACC - g)
 
@@ -182,7 +182,7 @@ Terminal Value = $500M × (1.025) / (0.108 - 0.025)
 Terminal Value = $512.5M / 0.083 = $6,175M
 ```
 
-**Method 2: Exit Multiple (Alternative)**
+**Method 2: Exit Multiple（替代法）**
 ```
 Terminal Value = EBITDA(2029) × Exit Multiple
 
@@ -196,9 +196,9 @@ Exit Multiple = 13x
 Terminal Value = $800M × 13x = $10,400M
 ```
 
-**Choose one method or average both.**
+**可选择其中一种方法，或取两者平均。**
 
-#### C. Discount Cash Flows to Present Value
+#### C. 将现金流折现到现值
 
 ```
 PV of Projected FCF = Σ [FCFt / (1 + WACC)^t] for t = 1 to 5
@@ -219,7 +219,7 @@ PV of Terminal Value = $6,175M / (1.108)^5 = $6,175M × 0.5988 = $3,697M
 Enterprise Value = $1,372M + $3,697M = $5,069M
 ```
 
-#### D. Calculate Equity Value and Price Per Share
+#### D. 计算 Equity Value 与 Price Per Share
 
 ```
 Enterprise Value                 $5,069M
@@ -241,7 +241,7 @@ Implied Upside: 10.0%
 
 **Table 1: WACC vs. Terminal Growth Rate**
 
-Create 2-way sensitivity table:
+创建双变量敏感性表：
 ```
 Price Per Share ($)     Terminal Growth Rate
 WACC        1.5%    2.0%    2.5%    3.0%    3.5%
@@ -270,52 +270,52 @@ Revenue CAGR    28%     30%     32%     34%     36%
 Base Case: Rev CAGR = 25%, EBITDA Margin = 32% → $56
 ```
 
-### Step 3: Comparable Companies Analysis
+### 第 3 步：Comparable Companies Analysis
 
-#### A. Select Comparable Companies
+#### A. 选择 Comparable Companies
 
-**Selection Criteria:**
-- Same industry/sector (primary requirement)
-- Similar business model
-- Comparable size (market cap, revenue)
-- Similar growth profile
-- Similar geographies
+**选择标准：**
+- 同行业 / 同板块，这是首要要求
+- 相似商业模式
+- 可比规模，market cap、revenue
+- 相似增长轮廓
+- 相似地域分布
 
-**Identify 5-10 peer companies:**
-1. [Peer 1] - Direct competitor
-2. [Peer 2] - Direct competitor
-3. [Peer 3] - Adjacent player
-4. [Peer 4] - Similar business model
-5. [Peer 5] - Regional competitor
-6. [Add 3-5 more]
+**识别 5-10 家 peers：**
+1. [Peer 1] - 直接竞争对手
+2. [Peer 2] - 直接竞争对手
+3. [Peer 3] - 邻近玩家
+4. [Peer 4] - 相似商业模式
+5. [Peer 5] - 区域竞争者
+6. [再补 3-5 家]
 
-**Document rationale for each peer selected.**
+**记录每个 peer 的选择逻辑。**
 
-#### B. Gather Peer Financial Data
+#### B. 收集 Peer Financial Data
 
-**For each comparable, gather:**
-- Current stock price
-- Shares outstanding (diluted)
+**对每个 comparable，收集：**
+- 当前股价
+- Shares outstanding（diluted）
 - Market capitalization
-- Total debt and cash (for EV calculation)
+- Total debt 和 cash，用于 EV 计算
 - Enterprise value
-- LTM (Last Twelve Months) financials:
+- LTM（Last Twelve Months）财务数据：
   - Revenue
   - EBITDA
   - EBIT
   - Net Income
-- NTM (Next Twelve Months) consensus estimates
+- NTM（Next Twelve Months）一致预期
 - Revenue growth rate
 - EBITDA margin
 
-**Data sources:**
-- FactSet, CapitalIQ, Bloomberg (preferred)
-- Company 10-Ks/10-Qs for actuals
-- Consensus estimates from Yahoo Finance, Seeking Alpha (if pro tools unavailable)
+**数据来源：**
+- FactSet、CapitalIQ、Bloomberg，优先
+- Company 10-Ks / 10-Qs，用于 actuals
+- 若缺少专业工具，可用 Yahoo Finance、Seeking Alpha 获取 consensus estimates
 
-#### C. Calculate Valuation Multiples
+#### C. 计算估值倍数
 
-**For each peer, calculate:**
+**对每个 peer，计算：**
 ```
 EV/Revenue (LTM) = Enterprise Value / LTM Revenue
 EV/Revenue (NTM) = Enterprise Value / NTM Revenue (est.)
@@ -324,7 +324,7 @@ EV/EBITDA (NTM) = Enterprise Value / NTM EBITDA (est.)
 P/E (NTM) = Market Cap / NTM Net Income (est.)
 ```
 
-#### D. Create Comparable Companies Table (MANDATORY FORMAT)
+#### D. 创建 Comparable Companies Table（MANDATORY FORMAT）
 
 ```
 COMPARABLE COMPANIES ANALYSIS
@@ -352,11 +352,11 @@ Note: Market data as of [Date]. LTM = Last Twelve Months. NTM = Next Twelve Mont
 Source: FactSet, company filings, [Analyst] estimates.
 ```
 
-**CRITICAL**: The statistical summary (max/75th/median/25th/min) is MANDATORY.
+**CRITICAL**：statistical summary，max/75th/median/25th/min，**是强制项**。
 
-#### E. Apply Multiples to Target Company
+#### E. 将倍数应用到目标公司
 
-**Choose primary multiple (typically EV/EBITDA for mature companies):**
+**选择主要倍数**，成熟公司通常使用 EV/EBITDA：
 
 ```
 Target Company NTM EBITDA = $550M (from financial model)
@@ -385,24 +385,24 @@ Shares Outstanding         100M
 Implied Price/Share        $71.40
 ```
 
-**Justify Premium/Discount:**
-- Target is growing 17% vs. peer median 17% → In-line
-- Target EBITDA margin 23% vs. peer median 23% → In-line
-- Target market position → [Justify premium/discount]
-- **Conclusion**: Apply median multiple (no adjustment)
+**论证溢价 / 折价：**
+- 目标公司增长 17%，与 peer median 17% 相同 → In-line
+- 目标 EBITDA margin 为 23%，与 peer median 23% 相同 → In-line
+- 目标 market position → [据此论证 premium/discount]
+- **Conclusion**：使用 median multiple，不做调整
 
-### Step 4: Precedent Transactions (Optional)
+### 第 4 步：Precedent Transactions（可选）
 
-**Note**: Only if M&A is relevant for this sector/company.
+**Note**：仅当 M&A 对该板块 / 公司具有现实意义时适用。
 
-#### A. Identify Relevant Transactions
+#### A. 识别相关交易
 
-**Search for 5-10 M&A deals:**
-- Same industry, last 3-5 years
-- Similar size (0.5x to 2x target's size)
-- Announced and closed deals
+**搜索 5-10 笔 M&A 交易：**
+- 同一行业，过去 3-5 年内
+- 相似规模，目标公司的 0.5x 到 2x
+- 已公告且已完成的交易
 
-**Example:**
+**示例：**
 ```
 PRECEDENT TRANSACTIONS ANALYSIS
 
@@ -419,7 +419,7 @@ Median                                        4.0x    15.8x      32%
 Source: CapitalIQ, company filings, press releases.
 ```
 
-#### B. Apply to Target Company
+#### B. 应用于目标公司
 
 ```
 Target Company LTM EBITDA = $500M
@@ -431,9 +431,9 @@ Note: Precedent multiples typically 10-20% higher than trading comps
 due to control premium and synergies.
 ```
 
-### Step 5: Valuation Reconciliation
+### 第 5 步：Valuation Reconciliation
 
-#### A. Create Valuation Summary Table
+#### A. 创建 Valuation Summary Table
 
 ```
 VALUATION SUMMARY
@@ -451,19 +451,19 @@ Current Price (as of [Date]):    $42.00
 Upside to Target:                40% ($59.00 / $42.00 - 1)
 ```
 
-#### B. Determine Weighting Rationale
+#### B. 确定权重逻辑
 
-**Typical Weighting:**
-- DCF: 40-60% (higher when forecasts reliable)
-- Trading Comps: 25-40% (reflects market sentiment)
-- Precedent Trans: 10-25% (lower unless M&A likely)
+**Typical Weighting：**
+- DCF：40-60%，当 forecasts 较可靠时权重更高
+- Trading Comps：25-40%，反映市场情绪
+- Precedent Trans：10-25%，除非 M&A 可能性高，否则权重较低
 
-**For this example:**
-- DCF 50%: High confidence in projections
-- Comps 40%: Robust peer set
-- Precedent 10%: M&A unlikely near-term
+**在该示例中：**
+- DCF 50%：对预测有较高信心
+- Comps 40%：peer set 充足
+- Precedent 10%：短期内 M&A 可能性不高
 
-#### C. Create Valuation Football Field Chart
+#### C. 创建 Valuation Football Field Chart
 
 ```
 VALUATION FOOTBALL FIELD
@@ -489,7 +489,7 @@ Color code:
 - Vertical line at target: Black solid
 ```
 
-#### D. Scenario-Based Valuations
+#### D. 按情景划分估值
 
 ```
 VALUATION BY SCENARIO
@@ -503,7 +503,7 @@ Bull Case   20%         32%      36%       $58      16.0x     $82
 Expected Value (probability-weighted): $59
 ```
 
-### Step 6: Final Price Target & Recommendation
+### 第 6 步：最终 Price Target 与 Recommendation
 
 ```
 ═══════════════════════════════════════════════════════════
@@ -579,120 +579,120 @@ Upside Risks:
 
 ---
 
-## Quality Standards
+## 质量标准
 
 ### DCF Quality Checks
-- [ ] WACC properly calculated with documented components
-- [ ] Terminal value reasonable (< 70% of total enterprise value)
-- [ ] Sensitivity analysis covers realistic ranges (±200-300bps for WACC, ±100bps for terminal growth)
-- [ ] Unlevered FCF properly calculated from EBIT
-- [ ] Enterprise to equity value bridge correct
-- [ ] Share count is diluted shares, not basic
+- [ ] WACC 计算正确，组成部分有记录
+- [ ] Terminal value 合理，低于 total enterprise value 的 70%
+- [ ] Sensitivity analysis 覆盖现实区间，WACC ±200-300bps，terminal growth ±100bps
+- [ ] Unlevered FCF 从 EBIT 正确计算
+- [ ] Enterprise 到 equity value 的桥接正确
+- [ ] 使用 diluted shares，而不是 basic shares
 
 ### Comparables Quality Checks
-- [ ] 5-10 comparable companies selected
-- [ ] Peer selection defensible (document why each peer was chosen)
-- [ ] Statistical summary included (max/75th/median/25th/min) - MANDATORY
-- [ ] Multiple selection appropriate (EV/EBITDA for mature, EV/Revenue for high-growth)
-- [ ] Premium/discount justified with specific factors
-- [ ] Data sourced properly with dates noted
+- [ ] 已选出 5-10 家 comparable companies
+- [ ] Peer 选择具备可辩护性，并记录原因
+- [ ] 包含 statistical summary，max/75th/median/25th/min，强制项
+- [ ] Multiple 选择合适，成熟公司用 EV/EBITDA，高增长公司用 EV/Revenue
+- [ ] Premium / discount 有具体论证
+- [ ] 数据来源与日期记录完整
 
-### Overall Valuation Quality Checks
-- [ ] At least 2 valuation methods used (DCF + Comps minimum)
-- [ ] Weighting explained and appropriate
-- [ ] Valuation range provided (low/base/high), not just point estimate
-- [ ] Scenarios analyzed (Bull/Base/Bear)
-- [ ] Sanity checks performed (see below)
-- [ ] All assumptions documented with rationale
+### 整体估值质量检查
+- [ ] 至少使用 2 种估值方法，最低 DCF + Comps
+- [ ] 权重说明充分且合理
+- [ ] 提供 low / base / high 估值区间，而非单点值
+- [ ] 已进行 Bull/Base/Bear 情景分析
+- [ ] 已做 sanity checks
+- [ ] 所有关键假设都有逻辑说明
 
 ---
 
 ## Sanity Checks
 
-**Always perform these validation checks:**
+**始终执行以下校验：**
 
 1. **Historical Multiple Check**
-   - Is implied multiple in line with company's historical trading range?
-   - If not, explain why
+   - 隐含倍数是否与公司历史交易区间一致？
+   - 若不一致，解释原因
 
 2. **Peer Comparison**
-   - Is premium/discount vs. peers justified by fundamentals?
-   - Check: growth, margins, market position
+   - 相对 peers 的溢价 / 折价是否由基本面支撑？
+   - 检查增长、利润率、市场地位
 
 3. **Implied Growth Check**
-   - What growth is market pricing in at current price?
-   - Is that reasonable given company trajectory?
+   - 当前股价隐含了什么增长预期？
+   - 该预期是否与公司轨迹相符？
 
 4. **Market Cap Reasonableness**
-   - Does total market cap make sense given company size and peers?
-   - Would company be too large/small relative to industry?
+   - 结合公司规模与 peers，总市值是否合理？
+   - 是否会导致公司在行业中显得过大 / 过小？
 
 5. **Terminal Value Check**
-   - Is terminal value < 60-70% of total enterprise value?
-   - If > 70%, projections may not be long enough
+   - Terminal value 是否低于 total enterprise value 的 60-70%？
+   - 若高于 70%，说明显性预测期可能太短
 
 6. **WACC Reasonableness**
-   - Is WACC 8-14% range for typical companies?
-   - Tech/high-growth: 10-14%
-   - Mature/stable: 7-10%
+   - WACC 是否位于典型公司 8-14% 区间？
+   - Tech / high-growth：10-14%
+   - Mature / stable：7-10%
 
 7. **Implied Returns Check**
-   - What IRR from current price to target over 12 months?
-   - Is that consistent with recommendation rating?
+   - 从当前股价到目标价，12 个月 IRR 是多少？
+   - 是否与 recommendation rating 相匹配？
 
 ---
 
-## Output Files
+## 输出文件
 
-Create the following deliverables:
+创建以下交付物：
 
 ### 1. Valuation Analysis Document
-**File**: `[Company]_Valuation_Analysis_[Date].md` (written analysis)
+**File**：`[Company]_Valuation_Analysis_[Date].md`（书面分析）
 
-**Contents** (4-6 pages):
-- Executive summary with price target
-- DCF analysis (1 page) with sensitivity table
-- Comparable companies analysis (1 page) with statistical summary
-- Precedent transactions (0.5 page) if applicable
-- Valuation summary and football field (0.5 page)
-- Investment recommendation (1 page)
-- Key catalysts and risks (1 page)
+**内容**（4-6 页）：
+- 含目标价的 executive summary
+- DCF analysis（1 页），含 sensitivity table
+- Comparable companies analysis（1 页），含 statistical summary
+- Precedent transactions（0.5 页），如适用
+- Valuation summary 和 football field（0.5 页）
+- Investment recommendation（1 页）
+- Key catalysts and risks（1 页）
 
 ### 2. Excel Valuation Tabs
-**Add to Task 2's financial model file:** `[Company]_Financial_Model_[Date].xlsx`
+**添加到 Task 2 的财务模型文件中：** `[Company]_Financial_Model_[Date].xlsx`
 
-**IMPORTANT**: Do NOT create a separate Excel file. Add these tabs to the existing financial model from Task 2. This keeps all quantitative data in one place.
+**IMPORTANT**：不要单独创建 Excel 文件。应直接向 Task 2 的现有财务模型中增加下列 tabs，以便所有定量数据集中在同一文件内。
 
-**Tabs to add:**
-- DCF tab with full calculations
+**需要新增的 tabs：**
+- DCF tab，完整计算
 - Sensitivity analysis tab
-- Comps tab with peer data
-- Precedent transactions tab (if applicable)
+- Comps tab，含 peer data
+- Precedent transactions tab，如适用
 - Valuation summary tab
 
 ---
 
-## Success Criteria
+## 成功标准
 
-A successful valuation analysis should:
-1. Use at least 2 methods (DCF + Comps minimum)
-2. Include comprehensive DCF sensitivity analysis (2-way tables)
-3. Include statistical summary in comps (max/75th/median/25th/min)
-4. Provide valuation range (low/base/high), not point estimate
-5. Document all key assumptions with clear rationale
-6. Perform sanity checks
-7. Arrive at defensible price target
-8. Provide clear buy/hold/sell recommendation
-9. Identify 3-5 key catalysts
-10. Identify 3-5 key risks
-11. Be auditable and transparent
+成功的估值分析应当：
+1. 至少使用两种方法，最低为 DCF + Comps
+2. 包含完整的 DCF 双变量 sensitivity analysis
+3. comps 中包含 statistical summary，max/75th/median/25th/min
+4. 给出 low / base / high 估值区间，而不是单点值
+5. 所有关键假设均有清晰逻辑说明
+6. 完成 sanity checks
+7. 得出可辩护的 price target
+8. 提供明确的 buy / hold / sell recommendation
+9. 识别 3-5 个 key catalysts
+10. 识别 3-5 个 key risks
+11. 具备可审计性与透明度
 
 ---
 
-## Next Steps
+## 下一步
 
-After completing Task 3, the valuation analysis will be used for:
-- **Task 4 (Charts)**: Create DCF sensitivity heatmaps, valuation football field, scenario comparison charts
-- **Task 5 (Report Assembly)**: Integrate valuation analysis into final report
+完成 Task 3 后，估值分析将用于：
+- **Task 4 (Charts)**：生成 DCF sensitivity heatmaps、valuation football field 和 scenario comparison charts
+- **Task 5 (Report Assembly)**：将估值分析整合进最终报告
 
-The price target and recommendation are the foundation of the final investment recommendation in the equity research report.
+目标价与评级是最终股票研究报告中投资建议的核心基础。

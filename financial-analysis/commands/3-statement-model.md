@@ -1,8 +1,8 @@
 ---
-description: Fill out a 3-statement financial model template
-argument-hint: "[path to template file]"
+description: 填写三大报表财务模型模板
+argument-hint: "[模板文件路径]"
 ---
 
-Load the `3-statement-model` skill and populate a 3-statement financial model (Income Statement, Balance Sheet, Cash Flow Statement).
+加载 `3-statement-model` skill，并填充三大报表财务模型（利润表、资产负债表、现金流量表）。
 
-If a file path is provided, use it as the template. Otherwise ask the user for their model template.
+如果提供了文件路径，则将其用作模板。否则请向用户索取他们的模型模板。

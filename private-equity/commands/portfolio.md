@@ -1,8 +1,8 @@
 ---
-description: Review portfolio company performance
+description: 审阅组合公司表现
 argument-hint: "[company name or path to financial package]"
 ---
 
-Load the `portfolio-monitoring` skill and analyze a portfolio company's performance against plan — KPIs, variances, and red flags.
+加载 `portfolio-monitoring` skill，分析组合公司相对于计划的表现，包括 KPI、偏差和红旗事项。
 
-If a company name or file is provided, use it. Otherwise ask the user for the portfolio company and financial data.
+如果提供了公司名称或文件，就直接使用。否则向用户询问组合公司和财务数据。

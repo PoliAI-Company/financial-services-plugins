@@ -1,8 +1,8 @@
 ---
-description: Debug and audit a financial model for errors
-argument-hint: "[path to .xlsx model file]"
+description: 调试并审计财务模型中的错误
+argument-hint: "[.xlsx 模型文件路径]"
 ---
 
-Load the `audit-xls` skill with scope **model** and audit the specified financial model for broken formulas, balance sheet imbalances, hardcoded overrides, circular references, and logic errors — including the full model-integrity checks (BS balance, cash tie-out, roll-forwards, model-type-specific bugs).
+以 **model** 范围加载 `audit-xls` skill，并审计指定财务模型中的公式损坏、资产负债表不平、硬编码覆盖、循环引用和逻辑错误，包括完整的模型完整性检查（资产负债表平衡、现金勾稽、滚动表、模型类型特定 bug）。
 
-If a file path is provided, use it. Otherwise ask the user for the model to review.
+如果提供了文件路径，则直接使用。否则请向用户索取要审阅的模型。

@@ -1,6 +1,6 @@
-# Deck Check Report Format
+# Deck 审阅报告格式
 
-## Report Template
+## 报告模板
 
 ```markdown
 # Deck Check Report: [Presentation Name]
@@ -46,22 +46,22 @@
 - [ ] Formatting consistent
 ```
 
-## Issue Severity Classification
+## 问题严重级别分类
 
-**Critical** (must fix before client delivery):
-- Number mismatches across slides
-- Calculation errors
-- Factual inaccuracies (names, titles, dates)
-- Data contradicting narrative
+**Critical**（在发送给客户前必须修复）：
+- 跨幻灯片数字不一致
+- 计算错误
+- 事实性错误（名称、职务、日期）
+- 数据与叙事相矛盾
 
-**Important** (should fix):
-- Casual/informal language
-- Vague claims without specificity
-- Terminology inconsistency
-- Missing chart sources
+**Important**（应修复）：
+- 口语化或非正式语言
+- 缺乏具体性的模糊表述
+- 术语不一致
+- 图表缺少来源
 
-**Minor** (polish items):
-- Font/color inconsistencies
-- Date format variations
-- Spacing/alignment issues
-- Orphaned text
+**Minor**（润色项）：
+- 字体或颜色不一致
+- 日期格式不一致
+- 间距或对齐问题
+- 孤立文本

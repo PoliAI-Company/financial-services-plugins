@@ -1,108 +1,108 @@
-# Task 4: Chart Generation - Detailed Workflow
+# 任务 4：图表生成 - 详细工作流
 
-This document provides step-by-step instructions for executing Task 4 (Chart Generation) of the initiating-coverage skill.
+本文档提供执行 initiating-coverage skill 中 Task 4（Chart Generation）的逐步说明。
 
-## Task Overview
+## 任务概览
 
-**Purpose**: Generate 25-35 professional financial charts for the report.
+**Purpose**：为报告生成 25-35 张专业财务图表。
 
-**Prerequisites**: ⚠️ Verify before starting
-- **Required**: Company research from Task 1
-  - Company history, milestones (for timeline charts)
-  - Management team, org structure (for org charts)
-  - Product portfolio (for product charts)
-  - Customer segmentation (for customer charts)
-  - Competitive landscape (for competitive positioning charts)
-  - TAM analysis (for market size charts)
-- **Required**: Financial model from Task 2
-  - Revenue by product/geography data
+**Prerequisites**：⚠️ 开始前验证
+- **Required**：Task 1 的公司研究
+  - 公司历史、里程碑（用于 timeline charts）
+  - 管理团队、组织结构（用于 org charts）
+  - 产品组合（用于 product charts）
+  - 客户细分（用于 customer charts）
+  - 竞争格局（用于 competitive positioning charts）
+  - TAM analysis（用于 market size charts）
+- **Required**：Task 2 的财务模型
+  - Revenue by product / geography 数据
   - Margin trends
   - Scenario comparison data
-- **Required**: Valuation analysis from Task 3
+- **Required**：Task 3 的估值分析
   - DCF sensitivity table
   - Comparable companies data
   - Valuation ranges
-- **Required**: External market data
-  - Historical stock price data (Yahoo Finance, Bloomberg)
-  - Historical valuation multiples (optional for chart 34)
+- **Required**：外部市场数据
+  - 历史股价数据（Yahoo Finance、Bloomberg）
+  - 历史估值倍数（chart 34 可选）
 
 **⚠️ CRITICAL: DO NOT START THIS TASK UNLESS TASKS 1, 2, AND 3 ARE COMPLETE**
 
-This task requires outputs from all three previous tasks. Starting without them will result in incomplete charts.
+本任务依赖前三项任务的产出。若缺少这些输入，将无法生成完整图表。
 
-**IF ANY OF TASKS 1, 2, OR 3 ARE NOT COMPLETE**: Stop immediately and inform the user which tasks need to be completed first. The specific requirements are:
-- Task 1: Company research document (for 9 charts)
-- Task 2: Financial model with all 6 tabs (for 8 charts)
-- Task 3: Valuation tabs added to the model (for 6 charts)
-- External data access (for 2 charts)
+**IF ANY OF TASKS 1, 2, OR 3 ARE NOT COMPLETE**：立即停止，并告知用户需要先完成哪些任务。具体要求：
+- Task 1：Company research document（支持 9 张图）
+- Task 2：Financial model with all 6 tabs（支持 8 张图）
+- Task 3：Valuation tabs added to the model（支持 6 张图）
+- External data access（支持 2 张图）
 
-Do not attempt to create placeholder charts or skip charts due to missing data.
+不要创建 placeholder charts，也不要因缺数据而跳过任何图表。
 
-**Output**: 25-35 Professional Chart Files (PNG/JPG, 300 DPI)
+**Output**：25-35 个 Professional Chart Files（PNG/JPG, 300 DPI）
 
 ---
 
-## Input Verification
+## 输入验证
 
-**BEFORE STARTING - CHECK ALL PREREQUISITES:**
+**开始前 - 检查全部前置条件：**
 
-### Task 1 Verification (Company Research)
-- [ ] Task 1 complete? (Company research document exists)
-- [ ] Company history and milestones documented? (for charts 05, 06)
-- [ ] Management team and org structure described? (for chart 07)
-- [ ] Product portfolio detailed? (for chart 08)
-- [ ] Customer segmentation analyzed? (for chart 09)
-- [ ] Competitive landscape mapped? (for charts 16, 17, 18)
-- [ ] TAM sizing completed? (for chart 15)
+### Task 1 Verification（Company Research）
+- [ ] Task 1 complete?（公司研究文档存在）
+- [ ] 已记录 company history and milestones?（charts 05, 06）
+- [ ] 已描述 management team and org structure?（chart 07）
+- [ ] 已整理 product portfolio?（chart 08）
+- [ ] 已分析 customer segmentation?（chart 09）
+- [ ] 已绘制 competitive landscape?（charts 16, 17, 18）
+- [ ] 已完成 TAM sizing?（chart 15）
 
-### Task 2 Verification (Financial Model)
-- [ ] Task 2 complete? (Financial model Excel file exists)
-- [ ] Revenue by product breakdown available? (for chart 03 ⭐)
-- [ ] Revenue by geography breakdown available? (for chart 04 ⭐)
-- [ ] Historical + projected financials complete? (for charts 02, 10, 11, 12)
-- [ ] Scenario analysis (Bull/Base/Bear) complete? (for chart 14)
-- [ ] Operating metrics available? (for chart 13)
+### Task 2 Verification（Financial Model）
+- [ ] Task 2 complete?（财务模型 Excel 文件存在）
+- [ ] Revenue by product breakdown 可用？（chart 03 ⭐）
+- [ ] Revenue by geography breakdown 可用？（chart 04 ⭐）
+- [ ] Historical + projected financials 完整？（charts 02, 10, 11, 12）
+- [ ] Scenario analysis（Bull/Base/Bear）完整？（chart 14）
+- [ ] Operating metrics 可用？（chart 13）
 
-### Task 3 Verification (Valuation)
-- [ ] Task 3 complete? (Valuation tabs added to model)
-- [ ] DCF sensitivity matrix exists? (for chart 28 ⭐)
-- [ ] DCF calculation details available? (for chart 29)
-- [ ] Comparable companies data collected? (for charts 30, 31)
-- [ ] Valuation ranges calculated? (for chart 32 ⭐)
+### Task 3 Verification（Valuation）
+- [ ] Task 3 complete?（模型中已加入 valuation tabs）
+- [ ] DCF sensitivity matrix 存在？（chart 28 ⭐）
+- [ ] DCF calculation details 可用？（chart 29）
+- [ ] Comparable companies data 已收集？（charts 30, 31）
+- [ ] 已计算 valuation ranges？（chart 32 ⭐）
 
 ### External Data Verification
-- [ ] Can access historical stock price data? (Yahoo Finance, Bloomberg for chart 01)
-- [ ] Can access historical valuation data? (Optional, for chart 34)
+- [ ] 可以访问历史股价数据？（chart 01）
+- [ ] 可以访问历史估值数据？（chart 34，可选）
 
-**IF ANY VERIFICATION FAILS**:
-- Missing Task 1? → Complete Task 1 (Company Research) first
-- Missing Task 2? → Complete Task 2 (Financial Modeling) first
-- Missing Task 3? → Complete Task 3 (Valuation Analysis) first
-- Missing external data? → Gather from Yahoo Finance, Bloomberg, or similar sources
+**IF ANY VERIFICATION FAILS：**
+- 缺少 Task 1 → 先完成 Task 1（Company Research）
+- 缺少 Task 2 → 先完成 Task 2（Financial Modeling）
+- 缺少 Task 3 → 先完成 Task 3（Valuation Analysis）
+- 缺少外部数据 → 先从 Yahoo Finance、Bloomberg 或类似来源获取
 
 ---
 
-## Chart Requirements: 25 Required + 10 Optional
+## 图表要求：25 张必做 + 10 张可选
 
-**IMPORTANT**: Task 5 (Report Assembly) will embed **ALL charts created** throughout the report. The report requires dense visual content (1 chart every 200-300 words), so create comprehensive chart coverage.
+**IMPORTANT**：Task 5（Report Assembly）会将**所有已创建的图表**嵌入最终报告。报告要求高视觉密度，平均每 200-300 词一张图，因此必须覆盖充分。
 
-### 4 MANDATORY Charts (Non-Negotiable) ⭐
+### 4 张 MANDATORY Charts（不可谈判）⭐
 
-These 4 charts are critical visualizations that MUST be present:
+以下 4 张图是必须存在的关键可视化：
 
-1. **chart_03**: Revenue by Product/Segment - Stacked Area Chart ⭐
-2. **chart_04**: Revenue by Geography - Stacked Bar Chart ⭐
-3. **chart_28**: DCF Sensitivity Analysis - 2-Way Heatmap ⭐
-4. **chart_32**: Valuation Football Field - Horizontal Bar Chart ⭐
+1. **chart_03**：Revenue by Product/Segment - Stacked Area Chart ⭐
+2. **chart_04**：Revenue by Geography - Stacked Bar Chart ⭐
+3. **chart_28**：DCF Sensitivity Analysis - 2-Way Heatmap ⭐
+4. **chart_32**：Valuation Football Field - Horizontal Bar Chart ⭐
 
-### 25 REQUIRED Charts (Complete Set)
+### 25 张 REQUIRED Charts（完整集合）
 
-Create all 25 of these charts. Each has a specific purpose in Task 5:
+必须创建以下 25 张图，每张在 Task 5 中都有明确用途：
 
-**Investment Summary Section (1 chart):**
-- chart_01: Stock Price Performance (12-24 months)
+**Investment Summary Section（1 张）：**
+- chart_01: Stock Price Performance（12-24 months）
 
-**Financial Performance Section (6 charts):**
+**Financial Performance Section（6 张）：**
 - chart_02: Revenue Growth Trajectory
 - chart_03: Revenue by Product - Stacked Area ⭐ MANDATORY
 - chart_04: Revenue by Geography - Stacked Bar ⭐ MANDATORY
@@ -110,7 +110,7 @@ Create all 25 of these charts. Each has a specific purpose in Task 5:
 - chart_11: EBITDA Margin Progression
 - chart_12: Free Cash Flow Trend
 
-**Company 101 Section (7 charts):**
+**Company 101 Section（7 张）：**
 - chart_05: Company Overview/Timeline
 - chart_06: Key Milestones Timeline
 - chart_07: Organizational Structure
@@ -119,15 +119,15 @@ Create all 25 of these charts. Each has a specific purpose in Task 5:
 - chart_15: Market Size Evolution (TAM)
 - chart_16: Competitive Positioning Matrix
 
-**Competitive & Market Section (2 charts):**
+**Competitive & Market Section（2 张）：**
 - chart_17: Market Share Breakdown
 - chart_18: Competitive Benchmarking
 
-**Scenario Analysis Section (2 charts):**
+**Scenario Analysis Section（2 张）：**
 - chart_13: Operating Metrics Dashboard
 - chart_14: Scenario Comparison (Bull/Base/Bear)
 
-**Valuation Section (7 charts):**
+**Valuation Section（7 张）：**
 - chart_28: DCF Sensitivity Heatmap ⭐ MANDATORY
 - chart_29: DCF Valuation Waterfall
 - chart_30: Trading Comps Scatter Plot
@@ -138,9 +138,9 @@ Create all 25 of these charts. Each has a specific purpose in Task 5:
 
 **Total: 25 Required Charts**
 
-### 10 OPTIONAL Charts (For 30-35 Range)
+### 10 张 OPTIONAL Charts（用于达到 30-35 张）
 
-Add these for greater visual density and storytelling (reach 26-35 total):
+为了提高视觉密度和叙事能力，可额外增加：
 
 - chart_19: Customer Acquisition Trends
 - chart_20: Unit Economics Evolution
@@ -153,61 +153,59 @@ Add these for greater visual density and storytelling (reach 26-35 total):
 - chart_27: Ownership Structure
 - chart_35: Analyst Price Target Distribution
 
-**Total Range: 25-35 Charts (25 required + 0-10 optional)**
+**总范围：25-35 张图（25 张必做 + 0-10 张可选）**
 
 ---
 
-## Data Source Mapping for Required Charts
+## 必做图表的数据来源映射
 
-Understanding where each chart's data comes from:
-
-### From Task 1 (Company Research) - 9 charts
+### 来自 Task 1（Company Research）- 9 张图
 - chart_05: Company Overview → Task 1: Company Overview section
 - chart_06: Key Milestones → Task 1: Company History section
 - chart_07: Org Structure → Task 1: Management Team section
 - chart_08: Product Portfolio → Task 1: Products & Services section
 - chart_09: Customer Segmentation → Task 1: Customers & Go-to-Market section
-- chart_15: Market Size Evolution → Task 1: Market Opportunity (TAM) section
+- chart_15: Market Size Evolution → Task 1: Market Opportunity（TAM）section
 - chart_16: Competitive Positioning → Task 1: Competitive Landscape section
 - chart_17: Market Share → Task 1: Competitive Landscape section
 - chart_18: Competitive Benchmarking → Task 1: Competitive Landscape section
 
-### From Task 2 (Financial Model) - 8 charts
-- chart_02: Revenue Growth → Income Statement tab (Revenue row)
-- chart_03: Revenue by Product ⭐ → Revenue Model tab (Product breakdown)
-- chart_04: Revenue by Geography ⭐ → Revenue Model tab (Geography breakdown)
-- chart_10: Gross Margin → Income Statement tab (Gross Profit / Revenue)
-- chart_11: EBITDA Margin → Income Statement tab (EBITDA / Revenue)
-- chart_12: Free Cash Flow → Cash Flow Statement tab (CFO - CapEx)
-- chart_13: Operating Metrics → Multiple tabs (Income Statement, Cash Flow)
-- chart_14: Scenario Comparison → Scenarios tab (Bull/Base/Bear)
+### 来自 Task 2（Financial Model）- 8 张图
+- chart_02: Revenue Growth → Income Statement tab（Revenue row）
+- chart_03: Revenue by Product ⭐ → Revenue Model tab（Product breakdown）
+- chart_04: Revenue by Geography ⭐ → Revenue Model tab（Geography breakdown）
+- chart_10: Gross Margin → Income Statement tab（Gross Profit / Revenue）
+- chart_11: EBITDA Margin → Income Statement tab（EBITDA / Revenue）
+- chart_12: Free Cash Flow → Cash Flow Statement tab（CFO - CapEx）
+- chart_13: Operating Metrics → Multiple tabs（Income Statement, Cash Flow）
+- chart_14: Scenario Comparison → Scenarios tab（Bull/Base/Bear）
 
-### From Task 3 (Valuation) - 6 charts
+### 来自 Task 3（Valuation）- 6 张图
 - chart_28: DCF Sensitivity ⭐ → Sensitivity Analysis tab
-- chart_29: DCF Waterfall → DCF tab (Enterprise Value components)
+- chart_29: DCF Waterfall → DCF tab（Enterprise Value components）
 - chart_30: Trading Comps Scatter → Comparable Companies tab
 - chart_31: Peer Multiples → Comparable Companies tab
 - chart_32: Valuation Football Field ⭐ → Valuation Summary tab
-- chart_33: Price Target Scenarios → Valuation Summary tab (or calculate from scenarios)
+- chart_33: Price Target Scenarios → Valuation Summary tab（或由 scenarios 计算）
 
-### From External Sources - 2 charts
-- chart_01: Stock Price Performance → Yahoo Finance, Bloomberg, Alpha Vantage
-- chart_34: Historical Valuation Multiples → Yahoo Finance, Bloomberg (historical P/E, EV/EBITDA)
+### 来自外部来源 - 2 张图
+- chart_01: Stock Price Performance → Yahoo Finance、Bloomberg、Alpha Vantage
+- chart_34: Historical Valuation Multiples → Yahoo Finance、Bloomberg（历史 P/E、EV/EBITDA）
 
-**IMPORTANT**: Require ALL three tasks (1, 2, 3) complete PLUS external data access to create all 25 required charts.
+**IMPORTANT**：创建全部 25 张必做图，必须同时具备 Tasks 1、2、3 和外部数据。
 
 ---
 
-## Step-by-Step Chart Generation Workflow
+## 分步图表生成工作流
 
-### Step 1: Set Up Environment
+### 第 1 步：设置环境
 
-**Install required libraries:**
+**安装需要的库：**
 ```bash
 pip install matplotlib seaborn pandas numpy plotly
 ```
 
-**Create Python script header:**
+**创建 Python 脚本头部：**
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -230,9 +228,9 @@ AXIS_FONT_SIZE = 12
 LABEL_FONT_SIZE = 10
 ```
 
-### Step 2: Extract Data from Model and Valuation
+### 第 2 步：从模型和估值中提取数据
 
-#### A. Extract Revenue Data
+#### A. 提取 Revenue Data
 ```python
 # Revenue by Product (from Task 2 model)
 years = [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029]
@@ -250,7 +248,7 @@ asia_pacific = [40, 50, 63, 80, 101, 127, 159, 199, 249, 311]
 rest_of_world = [20, 25, 32, 40, 51, 64, 80, 100, 125, 156]
 ```
 
-#### B. Extract Margin Data
+#### B. 提取 Margin Data
 ```python
 # Margin evolution
 gross_margin = [58.0, 59.2, 60.5, 61.8, 63.0, 64.5, 66.0, 67.0, 67.5, 68.0]
@@ -258,7 +256,7 @@ ebitda_margin = [12.0, 15.5, 18.8, 22.0, 25.0, 28.0, 30.5, 32.0, 33.0, 34.0]
 fcf_margin = [8.0, 11.0, 14.5, 18.0, 21.0, 24.0, 26.5, 28.0, 29.0, 30.0]
 ```
 
-#### C. Extract DCF Sensitivity Data
+#### C. 提取 DCF Sensitivity Data
 ```python
 # DCF Sensitivity (from Task 3 valuation)
 wacc_values = [7.0, 8.0, 9.0, 10.0, 11.0, 12.0]
@@ -275,7 +273,7 @@ dcf_sensitivity = np.array([
 ])
 ```
 
-#### D. Extract Valuation Ranges
+#### D. 提取 Valuation Ranges
 ```python
 # Valuation Football Field (from Task 3)
 valuation_methods = ['DCF Analysis', 'Trading Comps\n(NTM)', 'Precedent\nTransactions']
@@ -285,10 +283,9 @@ current_price = 50
 target_price = 55
 ```
 
-### Step 3: Create Mandatory Charts
+### 第 3 步：创建 Mandatory Charts
 
 #### Chart 1: Revenue by Product - Stacked Area ⭐ MANDATORY
-
 ```python
 def create_revenue_by_product_chart():
     """Create revenue by product stacked area chart"""
@@ -338,7 +335,6 @@ create_revenue_by_product_chart()
 ```
 
 #### Chart 2: Revenue by Geography - Stacked Bar ⭐ MANDATORY
-
 ```python
 def create_revenue_by_geography_chart():
     """Create revenue by geography stacked bar chart"""
@@ -396,7 +392,6 @@ create_revenue_by_geography_chart()
 ```
 
 #### Chart 3: DCF Sensitivity - Heatmap ⭐ MANDATORY
-
 ```python
 def create_dcf_sensitivity_heatmap():
     """Create DCF sensitivity analysis heatmap"""
@@ -438,7 +433,6 @@ create_dcf_sensitivity_heatmap()
 ```
 
 #### Chart 4: Valuation Football Field ⭐ MANDATORY
-
 ```python
 def create_valuation_football_field():
     """Create valuation football field chart"""
@@ -502,18 +496,18 @@ def create_valuation_football_field():
 create_valuation_football_field()
 ```
 
-### Step 4: Create Remaining Required Charts (Charts 1-34)
+### 第 4 步：创建其余必做图表（Charts 1-34）
 
-**Complete the 25 REQUIRED charts** by creating all remaining charts from the required list. Each chart has a specific purpose in Task 5.
+必须完成 25 张 required charts 中的其余图表，每张在 Task 5 中都有明确用途。
 
-#### Investment Summary (1 chart)
+#### Investment Summary（1 张）
 ```python
 # chart_01: Stock Price Performance (12-24 months)
 # - Line chart showing stock price over time vs. market index
 # - Used on Page 1 of final report
 ```
 
-#### Financial Performance (5 additional charts beyond chart_03 and chart_04)
+#### Financial Performance（除 chart_03 和 chart_04 外，还需 5 张）
 ```python
 # chart_02: Revenue Growth Trajectory
 # chart_10: Gross Margin Evolution
@@ -522,7 +516,7 @@ create_valuation_football_field()
 # chart_14: Scenario Comparison (Bull/Base/Bear)
 ```
 
-#### Company 101 Section (7 charts)
+#### Company 101 Section（7 张）
 ```python
 # chart_05: Company Overview/Timeline
 # chart_06: Key Milestones Timeline
@@ -533,18 +527,18 @@ create_valuation_football_field()
 # chart_16: Competitive Positioning Matrix
 ```
 
-#### Competitive & Market (2 charts)
+#### Competitive & Market（2 张）
 ```python
 # chart_17: Market Share Breakdown
 # chart_18: Competitive Benchmarking
 ```
 
-#### Scenario Analysis (1 chart)
+#### Scenario Analysis（1 张）
 ```python
 # chart_13: Operating Metrics Dashboard
 ```
 
-#### Valuation Section (6 additional charts beyond chart_28 and chart_32)
+#### Valuation Section（除 chart_28 和 chart_32 外，还需 6 张）
 ```python
 # chart_29: DCF Valuation Waterfall
 # chart_30: Trading Comps Scatter Plot
@@ -553,16 +547,16 @@ create_valuation_football_field()
 # chart_34: Historical Valuation Multiples
 ```
 
-**Use consistent formatting across all charts:**
+**所有图表统一要求：**
 - 300 DPI resolution
 - Professional color scheme
-- Clear labels, legends, and titles
-- Figure numbers (e.g., "Figure 5 - Company Timeline")
-- Source citations at bottom
+- 清晰的 labels、legends 和 titles
+- Figure 编号，例如 "Figure 5 - Company Timeline"
+- 底部 source citations
 
-### Step 4B: Create Optional Charts (For 26-35 Total)
+### 第 4B 步：创建 Optional Charts（总数达到 26-35）
 
-**Optional**: Add 1-10 additional charts from this list for greater visual density:
+**Optional**：额外增加 1-10 张图，提升视觉密度：
 
 ```python
 # chart_19: Customer Acquisition Trends
@@ -577,11 +571,11 @@ create_valuation_football_field()
 # chart_35: Analyst Price Target Distribution
 ```
 
-These optional charts provide additional visual storytelling and help achieve the "1 chart per 200-300 words" density target in Task 5.
+这些 optional charts 有助于提升视觉叙事，并帮助达到 Task 5 所要求的 "每 200-300 词一张图" 的密度目标。
 
-### Step 5: Create Chart Index
+### 第 5 步：创建 Chart Index
 
-Create a text file documenting all charts:
+创建一个文本文件，列出全部图表：
 
 ```python
 def create_chart_index():
@@ -657,9 +651,9 @@ def create_chart_index():
 create_chart_index()
 ```
 
-### Step 6: Quality Check
+### 第 6 步：质量检查
 
-**Run verification checks:**
+**运行验证：**
 
 ```python
 import os
@@ -722,63 +716,63 @@ verify_charts()
 
 ---
 
-## Quality Standards
+## 质量标准
 
 ### Visual Quality
-- [ ] High resolution (300 DPI minimum)
-- [ ] Professional color scheme (consistent across all charts)
-- [ ] Clear, legible text (no fonts smaller than 9pt)
-- [ ] Proper aspect ratio (no distortion)
-- [ ] No pixelation or artifacts
+- [ ] 高分辨率（至少 300 DPI）
+- [ ] 专业配色方案，全套图风格一致
+- [ ] 文字清晰可读（字号不小于 9pt）
+- [ ] 比例恰当，无拉伸变形
+- [ ] 无明显像素化或图像瑕疵
 
 ### Data Accuracy
-- [ ] Data matches source (financial model and valuation)
-- [ ] Proper units and labels ($ millions, percentages, etc.)
-- [ ] Appropriate scale and range
-- [ ] Consistent time periods across charts
-- [ ] Verified calculations
+- [ ] 数据与源文件一致（financial model 和 valuation）
+- [ ] 单位和标签正确，$ millions、百分比等
+- [ ] 坐标范围和比例合适
+- [ ] 不同图表的时间周期一致
+- [ ] 计算已核验
 
 ### Formatting Quality
-- [ ] Consistent styling across all charts
-- [ ] Proper figure numbering (sequential)
-- [ ] Clear titles and captions
-- [ ] Source citations on every chart
-- [ ] Professional appearance
+- [ ] 所有图表风格一致
+- [ ] Figure 编号正确且连续
+- [ ] 标题和说明清晰
+- [ ] 每张图都有 source citation
+- [ ] 外观专业
 
 ### Completeness
-- [ ] All 4 mandatory charts created
-- [ ] 25-35 total charts
-- [ ] Proper file naming (chart_01, chart_02, etc.)
-- [ ] Chart index created
-- [ ] Ready for embedding in Word
+- [ ] 4 张 mandatory charts 均已创建
+- [ ] 总图表数为 25-35 张
+- [ ] 文件命名规范，chart_01、chart_02 等
+- [ ] Chart index 已创建
+- [ ] 可直接嵌入 Word
 
 ---
 
-## Chart Types Reference
+## 图表类型参考
 
-### When to Use Each Chart Type
+### 各图表类型适用场景
 
-**Line Charts**: Time series trends (revenue, margins, stock price)
+**Line Charts**：时间序列趋势，revenue、margins、stock price
 
-**Stacked Area**: Revenue by product ⭐, market size composition
+**Stacked Area**：Revenue by product ⭐、market size composition
 
-**Stacked Bar**: Revenue by geography ⭐, quarterly breakdowns
+**Stacked Bar**：Revenue by geography ⭐、quarterly breakdowns
 
-**Heatmap**: DCF sensitivity ⭐, correlation matrices
+**Heatmap**：DCF sensitivity ⭐、correlation matrices
 
-**Horizontal Bar**: Valuation football field ⭐, peer rankings
+**Horizontal Bar**：Valuation football field ⭐、peer rankings
 
-**Waterfall**: Revenue bridges, margin analysis, DCF build-up
+**Waterfall**：Revenue bridges、margin analysis、DCF build-up
 
-**Scatter/Bubble**: Growth vs. valuation, competitive positioning
+**Scatter/Bubble**：Growth vs. valuation、competitive positioning
 
-**2×2 Matrix**: Competitive positioning, product portfolio
+**2×2 Matrix**：Competitive positioning、product portfolio
 
 ---
 
-## File Naming Convention
+## 文件命名规范
 
-**Always use this format:**
+**始终使用以下格式：**
 ```
 chart_[NUMBER]_[DESCRIPTION].png
 
@@ -788,63 +782,59 @@ chart_03_revenue_by_product_stacked_area.png
 chart_28_dcf_sensitivity_heatmap.png
 ```
 
-**Number charts sequentially** based on their position in the report, not creation order.
+**按报告中的位置顺序编号**，而不是按创建顺序。
 
 ---
 
-## Common Chart Generation Issues
+## 常见图表生成问题
 
-### Issue 1: Low Resolution
-**Problem**: Chart looks pixelated
-**Solution**: Ensure `dpi=300` in `plt.savefig()`
+### Issue 1: 分辨率低
+**Problem**：图表看起来有明显像素感
+**Solution**：确保 `plt.savefig()` 中设置 `dpi=300`
 
-### Issue 2: Text Cutoff
-**Problem**: Labels or titles cut off at edges
-**Solution**: Use `bbox_inches='tight'` in `plt.savefig()`
+### Issue 2: 文字被截断
+**Problem**：标签或标题在边缘被截断
+**Solution**：在 `plt.savefig()` 中使用 `bbox_inches='tight'`
 
-### Issue 3: Poor Colors
-**Problem**: Colors don't look professional
-**Solution**: Use established palettes like Tableau10 or define custom corporate colors
+### Issue 3: 配色不专业
+**Problem**：颜色看起来不够专业
+**Solution**：使用现成的调色板，如 Tableau10，或自定义 corporate colors
 
-### Issue 4: Overlapping Labels
-**Problem**: Axis labels overlap
-**Solution**: Rotate labels (e.g., `rotation=45`) or reduce font size
+### Issue 4: 标签重叠
+**Problem**：坐标轴标签互相重叠
+**Solution**：旋转标签，例如 `rotation=45`，或减小字号
 
-### Issue 5: White Space
-**Problem**: Too much white space around chart
-**Solution**: Use `plt.tight_layout()` before saving
-
----
-
-## Success Criteria
-
-A successful chart package should:
-1. **Include all 4 mandatory charts** (verified) ⭐
-   - chart_03: Revenue by Product
-   - chart_04: Revenue by Geography
-   - chart_28: DCF Sensitivity
-   - chart_32: Valuation Football Field
-2. **Create 25 required charts minimum** (verified)
-3. **Optional: 1-10 additional charts** for 26-35 total
-4. Have consistent professional styling across all charts
-5. Be high resolution (300 DPI) for print quality
-6. Have clear labels, legends, and titles on every chart
-7. Include proper figure numbers and source citations
-8. Be ready for immediate embedding in Word
-9. Cover all key financial metrics and analyses
-10. Tell a visual story complementing the written analysis
-11. Be accurate and auditable to source data (model/valuation)
-12. All charts packaged in zip file with chart index
-
-**Remember**: Task 5 will embed ALL charts created (25-35) throughout the report for visual density.
+### Issue 5: 白边过多
+**Problem**：图表四周留白太多
+**Solution**：保存前使用 `plt.tight_layout()`
 
 ---
 
-## Output Files
+## 成功标准
 
-After completing Task 4, deliverables include:
+成功的 chart package 应满足：
+1. **包含全部 4 张 mandatory charts** ⭐
+2. **至少创建 25 张 required charts**
+3. **可选增加 1-10 张图，达到 26-35 张**
+4. 全部图表风格一致且专业
+5. 分辨率达到 300 DPI，可供印刷
+6. 每张图都有清晰标签、图例和标题
+7. 每张图都有 figure number 和 source citation
+8. 可直接嵌入 Word
+9. 覆盖全部关键财务指标和分析主题
+10. 能与文字分析形成互补的视觉叙事
+11. 数据准确且可回溯到 source data
+12. 全部图表打包入 zip，并附 chart index
 
-**25 REQUIRED Chart Files (Minimum):**
+**Remember**：Task 5 会把全部已创建图表嵌入最终报告，用于提高视觉密度。
+
+---
+
+## 输出文件
+
+完成 Task 4 后，交付物包括：
+
+**25 个 REQUIRED Chart Files（至少）：**
 1. chart_01_stock_price_performance.png
 2. chart_02_revenue_growth_trajectory.png
 3. chart_03_revenue_by_product_stacked_area.png ⭐ MANDATORY
@@ -863,7 +853,7 @@ After completing Task 4, deliverables include:
 16. chart_16_competitive_positioning.png
 17. chart_17_market_share.png
 18. chart_18_competitive_benchmarking.png
-19-27. *Reserved for optional charts if created*
+19-27. *为 optional charts 预留*
 28. chart_28_dcf_sensitivity_heatmap.png ⭐ MANDATORY
 29. chart_29_dcf_waterfall.png
 30. chart_30_trading_comps_scatter.png
@@ -871,24 +861,24 @@ After completing Task 4, deliverables include:
 32. chart_32_valuation_football_field.png ⭐ MANDATORY
 33. chart_33_price_target_scenarios.png
 34. chart_34_historical_valuation_multiples.png
-35. *Reserved for optional chart if created*
+35. *为 optional chart 预留*
 
-**10 OPTIONAL Chart Files (For 26-35 Total):**
-- chart_19 through chart_27, chart_35 (if created)
+**10 个 OPTIONAL Chart Files（用于达到 26-35 总数）：**
+- chart_19 through chart_27, chart_35（如创建）
 
-**Chart Index** (1 text file):
-- chart_index.txt (listing all charts with descriptions and categories)
+**Chart Index（1 个文本文件）：**
+- chart_index.txt（列出全部图表、描述和分类）
 
-**All chart files must be:**
-- 300 DPI resolution (print quality)
-- 6-10 inches wide (standard Word embedding size)
-- White background (professional appearance)
-- PNG format (lossless quality)
-- Ready for immediate Word embedding
+**所有图表文件必须：**
+- 300 DPI 分辨率（印刷质量）
+- 宽度 6-10 英寸（适合嵌入 Word）
+- 白色背景（专业外观）
+- PNG 格式（无损）
+- 可立即嵌入 Word
 
-**Final Step: Package All Charts**
+**最后一步：打包全部图表**
 
-Create a zip file containing all chart files and the chart index:
+创建 zip 文件，包含全部图表和 chart index：
 
 ```
 [Company]_Charts_[Date].zip
@@ -904,17 +894,17 @@ Create a zip file containing all chart files and the chart index:
 └── chart_index.txt
 ```
 
-**Example**: `Tesla_Charts_2024-10-28.zip`
+**Example**：`Tesla_Charts_2024-10-28.zip`
 
-**Why this matters**: Task 5 will embed ALL charts created (25-35) throughout the report. The report requires visual density (1 chart per 200-300 words), so all charts serve a purpose—either for specific analytical sections or for visual storytelling and page density.
-- Verify all 25-35 charts are present
-- Extract charts for Task 5 (Report Assembly)
+**为什么这很重要**：Task 5 会把全部图表嵌入最终报告。报告要求高视觉密度，因此每张图都有实际用途，要么服务于特定分析部分，要么用于视觉叙事与页面填充。
+- 验证全部 25-35 张图都已存在
+- 为 Task 5（Report Assembly）准备图表
 
 ---
 
-## Next Steps
+## 下一步
 
-After completing Task 4, the zip file will be used for:
-- **Task 5 (Report Assembly)**: Extract charts and embed all into the final DOCX report at appropriate locations throughout the document
+完成 Task 4 后，zip 文件将被用于：
+- **Task 5 (Report Assembly)**：解压图表，并将全部图表嵌入最终 DOCX 报告的合适位置
 
-The 4 mandatory charts are critical for the valuation and financial analysis sections of the report.
+其中 4 张 mandatory charts 对报告中的估值和财务分析部分尤其关键。

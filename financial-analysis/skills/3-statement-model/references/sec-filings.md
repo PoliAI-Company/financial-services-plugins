@@ -1,54 +1,54 @@
-# SEC Filings Data Extraction Reference
+# SEC 文件数据提取参考
 
-**When to Use:** Only reference this file when a model template specifically requires pulling data from SEC filings (10-K, 10-Q). For templates that provide data directly or use other data sources, this reference is not needed.
+**何时使用：** 仅当模型模板明确要求从 SEC 文件（10-K、10-Q）中提取数据时参考此文件。对于直接提供数据或使用其他数据源的模板，不需要此参考。
 
 ---
 
-## Extracting Data from SEC Filings (10-K / 10-Q)
+## 从 SEC 文件（10-K / 10-Q）中提取数据
 
-When populating a model template with public company data, extract financials directly from SEC filings.
+当用上市公司数据填充模型模板时，应直接从 SEC 文件中提取财务数据。
 
-### Step 1: Locate the Filing
+### 第 1 步：定位文件
 
-1. Use SEC EDGAR: `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=[TICKER]&type=10-K`
-2. For quarterly data, use `type=10-Q`
+1. 使用 SEC EDGAR：`https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=[TICKER]&type=10-K`
+2. 对于季度数据，使用 `type=10-Q`
 
-### Step 2: Identify Filing Currency
+### 第 2 步：识别申报货币
 
-Before extracting data, identify the reporting currency:
-- Check the cover page or header for reporting currency
-- Look at statement headers (e.g., "in thousands of U.S. dollars")
-- Review Note 1 (Summary of Significant Accounting Policies)
+在提取数据前，先识别报告货币：
+- 查看封面或页眉中的报告货币
+- 查看报表标题（例如 "in thousands of U.S. dollars"）
+- 查看附注 1（Summary of Significant Accounting Policies）
 
-**Common Currency Indicators**
+**常见货币标识**
 
-| Indicator | Currency |
+| 标识 | 货币 |
 |-----------|----------|
-| $, USD | US Dollar |
-| €, EUR | Euro |
-| £, GBP | British Pound |
-| ¥, JPY | Japanese Yen |
-| ¥, CNY, RMB | Chinese Yuan |
-| CHF | Swiss Franc |
-| CAD, C$ | Canadian Dollar |
+| $, USD | 美元 |
+| €, EUR | 欧元 |
+| £, GBP | 英镑 |
+| ¥, JPY | 日元 |
+| ¥, CNY, RMB | 人民币 |
+| CHF | 瑞士法郎 |
+| CAD, C$ | 加元 |
 
-Set model currency to match filing; document in Assumptions tab.
+将模型货币设置为与文件一致，并在 Assumptions 标签页中记录。
 
-### Step 3: Navigate to Financial Statements
+### 第 3 步：导航到财务报表
 
-Within the 10-K or 10-Q, locate:
-- **Item 8** (10-K) or **Item 1** (10-Q): Financial Statements
-- Key sections to extract:
-  - Consolidated Statements of Operations (Income Statement)
+在 10-K 或 10-Q 中，定位：
+- **Item 8**（10-K）或 **Item 1**（10-Q）：财务报表
+- 需要提取的关键部分：
+  - Consolidated Statements of Operations（利润表）
   - Consolidated Balance Sheets
   - Consolidated Statements of Cash Flows
-  - Notes to Financial Statements (for schedule details)
+  - Notes to Financial Statements（用于明细表）
 
-### Step 4: Data Extraction Mapping
+### 第 4 步：数据提取映射
 
-**Income Statement (from Consolidated Statements of Operations)**
+**利润表（来自 Consolidated Statements of Operations）**
 
-| Filing Line Item | Model Line Item |
+| Filing 行项目 | Model 行项目 |
 |------------------|-----------------|
 | Net revenues / Net sales | Revenue |
 | Cost of goods sold | COGS |
@@ -58,9 +58,9 @@ Within the 10-K or 10-Q, locate:
 | Income tax expense | Taxes |
 | Net income | Net Income |
 
-**Balance Sheet (from Consolidated Balance Sheets)**
+**资产负债表（来自 Consolidated Balance Sheets）**
 
-| Filing Line Item | Model Line Item |
+| Filing 行项目 | Model 行项目 |
 |------------------|-----------------|
 | Cash and cash equivalents | Cash |
 | Accounts receivable, net | AR |
@@ -73,9 +73,9 @@ Within the 10-K or 10-Q, locate:
 | Retained earnings | Retained Earnings |
 | Total stockholders' equity | Total Equity |
 
-**Cash Flow Statement (from Consolidated Statements of Cash Flows)**
+**现金流量表（来自 Consolidated Statements of Cash Flows）**
 
-| Filing Line Item | Model Line Item |
+| Filing 行项目 | Model 行项目 |
 |------------------|-----------------|
 | Net income | Net Income |
 | Depreciation and amortization | D&A |
@@ -87,39 +87,39 @@ Within the 10-K or 10-Q, locate:
 | Proceeds from / Repayments of debt | Debt activity |
 | Dividends paid | Dividends |
 
-### Step 5: Extract Supporting Detail from Notes
+### 第 5 步：从附注中提取支持细节
 
-For schedules, pull from Notes to Financial Statements:
-- **Note: Debt** → Maturity schedule, interest rates, covenants
-- **Note: Property, Plant & Equipment** → Gross PP&E, accumulated depreciation, useful lives
-- **Note: Revenue** → Segment breakdowns, geographic splits
-- **Note: Leases** → Operating vs. finance lease obligations
+针对各类明细表，从财务报表附注中提取：
+- **Note: Debt** → 到期结构、利率、契约条款
+- **Note: Property, Plant & Equipment** → PP&E 原值、累计折旧、使用年限
+- **Note: Revenue** → 分部拆分、地理拆分
+- **Note: Leases** → 经营租赁与融资租赁义务
 
-### Step 6: Historical Data Requirements
+### 第 6 步：历史数据要求
 
-Extract 3 years of historical data minimum:
-- 10-K provides 3 years of IS/CF, 2 years of BS
-- For 3rd year BS, pull from prior year's 10-K
-- Use 10-Qs to fill in quarterly granularity if needed
+至少提取 3 年历史数据：
+- 10-K 提供 3 年利润表/现金流量表，2 年资产负债表
+- 第 3 年资产负债表需从上一年的 10-K 提取
+- 如需季度颗粒度，可使用 10-Q 补充
 
-### Data Extraction Checklist
+### 数据提取检查清单
 
-- Identify reporting currency and scale (thousands, millions)
-- 3 years historical Income Statement
-- 3 years historical Cash Flow Statement
-- 3 years historical Balance Sheet
-- Verify IS Net Income = CF starting Net Income (each year)
-- Verify BS Cash = CF Ending Cash (each year)
-- Extract debt maturity schedule from notes
-- Extract D&A detail or useful life assumptions
-- Note any non-recurring / one-time items to normalize
+- 识别报告货币和单位规模（千、百万）
+- 提取 3 年历史利润表
+- 提取 3 年历史现金流量表
+- 提取 3 年历史资产负债表
+- 验证 IS Net Income = CF 起始 Net Income（每年）
+- 验证 BS Cash = CF Ending Cash（每年）
+- 从附注中提取债务到期表
+- 提取 D&A 明细或使用年限假设
+- 标注任何一次性或非经常性项目，以便标准化处理
 
-### Handling Common Filing Variations
+### 处理常见申报差异
 
-| Variation | How to Handle |
+| 差异情况 | 处理方式 |
 |-----------|---------------|
-| D&A embedded in COGS/SG&A | Pull D&A from Cash Flow Statement |
-| "Other" line items are material | Check notes for breakdown |
-| Restatements | Use restated figures, note in assumptions |
-| Fiscal year ≠ calendar year | Label with fiscal year end (e.g., FYE Jan 2025) |
-| Non-USD reporting currency | Adapt model currency to match filing |
+| D&A 包含在 COGS/SG&A 中 | 从现金流量表中提取 D&A |
+| `Other` 项目金额重大 | 查看附注获取拆分 |
+| 重述 | 使用重述后的数字，并在 assumptions 中标注 |
+| 财年 ≠ 自然年 | 按财年结束日标注（例如 FYE Jan 2025） |
+| 非美元报告货币 | 调整模型货币以匹配文件 |

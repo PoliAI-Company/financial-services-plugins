@@ -1,28 +1,28 @@
 ---
 name: ib-check-deck
-description: Investment banking presentation quality checker. Reviews a pitch deck or client-ready presentation for (1) number consistency across slides, (2) data-narrative alignment, (3) language polish against IB standards, (4) visual and formatting QC. Use whenever the user asks to review, check, QC, proof, or do a final pass on a deck, pitch, or client materials — including requests like "check my numbers", "reconcile figures across slides", "is this client-ready", or "what am I missing before I send this out".
+description: 投资银行演示材料质量检查器。审阅 pitch deck 或面向客户的演示文稿，检查：(1) 跨页数字一致性，(2) 数据与叙事是否对齐，(3) 是否符合 IB 标准的语言润色，(4) 视觉与格式质检。当用户要求 review、check、QC、proof 或在发送前做最终检查时使用，包括“check my numbers”“reconcile figures across slides”“is this client-ready”“what am I missing before I send this out”等。
 ---
 
-# IB Deck Checker
+# IB Deck 检查器
 
-Perform comprehensive QC on the presentation across four dimensions. Read every slide, then report findings.
+从四个维度对演示文稿做全面 QC。读完整份 deck，然后报告发现。
 
-## Environment check
+## 环境检查
 
-This skill works in both the PowerPoint add-in and chat. Identify which you're in before starting:
+该 skill 同时适用于 PowerPoint 插件和聊天环境。开始前先识别环境：
 
-- **Add-in** — read from the live open deck.
-- **Chat** — read from the uploaded `.pptx` file.
+- **Add-in** — 从实时打开的 deck 中读取。
+- **Chat** — 从上传的 `.pptx` 文件中读取。
 
-This is read-and-report only — no edits — so the workflow is identical in both.
+这是只读和报告流程，不做编辑，因此两种环境下工作流相同。
 
-## Workflow
+## 工作流
 
-### Read the deck
+### 读取 deck
 
-Pull text from every slide, keeping track of which slide each line came from. You'll need slide-level attribution for every finding ("$500M appears on slides 3 and 8, but slide 15 shows $485M"). A deck with 30 slides is too much to hold in working memory reliably — write the extracted text to a file so the number-checking script can process it.
+提取每一页的文本，并记录每一行来自哪一页。每一条发现都需要页级归因，例如："$500M appears on slides 3 and 8, but slide 15 shows $485M"。30 页的 deck 太长，不适合只靠工作记忆处理。把提取出来的文本写入文件，让数字检查脚本进行处理。
 
-The script expects markdown-ish input with slide markers. Format as:
+脚本需要带有页标记的 markdown 风格输入。格式如下：
 
 ```
 ## Slide 1
@@ -32,47 +32,47 @@ The script expects markdown-ish input with slide markers. Format as:
 [slide 2 text content]
 ```
 
-### 1. Number consistency
+### 1. 数字一致性
 
-Run the extraction script on what you collected:
+对提取结果运行脚本：
 
 ```bash
 python scripts/extract_numbers.py /tmp/deck_content.md --check
 ```
 
-It normalizes units ($500M vs $500MM vs $500,000,000 → same number), categorizes values (revenue, EBITDA, multiples, margins), and flags when the same metric category shows conflicting values on different slides. This is the part most likely to catch something a human missed on the fifth read-through.
+该脚本会归一化单位（$500M vs $500MM vs $500,000,000 → 同一个数字）、对数值分类（revenue、EBITDA、multiples、margins），并在同一指标类别在不同幻灯片出现冲突值时发出提示。这一部分最有可能抓到人工第五遍审阅时仍遗漏的问题。
 
-Beyond what the script flags, verify:
-- Calculations are correct (totals sum, percentages add up, growth rates match the endpoints)
-- Unit style is consistent — the deck should pick one of $M or $MM and stick with it
-- Time periods are aligned — FY vs LTM vs quarterly, explicitly labeled
+除脚本标记内容外，还要验证：
+- 计算是否正确（总和是否加总、百分比是否相加、增长率是否与端点一致）
+- 单位风格是否一致，整份 deck 应统一使用 $M 或 $MM
+- 时间口径是否一致，FY、LTM、季度需明确标注
 
-### 2. Data-narrative alignment
+### 2. 数据与叙事是否对齐
 
-Map claims to the data that's supposed to support them. This is where decks go wrong quietly — someone edits the chart on slide 7 and forgets the narrative on slide 4.
+把论点与支撑它的数据对应起来。这类错误往往很隐蔽，有人改了第 7 页的图，却忘了第 4 页的叙述。
 
-- Trend statements ("declining margins") → does the chart actually go that direction?
-- Market position claims ("#1 player") → revenue and share data support it?
-- Plausibility — "#1 in a $100B market" with $200M revenue is 0.2% share; that's not #1
+- 趋势表述（"declining margins"）是否与图表方向一致？
+- 市场地位表述（"#1 player"）是否有 revenue 和 share 数据支持？
+- 合理性，例如 "#1 in a $100B market" 却只有 $200M revenue，那只是 0.2% 份额，不会是 #1
 
-### 3. Language polish
+### 3. 语言润色
 
-IB decks have a register. Scan for anything that breaks it: casual phrasing ("pretty good", "a lot of"), contractions, exclamation points, vague quantifiers without numbers, inconsistent terminology for the same concept.
+IB deck 有固定语域。扫描任何破坏这种语域的表述：口语化用词（"pretty good"、"a lot of"）、缩写、感叹号、没有数字支撑的模糊量词，以及对同一概念使用不同术语。
 
-See `references/ib-terminology.md` for replacement patterns.
+参考 `references/ib-terminology.md` 获取替换模式。
 
-### 4. Visual and formatting QC
+### 4. 视觉与格式 QC
 
-Run standard visual verification checks on each slide. You're looking for: missing chart source citations, missing axis labels, typography inconsistencies, number formatting drift (1,000 vs 1K within the same deck), date format drift, footnote and disclaimer gaps.
+对每一页执行标准视觉验证。重点关注：缺失的图表来源、缺失的坐标轴标签、字体排版不一致、数字格式漂移（同一 deck 中出现 1,000 和 1K）、日期格式漂移、脚注和免责声明缺失。
 
-Visual verification catches overlaps, overflow, and contrast issues that don't show up in text extraction. Don't skip it — a chart with no source citation looks the same as a properly sourced one in the text dump.
+视觉验证能发现文本提取无法发现的重叠、溢出和对比度问题。不要跳过。没有来源标注的图表，在文本 dump 中看起来与带有完整来源的图表没区别。
 
-## Output
+## 输出
 
-Use `references/report-format.md` as the structure. Categorize by severity:
+使用 `references/report-format.md` 中的结构。按严重级别分类：
 
-- **Critical** — number mismatches, factual errors, data contradicting narrative. These block client delivery.
-- **Important** — language, missing sources, terminology drift. Should fix.
-- **Minor** — font sizes, spacing, date formats. Polish.
+- **Critical** — 数字不一致、事实错误、数据与叙事冲突。这些会阻止面向客户交付。
+- **Important** — 语言、缺失来源、术语漂移。应修复。
+- **Minor** — 字号、间距、日期格式。属于润色层面。
 
-Lead with criticals. If there aren't any, say so explicitly — "no number inconsistencies found" is a finding, not an absence of one.
+优先列出 critical。如果没有，也要明确写出来，例如："no number inconsistencies found" 本身就是一条发现，而不是“没有内容可写”。

@@ -1,111 +1,111 @@
-# Claude for Financial Services Plugins
+# Claude for Financial Services 插件
 
-Plugins that turn Claude into a specialist for financial services — investment banking, equity research, private equity, and wealth management. Built for [Claude Cowork](https://claude.com/product/cowork), also compatible with [Claude Code](https://claude.com/product/claude-code).
+这些插件可将 Claude 变成金融服务领域的专业助手，覆盖投资银行、股票研究、私募股权和财富管理。为 [Claude Cowork](https://claude.com/product/cowork) 打造，也兼容 [Claude Code](https://claude.com/product/claude-code)。
 
-## Why Plugins
+## 为什么使用插件
 
-Cowork lets you set the goal and Claude delivers finished, professional work. Plugins let you go further: tell Claude how your firm does analysis, which data sources to pull from, how to handle critical workflows, and what slash commands to expose — so your team gets better and more consistent outcomes.
+Cowork 让你设定目标，由 Claude 交付完整且专业的成果。插件让你更进一步，你可以告诉 Claude 你的机构如何做分析、应从哪些数据源取数、如何处理关键工作流，以及要开放哪些斜杠命令，这样你的团队就能得到更优且更一致的结果。
 
-Each plugin bundles the skills, connectors, slash commands, and sub-agents for a specific financial services workflow. Out of the box, they give Claude a strong starting point for helping anyone in that role. The real power comes when you customize them for your firm — your models, your templates, your processes — so Claude works like it was built for your team.
+每个插件都为特定的金融服务工作流打包了技能、连接器、斜杠命令和子代理。开箱即用时，它们就为 Claude 在该岗位上的协作能力提供了强有力的起点。真正的价值来自你按公司实际情况进行定制，你的模型、模板和流程，都可以融入其中，让 Claude 像是专为你的团队打造的一样工作。
 
-## What is Claude for Financial Services?
+## 什么是 Claude for Financial Services？
 
-Claude for Financial Services is a comprehensive solution built on Claude for Enterprise with specialized capabilities for financial analysis. It connects Claude to the data sources and tools financial professionals use daily — eliminating the need to juggle multiple browser tabs and improving source verification to reduce the risk of errors from manual data gathering.
+Claude for Financial Services 是基于 Claude for Enterprise 构建的一套完整解决方案，具备面向金融分析的专门能力。它将 Claude 连接到金融从业者日常使用的数据源和工具，免去在多个浏览器标签页之间来回切换的麻烦，并通过改进来源核验来降低人工收集数据带来的错误风险。
 
-## End-to-End Workflows
+## 端到端工作流
 
-These plugins aren't just a collection of point tools — they enable complete workflows that span research, analysis, modeling, and output creation:
+这些插件不只是零散工具的集合，它们支持覆盖研究、分析、建模和产出创建的完整工作流：
 
-- **Research to Report**: Pull real-time data from MCP providers, analyze earnings results, and generate publication-ready equity research reports — all in a single session
-- **Spreadsheet Analysis**: Build comparable company analyses, DCF models, and LBO models as fully functional Excel workbooks with live formulas, sensitivity tables, and industry-standard formatting
-- **Financial Modeling**: Populate 3-statement models from SEC filings, cross-check assumptions against peer data, and stress-test scenarios — with blue/black/green color coding conventions built in
-- **Deal Materials**: Draft CIMs, teasers, and process letters, then generate pitch deck slides and strip profiles using your firm's branded PowerPoint templates
-- **Portfolio to Presentation**: Screen opportunities, run diligence checklists, build IC memos, and track portfolio KPIs — moving seamlessly from data to deliverable
+- **研究到报告**：从 MCP 提供方拉取实时数据，分析财报结果，并生成可直接发布的股票研究报告，全部在同一个会话中完成
+- **电子表格分析**：构建可比公司分析、DCF 模型和 LBO 模型，输出为功能完整的 Excel 工作簿，包含实时公式、敏感性分析表和行业标准格式
+- **金融建模**：基于 SEC 文件填充三表模型，结合同行数据交叉核对假设，并对情景进行压力测试，同时内置蓝色、黑色、绿色的配色规范
+- **交易材料**：起草 CIM、teaser 和 process letter，然后基于你公司品牌化的 PowerPoint 模板生成 pitch deck 幻灯片和 strip profile
+- **从组合到汇报**：筛选机会、执行尽调清单、编写 IC memo，并追踪投资组合 KPI，从数据顺畅走到最终交付物
 
-Each workflow connects upstream data sources (via MCP) to downstream outputs (Excel, PowerPoint, Word), so you move from question to finished work product without context-switching.
+每条工作流都会把上游数据源（通过 MCP）连接到下游产出（Excel、PowerPoint、Word），让你从提出问题直接走到成品交付，无需反复切换上下文。
 
-## Plugin Marketplace
+## 插件市场
 
-Start with **financial analysis** — the core plugin that provides shared modeling tools and all MCP data connectors. Then add any function-specific plugins to enhance Claude's capabilities for your workflow.
+先从 **financial analysis** 开始，这是核心插件，提供共享建模工具和全部 MCP 数据连接器。然后再按工作流需要添加各个职能专用插件，以增强 Claude 的能力。
 
-| Plugin | Type | How it helps | Connectors |
+| 插件 | 类型 | 作用方式 | 连接器 |
 |--------|------|-------------|------------|
-| **[financial analysis](./financial-analysis)** | Core (install first) | Build comps, DCF models, LBO models, and 3-statement financials. QC presentations and create reusable PPT templates. Provides the shared foundation and all data connectors. | Daloopa, Morningstar, S&P Global, FactSet, Moody's, MT Newswires, Aiera, LSEG, PitchBook, Chronograph, Egnyte |
-| **[investment banking](./investment-banking)** | Add-on | Draft CIMs, teasers, and process letters. Build buyer lists, run merger models, create strip profiles, and track live deals through milestones. | — |
-| **[equity research](./equity-research)** | Add-on | Write earnings updates and initiating coverage reports. Maintain investment theses, track catalysts, draft morning notes, and screen for new ideas. | — |
-| **[private equity](./private-equity)** | Add-on | Source and screen deals, run due diligence checklists, analyze unit economics and returns, draft IC memos, and monitor portfolio company KPIs. | — |
-| **[wealth management](./wealth-management)** | Add-on | Prep for client meetings, build financial plans, rebalance portfolios, generate client reports, and identify tax-loss harvesting opportunities. | — |
+| **[financial analysis](./financial-analysis)** | 核心插件（先安装） | 构建 comps、DCF 模型、LBO 模型和三表财务模型。检查演示材料质量并创建可复用的 PPT 模板。提供共享基础能力和全部数据连接器。 | Daloopa, Morningstar, S&P Global, FactSet, Moody's, MT Newswires, Aiera, LSEG, PitchBook, Chronograph, Egnyte |
+| **[investment banking](./investment-banking)** | 附加插件 | 起草 CIM、teaser 和 process letter。构建买方名单、运行并购模型、创建 strip profile，并按里程碑追踪进行中的交易。 | — |
+| **[equity research](./equity-research)** | 附加插件 | 撰写财报更新和首次覆盖报告。维护投资逻辑，追踪催化剂，起草晨报，并筛选新想法。 | — |
+| **[private equity](./private-equity)** | 附加插件 | 挖掘和筛选交易，执行尽调清单，分析单位经济模型和回报，撰写 IC memo，并监控被投公司的 KPI。 | — |
+| **[wealth management](./wealth-management)** | 附加插件 | 为客户会议做准备，制定财务规划，再平衡投资组合，生成客户报告，并识别税损收割机会。 | — |
 
-**41 skills, 38 commands, 11 MCP integrations**
+**41 个技能，38 个命令，11 个 MCP 集成**
 
-Install these directly from Cowork, browse the full collection here on GitHub, or build your own.
+你可以直接在 Cowork 中安装这些插件，也可以在 GitHub 上浏览完整集合，或者自己构建插件。
 
-### Partner-Built Plugins
+### 合作伙伴构建的插件
 
-These plugins are built and maintained by our data partners, bringing their financial data and analytics directly into Claude workflows.
+这些插件由我们的数据合作伙伴构建和维护，可将他们的金融数据与分析能力直接带入 Claude 工作流。
 
-| Plugin | Partner | How it helps |
+| 插件 | 合作伙伴 | 作用方式 |
 |--------|---------|-------------|
-| **[LSEG](./partner-built/lseg)** | [LSEG](https://www.lseg.com/) | Price bonds, analyze yield curves, evaluate FX carry trades, value options, and build macro dashboards using LSEG financial data and analytics. 8 commands covering fixed income, FX, equities, and macro. |
-| **[S&P Global](./partner-built/spglobal)** | [S&P Global](https://www.spglobal.com/) | Generate company tearsheets, earnings previews, and funding digests powered by S&P Capital IQ data. Supports multiple audience types (equity research, IB/M&A, corp dev, sales). |
+| **[LSEG](./partner-built/lseg)** | [LSEG](https://www.lseg.com/) | 使用 LSEG 的金融数据和分析能力，对债券定价、分析收益率曲线、评估外汇套息交易、进行期权估值，并构建宏观仪表板。包含 8 个命令，覆盖固定收益、外汇、股票和宏观分析。 |
+| **[S&P Global](./partner-built/spglobal)** | [S&P Global](https://www.spglobal.com/) | 基于 S&P Capital IQ 数据生成公司 tearsheet、财报前瞻和融资摘要。支持多种受众类型，包括股票研究、投资银行/并购、企业发展和销售团队。 |
 
-## Getting Started
+## 快速开始
 
 ### Cowork
 
-Install plugins from [claude.com/plugins](https://claude.com/plugins/).
+在 [claude.com/plugins](https://claude.com/plugins/) 安装插件。
 
 ### Claude Code
 
 ```bash
-# Add the marketplace
+# 添加市场源
 claude plugin marketplace add anthropics/financial-services-plugins
 
-# Install the core plugin first (required)
+# 先安装核心插件（必需）
 claude plugin install financial-analysis@financial-services-plugins
 
-# Then add function-specific plugins as needed
+# 然后按需添加职能专用插件
 claude plugin install investment-banking@financial-services-plugins
 claude plugin install equity-research@financial-services-plugins
 claude plugin install private-equity@financial-services-plugins
 claude plugin install wealth-management@financial-services-plugins
 ```
 
-Once installed, plugins activate automatically. Skills fire when relevant, and slash commands are available in your session:
+安装完成后，插件会自动激活。相关技能会在适用时自动触发，斜杠命令也会在你的会话中可用：
 
 ```bash
-/comps [company]                # Comparable company analysis
-/dcf [company]                  # DCF valuation model
-/earnings [company] [quarter]   # Post-earnings update report
-/one-pager [company]            # One-page company profile
-/ic-memo [project name]         # Investment committee memo
-/source [criteria]              # Deal sourcing
-/client-review [client]         # Client meeting prep
+/comps [company]                # 可比公司分析
+/dcf [company]                  # DCF 估值模型
+/earnings [company] [quarter]   # 财报后更新报告
+/one-pager [company]            # 单页公司简介
+/ic-memo [project name]         # 投资委员会备忘录
+/source [criteria]              # 交易挖掘
+/client-review [client]         # 客户会议准备
 ```
 
-## How Plugins Work
+## 插件如何工作
 
-Every plugin follows the same structure:
+每个插件都遵循相同的结构：
 
 ```
 plugin-name/
-├── .claude-plugin/plugin.json   # Manifest
-├── .mcp.json                    # Tool connections
-├── commands/                    # Slash commands you invoke explicitly
-└── skills/                      # Domain knowledge Claude draws on automatically
+├── .claude-plugin/plugin.json   # 清单文件
+├── .mcp.json                    # 工具连接
+├── commands/                    # 你显式调用的斜杠命令
+└── skills/                      # Claude 自动调用的领域知识
 ```
 
-- **Skills** encode the domain expertise, best practices, and step-by-step workflows Claude needs to deliver professional-quality financial work. Claude draws on them automatically when relevant.
-- **Commands** are explicit actions you trigger (e.g., `/comps`, `/earnings`, `/ic-memo`).
-- **Connectors** wire Claude to the external data sources your workflow depends on — financial data terminals, research platforms, document management, and more — via [MCP servers](https://modelcontextprotocol.io/).
+- **技能** 编码了 Claude 交付专业级金融工作所需的领域专长、最佳实践和分步工作流。相关时，Claude 会自动调用它们。
+- **命令** 是你主动触发的显式操作，例如 `/comps`、`/earnings`、`/ic-memo`。
+- **连接器** 通过 [MCP servers](https://modelcontextprotocol.io/) 将 Claude 连接到你的工作流所依赖的外部数据源，包括金融数据终端、研究平台、文档管理系统等。
 
-Every component is file-based — markdown and JSON, no code, no infrastructure, no build steps.
+每个组件都基于文件实现，使用 markdown 和 JSON，无需代码、基础设施或构建步骤。
 
-## MCP Integrations
+## MCP 集成
 
-All connectors are centralized in the **financial analysis** core plugin and shared across all add-on plugins.
+所有连接器都集中在 **financial analysis** 核心插件中，并由所有附加插件共享。
 
-| Provider | URL |
+| 提供方 | URL |
 |----------|-----|
 | [Daloopa](https://www.daloopa.com/) | `https://mcp.daloopa.com/server/mcp` |
 | [Morningstar](https://www.morningstar.com/) | `https://mcp.morningstar.com/mcp` |
@@ -119,32 +119,32 @@ All connectors are centralized in the **financial analysis** core plugin and sha
 | [Chronograph](https://www.chronograph.pe/) | `https://ai.chronograph.pe/mcp` |
 | [Egnyte](https://www.egnyte.com/) | `https://mcp-server.egnyte.com/mcp` |
 
-> MCP access may require a subscription or API key from the respective provider.
+> 使用 MCP 可能需要相应提供方的订阅或 API key。
 
-## Making Them Yours
+## 如何把它们变成你的版本
 
-These plugins are starting points. They become much more useful when you customize them for how your firm actually works:
+这些插件只是起点。按照你公司实际的工作方式来定制之后，它们会有更高的价值：
 
-- **Swap connectors** — Edit `.mcp.json` to point at your specific data providers and internal tools.
-- **Add firm context** — Drop your terminology, deal processes, and formatting standards into skill files so Claude understands your world.
-- **Bring your templates** — Use `/ppt-template` to teach Claude your firm's branded PowerPoint layouts, so every deck matches your style guide.
-- **Adjust workflows** — Modify skill instructions to match how your team actually does analysis, not how a textbook says to.
-- **Build new plugins** — Follow the structure above to create plugins for workflows we haven't covered yet.
+- **替换连接器**：编辑 `.mcp.json`，指向你具体使用的数据提供方和内部工具。
+- **加入公司语境**：把你的术语、交易流程和格式标准写入技能文件，让 Claude 理解你的业务环境。
+- **带入你的模板**：使用 `/ppt-template` 教会 Claude 你公司品牌化的 PowerPoint 布局，让每份演示材料都符合你的风格指南。
+- **调整工作流**：修改技能说明，使之匹配你团队真实的分析方式，而不是教科书里的标准流程。
+- **构建新插件**：按照上述结构，为我们尚未覆盖的工作流创建插件。
 
-As your team builds and shares plugins, Claude becomes a cross-functional expert. The context you define gets baked into every relevant interaction, so leaders can spend less time enforcing processes and more time improving them.
+随着团队不断构建和共享插件，Claude 会逐渐成为跨职能专家。你定义的语境会被嵌入到每一次相关交互中，让管理者把更少时间花在流程执行上，把更多时间放在流程优化上。
 
-## Contributing
+## 贡献
 
-Plugins are just markdown files. Fork the repo, make your changes, and submit a PR. For new skills or plugins, include:
+插件本质上就是 markdown 文件。Fork 这个仓库，完成修改后提交 PR。若要新增技能或插件，请包含：
 
-- A `SKILL.md` with clear trigger conditions and workflow steps
-- A corresponding command in `commands/` if user-invocable
-- Updated plugin manifest if adding new capabilities
+- 一个 `SKILL.md`，清楚写明触发条件和工作流步骤
+- 如果需要由用户调用，在 `commands/` 中提供对应命令
+- 如果新增了能力，更新插件清单文件
 
-## License
+## 许可证
 
 [Apache License 2.0](./LICENSE)
 
-## Disclaimer
+## 免责声明
 
-These plugins assist with financial workflows but do not provide financial or investing advice. Always verify conclusions with qualified financial professionals. AI-generated analysis should be reviewed by financial professionals before being relied upon for financial or investment decisions.
+这些插件用于辅助金融工作流，但不构成金融或投资建议。请始终由合格的金融专业人士核验相关结论。任何 AI 生成的分析，在被用于金融或投资决策之前，都应由金融专业人士审阅。

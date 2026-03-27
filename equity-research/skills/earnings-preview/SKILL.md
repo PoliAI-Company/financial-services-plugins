@@ -1,37 +1,37 @@
 # Earnings Preview
 
-description: Build pre-earnings analysis with estimate models, scenario frameworks, and key metrics to watch. Use before a company reports quarterly earnings to prepare positioning notes, set up bull/bear scenarios, and identify what will move the stock. Triggers on "earnings preview", "what to watch for [company] earnings", "pre-earnings", "earnings setup", or "preview Q[X] for [company]".
+description: 构建业绩发布前分析，包含预测模型、情景框架和关键观察指标。适用于公司发布季度业绩前，用来准备持仓观点、设置 bull/bear 情景，并识别哪些因素会真正推动股价。在用户提到 "earnings preview"、"what to watch for [company] earnings"、"pre-earnings"、"earnings setup" 或 "preview Q[X] for [company]" 时触发。
 
-## Workflow
+## 工作流
 
-### Step 1: Gather Context
+### 第 1 步：收集背景信息
 
-- Identify the company and reporting quarter
-- Pull consensus estimates via web search (revenue, EPS, key segment metrics)
-- Find the earnings date and time (pre-market vs. after-hours)
-- Review the company's prior quarter earnings call for any guidance or commentary
+- 确定公司和对应报告季度
+- 通过 web search 获取一致预期，收入、EPS、关键分部指标
+- 查找业绩发布日期和时间，盘前还是盘后
+- 回顾公司上一季度业绩电话会中的指引或管理层评论
 
-### Step 2: Key Metrics Framework
+### 第 2 步：关键指标框架
 
-Build a "what to watch" framework specific to the company:
+构建一份针对该公司的 "what to watch" 框架：
 
-**Financial Metrics:**
-- Revenue vs. consensus (total and by segment)
-- EPS vs. consensus
-- Margins (gross, operating, net) — expanding or contracting?
+**财务指标：**
+- 收入相对一致预期的表现，总体及分部
+- EPS 相对一致预期的表现
+- 利润率，毛利率、营业利润率、净利率，是扩张还是收缩？
 - Free cash flow
-- Forward guidance vs. consensus
+- 前瞻指引相对一致预期的情况
 
-**Operational Metrics** (sector-specific):
-- Tech/SaaS: ARR, net retention, RPO, customer count
-- Retail: Same-store sales, traffic, basket size
-- Industrials: Backlog, book-to-bill, price vs. volume
-- Financials: NIM, credit quality, loan growth, fee income
-- Healthcare: Scripts, patient volumes, pipeline updates
+**运营指标**，按行业定制：
+- Tech/SaaS：ARR、net retention、RPO、客户数量
+- Retail：同店销售、客流、客单价
+- Industrials：backlog、book-to-bill、价格与销量
+- Financials：NIM、资产质量、贷款增长、手续费收入
+- Healthcare：处方量、患者量、管线更新
 
-### Step 3: Scenario Analysis
+### 第 3 步：情景分析
 
-Build 3 scenarios with stock price implications:
+构建 3 种情景，并附带股价反应判断：
 
 | Scenario | Revenue | EPS | Key Driver | Stock Reaction |
 |----------|---------|-----|------------|----------------|
@@ -39,32 +39,32 @@ Build 3 scenarios with stock price implications:
 | Base | | | | |
 | Bear | | | | |
 
-For each scenario:
-- What would need to happen operationally
-- What management commentary would signal this
-- Historical context — how has the stock moved on similar prints?
+对每个情景，说明：
+- 运营上需要发生什么
+- 管理层哪些表述会指向这一情景
+- 历史背景，公司在类似业绩下股价曾如何反应
 
-### Step 4: Catalyst Checklist
+### 第 4 步：催化剂清单
 
-Identify the 3-5 things that will determine the stock's reaction:
+找出 3-5 个决定股价反应的关键点：
 
-1. [Metric] vs. [consensus/whisper number] — why it matters
-2. [Guidance item] — what the buy-side expects to hear
-3. [Narrative shift] — any strategic changes, M&A, restructuring
+1. [Metric] vs. [consensus/whisper number]，以及为什么重要
+2. [Guidance item]，买方最想听到什么
+3. [Narrative shift]，是否有战略变化、并购、重组
 
-### Step 5: Output
+### 第 5 步：输出
 
-One-page earnings preview with:
-- Company, quarter, earnings date
-- Consensus estimates table
-- Key metrics to watch (ranked by importance)
-- Bull/base/bear scenario table
-- Catalyst checklist
-- Trading setup: recent stock performance, implied move from options
+一页业绩前瞻，包含：
+- 公司、季度、业绩日期
+- 一致预期表
+- 需要重点关注的关键指标，按重要性排序
+- bull/base/bear 情景表
+- 催化剂清单
+- 交易设定，近期股价表现和期权隐含波动
 
-## Important Notes
+## 重要说明
 
-- Consensus estimates change — always note the source and date of estimates
-- "Whisper numbers" from buy-side surveys are often more relevant than published consensus
-- Historical earnings reactions help calibrate expectations (search for "[company] earnings reaction history")
-- Options-implied move tells you what the market expects — compare to your scenarios
+- 一致预期会变动，要始终注明预期的来源和日期
+- 来自买方调查的 "whisper numbers" 往往比公开一致预期更重要
+- 历史业绩后股价反应有助于校准预期，可以搜索 "[company] earnings reaction history"
+- 期权隐含波动体现了市场预期，把它和你的情景幅度进行比较

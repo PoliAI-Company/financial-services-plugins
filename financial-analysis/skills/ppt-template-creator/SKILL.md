@@ -1,31 +1,31 @@
 ---
 name: ppt-template-creator
-description: Creates self-contained PPT template SKILLS (not presentations) from user-provided PowerPoint templates. Use ONLY when a user wants to create a reusable skill from their template. For creating actual presentations, use the pptx skill instead.
+description: 从用户提供的 PowerPoint 模板中创建自包含的 PPT 模板 SKILL，而不是创建演示文稿本身。仅在用户想把模板做成可复用 skill 时使用。如果用户要直接创建实际演示文稿，请使用 pptx skill。
 ---
 
-# PPT Template Creator
+# PPT 模板创建器
 
-**This skill creates SKILLS, not presentations.** Use this when a user wants to turn their PowerPoint template into a reusable skill that can generate presentations later. If the user just wants to create a presentation, use the `pptx` skill instead.
+**此 skill 创建的是 SKILL，而不是演示文稿。** 当用户想把自己的 PowerPoint 模板转成可反复用于生成演示文稿的 skill 时使用。如果用户只是想创建演示文稿，请改用 `pptx` skill。
 
-The generated skill includes:
-- `assets/template.pptx` - the template file
-- `SKILL.md` - complete instructions (no reference to this meta skill needed)
+生成的 skill 包含：
+- `assets/template.pptx` - 模板文件
+- `SKILL.md` - 完整说明，不需要再引用这个 meta skill
 
-**For general skill-building best practices**, refer to the `skill-creator` skill. This skill focuses on PPT-specific patterns.
+**关于通用的 skill 构建最佳实践**，请参考 `skill-creator` skill。这个 skill 只聚焦 PPT 相关模式。
 
-## Workflow
+## 工作流
 
-1. **User provides template** (.pptx or .potx)
-2. **Analyze template** - extract layouts, placeholders, dimensions
-3. **Initialize skill** - use the `skill-creator` skill to set up the skill structure
-4. **Add template** - copy .pptx to `assets/template.pptx`
-5. **Write SKILL.md** - follow template below with PPT-specific details
-6. **Create example** - generate sample presentation to validate
-7. **Package** - use the `skill-creator` skill to package into a .skill file
+1. **用户提供模板**（.pptx 或 .potx）
+2. **分析模板**，提取版式、占位符和尺寸
+3. **初始化 skill**，使用 `skill-creator` skill 搭建 skill 结构
+4. **添加模板**，把 .pptx 复制到 `assets/template.pptx`
+5. **编写 SKILL.md**，按下方模板填写 PPT 特定细节
+6. **创建示例**，生成示例演示文稿用于验证
+7. **打包**，使用 `skill-creator` skill 打包为 `.skill` 文件
 
-## Step 2: Analyze Template
+## 第 2 步：分析模板
 
-**CRITICAL: Extract precise placeholder positions** - this determines content area boundaries.
+**关键：提取精确的占位符位置**。这会决定内容区边界。
 
 ```python
 from pptx import Presentation
@@ -51,17 +51,17 @@ for idx, layout in enumerate(prs.slide_layouts):
             pass
 ```
 
-**Key measurements to document:**
-- **Title position**: Where does the title placeholder sit?
-- **Subtitle/description**: Where is the subtitle line?
-- **Footer placeholders**: Where do footers/sources appear?
-- **Content area**: The space BETWEEN subtitle and footer is your content area
+**需要记录的关键尺寸：**
+- **标题位置**：标题占位符在什么位置？
+- **副标题/描述**：副标题行在哪里？
+- **页脚占位符**：页脚或来源通常放哪里？
+- **内容区**：副标题和页脚之间的区域就是内容区
 
-### Finding the True Content Start Position
+### 找到真实内容区起始位置
 
-**CRITICAL:** The content area does NOT always start immediately after the subtitle placeholder. Many templates have a visual border, line, or reserved space between the subtitle and content area.
+**关键：** 内容区不一定在副标题占位符结束后立刻开始。很多模板会在副标题与正文区之间保留边框、分割线或留白。
 
-**Best approach:** Look at Layout 2 or similar "content" layouts that have an OBJECT placeholder - this placeholder's `y` position indicates where content should actually start.
+**最佳方法：** 查看 Layout 2 或类似的内容版式，找到带有 OBJECT 占位符的版式，这个占位符的 `y` 位置就是内容实际起点。
 
 ```python
 # Find the OBJECT placeholder to determine true content start
@@ -76,16 +76,16 @@ for idx, layout in enumerate(prs.slide_layouts):
             pass
 ```
 
-**Example:** A template might have:
-- Subtitle ending at y=1.38"
-- But OBJECT placeholder starting at y=1.90"
-- The gap (0.52") is reserved for a border/line - **do not place content there**
+**例如：** 模板可能出现：
+- 副标题结束于 y=1.38"
+- 但 OBJECT 占位符从 y=1.90" 开始
+- 中间 0.52" 的空隙保留给边框或分割线，**不要在那里放内容**
 
-Use the OBJECT placeholder's `y` position as your content start, not the subtitle's end position.
+应使用 OBJECT 占位符的 `y` 值作为内容起始位置，而不是副标题的结束位置。
 
-## Step 5: Write SKILL.md
+## 第 5 步：编写 SKILL.md
 
-The generated skill should have this structure:
+生成的 skill 应具有以下结构：
 ```
 [company]-ppt-template/
 ├── SKILL.md
@@ -93,9 +93,9 @@ The generated skill should have this structure:
     └── template.pptx
 ```
 
-### Generated SKILL.md Template
+### 生成的 SKILL.md 模板
 
-The generated SKILL.md must be **self-contained** with all instructions embedded. Use this template, filling in the bracketed values from your analysis:
+生成的 SKILL.md 必须**自包含**，把所有说明直接写进去。使用下面这个模板，并把方括号中的值替换为你的分析结果：
 
 ````markdown
 ---
@@ -241,14 +241,14 @@ for shape in slide.shapes:
 ```
 ````
 
-## Step 6: Create Example Output
+## 第 6 步：创建示例输出
 
-Generate a sample presentation to validate the skill works. Save it alongside the skill for reference.
+生成一个示例演示文稿来验证 skill 是否正常工作。将其与 skill 一起保存，作为参考。
 
-## PPT-Specific Rules for Generated Skills
+## 面向生成 skill 的 PPT 专属规则
 
-1. **Template in assets/** - always bundle the .pptx file
-2. **Self-contained SKILL.md** - all instructions embedded, no external references
-3. **No manual bullets** - use `paragraph.level` for hierarchy
-4. **Delete slides first** - always clear existing slides before adding new ones
-5. **Document placeholders by idx** - placeholder idx values are template-specific
+1. **模板放在 assets/** 中，始终打包 `.pptx` 文件
+2. **SKILL.md 自包含**，所有说明都直接嵌入，不依赖外部引用
+3. **不要手动添加项目符号**，使用 `paragraph.level` 表示层级
+4. **先删除所有幻灯片**，再开始新增
+5. **按 idx 记录占位符**，placeholder idx 是模板特有的

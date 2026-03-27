@@ -1,83 +1,72 @@
 ---
 name: tear-sheet
-description: "Generate professional company tear sheets using S&P Capital IQ data via the Kensho LLM-ready API MCP server. Use this skill whenever the user asks for a tear sheet, company one-pager, company profile, fact sheet, company snapshot, or company overview document — especially when they mention a specific company name or ticker. Also trigger when users ask for equity research summaries, M&A company profiles, corporate development target profiles, sales/BD meeting prep documents, or any concise single-company financial summary. This skill supports four audience types: equity research, investment banking/M&A, corporate development, and sales/business development. If the user doesn't specify an audience, ask. Works for both public and private companies."
+description: "通过 Kensho LLM-ready API MCP server 使用 S&P Capital IQ 数据生成专业公司 tear sheet。当用户要求 tear sheet、公司一页纸、公司画像、事实表、公司快照或公司概览文档时使用，尤其是提到具体公司名称或 ticker 时。用户要求 equity research 摘要、并购公司画像、企业发展收购标的画像、销售/BD 会前准备材料，或任何简明的单公司财务摘要时也应触发。此 skill 支持四类受众：equity research、investment banking/M&A、corporate development 和 sales/business development。如果用户没有指定受众，需要询问。既适用于上市公司，也适用于私有公司。"
 ---
 
-# Financial Tear Sheet Generator
+# 金融 Tear Sheet 生成器
 
-Generate audience-specific company tear sheets by pulling live data from S&P Capital IQ via the S&P Global MCP tools and formatting the result as a professional Word document.
+通过 S&P Global MCP 工具，也就是 Kensho LLM-ready API，从 S&P Capital IQ 拉取实时数据，并将其格式化为面向特定受众的专业公司 tear sheet Word 文档。
 
-## Style Configuration
+## 样式配置
 
-These are sensible defaults. To customize for your firm's brand, modify this section — common changes include swapping the color palette, changing the font (Calibri is standard at many banks), and updating the disclaimer text.
+以下为合理默认值。若要适配你们机构品牌，可修改本节，常见改动包括颜色方案、字体和免责声明文本。
 
-**Colors:**
-- Primary (header banner background, section header text): #1F3864
-- Accent (signature section highlights): #2E75B6
-- Table header row fill: #D6E4F0
-- Table alternating row fill: #F2F2F2
-- Table borders: #CCCCCC
-- Header banner text: #FFFFFF
+**Colors：**
+- Primary，也就是页眉横幅背景和章节标题文字：`#1F3864`
+- Accent，也就是招牌章节高亮：`#2E75B6`
+- Table header row fill：`#D6E4F0`
+- Table alternating row fill：`#F2F2F2`
+- Table borders：`#CCCCCC`
+- Header banner text：`#FFFFFF`
 
-**Typography (sizes in half-points for docx-js):**
-- Font family: Arial
-- Company name: 18pt bold (size: 36)
-- Section headers: 11pt bold (size: 22), Primary color
-- Body text: 9pt (size: 18)
-- Table text: 8.5pt (size: 17)
-- Footer/disclaimer: 7pt italic (size: 14)
-- Per-template overrides are specified in each reference file's Formatting Notes.
+**Typography，docx-js 中使用 half-points：**
+- Font family：Arial
+- Company name：18pt 粗体，size 36
+- Section headers：11pt 粗体，size 22，Primary 色
+- Body text：9pt，size 18
+- Table text：8.5pt，size 17
+- Footer/disclaimer：7pt 斜体，size 14
+- 各模板专用覆盖项写在各 reference 文件的 Formatting Notes 中
 
-**Company Header Banner:**
-- The header is a navy (#1F3864) banner spanning the full page width with company name in white.
-- **Below the banner, key-value pairs MUST be rendered in a two-column borderless table spanning the full page width.** Left column: company identifiers (ticker, HQ, founded, employees, sector). Right column: financial identifiers (market cap, EV, stock price, shares outstanding). Each cell contains a bold label and regular-weight value on the same line (e.g., "**Market Cap** $124.7B"). Do not left-justify all fields in a single column — this wastes horizontal space and looks unprofessional. The two-column spread is the single most important visual signal that distinguishes a professional tear sheet from a default document.
-  - **Implementation:** Create a 2-column table with `borders: none` and `shading: none` on all cells. Set column widths to 50% each. Place left-column fields (ticker, HQ, founded, employees) as separate paragraphs in the left cell. Place right-column fields (market cap, EV, stock price, shares outstanding) in the right cell. Each field is a single paragraph: bold run for the label, regular run for the value.
-  - The specific fields in each column vary by audience — see the reference file's header spec. The principle is always: spread across the page, not clumped left.
-- **Do not use a bordered table for the header key-value block.** Bordered tables are reserved for financial data only.
-- Key metrics in the header (market cap, EV, stock price) should be displayed as inline key-value pairs, not in a separate bordered table.
+**Company Header Banner：**
+- 页眉是横跨整页宽度的深蓝色横幅，背景为 `#1F3864`，公司名称为白色。
+- **横幅下方的键值对必须用双栏无边框表格铺满整页宽度。** 左栏放公司识别信息，右栏放财务识别信息。每个单元格中的每条字段都应使用粗体 label 加常规 weight value，且处于同一行。不要把所有字段都挤在左侧单列，这样既浪费横向空间，也不专业。
+- 具体实现方式、列宽和字段分配，请按英文原文执行。
 
-**Section Headers:**
-- Each section header gets a horizontal rule (thin line, #CCCCCC, 0.5pt) directly beneath it to create clean visual separation between sections.
-- **Render the rule as a bottom border on the header paragraph itself** — do not insert a separate paragraph element for the rule. A separate paragraph adds its own before/after spacing and causes excessive whitespace below section titles.
-- **Implementation:** In docx-js, apply a bottom border to the section header paragraph via `paragraph.borders.bottom = { style: BorderStyle.SINGLE, size: 1, color: "CCCCCC" }`. Do not use `doc.addParagraph()` with a separate horizontal rule element. Do not use `thematicBreak`. The border must be on the heading paragraph itself with 0pt spacing after, so the rule sits tight against the header text.
-- Spacing: 12pt before the header paragraph, 0pt after the header paragraph, 4pt before the next content element.
+**Section Headers：**
+- 每个章节标题下方都需要一条细横线，颜色 `#CCCCCC`，厚度 0.5pt，用于清晰分隔章节。
+- **这条线应作为标题段落本身的 bottom border 实现。** 不要插入额外段落去画线，否则会造成多余留白。
+- 具体 docx-js 实现保持与英文原文一致。
 
-**Bullet Formatting:**
-- Use a single bullet character (•) for all bulleted content across all tear sheet types. Do not mix •, -, ▸, or numbered lists within or across tear sheets.
-- **Synthesis/analysis bullets** (Earnings Highlights, Strategic Fit, Integration Considerations, Conversation Starters): indented block-style formatting with left indent 360 DXA (0.25") and a hanging indent for the bullet character. These should be visually offset from body text — they're interpretive content and should look distinct from data tables and prose paragraphs.
-- **Informational bullets** within relationship sections: standard body indent (180 DXA), no hanging indent.
-- **Do not apply left-border accents to any bullet sections.** Left-border styling renders inconsistently in docx-js and creates visual artifacts. Use indentation and text size differentiation to distinguish signature sections instead.
+**Bullet Formatting：**
+- 全部 tearsheet 统一使用单一 bullet 字符 `•`
+- 综合或分析型 bullet，比如 Earnings Highlights、Strategic Fit、Integration Considerations、Conversation Starters，应使用缩进块样式
+- 关系信息中的信息型 bullet 使用标准正文缩进
+- **不要对 bullet 区块加左边框强调**，因为 docx-js 渲染不稳定
 
-**Tables (financial data only):**
-- Header row: Table Header Fill (#D6E4F0) with bold dark text
-- Body rows: alternating white / Table Alternating Fill (#F2F2F2)
-- Borders: Table Border color (#CCCCCC), thin (BorderStyle.SINGLE, size 1)
-- Cell padding: top/bottom 40 DXA, left/right 80 DXA
-- Right-align all numeric columns
-- Always use ShadingType.CLEAR (never SOLID — SOLID causes black backgrounds)
+**Tables，仅用于金融数据：**
+- 表头使用 `#D6E4F0`
+- 主体行用白色和 `#F2F2F2` 交替
+- 边框颜色 `#CCCCCC`
+- 数字列右对齐
+- 始终使用 `ShadingType.CLEAR`
 
-**Layout:**
-- US Letter portrait, 0.75" margins (1080 DXA all sides)
+**Layout：**
+- US Letter 纵向页面，四边边距均为 0.75"
 
-**Number formatting:**
-- Currency: USD. Use millions unless company revenue > $50B (then billions, one decimal). Label units in column headers (e.g., "Revenue ($M)"), not in individual cells.
-- **Table cells: plain numbers with commas, no dollar signs.** Example: a revenue cell shows "4,916" not "$4,916". The column header carries the unit.
-- Fiscal years: actual years (FY2022, FY2023, FY2024), never relative labels (FY-2, FY-1).
-- Negatives: parentheses, e.g., (2.3%)
-- Percentages: one decimal place
-- Large numbers: commas as thousands separators
+**Number formatting：**
+- 货币默认 USD。若公司收入大于 $50B，使用 billions，并保留 1 位小数，否则使用 millions。单位写在列表头，不要写在单元格里。
+- **表格单元格只写带逗号的纯数字，不带 `$` 符号。**
+- 财年必须使用真实年度标签
+- 负数使用括号
+- 百分比保留 1 位小数
 
-**Footer (document footer, not inline):**
-Place the source attribution and disclaimer in the actual document footer (repeated on every page), not as inline body text at the bottom. The footer is exactly two lines, centered, on every page:
-- Line 1: "Data: S&P Capital IQ via Kensho | Analysis: AI-generated | [Month Day, Year]"
-- Line 2: "For informational purposes only. Not investment advice."
-- Style: 7pt italic, centered, #666666 text color
-- This footer text must be identical across all tear sheet types for the same company. Do not vary the wording by audience.
-- **This footer is required on every tear sheet, every audience type, every page.** Do not omit it.
+**Footer，是真正的文档页脚，不是正文内联文本：**
+页脚必须在每页底部重复出现，居中，两行，7pt 斜体，颜色 `#666666`。文案在同一公司不同 tearsheet 之间必须保持一致，不得随受众变化。
 
-## Component Functions
+## 组件函数
 
-**You MUST use these exact functions to create document elements. Do NOT write custom docx-js styling code.** Copy these functions into your generated Node script and call them. The Style Configuration prose above remains as documentation; these functions are the enforcement mechanism.
+**必须使用这些精确函数来创建文档元素，不要自己手写 docx-js 样式代码。** 把这些函数复制到生成的 Node 脚本中并直接调用。下面的代码块保持原样：
 
 ```javascript
 const docx = require("docx");
@@ -315,207 +304,147 @@ function createFooter(date) {
 }
 ```
 
-**Usage in generated scripts:**
-1. Copy all functions and constants above into the generated Node.js script
-2. Call `createHeaderBanner(...)` instead of manually building banner paragraphs and tables
-3. Call `createSectionHeader(...)` for every section title — never manually set paragraph borders
-4. Call `createTable(...)` for **all** tabular data — financial summaries, trading comps, M&A activity, relationship tables, funding history, etc. Pass `{ accentHeader: true }` for M&A activity tables (IB/M&A template). For non-numeric tables (e.g., relationships, ownership), the function still works correctly — it only right-aligns cells that contain numeric values.
-5. Call `createBulletList(items, "synthesis")` for earnings highlights, strategic fit, integration considerations, and conversation starters
-6. Call `createBulletList(items, "informational")` for relationship entries
-7. Pass `createFooter(date)` to the Document constructor's `footers.default` property
+**在生成脚本中的使用方式：**
+1. 把上述所有函数和常量复制到生成的 Node.js 脚本中
+2. 使用 `createHeaderBanner(...)`，不要手写 banner 和 header table
+3. 每个 section title 都调用 `createSectionHeader(...)`
+4. 所有表格都调用 `createTable(...)`
+5. 综合型 bullet 使用 `createBulletList(items, "synthesis")`
+6. 信息型关系条目使用 `createBulletList(items, "informational")`
+7. 将 `createFooter(date)` 传给 Document 构造函数中的 `footers.default`
 
-**What these functions eliminate:**
-- Black background tables (enforces `ShadingType.CLEAR` everywhere)
-- Separate horizontal rule paragraphs under section headers (enforces `border.bottom` on the paragraph itself)
-- Bordered key-value tables in headers (enforces `borders: none`)
-- Inconsistent bullet styles (enforces `•` character only)
-- Missing footers (provides the exact footer structure)
+这些函数用来消除黑底表格、标题下方多余横线段落、有边框的 header key-value 表、不一致的 bullet 样式以及遗漏页脚等问题。
 
-## Workflow
+## 工作流
 
-### Step 1: Identify Inputs
+### Step 1，识别输入
 
-Gather up to four things before proceeding:
+继续前先收集最多四项：
+1. **Company**，公司名称或 ticker
+2. **Audience**，四种之一，Equity Research、IB / M&A、Corp Dev、Sales / BD
+3. **Comparable companies**，可选
+4. **Page length preference**，可选
 
-1. **Company** — name or ticker. If only a ticker, resolve the full company name with an initial query (e.g., use the company info tool).
-2. **Audience** — one of four types:
-   - **Equity Research** — for buy-side/sell-side analysts evaluating an investment
-   - **IB / M&A** — for bankers profiling a company in transaction context
-   - **Corp Dev** — for internal strategic teams evaluating an acquisition target
-   - **Sales / BD** — for commercial teams preparing for a client meeting
-3. **Comparable companies** (optional) — if the user has specific comps in mind, note them. Otherwise the skill will identify peers from S&P Global data. This matters for Equity Research, IB/M&A, and Corp Dev tear sheets.
-4. **Page length preference** (optional) — defaults vary by audience (see below), but the user can override.
+如果用户没有指定 audience，就提问。
 
-If the user doesn't specify an audience, ask.
+### Step 2，读取受众专属参考文件
 
-### Step 2: Read the Audience-Specific Reference
-
-Read the corresponding reference file from this skill's directory:
-
+从本 skill 目录中读取对应 reference 文件：
 - Equity Research → `references/equity-research.md`
 - IB / M&A → `references/ib-ma.md`
 - Corp Dev → `references/corp-dev.md`
 - Sales / BD → `references/sales-bd.md`
 
-Each reference defines sections, a query plan, formatting guidance, and page length defaults.
+每个 reference 都定义了章节、查询计划、格式指导和默认页数。
 
-### Step 3: Pull Data via S&P Global MCP
+### Step 3，通过 S&P Global MCP 拉取数据
 
-**First:** Create the intermediate file directory:
+**首先：** 创建中间文件目录：
 ```bash
 mkdir -p /tmp/tear-sheet/
 ```
 
-Use the **S&P Global** MCP tools (also known as the Kensho LLM-ready API). Claude will have access to structured tools for financial data, company information, market data, consensus estimates, earnings transcripts, M&A transactions, and business relationships. The query plans in each reference file describe what data to retrieve for each section — map these to the appropriate S&P Global tools available in the conversation.
+使用 **S&P Global** MCP 工具，也就是 Kensho LLM-ready API。各 reference 文件中的查询计划说明了每个章节需要什么数据，并指出在每步之后要写入哪些中间文件。
 
-**After each query step, immediately write the retrieved data to the intermediate file(s) specified in the reference file's query plan.** Do not defer writes — data written to disk is protected from context degradation in long conversations.
+**每完成一个查询步骤，都要立刻把数据写入 reference 文件指定的中间文件。** 不要拖到最后再写，因为长对话中只有写盘的数据才能稳定保留。
 
-**Query strategy:**
-Each reference file includes a query plan with 4-6 data retrieval steps. These are starting points, not rigid constraints. Prioritize data completeness over minimizing calls:
+**查询策略：**
+- 始终拉取 4 个财年的财务数据，即便只展示 3 年，因为最早一年需要用于计算最早展示年份的同比
+- 按 reference 文件中的计划执行，但如果结果不完整，可以使用更合适的工具或更窄查询继续补齐
+- 如果目标数据经过有针对性的重试仍然拿不到，就继续，并标记为 `N/A` 或 `Not disclosed`
+- 绝不能捏造数据
 
-- **Always pull 4 fiscal years of financial data**, even though only 3 years are displayed. The fourth (earliest) year is needed to compute YoY revenue growth for the first displayed year. Without it, the earliest year's growth rate will show "N/A" — which looks like missing data, not a design choice.
-- Execute the query plan as written, using whichever S&P Global tools match the data needed.
-- If a tool call returns incomplete results, try alternative tools or narrower queries. For example, if company summary doesn't include segment detail, try the segments tool directly.
-- If a data point isn't returned after a targeted retry, move on — label it "N/A" or "Not disclosed."
-- Never fabricate data. If the tools don't return a number, do not estimate from training knowledge.
+**用户提供 comps：** 如果用户给了 comps，就显式查询每一家；如果没给，则用工具返回的 peer 数据，或使用 competitors 工具识别同行。
 
-**User-specified comps:** If the user provided comparable companies, query financials and multiples for each comp explicitly. If no comps were provided, use whatever peer data the tools return, or identify peers from the company's sector using the competitors tool.
+**用户自然提供的额外上下文：** 如果用户提到收购方是谁、他们卖什么，或潜在买家是谁，应直接把这些信息用于相关综合章节，不要额外追问。
 
-**Optional context from the user:** Listen for additional context the user provides naturally. If they mention who the acquirer is ("we're looking at this for our platform"), what they sell ("we sell data analytics to banks"), or who the likely buyers are ("this would be interesting to Salesforce or Microsoft"), incorporate that context into the relevant synthesis sections (Strategic Fit, Conversation Starters, Deal Angle). Don't prompt for this information — just use it if offered.
+**私有公司处理：**
+CIQ 也覆盖私有公司，但数据会更稀疏。为私有公司生成时：
+- 跳过 stock price、52-week range、beta、stock performance、consensus estimates、trading comps
+- 强化 business overview、relationships、ownership structure 以及可得财务数据
+- 在页眉显著标注 “Private Company”
 
-**Private company handling:**
-CIQ includes private company data, so query the same way. However, expect sparser results. When generating for a private company:
-- Skip: stock price, 52-week range, beta, stock performance, consensus estimates, trading comps
-- Lean into: business overview, relationships, ownership structure, whatever financials are available
-- Note "Private Company" prominently in the header
+### Step 3b，计算衍生指标
 
-### Step 3b: Calculate Derived Metrics
+当全部数据收集完成并写入中间文件后，再统一计算所有衍生指标。这个步骤只做计算，不新增 MCP 查询。
 
-After all data collection is complete and intermediate files are written, compute all derived metrics in a single dedicated pass. This is a calculation-only step — no new MCP queries.
+**把所有中间文件重新读回上下文**，然后计算：
+- 利润率，比如 Gross Margin、EBITDA Margin、FCF Margin、Operating Margin
+- 增长率，比如收入同比、分部收入同比、EPS 同比
+- 效率指标，比如 FCF Conversion、R&D as % of Revenue、Capex as % of Revenue
+- 资本结构指标，比如 Net Debt 和 Net Debt / EBITDA
+- 分部占比，即各分部收入占 consolidated total revenue 的比例
 
-**Read all intermediate files back into context**, then compute:
+同时执行算术校验：
+- 利润率必须能由原始分子分母验证
+- 增长率必须由当前值和前值验证
+- 分部合计需要与总收入大致一致，允许四舍五入误差
+- 百分比列总和应接近 100%
+- 估值倍数应能与 EV 和收入等数据大致交叉验证
 
-- **Margins:** Gross Margin %, EBITDA Margin %, FCF Margin %, Operating Margin %
-- **Growth rates:** YoY revenue growth, YoY segment revenue growth, YoY EPS growth
-- **Efficiency ratios:** FCF Conversion (FCF/EBITDA), R&D as % of Revenue, Capex as % of Revenue
-- **Capital structure:** Net Debt (Total Debt − Cash & Equivalents), Net Debt / EBITDA
-- **Segment mix:** Each segment's revenue as % of consolidated total revenue (use consolidated revenue as denominator per Data Integrity Rule 8)
+如校验失败，应优先用原始数据重算。如果仍不一致，就标成 `N/A`，不要发布错误数字。
 
-**Validation (moved from Arithmetic Validation):** During this calculation pass, enforce all arithmetic checks:
+**写入结果** 到 `/tmp/tear-sheet/calculations.csv`，列为 `metric,value,formula,components`
 
-- **Margin calculations:** Verify EBITDA Margin = EBITDA / Revenue, Gross Margin = Gross Profit / Revenue, etc. If the computed margin doesn't match the raw numbers, use the computation from raw components.
-- **Growth rates:** Verify YoY growth = (Current − Prior) / Prior. Don't rely on pre-computed growth rates if you have the underlying values.
-- **Segment totals:** If showing revenue by segment, verify segments sum to total revenue (within rounding tolerance). If they don't, omit the total row rather than publishing inconsistent math.
-- **Percentage columns:** Verify "% of Total" columns sum to ~100%.
-- **Valuation cross-checks:** If you show both EV and EV/Revenue, verify EV / Revenue ≈ the stated multiple.
+### Step 3c，验证数据文件
 
-If a validation fails: attempt recalculation from raw data. If still inconsistent, flag the metric as "N/A" rather than publishing incorrect numbers. Quiet math errors in a tear sheet destroy credibility.
+在生成文档前，逐个检查所有中间文件是否存在且已填充。
 
-**Write results** to `/tmp/tear-sheet/calculations.csv` with columns: `metric,value,formula,components`
+需要分别读取各个文件，并输出验证摘要。缺失文件属于 soft gate，要发出警告，但仍可继续，因为 tearsheet 模板支持用 `N/A` 和整节跳过来处理缺失数据。
 
-Example rows:
-```
-metric,value,formula,components
-gross_margin_fy2024,72.4%,gross_profit/revenue,"9524/13159"
-revenue_growth_fy2024,12.3%,(current-prior)/prior,"13159/11716"
-net_debt_fy2024,2150,total_debt-cash,"4200-2050"
-```
+**关键规则：** 真正的数据来源是这些文件，而不是你对前文对话的记忆。Step 4 生成 DOCX 时，所有数字都必须从中间文件读取。
 
-### Step 3c: Verify Data Files
+### Step 4，格式化为 DOCX
 
-Before generating the document, verify that all intermediate files are present and populated.
+阅读 `/mnt/skills/public/docx/SKILL.md`，了解 docx-js via Node 的创建方式。应用本文件中的 Style Configuration，以及对应 reference 文件中的 section-specific formatting。
 
-**Read each intermediate file** via separate read operations and print a verification summary:
+**默认页数，可由用户覆盖：**
+- Equity Research：1 页
+- IB / M&A：1 到 2 页
+- Corp Dev：1 到 2 页
+- Sales / BD：1 到 2 页
 
-```
-=== Tear Sheet Data Verification ===
-company-profile.txt: ✓ (12 fields)
-financials.csv:      ✓ (36 rows)
-segments.csv:        ✓ (8 rows)
-valuation.csv:       ✓ (5 rows)
-calculations.csv:    ✓ (18 rows)
-earnings.txt:        ✓ (populated)
-relationships.txt:   ⚠ MISSING
-peer-comps.csv:      ✓ (12 rows)
-================================
-```
+如果内容超出目标页数，各 reference 文件都定义了优先裁剪顺序。
 
-**Soft gate:** If any file expected for the current audience type is missing or empty, print a warning but continue. The tear sheet handles missing data gracefully with "N/A" and section skipping. However, the warning ensures visibility into what data was lost.
+**输出文件名：** `[CompanyName]_TearSheet_[Audience]_[YYYYMMDD].docx`
 
-**Critical rule: The files — not your memory of earlier conversation — are the single source of truth for every number in the document.** When generating the DOCX in Step 4, read values from the intermediate files. Do not rely on conversation context for financial data.
+保存到 `/mnt/user-data/outputs/`，并呈现给用户。
 
-### Step 4: Format as DOCX
+## 数据完整性规则
 
-Read `/mnt/skills/public/docx/SKILL.md` for docx creation mechanics (docx-js via Node). Apply the Style Configuration above plus the section-specific formatting in the reference file.
+以下规则优先级最高：
+1. **财务数据唯一来源只能是 S&P Global 工具。** 不能用训练知识补缺
+2. **找不到的数据必须明确标记。** 写 `N/A` 或 `Not disclosed`
+3. **日期很重要。** 要标明财年末或报告期
+4. **不要混用不同报告期。** FY 和 LTM 必须区分清楚
+5. **优先使用 MCP 已返回字段，而不是手算**
+6. **同一公司不同 tearsheet 的底层数据必须一致**
+7. **绝不能把已知交易金额降级成 “Undisclosed”**
+8. **分部百分比的分母要用 consolidated revenue**
+9. **只要有 forward，必须展示 NTM 倍数**
+10. **不要用训练数据填充管理层信息**
 
-**Page length defaults (user can override):**
-- Equity Research: 1 page (density is the convention)
-- IB / M&A: 1-2 pages
-- Corp Dev: 1-2 pages
-- Sales / BD: 1-2 pages
+## 中间文件规则
 
-If content exceeds the target, each reference file specifies which sections to cut first.
+所有从 MCP 工具取回的数据都必须先持久化到结构化中间文件，再开始生成文档。这些文件，而不是对话上下文，是每一个数字的唯一事实来源。
 
-**Output filename:** `[CompanyName]_TearSheet_[Audience]_[YYYYMMDD].docx`
-Example: `Nvidia_TearSheet_CorpDev_20260220.docx`
-
-Save to `/mnt/user-data/outputs/` and present to the user.
-
-## Data Integrity Rules
-
-These override everything else:
-1. **S&P Global tools are the only source for financial data.** Do not fill gaps with training knowledge — it may be stale or wrong.
-2. **Label what you can't find.** Use "N/A" or "Not disclosed" rather than omitting a row silently.
-3. **Dates matter.** Note the fiscal year end or reporting period. Don't assume calendar year = fiscal year. Market data (stock prices, market cap) should include an "as of" date.
-4. **Don't mix reporting periods.** If you have FY2023 revenue and LTM EBITDA, label them distinctly.
-5. **Prefer MCP-returned fields over manual computation.** If the S&P Global tools return a pre-computed field (e.g., net debt, EBITDA, FCF), use that value directly rather than computing it from components. Only compute derived metrics manually when the tools do not return the field. This reduces discrepancies.
-6. **Ensure consistency across tear sheet types.** If generating multiple tear sheets for the same company (e.g., equity research and IB/M&A in the same session), the same underlying data points must produce identical values across all outputs. Net debt, revenue, EBITDA, margins, and growth rates must match exactly. Do not re-query or re-compute independently per report — reuse the same retrieved values.
-7. **Never downgrade known transaction values.** If the M&A tools return a deal value for a transaction, that value must appear in the output. Do not replace a known deal value with "Undisclosed." Use "Undisclosed" only when the tools genuinely return no value for a transaction.
-8. **Use consolidated revenue as the denominator for segment percentages.** When computing "% of Total" for segment tables, divide each segment's revenue by consolidated total revenue (as reported on the income statement), not by the sum of segment revenues. The sum of segments often exceeds consolidated revenue due to intersegment eliminations. Using consolidated revenue ensures percentages align with the total revenue figure shown elsewhere in the document.
-9. **Always include forward (NTM) multiples when available.** If the tools return both trailing and forward valuation multiples, both must appear in the output. Forward multiples are the primary valuation reference for equity research, IB/M&A, and corp dev audiences. Never show only trailing multiples when forward data is available.
-10. **No S&P Global tool returns executive or management data.** Do not populate management names, titles, or biographical details from training data — this violates Rule 1 and produces stale information. If a management section appears in a template, omit it entirely. Ownership structure (institutional holders, insider %, PE sponsor) may be included only if returned by the tools — gate with "data permitting."
-
-## Intermediate File Rule
-
-All data retrieved from MCP tools must be persisted to structured intermediate files before document generation. These files — not conversation context — are the single source of truth for every number in the document.
-
-**Setup:** At the start of Step 3, create the working directory:
+**Setup：**
 ```
 mkdir -p /tmp/tear-sheet/
 ```
 
-**Write-after-query mandate:** After each MCP query step completes, immediately write the retrieved data to the appropriate intermediate file(s). Do not wait until all queries finish. Each reference file's query plan specifies which file(s) to write after each step.
+**每次查询后立刻写入：**
+reference 文件中的每一步查询都已经指定了写入哪个文件。不要等全部查询完成后再统一写盘。
 
-**File schemas:**
+文件 schema、缩写说明、页面预算执行方式等，按照英文原文所列结构执行。
 
-| File | Format | Columns / Structure | Used By |
-|---|---|---|---|
-| `/tmp/tear-sheet/company-profile.txt` | Key-value text | name, ticker, exchange, HQ, sector, industry, founded, employees, market_cap, enterprise_value, stock_price, 52wk_high, 52wk_low, shares_outstanding, beta, ownership | All |
-| `/tmp/tear-sheet/financials.csv` | CSV | `period,line_item,value,source` | All |
-| `/tmp/tear-sheet/segments.csv` | CSV | `period,segment_name,revenue,source` | ER, IB, CD |
-| `/tmp/tear-sheet/valuation.csv` | CSV | `metric,trailing,forward,source` | ER, IB, CD |
-| `/tmp/tear-sheet/consensus.csv` | CSV | `metric,fy_year,value,source` | ER |
-| `/tmp/tear-sheet/earnings.txt` | Structured text | Quarter, date, key quotes, guidance, key drivers | ER, IB, Sales |
-| `/tmp/tear-sheet/relationships.txt` | Structured text | Customers, suppliers, partners, competitors — each with descriptors | IB, CD, Sales |
-| `/tmp/tear-sheet/peer-comps.csv` | CSV | `ticker,metric,value,source` | ER, IB, CD |
-| `/tmp/tear-sheet/ma-activity.csv` | CSV | `date,target,deal_value,type,rationale,source` | IB, CD |
-| `/tmp/tear-sheet/calculations.csv` | CSV | `metric,value,formula,components` | All (written in Step 3b) |
+## 内容质量规则
 
-**Abbreviations:** ER = Equity Research, IB = IB/M&A, CD = Corp Dev, Sales = Sales/BD.
+11. **所有叙事章节都必须按受众重写。** CIQ 公司摘要只是输入，不是输出
+12. **财报要点必须按受众类型区分**
+13. **综合章节是核心差异化价值所在**
+14. **如公司存在待剥离业务，需在分部表中明确标注**
 
-Not every audience type uses every file — the reference files define which query steps apply. Files not relevant to the current audience type need not be created.
+### 算术校验
 
-**Raw values only.** Intermediate files store raw values as returned by the tools. Do not pre-compute margins, growth rates, or other derived metrics in these files — that happens in Step 3b.
-
-**Page budget enforcement:** Each reference file specifies a default page length and a numbered cut order. If the rendered document exceeds the target, apply cuts in the order specified — do not attempt to shrink font sizes or margins below the template minimums. The cut order is a strict priority stack: cut section 1 completely before touching section 2.
-
-## Content Quality Rules
-
-11. **Rewrite every narrative section for the audience.** The CIQ company summary is an input, not an output. Each audience type needs a different description: concise and thesis-oriented for equity research, pitchbook prose for IB, product-focused for Corp Dev, plain language for Sales/BD. Never paste the CIQ summary verbatim into any tear sheet.
-12. **Differentiate earnings highlights by audience.** The same earnings call produces different takeaways for different readers. Equity research wants segment-level performance and consensus beat/miss. IB wants margin trajectory and strategic commentary. Sales/BD wants strategic themes that create conversation angles. Do not reuse the same bullets across tear sheet types.
-13. **Synthesis sections are the differentiator.** Strategic Fit Analysis, Integration Considerations, Conversation Starters, and Business Overview paragraphs are where the tear sheet earns its value. These sections require analytical reasoning that connects data points into a narrative — listing company names without context is not synthesis.
-14. **Flag pending divestitures in segment tables.** If a company has announced a pending divestiture of a segment or business unit, add a footnote or parenthetical to the segment table noting the pending transaction (e.g., "Mobility* — *Pending divestiture, expected mid-2026"). For Corp Dev and IB/M&A tear sheets, include a one-line note below the segment table showing pro-forma revenue and revenue mix excluding the divested segment. This helps the reader evaluate the "go-forward" business without doing the math themselves.
-
-### Arithmetic Validation
-
-**→ Arithmetic validation is now enforced in Step 3b (Calculate Derived Metrics).** All margin calculations, growth rates, segment totals, percentage columns, and valuation cross-checks are validated during the dedicated calculation pass, before document generation begins. See Step 3b for the full validation checklist.
+**算术校验现在统一在 Step 3b 中执行。** 所有利润率、增长率、分部总和、百分比列和估值交叉校验，都在文档生成前完成。

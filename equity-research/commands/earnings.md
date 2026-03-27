@@ -1,81 +1,81 @@
 ---
-description: Analyze quarterly earnings and create an earnings update report
+description: 分析季度业绩并创建业绩更新报告
 argument-hint: "[company name or ticker] [quarter, e.g. Q3 2024]"
 ---
 
 # Earnings Analysis Command
 
-Create a professional equity research earnings update report analyzing quarterly results.
+创建一份专业的股票研究业绩更新报告，用于分析季度业绩结果。
 
-## Workflow
+## 工作流
 
-### Step 1: Gather Information
+### 第 1 步：收集信息
 
-Parse the input for:
-- Company name or ticker
-- Quarter (e.g., Q3 2024, Q2 FY25)
+解析输入内容，提取：
+- 公司名称或 ticker
+- 季度，例如 Q3 2024、Q2 FY25
 
-If not provided, ask:
-- "What company's earnings would you like to analyze?"
-- "Which quarter? (e.g., Q3 2024)"
+如果未提供，则询问：
+- "你想分析哪家公司的业绩？"
+- "是哪个季度？例如 Q3 2024"
 
-### Step 2: Verify Timeliness
+### 第 2 步：验证时效性
 
-**CRITICAL**: Before proceeding, verify you have the latest data:
-1. Search for "[Company] latest earnings results [current year]"
-2. Verify the earnings release is within the last 3 months
-3. Confirm transcript date matches release date
+**CRITICAL**：在继续之前，确认你拿到的是最新数据：
+1. 搜索 "[Company] latest earnings results [current year]"
+2. 确认业绩发布时间在最近 3 个月内
+3. 确认 transcript 日期与发布日期一致
 
-If data is stale, inform the user and search for the latest.
+如果数据已经陈旧，告知用户并继续搜索最新材料。
 
-### Step 3: Load Earnings Analysis Skill
+### 第 3 步：加载 Earnings Analysis Skill
 
-Use `skill: "earnings-analysis"` to create the report:
+使用 `skill: "earnings-analysis"` 创建报告：
 
-1. **Data Collection** (search for latest):
-   - Earnings release (press release)
-   - 10-Q filing from SEC EDGAR
+1. **数据收集**，搜索最新材料：
+   - Earnings release，新闻稿
+   - SEC EDGAR 上的 10-Q filing
    - Earnings call transcript
-   - Investor presentation/supplemental materials
-   - Consensus estimates (Bloomberg/FactSet)
+   - Investor presentation / supplemental materials
+   - Consensus estimates，Bloomberg/FactSet
 
-2. **Beat/Miss Analysis**:
-   - Revenue vs consensus: Beat/Miss by $X or X%
-   - EPS vs consensus: Beat/Miss by $X or X%
-   - Key segment performance vs expectations
-   - Explain WHY results differed
+2. **Beat/Miss Analysis**：
+   - 收入相对一致预期，超预期或低于预期，$X 或 X%
+   - EPS 相对一致预期，超预期或低于预期，$X 或 X%
+   - 关键分部表现相对预期
+   - 解释结果偏离预期的原因
 
-3. **Key Metrics Analysis**:
-   - Revenue breakdown by segment/geography
-   - Margin trends (gross, operating, net)
-   - Guidance: raised/maintained/lowered
-   - Updated forward estimates
+3. **Key Metrics Analysis**：
+   - 按分部 / 地区拆分收入
+   - 利润率趋势，毛利、营业、净利
+   - 指引，上调 / 维持 / 下调
+   - 更新前瞻预测
 
-4. **Generate Charts** (8-12):
-   - Quarterly revenue progression
-   - Quarterly EPS progression
-   - Margin trends
-   - Revenue by segment
-   - Beat/miss summary
-   - Estimate revisions
-   - Valuation charts
+4. **Generate Charts**（8-12 张）：
+   - 季度收入进展
+   - 季度 EPS 进展
+   - 利润率趋势
+   - 分部收入
+   - Beat/miss 总结
+   - 预测修订
+   - 估值图表
 
-5. **Create Report** (8-12 pages):
-   - Page 1: Summary with rating and price target
-   - Pages 2-3: Detailed results analysis
-   - Pages 4-5: Key metrics & guidance
-   - Pages 6-7: Updated investment thesis
-   - Pages 8-10: Valuation & estimates
-   - Sources section with clickable hyperlinks
+5. **Create Report**（8-12 页）：
+   - 第 1 页：摘要，包含评级和目标价
+   - 第 2-3 页：详细结果分析
+   - 第 4-5 页：关键指标与指引
+   - 第 6-7 页：更新后的投资论点
+   - 第 8-10 页：估值与预测
+   - Sources section，带可点击超链接
 
-### Step 4: Deliver Output
+### 第 4 步：交付输出
 
-Provide:
-1. **DOCX report** - 8-12 page earnings update
-2. **Summary** highlighting:
-   - Beat/miss on key metrics
-   - Guidance changes
-   - Thesis impact (positive/negative/neutral)
+提供：
+1. **DOCX report**，8-12 页的业绩更新
+2. **Summary**，重点说明：
+   - 关键指标的 beat/miss
+   - 指引变化
+   - 论点影响，正面 / 负面 / 中性
 
 ## Report Structure Reference
 
@@ -101,24 +101,24 @@ PAGE 1: EARNINGS SUMMARY
 └─────────────────────────────────────────────────────────────────┘
 
 PAGES 2-3: DETAILED RESULTS
-- Segment-by-segment analysis
-- Geographic breakdown
-- Key drivers of beat/miss
+- 按分部进行分析
+- 地域拆分
+- 解释 beat/miss 的核心驱动
 
 PAGES 4-5: METRICS & GUIDANCE
-- Margin analysis
-- Full-year guidance comparison
-- Updated quarterly estimates
+- 利润率分析
+- 全年指引对比
+- 更新后的季度预测
 
 PAGES 6-7: THESIS UPDATE
-- What's changed
-- Risks and catalysts
-- Investment recommendation
+- 发生了什么变化
+- 风险与催化剂
+- 投资建议
 
 PAGES 8-10: VALUATION
-- Updated DCF/comps if material
-- Price target justification
-- Scenario analysis
+- 如果变化显著，则更新 DCF/comps
+- 目标价的论证
+- 情景分析
 
 SOURCES SECTION (with clickable hyperlinks):
 - Earnings Release: [hyperlink]
@@ -129,12 +129,12 @@ SOURCES SECTION (with clickable hyperlinks):
 
 ## Quality Checklist
 
-Before delivery:
-- [ ] Earnings data is from latest quarter (not stale)
-- [ ] Beat/miss quantified with specific numbers
-- [ ] All charts embedded (8-12 total)
-- [ ] Sources section with clickable hyperlinks
-- [ ] Every figure/table has source citation
-- [ ] Guidance changes clearly documented
-- [ ] Rating and price target stated upfront
-- [ ] 8-12 pages, 3,000-5,000 words
+交付前确认：
+- [ ] 业绩数据来自最新季度，而不是陈旧数据
+- [ ] beat/miss 用具体数字量化
+- [ ] 所有图表都已嵌入，总计 8-12 张
+- [ ] Sources section 带可点击超链接
+- [ ] 每个 figure/table 都有来源引用
+- [ ] 指引变化已清晰记录
+- [ ] 评级和目标价在开头明确给出
+- [ ] 8-12 页，3,000-5,000 词

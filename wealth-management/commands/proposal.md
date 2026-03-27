@@ -1,8 +1,8 @@
 ---
-description: Create an investment proposal for a prospect
+description: 为潜在客户创建投资建议书
 argument-hint: "[prospect name]"
 ---
 
-Load the `investment-proposal` skill to create a personalized investment proposal for a prospective client.
+加载 `investment-proposal` skill，为潜在客户创建个性化投资建议书。
 
-If a prospect name is provided, use it. Otherwise ask for prospect details.
+如果提供了潜在客户姓名，就直接使用。否则向用户询问潜在客户详情。

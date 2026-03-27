@@ -1,8 +1,8 @@
 ---
-description: QC a presentation deck for errors and consistency
-argument-hint: "[path to .pptx file]"
+description: 对演示文稿进行质检，检查错误与一致性
+argument-hint: "[.pptx 文件路径]"
 ---
 
-Load the `check-deck` skill and review the specified presentation for formatting errors, data inconsistencies, and quality issues.
+加载 `check-deck` skill，并审阅指定演示文稿中的格式错误、数据不一致和质量问题。
 
-If a file path is provided, use it. Otherwise ask the user for the deck to review.
+如果提供了文件路径，则直接使用。否则请向用户索取要审阅的演示文稿。

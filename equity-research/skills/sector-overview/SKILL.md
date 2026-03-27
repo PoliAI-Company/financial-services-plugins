@@ -1,85 +1,85 @@
-# Sector Overview
+# 行业概览
 
-description: Create comprehensive industry and sector landscape reports covering market dynamics, competitive positioning, key players, and thematic trends. Use for client requests, sector initiations, thematic research pieces, or internal knowledge building. Triggers on "sector overview", "industry report", "market landscape", "sector analysis", "industry deep dive", or "thematic research".
+description: 创建全面的行业和板块全景报告，覆盖市场动态、竞争定位、关键参与者和主题趋势。适用于客户需求、行业首次覆盖、主题研究文章或内部知识沉淀。在用户提到 "sector overview"、"industry report"、"market landscape"、"sector analysis"、"industry deep dive" 或 "thematic research" 时触发。
 
-## Workflow
+## 工作流
 
-### Step 1: Define Scope
+### 第 1 步：定义范围
 
-- **Sector / subsector**: What industry and how narrowly defined?
-- **Purpose**: Client report, internal research, pitch material, idea generation
-- **Depth**: High-level overview (5-10 pages) or deep dive (20-30 pages)
-- **Angle**: Neutral landscape vs. thematic thesis (e.g., "AI infrastructure buildout")
-- **Universe**: Public companies only, or include private?
+- **Sector / subsector**：是什么行业，定义得有多细？
+- **Purpose**：客户报告、内部研究、路演材料、想法生成
+- **Depth**：高层概览（5-10 页）还是深度研究（20-30 页）
+- **Angle**：中性的行业全景，还是主题型论点（例如 "AI infrastructure buildout"）
+- **Universe**：只看上市公司，还是也纳入非上市公司？
 
-### Step 2: Market Overview
+### 第 2 步：市场概览
 
-**Market Size & Growth**
-- Total addressable market (TAM) with source
-- Historical growth rate (5-year CAGR)
-- Forecast growth rate and key assumptions
-- Market segmentation (by product, geography, end market, customer type)
+**市场规模与增长**
+- Total addressable market (TAM) 及其来源
+- 历史增长率（5 年 CAGR）
+- 预测增长率及关键假设
+- 市场细分，按产品、地区、终端市场、客户类型划分
 
-**Industry Structure**
-- Fragmented vs. consolidated — top 5 market share
-- Value chain map — where does value accrue?
-- Business model types (subscription, transaction, licensing, services)
-- Barriers to entry (capital, regulatory, technical, network effects)
+**行业结构**
+- 行业是分散还是集中，前 5 大市场份额如何
+- 价值链地图，价值沉淀在哪些环节
+- 商业模式类型，订阅、交易、授权、服务
+- 进入壁垒，资本、监管、技术、网络效应
 
-**Key Trends & Drivers**
-- Secular tailwinds (3-5 major trends)
-- Headwinds and risks
-- Technology disruption vectors
-- Regulatory developments
-- M&A activity and consolidation trends
+**关键趋势与驱动因素**
+- 长期顺风因素（3-5 个主要趋势）
+- 逆风因素和风险
+- 技术颠覆路径
+- 监管发展
+- 并购活动和行业整合趋势
 
-### Step 3: Competitive Landscape
+### 第 3 步：竞争格局
 
-**Company Profiles** (for top 5-10 players):
+**公司画像**（针对前 5-10 家主要参与者）：
 
 | Company | Revenue | Growth | EBITDA Margin | Market Share | Key Differentiator |
 |---------|---------|--------|--------------|-------------|-------------------|
 | | | | | | |
 
-For each company, brief profile:
-- Business description (2-3 sentences)
-- Strategic positioning and moat
-- Recent developments (earnings, M&A, product launches)
-- Valuation snapshot (P/E, EV/EBITDA, EV/Revenue)
+对每家公司，给出简要画像：
+- 业务描述（2-3 句）
+- 战略定位与护城河
+- 近期动态，业绩、并购、产品发布
+- 估值概览，P/E、EV/EBITDA、EV/Revenue
 
-**Competitive Dynamics**
-- How do companies compete? (price, product, service, distribution)
-- Who is gaining/losing share and why?
-- Disruption risk from new entrants or adjacent players
+**竞争动态**
+- 公司之间如何竞争，价格、产品、服务、渠道分发
+- 哪些公司在获得或流失份额，原因是什么
+- 来自新进入者或相邻赛道玩家的颠覆风险
 
-### Step 4: Valuation Context
+### 第 4 步：估值背景
 
-- Sector trading multiples (current and historical range)
-- Premium/discount drivers (growth, margins, market position)
-- Recent M&A transaction multiples
-- How does the sector compare to the broader market?
+- 板块交易倍数，当前水平和历史区间
+- 溢价或折价驱动因素，增长、利润率、市场地位
+- 近期并购交易倍数
+- 该板块相较于更广泛市场处于什么位置？
 
-### Step 5: Investment Implications
+### 第 5 步：投资含义
 
-- Where are the best risk/reward opportunities?
-- What thematic bets can be expressed through this sector?
-- Key debates in the sector (bull vs. bear arguments)
-- Catalysts that could change the sector narrative
+- 最优的风险收益机会在哪里？
+- 哪些主题性押注可以通过这个板块来表达？
+- 板块中的核心争论点是什么，bull 与 bear 观点
+- 哪些催化剂可能改变板块叙事
 
-### Step 6: Output
+### 第 6 步：输出
 
-- Word document or PowerPoint with:
-  - Market overview and sizing
-  - Competitive landscape map
-  - Company comparison table
-  - Valuation summary
-  - Key charts: market growth, share trends, valuation history
-- Excel appendix with detailed company data
+- Word 文档或 PowerPoint，包含：
+  - 市场概览和规模测算
+  - 竞争格局图谱
+  - 公司对比表
+  - 估值总结
+  - 关键图表，市场增长、份额趋势、估值历史
+- 包含详细公司数据的 Excel 附录
 
-## Important Notes
+## 重要说明
 
-- Source all market size data — cite the research firm or methodology
-- Distinguish between TAM hype and realistic addressable market
-- Sector overviews age fast — note the date and flag data that may be stale
-- Charts are essential — market size waterfall, competitive positioning matrix, valuation scatter plot
-- If for a client, tailor the "so what" to their specific situation (M&A target identification, competitive positioning, market entry)
+- 所有市场规模数据都要注明来源，标注研究机构或方法论
+- 区分 TAM 炒作与现实可触达市场
+- 行业概览过时很快，要注明日期，并标记可能已经陈旧的数据
+- 图表非常关键，市场规模瀑布图、竞争定位矩阵、估值散点图
+- 如果面向客户，要把 "so what" 结论贴合其具体情境，例如并购标的识别、竞争定位、市场进入

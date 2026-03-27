@@ -1,58 +1,58 @@
 ---
-description: Analyze the bond futures basis with CTD identification, implied repo rate, and basis trade assessment
+description: 结合 CTD 识别、隐含回购利率和基差交易判断分析债券期货基差
 argument-hint: "<bond future RIC e.g. FGBLc1>"
 ---
 
-# Analyze Bond Futures Basis
+# 分析债券期货基差
 
-> This command uses LSEG bond future pricing, bond pricing, yield curves, and historical data tools. See [CONNECTORS.md](../CONNECTORS.md) for available tools.
+> 这个命令使用 LSEG 债券期货定价、债券定价、收益率曲线和历史数据工具。可用工具见 [CONNECTORS.md](../CONNECTORS.md)。
 
-Analyze the bond futures basis by pricing the future, identifying the cheapest-to-deliver bond, computing gross and net basis, and assessing basis trade opportunities.
+通过为期货定价、识别最便宜可交割债券、计算 gross 和 net basis，并评估基差交易机会，分析债券期货基差。
 
-See the **bond-futures-basis** skill for domain knowledge on basis mechanics and trading strategies.
+基差机制和交易策略的领域知识见 **bond-futures-basis** skill。
 
-## Workflow
+## 工作流
 
-### 1. Gather Input
+### 1. 收集输入
 
-Ask the user for:
-- Bond future RIC (required) — e.g., FGBLc1 (Euro Bund), TYc1 (US 10Y Note), FFIc1 (UK Gilt)
-- Market data date (optional, defaults to today)
+向用户询问：
+- 债券期货 RIC，必填，例如 FGBLc1，也就是 Euro Bund，TYc1，也就是 US 10Y Note，FFIc1，也就是 UK Gilt
+- 市场数据日期，可选，默认今天
 
-### 2. Price the Bond Future
+### 2. 为债券期货定价
 
-Call `bond_future_price` with the future RIC.
+对期货 RIC 调用 `bond_future_price`。
 
-Extract: fair price, CTD bond identifier, delivery basket with conversion factors, contract DV01, delivery dates.
+提取公允价格、CTD 债券标识符、带转换因子的交割篮子、合约 DV01 和交割日期。
 
-### 3. Price the CTD Bond
+### 3. 为 CTD 债券定价
 
-Call `bond_price` for the CTD identifier from Step 2.
+对第二步中的 CTD 标识符调用 `bond_price`。
 
-Extract: clean/dirty price, yield, duration, DV01, accrued interest, coupon.
+提取 clean/dirty price、yield、duration、DV01、accrued interest 和 coupon。
 
-Compute: gross basis, invoice price, carry, net basis.
+计算 gross basis、invoice price、carry 和 net basis。
 
-### 4. Compute Implied Repo Rate
+### 4. 计算隐含回购利率
 
-Call `interest_rate_curve` (list then calculate) for the future's currency. Use short-end rate as repo proxy.
+为期货对应货币调用 `interest_rate_curve`，先 list 再 calculate，并使用短端利率作为回购代理。
 
-Compute implied repo rate and compare to market repo.
+计算 implied repo rate，并将其与市场回购利率比较。
 
-### 5. Track Historical Basis
+### 5. 跟踪历史基差
 
-Call `tscc_historical_pricing_summaries` for both the future and CTD bond with `tenor: "3M"`, `interval: "P1D"`.
+对期货和 CTD 债券同时调用 `tscc_historical_pricing_summaries`，参数使用 `tenor: "3M"` 和 `interval: "P1D"`。
 
-Assess: basis trend, volatility, and historical range.
+评估基差趋势、波动率和历史区间。
 
-### 6. Sovereign Credit Context
+### 6. 主权信用背景
 
-Call `credit_curve` for the relevant sovereign (e.g., "DE" for Bund, "US" for Treasury).
+对相关主权调用 `credit_curve`，例如 Bund 用 `DE`，Treasury 用 `US`。
 
-### 7. Synthesize the Report
+### 7. 综合报告
 
-Present: future summary table, CTD bond analytics, basis calculation table (gross/net basis, implied repo vs market repo), historical context, and trade recommendation (long basis / short basis / neutral).
+展示期货摘要表、CTD 债券分析、基差计算表，包括 gross 和 net basis、implied repo 对 market repo 的比较、历史背景，以及交易建议，也就是 long basis、short basis 或 neutral。
 
-## Output Format
+## 输出格式
 
-Lead with the basis trade assessment (long/short/neutral) and implied repo comparison. Follow with detailed analytics tables.
+先给出基差交易判断，也就是 long、short 或 neutral，并说明 implied repo 的比较结果。然后再展示详细分析表。

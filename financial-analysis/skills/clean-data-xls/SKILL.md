@@ -1,50 +1,50 @@
 ---
 name: clean-data-xls
-description: Clean up messy spreadsheet data — trim whitespace, fix inconsistent casing, convert numbers-stored-as-text, standardize dates, remove duplicates, and flag mixed-type columns. Use when data is messy, inconsistent, or needs prep before analysis. Triggers on "clean this data", "clean up this sheet", "normalize this data", "fix formatting", "dedupe", "standardize this column", "this data is messy".
+description: 清理杂乱的电子表格数据，包括去除空白、修正大小写不一致、转换以文本存储的数字、统一日期格式、去重并标记混合类型列。当数据杂乱、不一致或在分析前需要预处理时使用。触发词包括“clean this data”“clean up this sheet”“normalize this data”“fix formatting”“dedupe”“standardize this column”“this data is messy”。
 ---
 
-# Clean Data
+# 清理数据
 
-Clean messy data in the active sheet or a specified range.
+清理活动工作表或指定区域中的杂乱数据。
 
-## Environment
+## 环境
 
-- **If running inside Excel (Office Add-in / Office JS):** Use Office JS directly (`Excel.run(async (context) => {...})`). Read via `range.values`, write helper-column formulas via `range.formulas = [["=TRIM(A2)"]]`. The in-place vs helper-column decision still applies.
-- **If operating on a standalone .xlsx file:** Use Python/openpyxl.
+- **如果在 Excel 内运行（Office Add-in / Office JS）**：直接使用 Office JS（`Excel.run(async (context) => {...})`）。通过 `range.values` 读取，通过 `range.formulas = [["=TRIM(A2)"]]` 写入辅助列公式。是否原地覆盖还是使用辅助列的决策仍然适用。
+- **如果操作的是独立 `.xlsx` 文件**：使用 Python/openpyxl。
 
-## Workflow
+## 工作流
 
-### Step 1: Scope
+### 第 1 步：确定范围
 
-- If a range is given (e.g. `A1:F200`), use it
-- Otherwise use the full used range of the active sheet
-- Profile each column: detect its dominant type (text / number / date) and identify outliers
+- 如果给定了范围（例如 `A1:F200`），则使用该范围
+- 否则使用活动工作表的完整已用区域
+- 为每一列建立画像：检测主导类型（text / number / date），并识别异常值
 
-### Step 2: Detect issues
+### 第 2 步：检测问题
 
-| Issue | What to look for |
+| 问题 | 关注点 |
 |---|---|
-| Whitespace | leading/trailing spaces, double spaces |
-| Casing | inconsistent casing in categorical columns (`usa` / `USA` / `Usa`) |
-| Number-as-text | numeric values stored as text; stray `$`, `,`, `%` in number cells |
-| Dates | mixed formats in the same column (`3/8/26`, `2026-03-08`, `March 8 2026`) |
-| Duplicates | exact-duplicate rows and near-duplicates (case/whitespace differences) |
-| Blanks | empty cells in otherwise-populated columns |
-| Mixed types | a column that's 98% numbers but has 3 text entries |
-| Encoding | mojibake (`Ã©`, `â€™`), non-printing characters |
-| Errors | `#REF!`, `#N/A`, `#VALUE!`, `#DIV/0!` |
+| 空白字符 | 前后空格、双空格 |
+| 大小写 | 分类列大小写不一致（`usa` / `USA` / `Usa`） |
+| 文本型数字 | 数值以文本存储；数字单元格中混有 `$`、`,`、`%` |
+| 日期 | 同一列出现混合格式（`3/8/26`、`2026-03-08`、`March 8 2026`） |
+| 重复项 | 完全重复行和近似重复项（大小写/空格差异） |
+| 空白单元格 | 原本应有数据的列中存在空值 |
+| 混合类型 | 一列 98% 是数字，但有 3 个文本项 |
+| 编码问题 | 乱码（`Ã©`、`â€™`）、不可打印字符 |
+| 错误值 | `#REF!`, `#N/A`, `#VALUE!`, `#DIV/0!` |
 
-### Step 3: Propose fixes
+### 第 3 步：提出修复建议
 
-Show a summary table before changing anything:
+在修改前展示汇总表：
 
 | Column | Issue | Count | Proposed Fix |
 |---|---|---|---|
 
-### Step 4: Apply
+### 第 4 步：执行
 
-- **Prefer formulas over hardcoded cleaned values** — where the cleaned output can be expressed as a formula (e.g. `=TRIM(A2)`, `=VALUE(SUBSTITUTE(B2,"$",""))`, `=UPPER(C2)`, `=DATEVALUE(D2)`), write the formula in an adjacent helper column rather than computing the result in Python and overwriting the original. This keeps the transformation transparent and auditable.
-- Only overwrite in place with computed values when the user explicitly asks for it, or when no sensible formula equivalent exists (e.g. encoding/mojibake repair)
-- For destructive operations (removing duplicates, filling blanks, overwriting originals), confirm with the user first
-- After each category of fix (whitespace → casing → number conversion → dates → dedup), show the user a sample of what changed and get confirmation before moving to the next category
-- Report a before/after summary of what changed
+- **优先用公式，而不是硬编码清洗后的值**。如果清洗结果可以用公式表达（例如 `=TRIM(A2)`、`=VALUE(SUBSTITUTE(B2,"$",""))`、`=UPPER(C2)`、`=DATEVALUE(D2)`），就在相邻辅助列写入公式，而不是在 Python 中计算后覆盖原值。这样转换过程更透明、可审计。
+- 只有在用户明确要求原地覆盖，或不存在合理公式等价物（例如编码乱码修复）时，才用计算值直接覆盖
+- 对于破坏性操作（删除重复项、填充空白、覆盖原值），先获得用户确认
+- 每完成一类修复（空白 → 大小写 → 数字转换 → 日期 → 去重），都向用户展示一部分变更示例，并在进入下一类前获取确认
+- 报告修改前后摘要

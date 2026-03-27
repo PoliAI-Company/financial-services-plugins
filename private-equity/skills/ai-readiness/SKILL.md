@@ -1,96 +1,96 @@
-# Portfolio AI Readiness
+# 组合公司 AI 就绪度
 
-description: Scan the portfolio for the highest-leverage AI opportunities and rank where to deploy operating-partner time. Ingests quarterly updates and financials across multiple portfolio companies, identifies quick wins at each, and stacks them into a single ranked action list. Use during quarterly portfolio reviews, annual planning, or when deciding which companies get AI investment first. Triggers on "AI readiness", "AI opportunity scan", "where should we deploy AI", "AI across the portfolio", "AI quick wins", or "which portcos are ready for AI".
+description: 扫描整个组合，识别最具杠杆效应的 AI 机会，并排序 operating-partner 时间最该投向哪里。读取多家组合公司的季度更新和财务数据，识别各自的快速落地点，并汇总成一份统一的优先级行动清单。适用于季度组合回顾、年度规划，或决定哪些公司应优先获得 AI 投入。触发词包括 "AI readiness"、"AI opportunity scan"、"where should we deploy AI"、"AI across the portfolio"、"AI quick wins" 或 "which portcos are ready for AI"。
 
 ## Workflow
 
-### Step 1: Connect to Portfolio Data
+### Step 1: 连接组合数据
 
-First, ask the user where the portfolio materials live. Don't assume — offer the options:
+先询问用户组合材料放在哪里。不要自行假设，给出选项：
 
-- **MCP servers** — data room, SharePoint, Google Drive, or a portfolio-ops database if one is connected
-- **Local files** — a folder path on disk with quarterly decks, financials, board packs
-- **File uploads** — drag PDFs, PowerPoint, or Excel directly into the conversation
+- **MCP servers**，数据室、SharePoint、Google Drive，或已连接的 portfolio-ops 数据库
+- **Local files**，磁盘上的文件夹路径，里面包含季度 deck、财务数据、board packs
+- **File uploads**，直接把 PDF、PowerPoint 或 Excel 拖进对话
 
-Once connected, pull quarterly updates, board decks, and financials for the portfolio (or a subset). For each company, extract: sector, revenue, headcount by function, tech stack mentioned, and any AI/automation initiatives already in flight.
+连接后，读取整个组合，或其子集的季度更新、董事会材料和财务数据。对每家公司提取：行业、收入、各职能 headcount、提到的 tech stack，以及是否已有 AI / automation initiative 在推进。
 
-If the user provides a single company, still run the scan but skip the cross-portfolio ranking.
+如果用户只提供单家公司，也照样做扫描，只是跳过跨组合排序。
 
-Ask up front if not obvious from materials:
-- Hold period remaining per company (AI payback matters less 12 months from exit)
-- Whether any portco has already deployed something that worked
+如果材料里不明显，前面就要问清：
+- 各公司剩余持有期，AI payback 在距离退出只剩 12 个月时意义会小很多
+- 是否已有某家 portco 实施过有效方案，可供复制
 
-### Step 2: Per-Company Scan
+### Step 2: 单家公司扫描
 
-For each company, answer three gate questions. All three yes → **Go**. Any no → **Wait** with a note on what unblocks it.
+对每家公司，回答 3 个 gate 问题。3 个都为 yes 才是 **Go**。任一为 no 则标记 **Wait**，并说明解除阻碍所需条件。
 
-1. **Is the data there?** Can they produce a clean input for the use case — customer list, invoice feed, contract repository — without a 6-month data project first?
-2. **Is there an owner?** Someone on the management team who will drive this, not a sponsor who will "support" it.
-3. **Can we pilot in 30 days?** One team, one workflow, off-the-shelf tooling. If the answer starts with "first we'd need to...", it's not a quick win.
+1. **数据是否可用？** 能否在不先做 6 个月数据项目的前提下，为该 use case 提供干净输入，如客户清单、发票流、合同库。
+2. **是否有 owner？** 管理团队里是否有人真正负责推动，而不是只有 sponsor 口头 "support"。
+3. **能否在 30 天内 pilot？** 一支团队、一个工作流、现成工具。如果答案以 "first we'd need to..." 开头，就不是 quick win。
 
-Then identify the top 2-3 leverage points. Look for these patterns in the cost structure and operations:
+然后识别最重要的 2-3 个 leverage point。重点看成本结构和运营中的这些模式：
 
-**Back Office (usually fastest to pilot)**
-- Invoice processing, AP/AR matching, expense categorization
-- Contract abstraction — vendor agreements, leases, customer MSAs
-- Month-end close: reconciliations, flux commentary, lender reporting first drafts
+**Back Office，通常最容易 pilot**
+- 发票处理、AP / AR 匹配、费用分类
+- 合同摘要，vendor agreements、leases、customer MSAs
+- 月结流程，reconciliation、flux commentary、lender reporting 初稿
 
 **Revenue / Front Office**
-- RFP and proposal first drafts — big lever if revenue is project-based
-- Sales call summaries and CRM hygiene
-- Customer support ticket triage and first-response drafting
-- Quoting for configured / complex products
+- RFP 和 proposal 初稿，如果收入以项目制为主，这通常杠杆很大
+- 销售电话摘要和 CRM hygiene
+- 客户支持工单分流和首轮回复草拟
+- 配置型 / 复杂产品的报价
 
-**Operations (sector-dependent)**
-- SOP and quality documentation generation
-- Scheduling and dispatch (field services, logistics)
-- Code generation and review (software portcos)
+**Operations，取决于行业**
+- SOP 和质量文档生成
+- 排班和调度，field services、logistics
+- 代码生成和代码审查，software portcos
 
-For each leverage point, capture in one line: what it replaces, FTE-hours/week saved (assume 30-50%, not 100%), and whether it's buy-off-the-shelf or needs a light build.
+对每个 leverage point，用一句话说明：替代什么工作、每周节省多少 FTE-hours，按 30-50% 假设，不要按 100%，以及是买现成工具还是需要轻量开发。
 
-### Step 3: Rank Across the Portfolio
+### Step 3: 跨组合排序
 
-Stack every leverage point from every company into one list. Rank by:
+把每家公司识别出的 leverage point 全部堆成一张总表。按以下标准排序：
 
-1. **Dollar impact** — annualized EBITDA contribution (cost out + revenue lift, net of tool cost)
-2. **Speed to value** — months to first measurable result
-3. **Probability** — discount for data quality, change management risk, management team capability
+1. **Dollar impact**，年化 EBITDA 贡献，成本节省 + 收入提升，扣除工具成本后
+2. **Speed to value**，从开始到首次可量化结果的月数
+3. **Probability**，考虑数据质量、变更管理风险、管理团队能力后的折扣概率
 
-Tiebreaker: favor opportunities with <18 months of hold period remaining — those need to move now or not at all.
+如果分数接近，优先考虑剩余持有期少于 18 个月的机会，这类机会要么现在做，要么干脆不做。
 
-Output the stack:
+输出总表：
 
 | Rank | Company | Opportunity | Est. EBITDA ($) | Months to Value | Gate | First Step |
 |---|---|---|---|---|---|---|
 | 1 | | | | | Go | |
 | 2 | | | | | Go | |
-| 3 | | | | | Wait — [blocker] | |
+| 3 | | | | | Wait， [blocker] | |
 
-### Step 4: Find the Replays
+### Step 4: 找出可复制打法
 
-The highest-leverage move in a portfolio is running one successful play at multiple companies. Scan for:
+在组合里最有杠杆的动作，通常是把一个成功打法复制到多家公司。重点扫描：
 
-- **Same sector, same function** — two healthcare services portcos with manual prior-auth? One implementation, two deployments.
-- **Same tool, different company** — if one portco already has a working invoice-processing setup, flag every other portco with >$Xm in AP volume as a fast follower.
-- **Shared vendor leverage** — three portcos buying the same tool is a pricing conversation.
+- **同一行业、同一职能**，例如两家 healthcare services portcos 都有人工作 prior-auth，一个实施，两家落地
+- **同一工具、不同公司**，如果一家 portco 已经跑通了 invoice-processing，就标出所有 AP volume 超过 $Xm 的其他 portcos，作为快速跟进者
+- **共享供应商议价能力**，三家 portco 采购同一工具，就是一个议价机会
 
-List each replay with the lead company (who proves it) and follower companies (who copy it).
+列出每个 replay，说明 lead company，谁先验证，以及 follower companies，谁复制。
 
-### Step 5: Output
+### Step 5: 输出
 
-One page for the operating partner, structured for a portfolio review:
+为 operating partner 准备一页式组合回顾材料：
 
-1. **Top 5 across the portfolio** — the ranked table from Step 3, with owner and 30-day first step
-2. **Replays** — 2-3 playbooks that hit multiple companies at once
-3. **Go / Wait by company** — one line each; for Waits, what unblocks them
-4. **What we're NOT doing** — the opportunities that looked good on paper but failed a gate; saves the operating partner from relitigating them every quarter
-5. **Aggregate EBITDA contribution** — total portfolio-wide AI opportunity, split Year 1 quick wins vs. Years 2-3 scale
+1. **Top 5 across the portfolio**，来自 Step 3 的排序表，附 owner 和 30 天内的 first step
+2. **Replays**，2-3 个能同时覆盖多家公司的 playbook
+3. **Go / Wait by company**，每家公司一行，Wait 要写清解除阻碍条件
+4. **What we're NOT doing**，纸面上看起来不错，但未通过 gate 的机会，避免 operating partner 每个季度反复讨论
+5. **Aggregate EBITDA contribution**，组合层面的 AI 总机会，拆分为 Year 1 quick wins 和 Years 2-3 scale 机会
 
 ## Important Notes
 
-- **Rank by dollars, not excitement.** A boring AP automation that saves $400k at a $40m revenue company beats a flashy customer-facing chatbot every time.
-- **The binding constraint is almost always data, not models.** If a company can't produce a clean customer list, AI isn't the first project — a data cleanup is. Say so plainly.
-- **Off-the-shelf first.** Custom builds are slow, expensive, and fragile for companies without engineering depth. Favor tools they can buy and deploy.
-- **Ownership is the real gate.** A quick win with no internal owner dies in 90 days. If no one on the management team wants it, mark it Wait regardless of the dollar size.
-- **Hold period drives urgency.** A company 3 years from exit can afford a foundational data project. A company 12 months out needs something that shows up in the LTM EBITDA for the CIM — or skip it.
-- **Failed pilots are signal.** If management already tried something and it didn't stick, find out why before proposing the same thing again.
+- **按美元排序，不按兴奋度排序。** 对一家 $40m revenue 公司来说，一个每年节省 $400k 的 AP automation，几乎总比一个炫目的面向客户 chatbot 更值钱。
+- **真正的约束几乎总是数据，不是模型。** 如果一家公司连干净的客户清单都拿不出来，AI 不是第一项目，先做数据清理。要把这点说清楚。
+- **优先现成工具。** 自研方案对工程能力不强的公司来说通常慢、贵且脆弱。优先推荐可以买来就部署的工具。
+- **Owner 才是真正的 gate。** 一个没有内部 owner 的 quick win，90 天内大概率会死掉。如果管理团队里没人愿意负责，不管金额多大，都应标成 Wait。
+- **持有期决定紧迫度。** 距离退出还有 3 年的公司，可以做基础数据项目。12 个月内要退出的公司，需要能体现在 CIM 所看 LTM EBITDA 里的项目，否则就跳过。
+- **失败 pilot 本身就是信号。** 如果管理层已经试过某件事但没成功，要先搞清为什么，再决定是否再次提议。

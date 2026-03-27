@@ -1,8 +1,8 @@
 ---
-description: Build an LBO model for a PE acquisition
-argument-hint: "[company name or deal details]"
+description: 为私募股权收购构建 LBO 模型
+argument-hint: "[公司名称或交易细节]"
 ---
 
-Load the `lbo-model` skill and build a leveraged buyout model for the specified company or deal.
+加载 `lbo-model` skill，并为指定公司或交易构建杠杆收购模型。
 
-If a company name is provided as an argument, use it. Otherwise ask the user for the target company and deal parameters.
+如果参数中提供了公司名称，则直接使用。否则请向用户索取目标公司和交易参数。

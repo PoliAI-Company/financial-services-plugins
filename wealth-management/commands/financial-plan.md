@@ -1,8 +1,8 @@
 ---
-description: Build or update a financial plan
+description: 构建或更新财务规划
 argument-hint: "[client name]"
 ---
 
-Load the `financial-plan` skill to create or update a comprehensive financial plan covering retirement, education, estate, and cash flow projections.
+加载 `financial-plan` skill，创建或更新一份覆盖退休、教育、遗产和现金流预测的全面财务规划。
 
-If a client name is provided, use it. Otherwise ask for client details.
+如果提供了客户姓名，就直接使用。否则向用户询问客户详情。

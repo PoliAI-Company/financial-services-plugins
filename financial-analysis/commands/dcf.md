@@ -1,50 +1,50 @@
 ---
-description: Build a DCF valuation model with comps-informed terminal multiples
-argument-hint: "[company name or ticker]"
+description: 构建使用 comps 终值倍数校验的 DCF 估值模型
+argument-hint: "[公司名称或股票代码]"
 ---
 
-# DCF Valuation Command
+# DCF 估值命令
 
-Build an institutional-quality DCF model that uses comparable company analysis to inform valuation ranges.
+构建机构级质量的 DCF 模型，并使用可比公司分析为估值区间提供参考。
 
-## Workflow
+## 工作流
 
-### Step 1: Gather Company Information
+### 第 1 步：收集公司信息
 
-If a company name or ticker is provided, use it. Otherwise ask:
+如果提供了公司名称或股票代码，则直接使用。否则请询问：
 - "What company would you like to value?"
 
-### Step 2: Run Comparable Company Analysis
+### 第 2 步：执行可比公司分析
 
-**First, load the comps-analysis skill** to build trading comps:
+**首先加载 comps-analysis skill** 来构建交易 comps：
 
-Use `skill: "comps-analysis"` to:
-1. Identify 4-6 comparable public companies
-2. Pull operating metrics (Revenue, EBITDA, margins, growth)
-3. Pull valuation multiples (EV/Revenue, EV/EBITDA, P/E)
-4. Calculate statistical summary (median, 25th/75th percentiles)
+使用 `skill: "comps-analysis"` 来：
+1. 识别 4 到 6 家可比上市公司
+2. 拉取经营指标（Revenue、EBITDA、利润率、增长）
+3. 拉取估值倍数（EV/Revenue、EV/EBITDA、P/E）
+4. 计算统计汇总（中位数、25th/75th 分位）
 
-**Key outputs to capture from comps:**
-- Median EV/EBITDA multiple → informs terminal value exit multiple
-- Median EV/Revenue multiple → sanity check on DCF output
-- Peer growth rates → benchmark for revenue projections
-- Peer margins → benchmark for margin assumptions
+**需要从 comps 中记录的关键输出：**
+- 中位数 EV/EBITDA 倍数 → 用于终值退出倍数
+- 中位数 EV/Revenue 倍数 → 用于对 DCF 输出做合理性校验
+- 同行增长率 → 用于收入预测基准
+- 同行利润率 → 用于利润率假设基准
 
-### Step 3: Build DCF Model
+### 第 3 步：构建 DCF 模型
 
-**Load the dcf-model skill** to construct the valuation:
+**加载 dcf-model skill** 来搭建估值模型：
 
-Use `skill: "dcf-model"` to:
-1. Gather historical financials and market data
-2. Build revenue projections (Bear/Base/Bull cases)
-3. Model operating expenses and FCF
-4. Calculate WACC using CAPM
-5. Discount cash flows and calculate terminal value
-6. Bridge to equity value and implied share price
+使用 `skill: "dcf-model"` 来：
+1. 收集历史财务数据和市场数据
+2. 构建收入预测（Bear/Base/Bull）
+3. 建模经营费用和 FCF
+4. 使用 CAPM 计算 WACC
+5. 折现现金流并计算终值
+6. 桥接到股权价值和隐含股价
 
-**Use comps to inform DCF assumptions:**
+**使用 comps 为 DCF 假设提供依据：**
 
-| Comps Output | DCF Input |
+| Comps 输出 | DCF 输入 |
 |--------------|-----------|
 | Peer median EV/EBITDA | Terminal exit multiple range |
 | Peer 25th-75th EV/EBITDA | Sensitivity analysis range |
@@ -52,29 +52,29 @@ Use `skill: "dcf-model"` to:
 | Peer median EBITDA margin | Target margin in terminal year |
 | Peer median P/E | Cross-check implied P/E from DCF |
 
-### Step 4: Cross-Check Valuation
+### 第 4 步：交叉校验估值
 
-After DCF is complete, validate:
-1. **Implied EV/EBITDA** from DCF vs peer median
-   - If DCF implies 25x but peers trade at 12x, investigate why
-2. **Implied P/E** from DCF vs peer median
-3. **Terminal value as % of EV** (should be 50-70%)
-4. **Implied growth** embedded in valuation vs peer growth rates
+DCF 完成后，验证：
+1. **DCF 隐含 EV/EBITDA** 与同行中位数相比
+   - 如果 DCF 隐含 25x，而同行交易于 12x，需要调查原因
+2. **DCF 隐含 P/E** 与同行中位数相比
+3. **终值占 EV 的比例**（应为 50% 到 70%）
+4. **估值中隐含的增长** 与同行增长率相比
 
-### Step 5: Deliver Output
+### 第 5 步：交付输出
 
-Provide:
-1. **Comps analysis spreadsheet** (.xlsx) with peer trading multiples
-2. **DCF model** (.xlsx) with:
-   - Bear/Base/Bull scenarios
-   - Sensitivity tables (WACC vs Terminal Growth, etc.)
-   - Valuation summary with implied upside/downside
-3. **Summary** explaining:
-   - Key valuation drivers
-   - How comps informed the analysis
-   - Risks and sensitivities to watch
+提供：
+1. **Comps 分析表格**（.xlsx），含同行交易倍数
+2. **DCF 模型**（.xlsx），包含：
+   - Bear/Base/Bull 场景
+   - 敏感性表（WACC 对 Terminal Growth 等）
+   - 含隐含上涨或下跌空间的估值摘要
+3. **摘要**，说明：
+   - 关键估值驱动因素
+   - comps 如何为分析提供依据
+   - 需要关注的风险和敏感项
 
-## Example Output Summary
+## 示例输出摘要
 
 ```
 VALUATION SUMMARY: [Company] ([Ticker])

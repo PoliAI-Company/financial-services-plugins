@@ -1,81 +1,81 @@
-# Financial Plan
+# 财务规划
 
-description: Build or update a comprehensive financial plan covering retirement projections, education funding, estate planning, and cash flow analysis. Use for new client onboarding, annual plan reviews, or scenario modeling. Triggers on "financial plan", "retirement plan", "can I retire", "education funding", "estate plan", "cash flow analysis", or "plan update".
+description: 构建或更新一份全面财务规划，覆盖退休测算、教育金筹备、遗产规划和现金流分析。适用于新客户 onboarding、年度规划回顾，或情景建模。触发词包括 "financial plan"、"retirement plan"、"can I retire"、"education funding"、"estate plan"、"cash flow analysis" 或 "plan update"。
 
 ## Workflow
 
-### Step 1: Client Profile
+### Step 1: 客户画像
 
-Gather or confirm:
-- **Demographics**: Age, spouse age, dependents, life expectancy assumptions
-- **Employment**: Current income, expected raises, retirement age target
-- **Accounts**: All investment accounts with balances and asset allocation
-- **Income sources**: Salary, bonuses, rental income, Social Security estimates, pensions
-- **Expenses**: Current annual spending, expected changes (mortgage payoff, kids' independence)
-- **Liabilities**: Mortgage, student loans, other debt
-- **Insurance**: Life, disability, LTC, health
-- **Estate**: Wills, trusts, beneficiary designations, gifting strategy
+收集或确认：
+- **Demographics**：年龄、配偶年龄、受抚养人、寿命假设
+- **Employment**：当前收入、预期加薪、目标退休年龄
+- **Accounts**：所有投资账户的余额和资产配置
+- **Income sources**：工资、奖金、租金收入、Social Security 预估、养老金
+- **Expenses**：当前年度支出、预期变化，房贷还清、子女独立等
+- **Liabilities**：房贷、学生贷款、其他债务
+- **Insurance**：寿险、伤残险、LTC、健康险
+- **Estate**：遗嘱、信托、受益人指定、赠与策略
 
-### Step 2: Cash Flow Analysis
+### Step 2: 现金流分析
 
-Build annual cash flow projections:
+构建年度现金流预测：
 
 | Year | Age | Gross Income | Taxes | Living Expenses | Savings | Net Cash Flow |
 |------|-----|-------------|-------|-----------------|---------|--------------|
 | | | | | | | |
 
-Key inputs:
-- Inflation rate assumption (typically 2.5-3%)
-- Tax rate (marginal and effective)
-- Savings rate and where savings are directed (pre-tax, Roth, taxable)
+关键输入：
+- 通胀率假设，通常 2.5-3%
+- 税率，边际税率和有效税率
+- 储蓄率，以及储蓄流向，pre-tax、Roth、taxable
 
-### Step 3: Retirement Projections
+### Step 3: 退休测算
 
-**Accumulation Phase:**
-- Current portfolio value
-- Annual contributions (401k, IRA, taxable)
-- Expected return by asset class
-- Monte Carlo simulation: probability of success at various spending levels
+**Accumulation Phase：**
+- 当前投资组合价值
+- 年度缴款，401k、IRA、taxable
+- 各资产类别预期回报
+- Monte Carlo simulation，不同支出水平下的成功概率
 
-**Distribution Phase:**
-- Required annual spending in retirement (today's dollars → inflation-adjusted)
-- Social Security start age and benefit
-- Pension income (if any)
-- Portfolio withdrawal rate and sequence
-- Required Minimum Distributions (RMDs)
+**Distribution Phase：**
+- 退休后年度支出需求，以今日美元表示，再调整通胀
+- Social Security 启动年龄与福利水平
+- 养老金收入，如有
+- 投资组合提取率与提取顺序
+- Required Minimum Distributions，RMDs
 
-**Key Output:**
-- Projected portfolio value at retirement
-- Sustainable withdrawal rate
-- Probability of not running out of money (target >85%)
-- "What if" scenarios: retire early, market downturn, higher spending
+**关键输出：**
+- 退休时预期投资组合价值
+- 可持续提取率
+- 资金不耗尽的概率，目标 >85%
+- "What if" 情景，如提前退休、市场下跌、更高支出
 
-### Step 4: Goal-Specific Analysis
+### Step 4: 目标专项分析
 
-#### Education Funding
-- Children's ages and target college start
-- Current 529 balances
-- Target funding level (public vs. private, 4-year vs. graduate)
-- Required monthly savings to reach goal
-- Financial aid considerations
+#### 教育金筹备
+- 子女年龄和目标入学时间
+- 当前 529 余额
+- 目标筹资水平，公立 vs. 私立、4-year vs. graduate
+- 达成目标所需的每月储蓄额
+- 金融资助相关考虑
 
-#### Estate Planning
-- Current estate value and projected growth
-- Estate tax exposure (federal and state)
-- Trust structures in place
-- Gifting strategy (annual exclusion, lifetime exemption usage)
-- Charitable giving plans
-- Beneficiary review
+#### 遗产规划
+- 当前遗产价值及预期增长
+- 遗产税风险，联邦和州层面
+- 已建立的信托结构
+- 赠与策略，annual exclusion、lifetime exemption 使用情况
+- 慈善捐赠计划
+- 受益人审查
 
-#### Risk Management
-- Life insurance needs analysis (income replacement, debt payoff, education funding)
-- Disability insurance adequacy
-- Long-term care planning
-- Umbrella liability coverage
+#### 风险管理
+- 寿险需求分析，收入替代、偿债、教育金需求
+- 伤残险保障是否充分
+- 长期护理规划
+- 伞式责任险保障
 
-### Step 5: Scenario Modeling
+### Step 5: 情景建模
 
-Run key scenarios:
+运行关键情景：
 
 | Scenario | Probability of Success | Portfolio at 90 | Notes |
 |----------|----------------------|-----------------|-------|
@@ -86,30 +86,30 @@ Run key scenarios:
 | One spouse lives to 95 | | | |
 | Long-term care event | | | |
 
-### Step 6: Recommendations
+### Step 6: 建议
 
-Prioritized action items:
-1. Savings rate changes
-2. Asset allocation adjustments
-3. Tax optimization (Roth conversions, tax-loss harvesting, asset location)
-4. Insurance gaps to fill
-5. Estate document updates
-6. Beneficiary designation review
+按优先级排列的行动项：
+1. 储蓄率调整
+2. 资产配置调整
+3. 税务优化，Roth conversions、tax-loss harvesting、asset location
+4. 需要补齐的保险缺口
+5. 遗产文件更新
+6. 受益人指定审查
 
-### Step 7: Output
+### Step 7: 输出
 
-- Financial plan document (Word/PDF, 15-25 pages)
-- Cash flow projection spreadsheet (Excel)
-- Retirement projection charts
-- Goal funding analysis
-- Scenario comparison table
-- Action item checklist
+- 财务规划文档，Word / PDF，15-25 页
+- 现金流预测表，Excel
+- 退休测算图表
+- 目标筹资分析
+- 情景对比表
+- 行动清单
 
 ## Important Notes
 
-- Financial plans are living documents — review and update annually or after major life events
-- Be conservative with return assumptions — overestimating returns gives false confidence
-- Tax planning is as important as investment returns — model tax implications of every recommendation
-- Social Security timing is a major lever — model start ages of 62, 67, and 70
-- Always stress-test the plan — a plan that only works in the base case isn't a good plan
-- Compliance: ensure recommendations align with suitability/fiduciary standards
+- 财务规划是动态文档，应每年或在重大人生事件后更新
+- 回报假设应保守，过度高估会给客户虚假信心
+- 税务规划与投资回报同样重要，每条建议都应建模其税务影响
+- Social Security 的领取时点是重要杠杆，应分别测算 62、67 和 70 岁启动
+- 始终对计划做压力测试，只在基准情景下成立的计划并不算好计划
+- 合规要求，确保建议符合 suitability / fiduciary 标准

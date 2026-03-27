@@ -1,59 +1,59 @@
-# Investment Banking Plugin
+# 投资银行插件
 
-Investment banking productivity tools for equity research, valuation, presentations, and deal materials.
+面向股票研究、估值分析、演示文稿和交易材料的投资银行效率工具。
 
-## Features
+## 功能
 
-- **Deal Materials** - CIMs, teasers, process letters, and buyer lists
-- **Presentations** - Strip profiles, pitch decks with branded templates
-- **Transaction Support** - Merger models, deal tracking, and data packs
+- **交易材料** - CIM、teaser、process letter 和 buyer list
+- **演示材料** - Strip profile、使用品牌模板的 pitch deck
+- **交易支持** - Merger model、deal tracking 和 data pack
 
-## Installation
+## 安装
 
 ```bash
 claude --plugin-dir /path/to/investment-banking
 ```
 
-Or copy to your project's `.claude-plugin/` directory.
+或者复制到你项目的 `.claude-plugin/` 目录中。
 
 ## Commands
 
-| Command | Description |
-|---------|-------------|
-| `/one-pager [company]` | One-page strip profile for pitch books |
-| `/cim [company]` | Draft Confidential Information Memorandum |
-| `/teaser [company]` | Anonymous one-page company teaser |
-| `/buyer-list [company]` | Strategic and financial buyer universe |
-| `/merger-model [deal]` | Accretion/dilution M&A analysis |
-| `/process-letter [deal]` | Bid instructions and process correspondence |
-| `/deal-tracker` | Track live deals, milestones, and action items |
+| Command | 说明 |
+|---------|------|
+| `/one-pager [company]` | 用于 pitch book 的单页 strip profile |
+| `/cim [company]` | 起草 Confidential Information Memorandum |
+| `/teaser [company]` | 匿名单页公司 teaser |
+| `/buyer-list [company]` | 战略与财务买方名单 |
+| `/merger-model [deal]` | 增厚/摊薄并购分析 |
+| `/process-letter [deal]` | 出价指引与流程往来函件 |
+| `/deal-tracker` | 跟踪在执行交易、关键里程碑和行动事项 |
 
 ## Skills
 
-### Deal Materials
-| Skill | Description |
-|-------|-------------|
-| **cim-builder** | Draft Confidential Information Memorandums |
-| **teaser** | Anonymous one-page company teasers |
-| **process-letter** | Bid instructions and process correspondence |
-| **buyer-list** | Strategic and financial buyer universe |
-| **datapack-builder** | Build data packs from CIMs and filings |
+### 交易材料
+| Skill | 说明 |
+|-------|------|
+| **cim-builder** | 起草 Confidential Information Memorandum |
+| **teaser** | 匿名单页公司 teaser |
+| **process-letter** | 出价指引与流程往来函件 |
+| **buyer-list** | 战略与财务买方名单 |
+| **datapack-builder** | 基于 CIM 和申报文件构建 data pack |
 
-### Presentations
-| Skill | Description |
-|-------|-------------|
-| **strip-profile** | Information-dense company profiles for pitch books |
-| **pitch-deck** | Populate pitch deck templates with data |
+### 演示材料
+| Skill | 说明 |
+|-------|------|
+| **strip-profile** | 用于 pitch book 的高信息密度公司简介 |
+| **pitch-deck** | 用数据填充 pitch deck 模板 |
 
-### Transaction Support
-| Skill | Description |
-|-------|-------------|
-| **merger-model** | Accretion/dilution M&A analysis |
-| **deal-tracker** | Track live deals, milestones, and action items |
+### 交易支持
+| Skill | 说明 |
+|-------|------|
+| **merger-model** | 增厚/摊薄并购分析 |
+| **deal-tracker** | 跟踪在执行交易、关键里程碑和行动事项 |
 
-## Example Workflows
+## 示例工作流
 
-### One-Page Strip Profile
+### 单页 Strip Profile
 ```
 /one-pager Target
 
@@ -63,7 +63,7 @@ Or copy to your project's `.claude-plugin/` directory.
 # - Respects template margins and branding
 ```
 
-### CIM Drafting
+### CIM 起草
 ```
 /cim Target
 

@@ -1,62 +1,62 @@
-# LSEG Financial Analytics Plugin
+# LSEG 金融分析插件
 
-Price bonds, analyze yield curves, evaluate FX carry trades, value options, and build macro dashboards using LSEG financial data and analytics.
+使用 LSEG 金融数据与分析能力，对债券定价、分析收益率曲线、评估外汇套息交易、为期权估值，并构建宏观仪表板。
 
-## What This Plugin Does
+## 这个插件做什么
 
-This plugin packages LSEG's financial analytics MCP tools into 8 high-level workflows that stitch together multiple tool calls for common financial analysis tasks. Instead of calling individual tools one at a time, each command orchestrates 4-5 tools into a cohesive analysis.
+这个插件将 LSEG 的金融分析 MCP 工具封装为 8 个高层工作流，把多个工具调用串联成常见的金融分析任务。你不必逐个调用底层工具，每条命令都会把 4 到 5 个工具编排成一套连贯分析。
 
-## Commands
+## 命令
 
-| Command | Description |
+| 命令 | 说明 |
 |---------|-------------|
-| `/analyze-bond-rv` | Analyze bond relative value with spread decomposition and scenario stress testing |
-| `/analyze-fx-carry` | Evaluate FX carry trade opportunities with spot, forwards, vol surface, and historical context |
-| `/research-equity` | Generate equity research snapshot with consensus estimates, fundamentals, and price performance |
-| `/analyze-swap-curve` | Analyze the swap curve with government and inflation overlays for curve trade ideas |
-| `/analyze-option-vol` | Analyze option volatility with vol surface, Greeks, and implied vs realized comparison |
-| `/review-fi-portfolio` | Review a fixed income portfolio with pricing, cashflows, and scenario analysis |
-| `/macro-rates` | Build a macro and rates dashboard with economic indicators, yield curves, and swap spreads |
-| `/analyze-bond-basis` | Analyze bond futures basis with CTD identification and implied repo rate |
+| `/analyze-bond-rv` | 通过利差拆解和情景压力测试分析债券相对价值 |
+| `/analyze-fx-carry` | 结合即期、远期、波动率曲面和历史背景评估外汇套息机会 |
+| `/research-equity` | 生成包含一致预期、基本面和价格表现的股票研究快照 |
+| `/analyze-swap-curve` | 结合国债和通胀覆盖层分析掉期曲线，挖掘曲线交易思路 |
+| `/analyze-option-vol` | 结合波动率曲面、Greeks 以及隐含波动率和已实现波动率对比分析期权波动率 |
+| `/review-fi-portfolio` | 结合定价、现金流和情景分析复核固定收益组合 |
+| `/macro-rates` | 使用经济指标、收益率曲线和掉期利差构建宏观与利率仪表板 |
+| `/analyze-bond-basis` | 结合 CTD 识别和隐含回购利率分析债券期货基差 |
 
 ## Skills
 
-Each command is backed by a corresponding skill that provides deep domain knowledge:
+每条命令都由对应 skill 提供深度领域知识支持：
 
-| Skill | Domain Knowledge |
+| Skill | 领域知识 |
 |-------|-----------------|
-| `bond-relative-value` | Spread frameworks, G-spread/Z-spread/OAS, rich-cheap analysis |
-| `fx-carry-trade` | Carry mechanics, carry-to-vol ratios, G10 and EM carry dynamics |
-| `equity-research` | IBES consensus interpretation, fundamental analysis, valuation metrics |
-| `swap-curve-strategy` | Swap curve construction, curve trades, real rate analysis |
-| `option-vol-analysis` | Vol surface interpretation, SABR model, Greeks, implied vs realized vol |
-| `fixed-income-portfolio` | Portfolio analytics, key rate duration, cashflow analysis, scenario testing |
-| `macro-rates-monitor` | Macro indicators, yield curve shapes, real rates, financial conditions |
-| `bond-futures-basis` | CTD mechanics, basis calculation, implied repo, delivery options |
+| `bond-relative-value` | 利差框架、G-spread/Z-spread/OAS、贵贱分析 |
+| `fx-carry-trade` | 套息机制、carry-to-vol 比率、G10 与新兴市场套息动态 |
+| `equity-research` | IBES 一致预期解读、基本面分析、估值指标 |
+| `swap-curve-strategy` | 掉期曲线构建、曲线交易、实际利率分析 |
+| `option-vol-analysis` | 波动率曲面解读、SABR 模型、Greeks、隐含波动率与已实现波动率 |
+| `fixed-income-portfolio` | 组合分析、关键利率久期、现金流分析、情景测试 |
+| `macro-rates-monitor` | 宏观指标、收益率曲线形态、实际利率、金融条件 |
+| `bond-futures-basis` | CTD 机制、基差计算、隐含回购、交割期权 |
 
-## Integrations
+## 集成
 
-This plugin connects to the **LFA MCP Server** which provides access to LSEG financial data and analytics across these domains:
+这个插件连接到 **LFA MCP Server**，该服务提供对以下领域的 LSEG 金融数据与分析能力访问：
 
-- **Bond Pricing** — Bond and bond future valuation
-- **FX Pricing** — Spot and forward rates
-- **Curves** — Interest rate, credit, inflation, and FX forward curves
-- **Swaps** — Interest rate swap pricing
-- **Options** — Option valuation with full Greeks
-- **Volatility** — FX and equity implied volatility surfaces
-- **Quantitative Analytics** — Analyst estimates, company fundamentals, equity prices, macro data
-- **Time Series** — Historical pricing summaries
-- **YieldBook** — Fixed income reference data, cashflows, scenarios, and risk analytics
+- **Bond Pricing**，债券和债券期货估值
+- **FX Pricing**，即期和远期汇率
+- **Curves**，利率、信用、通胀和外汇远期曲线
+- **Swaps**，利率掉期定价
+- **Options**，带完整 Greeks 的期权估值
+- **Volatility**，外汇和股票隐含波动率曲面
+- **Quantitative Analytics**，分析师预期、公司基本面、股票价格、宏观数据
+- **Time Series**，历史定价汇总
+- **YieldBook**，固定收益参考数据、现金流、情景与风险分析
 
-See [CONNECTORS.md](CONNECTORS.md) for the complete tool reference.
+完整工具参考见 [CONNECTORS.md](CONNECTORS.md)。
 
-## Installation
+## 安装
 
 ```
 claude plugins add LSEG
 ```
 
-## Requirements
+## 要求
 
-- Access to the LSEG MCP Server with valid credentials
-- LSEG data entitlements for the relevant product offerings
+- 具备可用凭证并可访问 LSEG MCP Server
+- 拥有相关产品的数据授权

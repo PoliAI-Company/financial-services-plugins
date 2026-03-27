@@ -1,8 +1,8 @@
 ---
-description: Generate a client performance report
+description: 生成客户业绩报告
 argument-hint: "[client name] [period, e.g. Q4 2025]"
 ---
 
-Load the `client-report` skill to generate a professional client-facing performance report.
+加载 `client-report` skill，生成专业的面向客户业绩报告。
 
-If a client and period are provided, use them. Otherwise ask for client details and reporting period.
+如果提供了客户名称和期间，就直接使用。否则向用户询问客户详情和报告期间。

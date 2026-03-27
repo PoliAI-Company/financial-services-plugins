@@ -1,57 +1,57 @@
 ---
-description: Analyze the swap curve with government and inflation overlays to identify curve trade opportunities
+description: 结合国债和通胀覆盖层分析掉期曲线，识别曲线交易机会
 argument-hint: "<currency e.g. EUR> [index e.g. ESTR]"
 ---
 
-# Analyze Swap Curve
+# 分析掉期曲线
 
-> This command uses LSEG swap pricing, interest rate curves, and inflation curve tools. See [CONNECTORS.md](../CONNECTORS.md) for available tools.
+> 这个命令使用 LSEG 掉期定价、利率曲线和通胀曲线工具。可用工具见 [CONNECTORS.md](../CONNECTORS.md)。
 
-Build and analyze the interest rate swap curve, overlay government yields and inflation breakevens, and identify curve trade opportunities.
+构建并分析利率掉期曲线，叠加国债收益率和通胀盈亏平衡，并识别曲线交易机会。
 
-See the **swap-curve-strategy** skill for domain knowledge on curve analysis and trade construction.
+曲线分析和交易构建的领域知识见 **swap-curve-strategy** skill。
 
-## Workflow
+## 工作流
 
-### 1. Gather Input
+### 1. 收集输入
 
-Ask the user for:
-- Currency (required) — e.g., EUR, USD, GBP, CHF, JPY
-- Reference rate index (optional) — e.g., ESTR, SOFR, SONIA, TONA
-- Valuation date (optional, defaults to today)
+向用户询问：
+- 货币，必填，例如 EUR、USD、GBP、CHF、JPY
+- 参考利率指数，可选，例如 ESTR、SOFR、SONIA、TONA
+- 估值日期，可选，默认今天
 
-### 2. Discover Swap Templates
+### 2. 发现掉期模板
 
-Call `ir_swap` in list mode with the currency and optional index.
+用目标货币和可选指数，以 list 模式调用 `ir_swap`。
 
-Extract: available template references, index details, conventions.
+提取可用模板引用、指数细节和市场惯例。
 
-### 3. Build the Swap Curve
+### 3. 构建掉期曲线
 
-Call `ir_swap` in price mode for standard tenors: 2Y, 5Y, 7Y, 10Y, 20Y, 30Y.
+对标准期限 2Y、5Y、7Y、10Y、20Y、30Y，以 price 模式调用 `ir_swap`。
 
-Extract: par swap rate and DV01 at each tenor.
+提取各期限的平价掉期利率和 DV01。
 
-### 4. Overlay the Government Curve
+### 4. 叠加国债曲线
 
-Call `interest_rate_curve` (list then calculate) for the same currency.
+为同一货币调用 `interest_rate_curve`，先 list 再 calculate。
 
-Compute swap spread = swap rate minus government yield at each tenor.
+计算每一期限的掉期利差，也就是掉期利率减去国债收益率。
 
-### 5. Decompose Real Rates
+### 5. 拆解实际利率
 
-Call `inflation_curve` (search then calculate) for the currency.
+为该货币调用 `inflation_curve`，先 search 再 calculate。
 
-Compute real swap rate = nominal swap rate minus inflation breakeven at each tenor.
+计算实际掉期利率，也就是名义掉期利率减去通胀盈亏平衡。
 
-### 6. Synthesize Curve Strategy Views
+### 6. 综合曲线策略观点
 
-Compute curve metrics: 2s10s slope, 5s30s slope, 2s5s10s butterfly.
+计算曲线指标，包括 2s10s slope、5s30s slope 和 2s5s10s butterfly。
 
-Identify opportunities: steepener, flattener, butterfly, or swap spread trades based on current levels vs historical norms.
+根据当前水平与历史常态的比较，识别 steepener、flattener、butterfly 或 swap spread 交易机会。
 
-Present: swap curve table with government overlay, curve metrics, real rate decomposition, and trade recommendations with DV01-neutral ratios.
+展示掉期曲线表，带国债覆盖层、曲线指标、实际利率拆解，以及带 DV01 中性比例的交易建议。
 
-## Output Format
+## 输出格式
 
-Lead with curve shape summary and key metrics (2s10s, butterfly). Follow with detailed tables and trade idea section.
+先给出曲线形态摘要和关键指标，比如 2s10s 和 butterfly。然后再提供详细表格和交易建议部分。

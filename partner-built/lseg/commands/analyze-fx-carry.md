@@ -1,61 +1,61 @@
 ---
-description: Evaluate FX carry trade opportunities with spot, forwards, vol surface, and historical context
+description: 结合即期、远期、波动率曲面和历史背景评估外汇套息交易机会
 argument-hint: "<currency pair e.g. USDJPY> [tenor e.g. 3M]"
 ---
 
-# Analyze FX Carry Trade
+# 分析外汇套息交易
 
-> This command uses LSEG FX pricing, forward curves, volatility surfaces, and historical data tools. See [CONNECTORS.md](../CONNECTORS.md) for available tools.
+> 这个命令使用 LSEG 外汇定价、远期曲线、波动率曲面和历史数据工具。可用工具见 [CONNECTORS.md](../CONNECTORS.md)。
 
-Evaluate carry trade opportunities for a currency pair by combining spot rates, forward points, the carry term structure, volatility risk, and historical price context.
+通过结合即期汇率、远期点、carry 期限结构、波动率风险和历史价格背景，评估某个货币对的套息交易机会。
 
-See the **fx-carry-trade** skill for domain knowledge on carry frameworks and risk metrics.
+套息框架和风险指标的领域知识见 **fx-carry-trade** skill。
 
-## Workflow
+## 工作流
 
-### 1. Gather Input
+### 1. 收集输入
 
-Ask the user for:
-- Currency pair (required) — e.g., USDJPY, EURUSD, AUDUSD
-- Target tenor (optional, default 3M)
-- Valuation date (optional, defaults to today)
+向用户询问：
+- 货币对，必填，例如 USDJPY、EURUSD、AUDUSD
+- 目标期限，可选，默认 3M
+- 估值日期，可选，默认今天
 
-### 2. Get the Spot Rate
+### 2. 获取即期汇率
 
-Call `fx_spot_price` with the currency pair.
+对货币对调用 `fx_spot_price`。
 
-Extract: mid/bid/ask rates, bid-ask spread.
+提取中间价、买价、卖价和 bid-ask spread。
 
-### 3. Price the Forward at Target Tenor
+### 3. 为目标期限远期定价
 
-Call `fx_forward_price` with the pair and target tenor.
+对货币对和目标期限调用 `fx_forward_price`。
 
-Extract: forward rate, forward points. Compute annualized carry.
+提取 forward rate 和 forward points，并计算年化 carry。
 
-### 4. Map the Full Carry Curve
+### 4. 映射完整 carry 曲线
 
-Call `fx_forward_curve` (list then calculate) for the pair.
+对货币对调用 `fx_forward_curve`，先 list 再 calculate。
 
-Present carry profile across tenors (ON through 1Y): forward points, annualized carry, cumulative carry. Identify the sweet-spot tenor.
+展示各期限，从隔夜到 1Y 的 carry 画像，包括 forward points、annualized carry 和 cumulative carry，并识别 sweet-spot tenor。
 
-### 5. Assess Volatility Risk
+### 5. 评估波动率风险
 
-Call `fx_vol_surface` for the pair.
+对货币对调用 `fx_vol_surface`。
 
-Extract: ATM vol at target tenor, 25-delta risk reversal, 25-delta butterfly.
+提取目标期限上的 ATM vol、25-delta risk reversal 和 25-delta butterfly。
 
-Compute carry-to-vol ratio = annualized carry / ATM implied vol.
+计算 carry-to-vol ratio，也就是年化 carry 除以 ATM 隐含波动率。
 
-### 6. Historical Spot Context
+### 6. 历史现货背景
 
-Call `tscc_historical_pricing_summaries` for the pair's RIC with `interval: "P1D"`, `tenor: "1Y"`.
+使用货币对的 RIC 调用 `tscc_historical_pricing_summaries`，参数为 `interval: "P1D"` 和 `tenor: "1Y"`。
 
-Assess: 52-week range, current position in range, trend direction.
+评估 52 周区间、当前所处位置和趋势方向。
 
-### 7. Synthesize the Report
+### 7. 综合报告
 
-Present: carry-to-vol ratio and overall assessment, spot & forward pricing, carry term structure table, vol surface snapshot, historical context.
+展示 carry-to-vol ratio 和总体判断、即期与远期定价、carry 期限结构表、波动率曲面快照和历史背景。
 
-## Output Format
+## 输出格式
 
-Lead with the carry-to-vol ratio and overall assessment (attractive / moderate / unattractive). Follow with detailed supporting data in tables.
+先给出 carry-to-vol ratio 及总体判断，也就是 attractive、moderate 或 unattractive。然后用表格给出详细支撑数据。

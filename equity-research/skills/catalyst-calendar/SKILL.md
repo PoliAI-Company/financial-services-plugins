@@ -1,81 +1,81 @@
 # Catalyst Calendar
 
-description: Build and maintain a calendar of upcoming catalysts across a coverage universe — earnings dates, conferences, product launches, regulatory decisions, and macro events. Helps prioritize attention and position ahead of events. Triggers on "catalyst calendar", "upcoming events", "what's coming up", "earnings calendar", "event calendar", or "catalyst tracker".
+description: 构建并维护覆盖范围内即将发生事件的日历，包括业绩日期、会议、产品发布、监管决定和宏观事件。帮助提前分配注意力，并在事件前完成头寸布局。在用户提到 "catalyst calendar"、"upcoming events"、"what's coming up"、"earnings calendar"、"event calendar" 或 "catalyst tracker" 时触发。
 
-## Workflow
+## 工作流
 
-### Step 1: Define Coverage Universe
+### 第 1 步：定义覆盖范围
 
-- List of companies to track (tickers or names)
-- Sector / industry focus
-- Include macro events? (Fed meetings, economic data, regulatory deadlines)
-- Time horizon (next 2 weeks, month, quarter)
+- 需要跟踪的公司列表，ticker 或名称
+- 行业 / 板块聚焦
+- 是否纳入宏观事件，FOMC、经济数据、监管截止日期
+- 时间范围，未来 2 周、1 个月或 1 个季度
 
-### Step 2: Gather Catalysts
+### 第 2 步：收集催化剂
 
-For each company, identify upcoming events:
+对每家公司，识别即将发生的事件：
 
-**Earnings & Financial Events**
-- Quarterly earnings date and time (pre/post market)
-- Annual shareholder meeting
-- Investor day / analyst day
-- Capital markets day
-- Debt maturity / refinancing dates
+**业绩与财务事件**
+- 季度业绩发布日期与时间，盘前 / 盘后
+- 年度股东大会
+- 投资者日 / 分析师日
+- 资本市场日
+- 债务到期 / 再融资时间点
 
-**Corporate Events**
-- Product launches or announcements
-- FDA approvals / regulatory decisions
-- Contract renewals or expirations
-- M&A milestones (close dates, regulatory approvals)
-- Management transitions
-- Insider trading windows (lockup expirations)
+**公司事件**
+- 产品发布或公告
+- FDA 批准 / 监管决定
+- 合同续签或到期
+- 并购里程碑，交割日期、监管批准
+- 管理层交接
+- 内部人交易窗口，解禁到期
 
-**Industry Events**
-- Major conferences (dates, which companies presenting)
-- Trade shows and expos
-- Regulatory comment periods or rulings
-- Industry data releases (monthly sales, traffic, etc.)
+**行业事件**
+- 重要会议，日期以及哪些公司将发言
+- 行业展会与博览会
+- 监管征求意见期或裁决
+- 行业数据发布，月度销售、客流等
 
-**Macro Events**
-- Fed meetings (FOMC dates)
-- Jobs report, CPI, GDP releases
-- Central bank decisions (ECB, BOJ, etc.)
-- Geopolitical events with market impact
+**宏观事件**
+- Fed 会议，FOMC 日期
+- 就业、CPI、GDP 发布
+- 其他央行决定，ECB、BOJ 等
+- 可能影响市场的地缘政治事件
 
-### Step 3: Calendar View
+### 第 3 步：日历视图
 
 | Date | Event | Company/Sector | Type | Impact (H/M/L) | Our Positioning | Notes |
 |------|-------|---------------|------|-----------------|----------------|-------|
 | | | | Earnings/Corp/Industry/Macro | | Long/Short/Neutral | |
 
-### Step 4: Weekly Preview
+### 第 4 步：每周前瞻
 
-Each week, generate a forward-looking summary:
+每周生成一份前瞻总结：
 
-**This Week's Key Events:**
-1. [Day]: [Company] Q[X] earnings — consensus [$X EPS], our estimate [$X], key focus: [metric]
-2. [Day]: [Event] — why it matters for [stocks]
-3. [Day]: [Macro release] — expectations and positioning
+**本周关键事件：**
+1. [Day]：[Company] Q[X] 业绩，一致预期 [$X EPS]，我们的预测 [$X]，重点关注 [metric]
+2. [Day]：[Event]，为什么它对 [stocks] 重要
+3. [Day]：[Macro release]，市场预期与我们的布局
 
-**Next Week Preview:**
-- Early heads-up on important events coming
+**下周前瞻：**
+- 提前提示即将到来的重要事件
 
-**Position Implications:**
-- Events that could move specific positions
-- Any pre-positioning recommended
-- Risk management ahead of binary events
+**持仓含义：**
+- 哪些事件可能影响具体持仓
+- 是否建议提前布局
+- 如何在二元事件前进行风险管理
 
-### Step 5: Output
+### 第 5 步：输出
 
-- Excel workbook with calendar view and sortable columns
-- Weekly preview email/note (markdown)
-- Optional: integration with Google Calendar
+- 含日历视图和可排序列的 Excel 工作簿
+- 每周前瞻邮件 / 简报，markdown
+- 可选，集成到 Google Calendar
 
-## Important Notes
+## 重要说明
 
-- Earnings dates shift — verify against company IR pages and Bloomberg/FactSet closer to the date
-- Pre-announce risk: track companies with a history of pre-announcing (positive or negative)
-- Conference attendance lists are valuable — which companies are presenting and which are conspicuously absent?
-- Some catalysts are recurring (monthly industry data) — build a template and auto-populate
-- Color-code by impact level: Red = high impact, Yellow = moderate, Green = routine
-- Archive past catalysts with the actual outcome — builds pattern recognition over time
+- 业绩日期会变化，临近时要去公司 IR 页面和 Bloomberg/FactSet 再核实
+- 预披露风险，要跟踪有提前预告历史的公司，不论正面还是负面
+- 会议出席名单很有价值，哪些公司会发言，哪些公司缺席得反常
+- 有些催化剂是周期性的，例如月度行业数据，建立模板并自动填充
+- 按影响程度进行颜色编码，Red 高影响，Yellow 中等，Green 常规
+- 将过去的催化剂及其实际结果归档，这有助于长期建立模式识别

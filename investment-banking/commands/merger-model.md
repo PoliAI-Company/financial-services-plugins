@@ -1,8 +1,8 @@
 ---
-description: Build an accretion/dilution merger model
+description: 构建增厚/摊薄 merger model
 argument-hint: "[acquirer] acquiring [target]"
 ---
 
-Load the `merger-model` skill and build a merger consequences analysis.
+加载 `merger-model` skill，并构建并购影响分析。
 
-If acquirer and target are provided, use them. Otherwise ask the user for deal details.
+如果已提供收购方和目标方，就直接使用。否则请向用户询问交易细节。

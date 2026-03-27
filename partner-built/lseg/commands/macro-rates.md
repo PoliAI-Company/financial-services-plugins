@@ -1,65 +1,65 @@
 ---
-description: Build a macro and rates dashboard with economic indicators, yield curves, inflation, and swap spreads
+description: 使用经济指标、收益率曲线、通胀和掉期利差构建宏观与利率仪表板
 argument-hint: "<country e.g. US> [timeframe e.g. 5Y]"
 ---
 
-# Macro & Rates Dashboard
+# 宏观与利率仪表板
 
-> This command uses LSEG macroeconomic data, yield curves, inflation curves, swap pricing, and historical data tools. See [CONNECTORS.md](../CONNECTORS.md) for available tools.
+> 这个命令使用 LSEG 宏观经济数据、收益率曲线、通胀曲线、掉期定价和历史数据工具。可用工具见 [CONNECTORS.md](../CONNECTORS.md)。
 
-Build a comprehensive macroeconomic and rates dashboard showing key economic indicators, the yield curve with slope analysis, real rate decomposition, and swap spread context.
+构建完整的宏观与利率仪表板，展示关键经济指标、带斜率分析的收益率曲线、实际利率拆解，以及掉期利差背景。
 
-See the **macro-rates-monitor** skill for domain knowledge on macro-rates analysis.
+宏观与利率分析的领域知识见 **macro-rates-monitor** skill。
 
-## Workflow
+## 工作流
 
-### 1. Gather Input
+### 1. 收集输入
 
-Ask the user for:
-- Country (required) — e.g., US, DE, GB, JP, CH
-- Timeframe for historical series (optional, default 3Y)
-- Any specific indicators of interest (optional)
+向用户询问：
+- 国家，必填，例如 US、DE、GB、JP、CH
+- 历史序列时间范围，可选，默认 3Y
+- 是否有特别关注的指标，可选
 
-Map country to currency: US→USD, DE→EUR, GB→GBP, JP→JPY.
+将国家映射到货币，例如 US→USD，DE→EUR，GB→GBP，JP→JPY。
 
-### 2. Pull Macro Indicators
+### 2. 拉取宏观指标
 
-Call `qa_macroeconomic` for key indicators:
-- GDP growth (quarterly series)
-- CPI/inflation (monthly series)
-- Unemployment rate (monthly series)
-- Policy rate / central bank rate
+调用 `qa_macroeconomic` 获取关键指标：
+- GDP 增长，季度序列
+- CPI/通胀，月度序列
+- 失业率，月度序列
+- 政策利率或央行利率
 
-Use wildcard mnemonic patterns to discover available series (e.g., "US\*GDP\*", "US\*CPI\*").
+可用通配符助记符模式发现可用序列，例如 `US\*GDP\*`、`US\*CPI\*`。
 
-### 3. Get the Yield Curve
+### 3. 获取收益率曲线
 
-Call `interest_rate_curve` (list then calculate) for the country's government curve.
+为该国国债曲线调用 `interest_rate_curve`，先 list 再 calculate。
 
-Extract yields at standard tenors. Compute: 2s10s slope, 3M-10Y slope, 5s30s slope. Classify curve shape.
+提取标准期限收益率，计算 2s10s slope、3M-10Y slope、5s30s slope，并对曲线形态分类。
 
-### 4. Decompose Real Rates
+### 4. 拆解实际利率
 
-Call `inflation_curve` (search then calculate) for the currency.
+为该货币调用 `inflation_curve`，先 search 再 calculate。
 
-Compute real rate = nominal minus breakeven at key tenors. Assess whether real rates are accommodative or restrictive.
+计算实际利率，也就是名义利率减去盈亏平衡通胀率，并判断实际利率是宽松还是限制性。
 
-### 5. Swap Spread Analysis
+### 5. 掉期利差分析
 
-Call `ir_swap` (list then price) at 2Y, 5Y, 10Y.
+在 2Y、5Y、10Y 上调用 `ir_swap`，先 list 再 price。
 
-Compute swap spread = swap rate minus government yield at each tenor. Assess financial conditions.
+计算掉期利差，也就是掉期利率减去国债收益率，并评估金融条件。
 
-### 6. Historical Yield Context
+### 6. 历史收益率背景
 
-Call `tscc_historical_pricing_summaries` for the benchmark yield RIC with the user's timeframe.
+针对基准收益率 RIC，按照用户提供的时间范围调用 `tscc_historical_pricing_summaries`。
 
-Assess: where current yields sit in the historical range, trend direction.
+评估当前收益率在历史区间中的位置，以及趋势方向。
 
-### 7. Synthesize the Dashboard
+### 7. 综合仪表板
 
-Present: macro summary table, yield curve with slope metrics, real rate decomposition, swap spread table, historical context, and overall macro-rates assessment (2-3 sentences).
+展示内容包括宏观摘要表、带斜率指标的收益率曲线、实际利率拆解、掉期利差表、历史背景以及总体宏观与利率判断，控制在 2 到 3 句话。
 
-## Output Format
+## 输出格式
 
-Present as a dashboard with clearly labeled sections. Lead with the overall macro assessment, then detail each component.
+以仪表板形式呈现，分区清晰。先给出整体宏观判断，再依次展开各个组成部分。
